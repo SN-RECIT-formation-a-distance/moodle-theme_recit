@@ -1,0 +1,618 @@
+	/*Nouveau SCSS*
+	*La série C100x*/
+/*
+Les items sont centrées avec les classes Bootstrap 4 : justify-content-md-start, justify-content-md-center, justify-content-md-end
+
+Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
+
+.summary span.instancename{
+    max-width: 75%;
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    min-width: 150px;
+}
+
+.marg_s {
+	margin: 10px;
+}
+.marg_m {
+	margin: 20px;
+}
+.marg_l {
+	margin: 40px;
+}
+.marg_xl {
+	margin: 60px;
+}
+.C1005e, .C1006e {
+	padding-top: 15px;
+}
+.I1804 {padding-bottom:5px; padding-top:5px;}
+.decoration1:before, .decoration1:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: -6px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background: url("//recitfad.ca/depot/ubeo/images/border-top-grey.png") right center no-repeat;
+	z-index: 2;
+}
+.decoration1:after {
+	top: auto;
+	bottom: -5px;
+	background: url("//recitfad.ca/depot/ubeo/images/border-bottom-grey.png") left center no-repeat;
+}
+.decoration2:before, .decoration2:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: -35px;
+	left: 0;
+	width: 25%;
+	height: 25%;
+	background: url("//recitfad.ca/depot/ubeo/images/border-math.png") left center no-repeat;
+	z-index: 2;
+}
+.decoration2:after {
+	top: auto;
+	bottom: -34px;
+	background: url("//recitfad.ca/depot/ubeo/images/border-math.png") left center no-repeat;
+}
+.c_espacement-nul {padding: 0px 0;}
+.c_espacement-etroit {padding: 30px 0;}
+.c_espacement-moyen {padding: 60px 0;}
+.c_espacement-large {padding: 90px 0;}
+.c_espacement-Xlarge {padding: 120px 0;}
+.c_espacement-XXlarge {padding: 150px 0;}	
+.c_parallax-recit  {
+    position: relative;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+}
+section.section.parallax {
+  height: 800px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+/*section.section.parallax:after {
+   content:" ";
+       display: flex;
+       background-color: #000;
+    opacity: .5;
+    height: 800px;
+}*/
+   
+   /* pointer-events: none;}
+  /*section.section.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}*/
+  /*
+  */
+.basic-pale-row.text_box {
+    padding-top: 12px;
+    background: rgba(255, 255, 255, 0.85);
+}
+.basic-dark-row.text_box {
+    padding-top: 12px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.85);
+}
+.c_parallax-recit .container {
+    position: relative;
+    z-index: 4;
+}
+.c_parallax-recit .container .video_bg {
+    position: relative;
+    z-index: 4;
+}
+.bg_white {
+	background: #fff !important;
+}
+.bg_grey {
+	background: #ebedee;
+}
+
+.bg_dark {
+	background: $color2;
+}
+.bg_black  {
+    background: #000;
+}
+.bg_secondary  {
+    background: $secondary;
+}
+.bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondary 100%); }
+.bg_primary  {
+    background: $primary;
+}
+.bg_danger  {
+    background: $danger;
+}
+.bg_success  {
+    background: $success;
+}
+.bg_info  {
+     background: $info;
+ }
+.bg_warning  {
+    background: $warning;
+}
+.bg_light  {
+    background: $light;
+}
+.bg_pale  {
+    background: #efefef;
+}
+.bg_math_title_bar {
+    /*padding: 40px 20px;*/
+    background: url("https://recitfad.ca/widgets/assets/images/bg_math_numbers.jpg") center bottom no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} 
+.bg_math_title_bar2 {
+    /*padding: 40px 20px;*/
+    background: url("https://recitfad.ca/depot/math4sn/bg_math_noir.png") center bottom no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} 
+.bg_hist_title_bar {
+	background:  url("//recitfad.ca/depot/ubeo/images/bg_dark.jpg") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_hist_title_bar3 {
+	background:  url("//recitfad.ca/depot/ubeo/images/bg_clair.png") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_hist_title_bar2 {
+	background:  url("//recitfad.ca/depot/ubeo/images/bg_blue.jpg") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_sc_title_bar1 {
+	background:  url("//recitfad.ca/depot/sc1/bg_sc_clair.png") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_sc_title_bar2 {
+	background:  url("//recitfad.ca/depot/sc1/bg_sc_fonce.png") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_esl_title_bar1 {
+	background:  url("//recitfad.ca/depot/els/bg_esl_clair.png") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg_esl_title_bar2 {
+	background:  url("//recitfad.ca/depot/els/bg_esl_fonce.png") center top no-repeat;
+	 -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $theme_color4;
+    }
+.pad_dark_green_box {
+        padding: 20px;
+        text-align: center;
+      }
+.ico-gradient-row {
+    margin-top: 60px;
+}
+.ico-gradient-row .text-box {
+    padding-bottom: 20px;
+    background: rgba(118,118,118,1);
+    background: -moz-linear-gradient(top, rgba(118,118,118,1) 0%, rgba(118,118,118,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(118,118,118,1)), color-stop(100%, rgba(118,118,118,0)));
+    background: -webkit-linear-gradient(top, rgba(118,118,118,1) 0%, rgba(118,118,118,0) 100%);
+    background: -o-linear-gradient(top, rgba(118,118,118,1) 0%, rgba(118,118,118,0) 100%);
+    background: -ms-linear-gradient(top, rgba(118,118,118,1) 0%, rgba(118,118,118,0) 100%);
+    background: linear-gradient(to bottom, rgba(118,118,118,1) 0%, rgba(118,118,118,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#767676', endColorstr='#767676', GradientType=0 );
+}
+.ico-gradient-row .text-box img {
+    display: block;
+    position: relative;
+    width: 136px;
+    margin: -50px auto 1.5em auto;
+}
+.ico-gradient-secondary-row  {
+    margin-top: 60px;
+}
+.ico-gradient-secondary-row .text-box-secondary {
+    color: #fff;
+    padding-bottom: 20px;
+    background: $secondary;
+    background: -moz-linear-gradient(top, $secondary 0%, $secondarypale 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, $secondary), color-stop(100%, $secondarypale));
+    background: -webkit-linear-gradient(top, $secondary 0%, $secondarypale 100%);
+    background: -o-linear-gradient(top, $secondary 0%, $secondarypale 100%);
+    background: -ms-linear-gradient(top, $secondary 0%, $secondarypale 100%);
+    background: linear-gradient(to bottom, $secondary 0%, $secondarypale 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondary', endColorstr='$secondarypale', GradientType=0 );
+}
+.ico-gradient-secondary-row .text-box-secondary img {
+    display: block;
+    position: relative;
+    width: 136px;
+    margin: -50px auto 1.5em auto;
+}
+.dark-img-row {
+	position: relative;
+	padding: 70px 0;
+	color: #fff !important;
+	background: #111 url("//recitfad.ca/depot/ubeo/images/bg_dark.jpg") center top no-repeat;
+}
+.color-row {
+	position: relative;
+	padding: 60px 0;
+	color: #fff !important;
+}
+.color-row {
+    background: $secondarypale;
+}
+.diago-row {
+    background: $secondary;
+    background: -moz-linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
+    background: -webkit-linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
+    background: linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$secondarypale",endColorstr="$secondary",GradientType=1);
+}
+.degrade-row {
+    background: $secondary;
+    background: -moz-linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
+    background: -webkit-linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
+    background: linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006391', endColorstr='$secondary',GradientType=1 );
+}
+.diago-row, .degrade-row, .diago-row-neutral, .degrade-row-neutral {
+	position: relative;
+	padding: 60px 0;
+	color: #fff !important;
+}
+.diago-row-neutral {
+    background: #111111;
+    background: -moz-linear-gradient(75deg, #111111 0%, #111111 50%, #222222 50%);
+    background: -webkit-linear-gradient(75deg, #111111 0%, #111111 50%, #222222 50%);
+    background: linear-gradient(75deg, #111111 0%, #111111 50%, #222222 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111111",endColorstr="#222222",GradientType=1);
+}
+.degrade-row-neutral {
+    background: #111111;
+    background: -moz-linear-gradient(45deg,  #111111 0%, #555555 100%);
+    background: -webkit-linear-gradient(45deg,  #111111 0%,#555555 100%);
+    background: linear-gradient(45deg,  #111111 0%,#555555 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#555555',GradientType=1 );
+}
+.borders-row:before, .borders-row:after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: -6px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background: url("//recitfad.ca/depot/ubeo/images/border-top-grey.png") right center no-repeat;
+	z-index: 2;
+}
+.borders-row:after {
+	top: auto;
+	bottom: -5px;
+	background: url("//recitfad.ca/depot/ubeo/images/border-bottom-grey.png") left center no-repeat;
+}
+
+.I124 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: #465052;
+}
+.I124 .recit-section-subtitle {
+  color: #767676;
+}
+.I124 .recit-text {
+  color: #ffffff;
+}
+.I124 .card {
+  display: -webkit-flex;
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.I124 .card-wrapper {
+  height: 100%;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s;
+}
+.I124 .card-wrapper .card-img {
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+}
+.I124 .card-wrapper .card-img .recit-overlay {
+  background-color: #efefef;
+  display: none;
+  transition: opacity .3s;
+}
+.I124 .card-wrapper .card-img .recit-section-btn {
+  display: flex;
+  position: absolute;
+  transition: opacity .3s;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+}
+.I124 .card-wrapper .card-img img {
+  width: 100%;
+}
+.I124 .card-wrapper .card-box {
+  background-color: #879a9f;
+  padding: 0 2rem 2rem 2rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.I124 .card-wrapper .card-box h4 {
+  font-weight: 500;
+  margin-bottom: 0;
+  padding-top: 2rem;
+}
+.I124 .card-wrapper .card-box p {
+  margin-bottom: 0;
+  padding-top: 1.5rem;
+}
+.I124 .card-wrapper:hover {
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+.I124 .popup-btn .recit-overlay {
+  display: block !important;
+  opacity: 0;
+}
+.I124 .popup-btn .recit-section-btn {
+  height: 100%;
+  display: -webkit-flex !important;
+  opacity: 0;
+}
+.I124 .popup-btn:hover .recit-overlay {
+  opacity: .5;
+}
+.I124 .popup-btn:hover .recit-section-btn {
+  opacity: 1;
+}
+.I124 .recit-section-title {
+  color: #ffffff;
+}
+.I124 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: #465052;
+}
+.I124 .recit-section-subtitle {
+  color: #ffffff;
+}
+.I124 .recit-text {
+  color: #ffffff;
+}
+.I124 .card {
+  display: -webkit-flex;
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.I124 .card-wrapper {
+  height: 100%;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s;
+}
+.I124 .card-wrapper .card-img {
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+}
+.I124 .card-wrapper .card-img .recit-overlay {
+  background-color: #efefef;
+  display: none;
+  transition: opacity .3s;
+}
+.I124 .card-wrapper .card-img .recit-section-btn {
+  display: flex;
+  position: absolute;
+  transition: opacity .3s;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+}
+.I124 .card-wrapper .card-img img {
+  width: 100%;
+}
+.I124 .card-wrapper .card-box {
+  background-color: #879a9f;
+  padding: 0 2rem 2rem 2rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.I124 .card-wrapper .card-box h4 {
+  font-weight: 500;
+  margin-bottom: 0;
+  padding-top: 2rem;
+}
+.I124 .card-wrapper .card-box p {
+  margin-bottom: 0;
+  padding-top: 1.5rem;
+}
+.I124 .card-wrapper:hover {
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+.I124 .popup-btn .recit-overlay {
+  display: block !important;
+  opacity: 0;
+}
+.I124 .popup-btn .recit-section-btn {
+  height: 100%;
+  display: -webkit-flex !important;
+  opacity: 0;
+}
+.I124 .popup-btn:hover .recit-overlay {
+  opacity: .5;
+}
+.I124 .popup-btn:hover .recit-section-btn {
+  opacity: 1;
+}
+.I124 .recit-section-title {
+  color: #ffffff;
+}
+
+.I125 .separline {
+  position: relative;
+}
+.I125 .separline:after {
+  top: 68px;
+  left: 30px;
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: calc(100% - (32px + 4px) * 2);
+  background-color: #efefef;
+}
+@media (max-width: 767px) {
+  .I125 .separline:after {
+    top: 52px;
+    left: 22px;
+    height: calc(100% - 56px);
+  }
+}
+.I125 .media-block {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+}
+@media (min-width: 992px) {
+  .I125 .media-block {
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 991px) {
+  .I125 .media-block {
+    flex-basis: 100%;
+    -webkit-flex-basis: 100%;
+    padding-bottom: 2rem;
+  }
+}
+.I125 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: #ffffff;
+}
+.I125 .mbr-section-subtitle {
+  color: #767676;
+  text-align: center;
+  font-weight: 300;
+}
+.I125 .step {
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  border-radius: 50%;
+  border: 2px solid #efefef;
+}
+@media (max-width: 767px) {
+  .I125 .step {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
+.I125 .separline {
+  position: relative;
+}
+.I125 .separline:after {
+  top: 68px;
+  left: 30px;
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: calc(100% - (32px + 4px) * 2);
+  background-color: #efefef;
+}
+@media (max-width: 767px) {
+  .I125 .separline:after {
+    top: 52px;
+    left: 22px;
+    height: calc(100% - 56px);
+  }
+}
+.I125 .media-block {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+}
+@media (min-width: 992px) {
+  .I125 .media-block {
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 991px) {
+  .I125 .media-block {
+    flex-basis: 100%;
+    -webkit-flex-basis: 100%;
+    padding-bottom: 2rem;
+  }
+}

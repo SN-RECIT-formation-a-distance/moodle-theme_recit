@@ -1,0 +1,85 @@
+#page-navbar {
+    .page-header-headings h1 {
+        font-size: 2.34375rem;
+    }
+	@media (max-width: 767px) {
+	.breadcrumb { margin-left: 10px; margin-right: 10px; width: calc(100% - 20px) !important; }
+}
+
+.breadcrumb{
+	width: 100%;
+	background-color: #fff;
+	border-radius: 10px;
+	border: solid 2px $secondary;
+}
+.breadcrumb li{
+	border-color: transparent; border: 0px solid transparent;
+	border-right: 1px solid transparent !important; 
+	font-size: 0.7rem;
+}
+.breadcrumb-default{ background-color: #fff; }
+.btn-breadcrum li:hover{background-color: $secondary;}
+
+
+.breadcrumb li:last-child {font-weight: bold; text-decoration: underline;}
+.breadcrumb li:last-child:after{margin-left: -2px;}
+.breadcrumb li:last-child:before{margin-left: -1px;}
+
+.btn-breadcrumb .btn-derecha{
+	float: right;
+	margin-right: 0px;
+	padding: 6px 10px 6px 10px !important;
+	margin-left: 0px !important;
+	border-radius: 0px !important; 
+}
+.btn-breadcrumb .btn-derecha:first-child { 
+	border-top-right-radius: 2px !important; 
+	border-bottom-right-radius: 2px !important; 
+}
+
+.btn-breadcrumb .btn-derecha:after, .btn-breadcrumb .btn-derecha:before{
+	content: none !important;
+}
+
+/*.breadcrumb li::after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  margin-left: 0px;
+  left: 100%;
+  z-index: 3;
+}
+.breadcrumb li::before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}*/
+
+/** The Spacing **/
+.breadcrumb li{padding:6px 12px 6px 24px;}
+.breadcrumb li:first-child {padding:6px 6px 6px 10px;}
+.breadcrumb li:last-child {padding:6px 18px 6px 24px;}
+
+/** Default button **/
+.breadcrumb li::after { border-left: 10px solid #fff;}
+.breadcrumb li:hover:after {border-left: 10px solid #e6e6e6;}
+.breadcrumb li:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}
+.breadcrumb { border: solid 1px #adadad; }
+}

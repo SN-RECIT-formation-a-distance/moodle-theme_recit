@@ -1,0 +1,134 @@
+/*.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}*/
+#rheader-links{
+	list-style-type: none;
+	position: absolute;
+	right: 64px;
+}
+#rheader-links li{
+	float: right;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 8px;
+	margin-right: 24px;
+}
+#rheader-links li .nav-link{
+	padding: 10px;
+}
+/*#rheader-links li .dropdown-menu{
+	left: auto;
+	right: 0;
+}*/
+#rheader-links a i{
+	margin-left: 4px;
+}
+ #rheader-links li .dropdown-submenu{
+    position:relative;
+}
+ 
+#rheader-links li .dropdown-menu, .dropdown-submenu > .dropdown-menu
+{
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+ 
+#rheader-links li .dropdown-menu:hover,.dropdown-submenu:hover > .dropdown-menu{
+    display:block;
+}
+ 
+.dropdown-submenu > a:after{
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+ 
+.dropdown-submenu:hover > a:after{
+    border-left-color:#00d936;
+}
+ 
+.dropdown-submenu .pull-left{
+    float:none;
+}
+ 
+.dropdown-submenu.pull-left > .dropdown-menu{
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 15px 15px;
+    -moz-border-radius:6px 0 15px 15px;
+    border-radius:6px 0 15px 15px;
+}
+/* See more at: http://firdaus.grandexa.com/2013/09/twitter-bootstrap-3-multilevel-dropdown-menu/#sthash.h3DteUH5.dpuf */
+
+/*{
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}*/
+
+#tt-recit-nav .nav-link
+{
+    padding-right: .5rem;
+	padding-top:  .5rem;
+    padding-left: .5rem;
+	padding-bottom:  .5rem;
+}
+
+#tt-recit-nav .nav-item > a
+{
+    color: rgba(0,0,0,.5);
+}
+
+#tt-recit-nav .nav-item > a:hover, #tt-recit-nav .nav-item.show > a, #tt-recit-nav .dropdown-item
+{
+    color: black;
+}
+
+#tt-recit-nav .navbar-collapse
+{
+    z-index : 1;
+    background: #f8f9fa;
+}
+
+
+@media (max-width:991.98px) 
+{
+	#tt-recit-nav
+    {
+        position: fixed;
+        left: 0px;
+        top: 8px;
+        right: auto;
+        padding: 0;
+	}
+    
+    #navbarTogglerCourse
+    {
+        top: 44px;
+        position: absolute;
+        width: 200px;
+        padding: 8px;
+        line-height: 1.7;
+    }
+}
