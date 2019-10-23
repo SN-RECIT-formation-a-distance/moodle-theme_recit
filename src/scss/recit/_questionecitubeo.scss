@@ -1,4 +1,25 @@
 /* Question */
+@mixin border-top-radius($radius) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin gradient-y($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+    background-repeat: repeat-x;
+}
+
+
+@mixin border-radius($radius: $border-radius) {
+    border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+      box-shadow: $shadow;
+}
+
+$gray-lighter: #aaa;
+
 .questionbank h2 {
     margin-top: 0;
 }

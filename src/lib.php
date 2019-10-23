@@ -37,7 +37,7 @@ function theme_recit_get_extra_scss($theme) {
 
     $scss .= theme_recit_set_topfooterimg($theme);
 
-    $scss .= theme_recit_set_loginbgimg($theme);
+    //$scss .= theme_recit_set_loginbgimg($theme);
 
     return $scss;
 }
@@ -88,7 +88,7 @@ function theme_recit_set_topfooterimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_set_loginbgimg($theme) {
+/*function theme_recit_set_loginbgimg($theme) {
     global $OUTPUT;
 
     $loginbgimg = $theme->setting_file_url('loginbgimg', 'loginbgimg');
@@ -100,7 +100,7 @@ function theme_recit_set_loginbgimg($theme) {
     $headercss = "#page-login-index.recit-login #page-wrapper #page {background-image: url('$loginbgimg');}";
 
     return $headercss;
-}
+}*/
 
 /**
  * Returns the main SCSS content.
@@ -116,7 +116,7 @@ function theme_recit_get_main_scss_content($theme) {
     $fs = get_file_storage();
 
     $context = context_system::instance();
-    if ($filename == 'default.scss') {
+    /*if ($filename == 'default.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
@@ -128,7 +128,16 @@ function theme_recit_get_main_scss_content($theme) {
     } else {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
-    }
+    }*/
+
+    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
+    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
+
+    if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
+        // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
+        var_dump($presetfile->get_content());
+        $scss .= $presetfile->get_content();
+    } 
 
     // Recit scss.
     $recitvariables = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');

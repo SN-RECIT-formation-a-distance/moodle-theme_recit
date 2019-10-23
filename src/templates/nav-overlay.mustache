@@ -33,7 +33,7 @@
     {{#isloggedin}}
         <li id="rnav-menu" class="rnav-item">
             
-                <a href="javascript:void(0)" class="rnav-button"><i class="fas fa-bars"></i></a>
+                <a href="javascript:void(0)" class="rnav-button"><i class="fas fa-user"></i></a>
                 <div id="rnav-content-menu" class="rnav-content">
                     <ul id="rnav-user-menu" >
                         {{{ output.user_menu }}}
@@ -44,7 +44,7 @@
     {{/isloggedin}}
     {{^isloggedin}}
         <li id="rnav-menu-connexion" class="rnav-item">
-            <div><a href="/login/index.php">Connexion</a></div>
+            <div><a href="{{{ config.wwwroot }}}/login/index.php">Connexion</a></div>
         </li>
     {{/isloggedin}}
 </ul>

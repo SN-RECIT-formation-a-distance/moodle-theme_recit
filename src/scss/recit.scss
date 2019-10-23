@@ -1,4 +1,6 @@
 // Import all scss recit files
+@import "recit/variables";
+
 @import "recit/animate.min";
 @import "extras/transitions";
 @import "extras/simple-line-icons";
@@ -20,13 +22,12 @@
 @import "recit/responsive";
 @import "recit/stylesmbededquestionsUBEO";
 @import "recit/glossairestyleUBEO";
-@import "recit/questionecitubeo";
+//@import "recit/questionecitubeo";
 @import "recit/recit";
 /*@import "recit/timeline";*/
 /*@import "recit/jquery.mb.YTPlayer.min";*/
-@import "recit/custom";
-@import "recit/customrecit";
-@import "recit/customubeo";
+//@import "recit/custom";
+//@import "recit/customrecit";
+//@import "recit/customubeo";
 @import "recit/custom_ver_2";
 @import "recit/recit-course-navigation";
-@import "recit/variables";

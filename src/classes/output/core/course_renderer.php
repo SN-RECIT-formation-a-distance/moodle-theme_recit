@@ -130,14 +130,14 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'card-deck'));
+        $content .= html_writer::start_tag('div', array('class' => 'recit-course-list'));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
-            if ($coursecount % 4 == 0) {
+            /*if ($coursecount % 4 == 0) {
                 $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'card-deck'));
-            }
+                $content .= html_writer::start_tag('div', array('class' => 'recit-course-list'));
+            }*/
 
             $coursecount ++;
         }
@@ -315,7 +315,7 @@ class course_renderer extends \core_course_renderer {
                 $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
                     'src' => $url,
                     'alt' => $course->fullname,
-                    'class' => 'card-img-top w-100')));
+                    'class' => 'recit-card-img-top')));
                 break;
             }
         }
@@ -326,7 +326,7 @@ class course_renderer extends \core_course_renderer {
             $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
                 'src' => $url,
                 'alt' => $course->fullname,
-                'class' => 'card-img-top w-100')));
+                'class' => 'recit-card-img-top')));
         }
 
         return $contentimage;

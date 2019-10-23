@@ -1,21 +1,54 @@
 #page-login-index.recit-login {
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
     margin-left: 0;
 
     #page-wrapper {
-        padding-bottom: 0;
+        margin-top: 0px;
 
         #page {
+            background-color: rgba(255, 255, 255, 0.5);
             margin-top: 0;
             background-size: cover;
             background-position: center;
             min-height: 100vh;
+            max-width: none;
         }
 
         &::after {
             min-height: 0;
         }
     }
+
+    #page {
+        padding: 0;
+  
+        #region-main-box {
+          padding: 0;
+  
+          .loginpanel {
+            .instructions {
+              border-top-right-radius: $m-login-padding;
+              -webkit-border-top-right-radius: $m-login-padding;
+              -moz-border-radius-topright: $m-login-padding;
+              border-top-left-radius: $m-login-padding;
+              -webkit-border-top-left-radius: $m-login-padding;
+              -moz-border-radius-topleft: $m-login-padding;
+              padding: 20px 15px;
+              min-height: inherit;
+            }
+  
+            .form {
+              height: inherit;
+              max-height: inherit;
+            }
+          }
+        }
+      }
+
+      .loginpanel .instructions {
+        border-top-left-radius: $m-login-padding;
+        border-bottom-left-radius: $m-login-padding;
+      }
 
     .logo {
         text-align: center;
@@ -139,18 +172,92 @@
 #page-login-signup {
     margin-left: 0;
     #page-wrapper {
-        padding-bottom: 0;
-        margin-bottom: 0;
+       /* padding-bottom: 0;
+        margin-bottom: 0;*/
 
         &:after {
             min-height: 0;
         }
-
-        #page {
-            margin-top: 0;
-            padding-top: 50px;
-        }
     }
+}
+
+#page-login-index
+{
+    margin-right: 0px;
+}
+
+#page-login-index #page-wrapper{
+    background-image: url(https://moodledev3.recitfad.ca/theme/recit/pix/recit_login_background.png)!important;
+}
+
+#page-login-index .loginpanel .form, #page-login-index #page-content, #page-login-index #region-main, #page-login-index .logo, #page-login-index .my-4, #page-login-index .card-block .row{
+	background-color: transparent!important;
+}
+
+#page-login-index .plugins_standard_footer_html{
+	display:none!important;
+}
+
+#page-login-index .logo img
+{
+    max-height: 80px!important;
+}
+
+/*#page-login-index.recit-login #page-wrapper 
+{
+    background-color: rgba(0,0,0,0.7);
+}*/
+
+#page-login-index .welcome
+{
+    color: #fba22a!important;
+    font-weight: bold!important;
+}
+
+#page-login-index .instructions
+{
+    background-color: #0068bf!important;
+}
+
+#page-login-index .instructions h2
+{
+    font-weight: bold!important;
+}
+
+#page-login-index .input-group .input-group-addon
+{
+    border-bottom-left-radius: 10px!important;
+    border-top-left-radius: 10px!important;
+}
+
+#page-login-index .input-group input, #page-login-index .loginpanel .form
+{
+    border-bottom-right-radius: 10px!important;
+    border-top-right-radius: 10px!important;
+}
+
+#page-login-index .input-group-username
+{
+    margin-bottom: 10px!important;
+}
+
+#page-login-index .input-group-password .input-group-addon, #page-login-index .input-group-password input
+{
+    border-top: 1px solid rgba(0,0,0,.15)!important;
+}
+
+#page-login-index .btn-primary
+{
+    background-color: #fba22a;
+    border-color: #fba22a;
+    border-radius: 10px;
+    width: 40%;
+    font-weight: bold;
+}
+
+#page-login-index .forgetpass a
+{
+    color: #0068bf;
 }
 
 .potentialidplist .potentialidp {
