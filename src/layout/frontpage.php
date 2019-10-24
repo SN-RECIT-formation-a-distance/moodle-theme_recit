@@ -80,19 +80,19 @@ if (isloggedin()) {
     }
 
     $numbersfrontpage = false;
-    if (theme_recit_get_setting('numbersfrontpage', true) == true) {
+    /*if (theme_recit_get_setting('numbersfrontpage', true) == true) {
         $numbersfrontpage = true;
-    }
+    }*/
 
     $sponsorsfrontpage = false;
-    if (theme_recit_get_setting('sponsorsfrontpage', true) == true) {
+    /*if (theme_recit_get_setting('sponsorsfrontpage', true) == true) {
         $sponsorsfrontpage = true;
-    }
+    }*/
 
     $clientsfrontpage = false;
-    if (theme_recit_get_setting('clientsfrontpage', true) == true) {
+    /*if (theme_recit_get_setting('clientsfrontpage', true) == true) {
         $clientsfrontpage = true;
-    }
+    }*/
 
     $bannerheading = '';
     if (!empty($PAGE->theme->settings->bannerheading)) {
@@ -105,9 +105,9 @@ if (isloggedin()) {
     }
 
     $shoulddisplaymarketing = false;
-    if (theme_recit_get_setting('displaymarketingbox', true) == true) {
+    /*if (theme_recit_get_setting('displaymarketingbox', true) == true) {
         $shoulddisplaymarketing = true;
-    }
+    }*/
 
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();

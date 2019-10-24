@@ -202,7 +202,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/displaymarketingbox';
     $title = get_string('displaymarketingbox', 'theme_recit');
     $description = get_string('displaymarketingboxdesc', 'theme_recit');
-    $default = 1;
+    $default = 0;
     $choices = array(0 => 'No', 1 => 'Yes');
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);

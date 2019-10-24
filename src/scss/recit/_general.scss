@@ -1,7 +1,58 @@
 /*******************
 Bodys
 *******************/
-body#page-enrol-index {
+
+body{
+	/*margin-left: 0px;
+	margin-right: 32px;
+	padding: 0px 0px 0px 0px !important;*/
+    font-family: $font-family-sans-serif; 
+    font-size: .9375rem;
+	background-color: #FFF;
+	color: $body-color;
+	counter-reset: arts-tab-counter;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: $subheadings-font-family;
+}
+
+h1 {
+	font-size: 2.1rem;
+    text-transform: uppercase;
+    color: $body-color;
+}
+
+h2{
+    color: $body-color;
+}
+
+/*h3 {
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin-bottom: 1.2em;
+}
+h4 {
+	font-size: 1.7em;
+	font-weight: 500;
+	margin-bottom: 1.2em;
+}
+h4 strong {
+	position: relative;
+	display: inline-block;
+	padding: 14px 12px 16px;
+	font-weight: 500;
+	color: #fff;
+	background: $secondary;
+}
+h5 {
+	font-size: 1.25em;
+	line-height: 1.3;
+	font-weight: 500;
+	margin-bottom: 1.2em;
+}*/
+
+#page-enrol-index {
     #region-main {
         .generalbox {
             float: left;
@@ -15,18 +66,14 @@ body#page-enrol-index {
     }
 }
 
-body.pagelayout-popup {
+.pagelayout-popup {
     margin-left: 0;
 }
 /*******************
 Pages
 *******************/
-#page {
-    margin-top: 40px;
-
-   /* &.container-fluid {
-        padding: 0 0 0 0;
-    }*/
+#page-wrapper {
+    margin-top: 80px;
 }
 
 #page-admin-index.pagelayout-maintenance {
@@ -37,10 +84,94 @@ Pages
     }
 }
 
+#page-header{
+    .card{
+        background-image: url(https://recitfad.ca/depot/math4sn/bg_math_noir.png);
+        border: none;
+        .card-body{
+            .page-header-headings{
+                h1{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+#page-content{
+    #region-main-box{
+        width: 100%;
+        #region-main{
+            .card:first-child{
+                border: none;
+            }
+        }
+    }
+}
+
+#sidepre-blocks{
+	overflow-y: scroll;
+	width: 265px;
+    //background-color: rgba(0, 0, 0, 0.5);
+    
+    #block-region-side-pre{
+        .card{
+            background-color: transparent;
+            border: none;
+            margin-bottom: 10px;
+            .card-body{
+                padding: 0px;
+                h5{
+                    display: inline-block!important;
+                    width: 100%;
+                    line-height: 32px;
+                    color: white;
+                    background-color: black;
+                    padding: 16px;
+                    margin-bottom: 0px;
+                }
+                .card-text{
+                    padding: 16px;
+                    background-color: #ebedee;
+                }
+                .unlist{
+                    padding-left: 0px;
+                    a{
+                        color: $body-color;                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* recit icons */
+.icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-right: .5rem;
+}
+
+.activity img.activityicon {
+    margin-right: 6px;
+    vertical-align: text-bottom;
+}
+
+img.activityicon {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
 /*******************
 Card
 *******************/
-.card {
+/*.card {
     border-color: $card-border-color;
     border-radius: $card-border-radius;
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -54,12 +185,12 @@ Card
 }
 body {
     color: $headings-color;
-}
+}*/
 
 /*******************
 Headings
 *******************/
-h1,
+/*h1,
 .h1,
 h2,
 .h2,
@@ -72,8 +203,8 @@ h5,
 h6,
 .h6 {
     /*font-family: "Poppins", sans-serif;*/
-    font-weight: $headings-font-weight;
-}
+   /* font-weight: $headings-font-weight;
+}*/
 
 /* Third party plugins compatibility. */
 /* Course format grid */
@@ -83,4 +214,15 @@ h6,
 
 .popover .arrow {
     bottom: -8px;
+}
+
+/**
+ * MOODLE CLASSES
+ */ 
+.chooserdialoguebody, .choosertitle {
+    display: none;
+}
+
+.course-content .hidden {
+    display: none;
 }

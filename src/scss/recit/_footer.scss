@@ -1,8 +1,14 @@
-#top-footer {
+#top-footer1{
     background-repeat: repeat-x;
     background-position: center bottom;
-    padding: 40px 15px;
+    padding: 30px;
     color: $headings-color;
+    background-color: #efefef;
+    //position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    hr{border-color: #FFF;}
 
     h3 {
         color: $brand-primary;

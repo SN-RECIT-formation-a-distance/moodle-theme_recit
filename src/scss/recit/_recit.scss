@@ -1,12 +1,7 @@
-#region-main.card-body {
+/*#region-main.card-body {
 	padding: 0px;
-}
+}*/
 
-body{
-	margin-left: 0px;
-	margin-right: 32px;
-	padding: 0px 0px 0px 0px !important;
-}
 body.drawer-open-right{
 	margin-right: 260px;
 }
@@ -24,17 +19,14 @@ body.drawer-open-right #sidepreopen-control{
 #sidepreopen-control{
 	background-color: black;
 }
-#sidepre-blocks{
-	overflow-y: scroll;
-	width: 265px;
-}
+
 #region-main > .card{
 	min-height: 50rem;
 	overflow-y: auto;
 }
-#region-main{
+/*#region-main{
 	padding: 0px;
-}
+}*/
 li{
 	list-style-type: none;
 }
@@ -48,6 +40,11 @@ li{
 .section.main:last-child{
 	border-bottom-style: none;
 }
+
+#page{
+	max-width: $page-max-width;
+}
+
 .tt-section{
 	padding: 16px;
 	border-bottom-style: none!important;
@@ -211,18 +208,20 @@ li{
 #tt-tabs-blocks-5 .tt-tabs-block-lev3 .tt-tabs-selected{
 	color: black!important;
 }
+/*
 body, #page-content, #page-header, #top-footer .row{
 	background-color: white!important;
-}
-.card{
+}*/
+
+/*.card{
 	border: none;
 	box-shadow: none;
 	-webkit-box-shadow: none;
-}
+}*/
 #top-footer{
 	background-image: none!important;
 }
-#page-header{
+/*#page-header{
 	height: 100px;
 }
 #page-header .col-12.pt-3.pb-3{
@@ -231,10 +230,8 @@ body, #page-content, #page-header, #top-footer .row{
 }
 #page-header h1{
 	font-size: x-large;
-}
-#block-region-side-pre .block{
-	margin-bottom: 0px!important;
-}
+}*/
+
 .block .card-body{
 	padding-top: 16px;
 	padding-right: 4px;
@@ -254,10 +251,7 @@ body, #page-content, #page-header, #top-footer .row{
 	background-color: #ebedee;
 	margin-top: 0px!important
 }
-nav.navbar{
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
+
 #sidepreopen-control{
 	height: 64px;
 	line-height: 50px;
@@ -273,9 +267,7 @@ nav.navbar{
 body.drawer-open-right #sidepreopen-control{
 	right: 226px;
 }
-nav.navbar{
-	position: static;
-}
+
 .row, #region-main .card-text{
 	background-color: white!important;
 }
@@ -396,85 +388,6 @@ nav.navbar{
 }						  
 								  
  
-
-#page-login-index
-{
-    margin-right: 0px;
-}
-
-#page-login-index #page-wrapper{
-    background-image: url(https://moodledev3.recitfad.ca/theme/recit/pix/recit_login_background.png)!important;
-}
-#page-login-index .loginpanel .form, #page-login-index #page-content, #page-login-index #region-main, #page-login-index .logo, #page-login-index .my-4, #page-login-index .card-block .row{
-	background-color: transparent!important;
-}
-
-#page-login-index .plugins_standard_footer_html{
-	display:none!important;
-}
-
-#page-login-index .logo img
-{
-    max-height: 80px!important;
-}
-
-#page-login-index.recit-login #page-wrapper #page
-{
-    background-image: none!important;
-    background-color: rgba(0,0,0,0.7);
-}
-
-#page-login-index .welcome
-{
-    color: #fba22a!important;
-    font-weight: bold!important;
-}
-
-#page-login-index .instructions
-{
-    background-color: #0068bf!important;
-}
-
-#page-login-index .instructions h2
-{
-    font-weight: bold!important;
-}
-
-#page-login-index .input-group .input-group-addon
-{
-    border-bottom-left-radius: 10px!important;
-    border-top-left-radius: 10px!important;
-}
-
-#page-login-index .input-group input, #page-login-index .loginpanel .form
-{
-    border-bottom-right-radius: 10px!important;
-    border-top-right-radius: 10px!important;
-}
-
-#page-login-index .input-group-username
-{
-    margin-bottom: 10px!important;
-}
-
-#page-login-index .input-group-password .input-group-addon, #page-login-index .input-group-password input
-{
-    border-top: 1px solid rgba(0,0,0,.15)!important;
-}
-
-#page-login-index .btn-primary
-{
-    background-color: #fba22a;
-    border-color: #fba22a;
-    border-radius: 10px;
-    width: 40%;
-    font-weight: bold;
-}
-
-#page-login-index .forgetpass a
-{
-    color: #0068bf;
-}
 .tt-tabs-selector
 {
     display: none;
@@ -848,7 +761,7 @@ nav.navbar{
     font-size: x-small;
     font-weight: bold;
 }
-
+/*
 #page-header .card-body
 {
     padding-top: 0px;
@@ -858,7 +771,7 @@ nav.navbar{
 #page-header
 {
     height: auto;
-}
+}*/
 
 #region-main .card-body
 {
@@ -886,11 +799,7 @@ nav.navbar{
 //medium+ screen sizes
  
 //small screen sizes
-@media (max-width: 991px) {
-    .fixed-top, #page-header {
-        display:none !important;
-    }
-}
+
 @media screen and (min-width: 500px) { #tt-tabs-blocks-5 .tt-tabs-lev1 { white-space: nowrap; margin-right: 10px; } }
 /*.coursebox {
     width: 30%;
