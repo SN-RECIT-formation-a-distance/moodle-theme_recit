@@ -8,9 +8,10 @@ body{
 	padding: 0px 0px 0px 0px !important;*/
     font-family: $font-family-sans-serif; 
     font-size: .9375rem;
-	background-color: #FFF;
+	background-color: #efefef;
 	color: $body-color;
-	counter-reset: arts-tab-counter;
+    counter-reset: arts-tab-counter;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -19,7 +20,7 @@ h1, h2, h3, h4, h5, h6{
 
 h1 {
 	font-size: 2.1rem;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     color: $body-color;
 }
 
@@ -73,7 +74,12 @@ h5 {
 Pages
 *******************/
 #page-wrapper {
-    margin-top: 80px;
+    margin-top: 56px;
+    #page{
+        max-width: $page-max-width;
+        background-color: #FFF;
+        padding: 15px;
+    }
 }
 
 #page-admin-index.pagelayout-maintenance {
@@ -86,12 +92,13 @@ Pages
 
 #page-header{
     .card{
-        background-image: url(https://recitfad.ca/depot/math4sn/bg_math_noir.png);
+        background-image: url("#{$pix-path}banner-course.png");
         border: none;
+        height: 150px;
         .card-body{
             .page-header-headings{
                 h1{
-                    color: $primary;
+                    color: #FFF;
                 }
             }
         }
@@ -101,10 +108,8 @@ Pages
 #page-content{
     #region-main-box{
         width: 100%;
-        #region-main{
-            .card:first-child{
-                border: none;
-            }
+        #region-main > .card{
+            border: none;
         }
     }
 }
@@ -146,7 +151,7 @@ Pages
 }
 
 /* recit icons */
-.icon {
+/*.icon {
     font-size: 16px;
     width: 16px;
     height: 16px;
@@ -166,7 +171,7 @@ img.activityicon {
     height: 24px;
     width: 24px;
     vertical-align: middle;
-}
+}*/
 
 /*******************
 Card
@@ -219,10 +224,19 @@ h6,
 /**
  * MOODLE CLASSES
  */ 
-.chooserdialoguebody, .choosertitle {
+/*.chooserdialoguebody, .choosertitle {
     display: none;
 }
 
 .course-content .hidden {
     display: none;
+}*/
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+}
+
+.filemanager-container,
+.filepicker-filelist {
+    @extend .border;
 }

@@ -263,9 +263,9 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::end_tag('p'); // End summary.
         }
 
-        $content .= html_writer::end_tag('div');
+        //$content .= html_writer::end_tag('div');
 
-        $content .= html_writer::start_tag('div', array('class' => 'card-footer'));
+        //$content .= html_writer::start_tag('div', array('class' => 'card-footer'));
 
         // Print enrolmenticons.
         if ($icons = enrol_get_course_info_icons($course)) {
@@ -273,11 +273,17 @@ class course_renderer extends \core_course_renderer {
                 $content .= $this->render($pixicon);
             }
         }
+         
+        //$content .= html_writer::start_tag('div', array('class' => 'pull-right'));
+        //$content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+          //  get_string('access', 'theme_recit'), array('class' => 'card-link btn btn-primary'));
+        
+        $url = new moodle_url('/course/view.php', array('id' => $course->id));
+        $content .= "<a href='{$url}' class='card-link btn btn-primary' data-toggle='tooltip' title='{$name}'>";
+        $content .= sprintf("%s %s", "<i class='fa fa-sign-in-alt'></i>", get_string('access', 'theme_recit'));
+        $content .= "</a>";
 
-        $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-            get_string('access', 'theme_recit'), array('class' => 'card-link btn btn-primary'));
-        $content .= html_writer::end_tag('div'); // End pull-right.
+        //$content .= html_writer::end_tag('div'); // End pull-right.
 
         $content .= html_writer::end_tag('div'); // End card-block.
 

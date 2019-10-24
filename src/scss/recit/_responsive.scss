@@ -24,11 +24,11 @@
 }
 
 @media (max-width: 767px) {
-	.rnav-item {
+	/*.rnav-item {
 	width: 32px;}
   h1 {
     font-size: 1.634375rem;
-  }
+  }*/
 
   #nav-drawer .metismenu .has-arrow {
     display: none !important;
@@ -158,16 +158,16 @@
       padding: 0;
     }
 
-    &.drawer-open-left {
+    /*&.drawer-open-left {
       margin-left: 55px;
-    }
+    }*/
   }
 
 
 }
 @media (min-width: 768px) {
   body {
-    margin-left: 55px;
+    //margin-left: 55px;
 
     &.drawer-open-left {
       margin-left: 0px;

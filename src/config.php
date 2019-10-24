@@ -42,11 +42,10 @@ $THEME->sheets = [];
 // as the previous setting - listing a file in the /styles/ folder.
 $THEME->editor_sheets = [];
 
-// This is a critical setting. We want to inherit from theme_boost because it provides a great starting point for SCSS bootstrap4
-// themes. We could add more than one parent here to inherit from multiple parents, and if we did they would be processed in
+// This is a critical setting. We could add more than one parent here to inherit from multiple parents, and if we did they would be processed in
 // order of importance (later themes overriding earlier ones). Things we will inherit from the parent theme include
 // styles and mustache templates and some (not all) settings.
-$THEME->parents = ['boost'];
+$THEME->parents = [];
 
 // A dock is a way to take blocks out of the page and put them in a persistent floating area on the side of the page. Boost
 // does not support a dock so we won't either - but look at bootstrapbase for an example of a theme with a dock.
@@ -71,11 +70,7 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 // This is the function that returns the SCSS source for the main file in our theme. We override the boost version because
 // we want to allow presets uploaded to our own theme file area to be selected in the preset list.
 $THEME->scss = function($theme) {
-    // We need to load the config for our parent theme because that is where the preset setting is defined.
-    $parentconfig = theme_config::load('boost');
-    // Call a function from our parent themes lib.php.
-    // file to fetch the content of the themes main SCSS file based on it's own config, not ours.
-    return theme_recit_get_main_scss_content($parentconfig);
+    return theme_recit_get_main_scss_content($theme);
 };
 
 // Process extra scss to our final stylesheet.
