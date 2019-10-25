@@ -620,7 +620,7 @@ padding-bottom:20px;
 body#page-filter-embedquestion-showquestion .que .info > div {
 display: none;
 } 
-	.que.prompt{
+/*	.que.prompt{
 padding-bottom:20px;
 }
 
@@ -673,7 +673,64 @@ width: auto;
 	font-size: 16px;
 	color: #000;
 }
+*/
 
+
+/*Change question appearance*/
+
+.que{
+  max-width: 95%;
+}
+.que .info {
+  background-color: #F3F3F3;
+  float: none;
+  width: auto;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 1px;
+  border: 1px solid #D4E4DB;
+  padding-bottom: 15px;
+}
+.que .content {
+  margin: 0;
+}
+.que .formulation {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.que h3.no {
+  color: #165920;
+  margin-right: 50px;
+  font-size: 1.2em;
+  text-transform: capitalize;
+  display: inline-block;
+}
+.que span.qno {
+  color: #165920;
+  font-size: 1.2em;
+}
+
+.que .info > div {
+
+  font-size: 1em;
+  color: #237152;
+  display: inline-block;
+  margin-right: 25px
+}
+
+.que .info > div.state, .que .info > div.grade {
+  font-size: 0.9em;
+  color: #323836;
+}
+
+.que .info > div.questionflag, .que .info > div.editquestion {
+  font-weight: bold;
+}
+
+.que .formulation{
+  color: #2F2E2E;
+  background: #D4E4DB;
+  border: 1px #CECECE solid;
+}
 .recit-alert{
     position: absolute;
     padding-right: 55px;
@@ -689,6 +746,13 @@ width: auto;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     display: block;
 }
+multichoice .answer div.r0, .que.multichoice .answer div.r1 {
+  padding: .3em 0 .3em 25px;
+  text-indent: -25px;}
+.que.multichoice .answer div.r0, .que.multichoice .answer div.r1 {
+  padding: .3em 0 .3em 25px;
+  text-indent: -25px;}
+  
 /*alert-success*/
 .alert-success button{
     background-color: $success;
