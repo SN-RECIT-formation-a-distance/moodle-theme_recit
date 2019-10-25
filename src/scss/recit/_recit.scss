@@ -19,11 +19,11 @@ body.drawer-open-right #sidepreopen-control{
 #sidepreopen-control{
 	background-color: black;
 }
-
+/*
 #region-main > .card{
 	min-height: 50rem;
 	overflow-y: auto;
-}
+}*/
 /*#region-main{
 	padding: 0px;
 }*/
@@ -39,10 +39,6 @@ li{
 }
 .section.main:last-child{
 	border-bottom-style: none;
-}
-
-#page{
-	max-width: $page-max-width;
 }
 
 .tt-section{

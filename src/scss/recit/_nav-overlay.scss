@@ -38,7 +38,7 @@
 }
 
 #rnav-menu {
-  background-color: rgba(0,105,191,0.6);
+  background-color: $secondary;
 }
 /*#rnav-menu:hover{
   background-color:  #0069bf;
@@ -71,7 +71,7 @@
   opacity: 0;
   transform: translate(-90%, -64px);
   padding: 15px 0px;
-  top: 64px;
+  top: 55px;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
   transition-delay: 0s, 0s, 0.3s;
   a {

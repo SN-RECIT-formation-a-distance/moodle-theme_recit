@@ -25,6 +25,17 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
+ * Post process the CSS tree.
+ *
+ * @param string $tree The CSS tree.
+ * @param theme_config $theme The theme config object.
+ */
+function theme_recit_css_tree_post_processor($tree, $theme) {
+    $prefixer = new theme_recit\autoprefixer($tree);
+    $prefixer->prefix();
+}
+
+/**
  * Inject additional SCSS.
  *
  * @param theme_config $theme The theme config object.
@@ -116,22 +127,21 @@ function theme_recit_get_main_scss_content($theme) {
     $fs = get_file_storage();
 
     $context = context_system::instance();
-    /*if ($filename == 'default.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+    if ($filename == 'default.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/plain.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
-    }*/
+    }
 
     $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
     $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
+    $scss .= theme_recit_get_precompiled_css();
 
     if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
@@ -147,6 +157,7 @@ function theme_recit_get_main_scss_content($theme) {
     return $recitvariables . "\n" . $scss . "\n" . $recit;
 }
 
+/*
 function theme_recit_get_local_scss_content($theme, $variables) {
     global $CFG;
 
@@ -156,11 +167,9 @@ function theme_recit_get_local_scss_content($theme, $variables) {
 
     $context = context_system::instance();
     if ($filename == 'default.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/plain.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
         $scss .= $presetfile->get_content();
@@ -175,6 +184,16 @@ function theme_recit_get_local_scss_content($theme, $variables) {
 
     // Combine them together.
     return $recitvariables . "\n" . $scss . "\n" . $recit;
+}*/
+
+/**
+ * Get compiled css.
+ *
+ * @return string compiled css
+ */
+function theme_recit_get_precompiled_css() {
+    global $CFG;
+    return file_get_contents($CFG->dirroot . '/theme/recit/style/moodle.css');
 }
 
 /**
