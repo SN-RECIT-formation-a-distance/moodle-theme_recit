@@ -92,7 +92,6 @@ Pages
 
 #page-header{
     .card{
-        background-image: url("#{$pix-path}banner-course.png");
         border: none;
         height: 150px;
         .card-body{
@@ -236,7 +235,3 @@ h6,
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 }
 
-.filemanager-container,
-.filepicker-filelist {
-    @extend .border;
-}

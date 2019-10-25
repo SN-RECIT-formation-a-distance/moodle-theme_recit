@@ -36,7 +36,10 @@ $THEME->name = 'recit';
 // This setting list the style sheets we want to include in our theme. Because we want to use SCSS instead of CSS - we won't
 // list any style sheets. If we did we would list the name of a file in the /styles/ folder for our theme without any css file
 // extensions.
-$THEME->sheets = [];
+$THEME->sheets[] = bootstrap;
+$THEME->sheets[] = fontawesome;
+$THEME->sheets[] = moodle;
+$THEME->sheets[] = recit;
 // This is a setting that can be used to provide some styling to the content in the TinyMCE text editor. This is no longer the
 // default text editor and "Atto" does not need this setting so we won't provide anything. If we did it would work the same
 // as the previous setting - listing a file in the /styles/ folder.
@@ -81,6 +84,7 @@ $THEME->prescsscallback = 'theme_recit_get_pre_scss';
 
 // Add a custom icon system to the theme.
 $THEME->iconsystem = '\theme_recit\util\icon_system';
+
 //$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->layouts = [
     'admin' => array(
@@ -116,6 +120,11 @@ $THEME->layouts = [
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
+    ),
+    'login' => array(
+        'file' => 'login.php',
+        'regions' => array(),
+        'options' => array('langmenu' => true),
     ),
     // Used during upgrade and install, and for the 'This site is undergoing maintenance' message.
     // This must not have any blocks, links, or API calls that would lead to database or cache interaction.

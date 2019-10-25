@@ -48,7 +48,9 @@ function theme_recit_get_extra_scss($theme) {
 
     $scss .= theme_recit_set_topfooterimg($theme);
 
-    //$scss .= theme_recit_set_loginbgimg($theme);
+    $scss .= theme_recit_set_loginbgimg($theme);
+
+    $scss .= theme_recit_set_course_banner_img($theme);
 
     return $scss;
 }
@@ -99,7 +101,7 @@ function theme_recit_set_topfooterimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-/*function theme_recit_set_loginbgimg($theme) {
+function theme_recit_set_loginbgimg($theme) {
     global $OUTPUT;
 
     $loginbgimg = $theme->setting_file_url('loginbgimg', 'loginbgimg');
@@ -111,7 +113,27 @@ function theme_recit_set_topfooterimg($theme) {
     $headercss = "#page-login-index.recit-login #page-wrapper #page {background-image: url('$loginbgimg');}";
 
     return $headercss;
-}*/
+}
+
+/**
+ * Adds the course banner
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ */
+function theme_recit_set_course_banner_img($theme) {
+    global $OUTPUT;
+
+    $img = $theme->setting_file_url('coursebanner', 'coursebanner');
+
+    if (is_null($img)) {
+        $img = $OUTPUT->image_url('banner-course', 'theme');
+    }
+
+    $css = "#page-header .card{background-image: url('$img');}";
+
+    return $css;
+}
 
 /**
  * Returns the main SCSS content.
@@ -120,7 +142,7 @@ function theme_recit_set_topfooterimg($theme) {
  * @return string
  */
 function theme_recit_get_main_scss_content($theme) {
-    global $CFG;
+    /*global $CFG;
 
     $scss = '';
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
@@ -136,12 +158,12 @@ function theme_recit_get_main_scss_content($theme) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
     }
 
-    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
-    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
-    $scss .= theme_recit_get_precompiled_css();
+    //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
+    //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
+    //$scss .= theme_recit_get_precompiled_css();
 
     if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
@@ -150,11 +172,13 @@ function theme_recit_get_main_scss_content($theme) {
     } 
 
     // Recit scss.
-    $recitvariables = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
+    //$recitvariables = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
     $recit = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit.scss');
 
     // Combine them together.
-    return $recitvariables . "\n" . $scss . "\n" . $recit;
+    //return $recitvariables . "\n" . $scss . "\n" . $recit;
+    return $scss . "\n" . $recit;*/
+    return "";
 }
 
 /*
