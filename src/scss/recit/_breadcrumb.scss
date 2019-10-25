@@ -9,6 +9,10 @@
   .breadcrumb{
     width: 100%;
     background-color: #fff;
+    font-size: x-small;
+    font-weight: bold;
+    border: solid 1px #adadad;
+    padding: 10px 15px 10px 15px;
   }
 
   .breadcrumb li{
@@ -77,8 +81,7 @@
   .breadcrumb li:last-child {padding:6px 18px 6px 24px;}*/
 
   /** Default button **/
-  .breadcrumb li::after { border-left: 10px solid #fff;}
+  /*.breadcrumb li::after { border-left: 10px solid #fff;}
   .breadcrumb li:hover:after {border-left: 10px solid #e6e6e6;}
-  .breadcrumb li:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}
-  .breadcrumb { border: solid 1px #adadad; }
+  .breadcrumb li:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}*/
 }
