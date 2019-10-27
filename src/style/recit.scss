@@ -5,6 +5,7 @@
 @import "../scss/extras/transitions";
 @import "../scss/extras/simple-line-icons";
 @import "../scss/extras/animate";
+//@import "../scss/ekko-lightbox";
 @import "../scss/extras/metismenu";
 @import "../scss/recit/general";
 @import "../scss/recit/breadcrumb";
@@ -27,7 +28,7 @@
 /*@import "recit/timeline";*/
 /*@import "recit/jquery.mb.YTPlayer.min";*/
 //@import "recit/custom";
-//@import "recit/customrecit";
-//@import "recit/customubeo";
+@import "../scss/recit/customrecit";
+@import "../scss/recit/customubeo";
 @import "../scss/recit/custom_ver_2";
 @import "../scss/recit/recit-course-navigation";

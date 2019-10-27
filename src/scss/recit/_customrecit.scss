@@ -447,7 +447,7 @@ display: none;
 .bg-secondary {
 	background-color: $secondary !important;
 	}
-	.bg_secondary2 { background: linear-gradient(15deg, $secondary25%, $info 25%);
+	.bg_secondary2 { background: linear-gradient(15deg, $secondary 25%, $info 25%);
 	background: -webkit-linear-gradient(15deg, $secondary 25%, $info  25%);
     background: -o-linear-gradient(15deg, $secondary 25%, $info  25%);
     background: -ms-linear-gradient(15deg, $secondary 25%, $info  25%);

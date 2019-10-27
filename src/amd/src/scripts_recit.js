@@ -53,7 +53,7 @@
         showYTLogo: false
     });
 	
-	$(function () {
+	
   $('[data-toggle="popover"]').popover({
         html : true,
         trigger: 'focus',
@@ -62,5 +62,12 @@
             return $(content).children(".popover-body").html();
         }
     });
-});
+
+$('.ubeo_btn_expand').click(function() {
+            $(this).parents('.math_content_expand').toggleClass('ubeo_zoom');
+            $(this).parents('.container').toggleClass('ubeo_zoom');
+            $(this).toggleClass('ubeo_zoom');
+            $('html, body').toggleClass('ubeo_zoom');
+        });
+
 })(jQuery);
