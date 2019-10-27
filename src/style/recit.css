@@ -3219,7 +3219,10 @@ h6,
   /*.breadcrumb li{padding:6px 12px 6px 24px;}
   .breadcrumb li:first-child {padding:6px 6px 6px 10px;}
   .breadcrumb li:last-child {padding:6px 18px 6px 24px;}*/
-  /** Default button **/ }
+  /** Default button **/
+  /*.breadcrumb li::after { border-left: 10px solid #fff;}
+  .breadcrumb li:hover:after {border-left: 10px solid #e6e6e6;}
+  .breadcrumb li:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}*/ }
   #page-navbar .page-header-headings h1 {
     font-size: 2.34375rem; }
   @media (max-width: 767px) {
@@ -3229,7 +3232,11 @@ h6,
       width: calc(100% - 20px) !important; } }
   #page-navbar .breadcrumb {
     width: 100%;
-    background-color: #fff; }
+    background-color: #fff;
+    font-size: x-small;
+    font-weight: bold;
+    border: solid 1px #adadad;
+    padding: 10px 15px 10px 15px; }
   #page-navbar .breadcrumb li {
     border-color: transparent;
     border: 0px solid transparent;
@@ -3256,14 +3263,6 @@ h6,
     border-bottom-right-radius: 2px !important; }
   #page-navbar .btn-breadcrumb .btn-derecha:after, #page-navbar .btn-breadcrumb .btn-derecha:before {
     content: none !important; }
-  #page-navbar .breadcrumb li::after {
-    border-left: 10px solid #fff; }
-  #page-navbar .breadcrumb li:hover:after {
-    border-left: 10px solid #e6e6e6; }
-  #page-navbar .breadcrumb li:hover:before, #page-navbar .btn-breadcrumb .btn.btn-default:before {
-    border-left: 10px solid #adadad; }
-  #page-navbar .breadcrumb {
-    border: solid 1px #adadad; }
 
 nav.navbar {
   max-height: min-content; }
@@ -5760,10 +5759,6 @@ body.drawer-open-right #sidepreopen-control {
 .tt-home-menu2 .tt-home-menu-button:last-child a {
   color: white;
   background-color: #d0181e; }
-
-.breadcrumb {
-  font-size: x-small;
-  font-weight: bold; }
 
 /*
 #page-header .card-body
@@ -9670,5 +9665,7 @@ section.section.parallax {
     width: 200px;
     padding: 8px;
     line-height: 1.7; } }
+.icon-plus {
+  background-position: -408px -96px; }
 
 /*# sourceMappingURL=recit.css.map */
