@@ -54,6 +54,11 @@
     });
 	
 	
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+	
   $('[data-toggle="popover"]').popover({
         html : true,
         trigger: 'focus',
@@ -69,5 +74,8 @@ $('.ubeo_btn_expand').click(function() {
             $(this).toggleClass('ubeo_zoom');
             $('html, body').toggleClass('ubeo_zoom');
         });
+		
+		
 
 })(jQuery);
+
