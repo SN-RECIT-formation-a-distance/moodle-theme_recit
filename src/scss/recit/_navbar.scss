@@ -1,5 +1,5 @@
 nav.navbar {
-    max-height: min-content;
+    max-height: inherit; // min-content does not work with firefox;
     
     .navbar-brand {
         margin-right: 0;
@@ -7,6 +7,7 @@ nav.navbar {
 
         .logo img {
             max-height: 40px;
+            /*content: url([[pix:theme|recit-logo]]);*/
         }
     }
 

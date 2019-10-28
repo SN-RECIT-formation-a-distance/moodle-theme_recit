@@ -24,15 +24,23 @@
 <div id="top-footer1">
 <hr>
   <div class="container-fluid">
-    <div class="row">
+    <div>
         <div class="col-md-5 contact1">
         <img src="https://recitfad.ca/depot/praesentia_w.png" alt="Environnement numérique d'apprentissage PRAESENTIA face" height="" width="">
-        <img src="https://recitfad.ca/depot/snfad_w.png" alt="Logo RÉCIT SN FAD face" height="" width="">
+        <!--<img src="https://recitfad.ca/depot/snfad_w.png" alt="Logo RÉCIT SN FAD face" height="" width="">-->
 	      </div>
   
 		
         <div class="col-md-3 ">
           <ul>
+            {{#email}}
+                <li>
+                  <a href="{{{email}}}" target="_blank" class="email">
+                    <i class="email"></i>
+                  </a>
+                </li>
+              {{/email}}
+
               {{#facebook}}
                 <li>
                   <a href="{{{facebook}}}" target="_blank" class="facebook">

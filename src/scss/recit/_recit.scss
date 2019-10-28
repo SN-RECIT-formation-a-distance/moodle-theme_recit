@@ -787,6 +787,25 @@ body.drawer-open-right #sidepreopen-control{
 {
     display: none;
 }
+
+/*****************************
+ * BOOTSTRAP OVERRIDE
+ *****************************/
+.mform{
+	fieldset{
+		legend{
+			font-size: 1.2em;
+		}
+	}
+}
+
+/*****************************
+ * MOODLE OVERRIDE
+ *****************************/
+ .block_myoverview .card-deck .myoverviewimg.courseimage{
+	background-size: contain;
+	background-repeat: no-repeat;
+ }
 //medium+ screen sizes
  
 //small screen sizes

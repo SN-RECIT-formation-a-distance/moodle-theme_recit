@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * An embedded layout for the boost theme.
+ * An embedded layout for the recit theme.
  *
- * @package   theme_boost
+ * @package   theme_recit
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,4 +29,4 @@ $templatecontext = [
     'output' => $OUTPUT
 ];
 
-echo $OUTPUT->render_from_template('theme_boost/embedded', $templatecontext);
+echo $OUTPUT->render_from_template('theme_recit/embedded', $templatecontext);

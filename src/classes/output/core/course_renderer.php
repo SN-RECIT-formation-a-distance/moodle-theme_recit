@@ -42,6 +42,46 @@ use course_in_list;
  */
 class course_renderer extends \core_course_renderer {
 
+ /**
+     * Renders html to display a course search form.
+     *
+     * @param string $value default value to populate the search field
+     * @param string $format display format - 'plain' (default), 'short' or 'navbar'
+     * @return string
+     */
+    public function course_search_form($value = '', $format = 'plain') {
+        static $count = 0;
+        $formid = 'coursesearch';
+        if ((++$count) > 1) {
+            $formid .= $count;
+        }
+
+        switch ($format) {
+            case 'navbar' :
+                $formid = 'coursesearchnavbar';
+                $inputid = 'navsearchbox';
+                $inputsize = 20;
+                break;
+            case 'short' :
+                $inputid = 'shortsearchbox';
+                $inputsize = 12;
+                break;
+            default :
+                $inputid = 'coursesearchbox';
+                $inputsize = 30;
+        }
+
+        $data = (object) [
+            'searchurl' => (new moodle_url('/course/search.php'))->out(false),
+            'id' => $formid,
+            'inputid' => $inputid,
+            'inputsize' => $inputsize,
+            'value' => $value
+        ];
+
+        return $this->render_from_template('theme_recit/course_search_form', $data);
+    }
+
     /**
      * Renders the list of courses
      *

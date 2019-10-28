@@ -45,11 +45,8 @@ function theme_recit_get_extra_scss($theme) {
     $scss = $theme->settings->scss;
 
     $scss .= theme_recit_set_headerimg($theme);
-
     $scss .= theme_recit_set_topfooterimg($theme);
-
     $scss .= theme_recit_set_loginbgimg($theme);
-
     $scss .= theme_recit_set_course_banner_img($theme);
 
     return $scss;
