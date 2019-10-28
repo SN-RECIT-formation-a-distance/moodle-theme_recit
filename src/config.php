@@ -115,6 +115,11 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
     ),
+    'coursecategory' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+    ),
     // Internal course modules page.
     'incourse' => array(
         'file' => 'incourse.php',

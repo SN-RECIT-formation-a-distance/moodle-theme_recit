@@ -27,34 +27,32 @@
 
 #frontpage-course-list{
     h2{color: $body-color}
-    .frontpage-course-list-all{
-        .recit-course-list{
-            display: flex;
-            flex-wrap: wrap;
-            margin-left:  -15px;
-            margin-right: -15px;            
-            .card {
-                width: 330px; /*calc((#{$page-max-width} / 4) - 35px);*/
-                margin: 10px;
-                border: 1px solid #efefef;
-                .recit-card-img-top{
-                    width: 100%;
-                    height: 220px;
-                    margin-bottom: 10px;
-                    border-bottom: 1px solid #efefef;
-                }
+}
+.recit-course-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:  -15px;
+    margin-right: -15px;            
+    .card {
+        width: 340px; /*calc((#{$page-max-width} / 4) - 35px);*/
+        margin: 10px;
+        border: 1px solid #efefef;
+        .recit-card-img-top{
+            width: 100%;
+            height: 220px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #efefef;
+        }
 
-               .card-body{
-                    flex: 1 1 auto;
-                    //padding: 0px;
-                    text-align: center;
-               } 
+       .card-body{
+            flex: 1 1 auto;
+            //padding: 0px;
+            text-align: center;
+       } 
 
-               
-                &:hover{
-                    background-color: #efefef;
-                }
-            }
+       
+        &:hover{
+            background-color: #efefef;
         }
     }
 }

@@ -319,7 +319,7 @@ class course_renderer extends \core_course_renderer {
           //  get_string('access', 'theme_recit'), array('class' => 'card-link btn btn-primary'));
         
         $url = new moodle_url('/course/view.php', array('id' => $course->id));
-        $content .= "<a href='{$url}' class='card-link btn btn-primary' data-toggle='tooltip' title='{$name}'>";
+        $content .= "<a href='{$url}' class='card-link btn btn-primary' data-toggle='tooltip' title='{$coursename}'>";
         $content .= sprintf("%s %s", "<i class='fa fa-sign-in-alt'></i>", get_string('access', 'theme_recit'));
         $content .= "</a>";
 

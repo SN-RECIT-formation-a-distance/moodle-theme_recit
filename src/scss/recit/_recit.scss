@@ -8,7 +8,7 @@ body.drawer-open-right{
 body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
 }
-.row {margin-left: 0px!important; margin-right: 0px!important;}
+/*.row {margin-left: 0px!important; margin-right: 0px!important;}*/
 
 #sidepreopen-control{
 	top: 348px;
@@ -804,7 +804,10 @@ body.drawer-open-right #sidepreopen-control{
  *****************************/
  .block_myoverview .card-deck .myoverviewimg.courseimage{
 	background-size: contain;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;	
+ }
+ section .block_myoverview .card{
+	 border: none;
  }
 //medium+ screen sizes
  
