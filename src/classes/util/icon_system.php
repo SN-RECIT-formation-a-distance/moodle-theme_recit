@@ -203,7 +203,7 @@ class icon_system extends icon_system_font {
             'core:i/cohort' => 'fa-leople-carry',
             'core:i/competencies' => 'fa-check',
             'core:i/completion_self' => 'fa-user-o',
-            'core:i/dashboard' => 'a-tachometer-alt',
+            'core:i/dashboard' => 'fa-tachometer-alt',
             'core:i/lock' => 'fa-lock',
             'core:i/categoryevent' => 'fa-cubes',
             'core:i/course' => 'fa-graduation-cap',
