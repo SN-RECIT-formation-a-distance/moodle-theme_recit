@@ -1,6 +1,10 @@
 (function($){
     // Background parallax effect
-
+// Background parallax effect
+$(window).scroll(function () {
+    $(".c_parallax-recit, .parallax-pale-row, .parallax-dark-row").css("background-position","10% " + ($(this).scrollTop() / -10) + "px");
+});
+/*
     function isInViewport(node) {
         var rect = node.getBoundingClientRect()
         return (
@@ -26,7 +30,7 @@
                 $(this).css('background-position','center ' + parseInt(-(ratio * -0.7)) + 'px')
             }
         })
-    })
+    })*/
 
 
     // Gets the video src from the data-src on each button
@@ -38,7 +42,7 @@
     // when the modal is opened autoplay it
     $('#myModal').on('shown.bs.modal', function (e) {
     // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-        $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" );
+        $("#video").attr('src',$videoSrc + "?autoplay=0&amp;modestbranding=1&amp;showinfo=0" );
     })
     // stop playing the youtube video when I close the modal
     $('#myModal').on('hide.bs.modal', function (e) {
