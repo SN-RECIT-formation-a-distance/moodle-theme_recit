@@ -56,7 +56,11 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 .wirisembeddedtextinput {
   width: 80px !important;
 }
-section[data-recit-block="1"]{
+section[data-recit-block="1"], .editeur{
+
+	.editeur.btn-groupvvv {
+		height : 40px;
+	}
   .text_box1 {
     padding-top: 0;
     background: transparent;
