@@ -54,6 +54,8 @@ if ($coursepresentation == 2) {
     $extraclasses[] = 'coursepresentation-cover';
 }
 
+$extraclasses[] = theme_recit_get_course_theme();
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [

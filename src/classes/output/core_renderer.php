@@ -203,6 +203,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string an url
      */
     public function favicon() {
+        global $OUTPUT;
+
         $theme = theme_config::load('recit');
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
@@ -630,6 +632,70 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $html .= html_writer::end_div();
 
         return $html;
+    }
+
+ /**
+     * This is an optional menu that can be added to a layout by a theme. It contains the
+     * menu for the most specific thing from the settings block. E.g. Module administration.
+     *
+     * @return string
+     */
+    public function region_main_settings_menu() {
+        $context = $this->page->context;
+        $menu = new action_menu();
+
+        if ($context->contextlevel == CONTEXT_MODULE) {
+
+            $this->page->navigation->initialise();
+            $node = $this->page->navigation->find_active_node();
+            $buildmenu = false;
+            // If the settings menu has been forced then show the menu.
+            if ($this->page->is_settings_menu_forced()) {
+                $buildmenu = true;
+            } else if (!empty($node) && ($node->type == navigation_node::TYPE_ACTIVITY ||
+                    $node->type == navigation_node::TYPE_RESOURCE)) {
+
+                $items = $this->page->navbar->get_items();
+                $navbarnode = end($items);
+                // We only want to show the menu on the first page of the activity. This means
+                // the breadcrumb has no additional nodes.
+                if ($navbarnode && ($navbarnode->key === $node->key && $navbarnode->type == $node->type)) {
+                    $buildmenu = true;
+                }
+            }
+            if ($buildmenu) {
+                // Get the course admin node from the settings navigation.
+                $node = $this->page->settingsnav->find('modulesettings', navigation_node::TYPE_SETTING);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+            }
+
+        } else if ($context->contextlevel == CONTEXT_COURSECAT) {
+            // For course category context, show category settings menu, if we're on the course category page.
+            if ($this->page->pagetype === 'course-index-category') {
+                $node = $this->page->settingsnav->find('categorysettings', navigation_node::TYPE_CONTAINER);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+            }
+
+        } else {
+            $items = $this->page->navbar->get_items();
+            $navbarnode = end($items);
+
+            if ($navbarnode && ($navbarnode->key === 'participants')) {
+                $node = $this->page->settingsnav->find('users', navigation_node::TYPE_CONTAINER);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+
+            }
+        }
+        return $this->render($menu);
     }
 
     /**

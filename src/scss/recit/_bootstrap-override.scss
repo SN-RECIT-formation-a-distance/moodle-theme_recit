@@ -1,0 +1,44 @@
+
+/*****************************
+ * BOOTSTRAP OVERRIDE
+ *****************************/
+ .mform{
+	fieldset{
+		legend{
+			font-size: 1.2em;
+		}
+	}
+}
+
+.btn-secondary, .recit-btn, .recit-btn-style_btn_1 {
+    display: inline-block;
+    padding: 4px 10px;
+    color: $secondary;
+    border: solid 2px $secondary;
+    background: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.btn-secondary, .recit-btn-style_btn_1:hover {
+    text-decoration: none;
+    color: white;
+    border: solid 2px $secondary;
+    background: $secondary;
+}/*-- Button 2 --*/
+.btn-primary, .recit-btn, .recit-btn-style_btn_1 {
+    display: inline-block;
+    padding: 4px 10px;
+    color: $primary;
+    border: solid 2px $primary;
+    background: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.btn-primary, .recit-btn-style_btn_1:hover {
+    text-decoration: none;
+    color: white;
+    border: solid 2px $primary;
+    background: $primary;
+}/*-- Button 2 --*/

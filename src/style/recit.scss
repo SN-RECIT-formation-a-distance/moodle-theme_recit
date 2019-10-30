@@ -1,12 +1,13 @@
-// Import all scss recit files
+/*! 
+ * Theme RECIT
+ */
 @import "../scss/recit/variables";
-//@import "../scss/recit/fontawesome-free-5.11.2-web/scss/variables";
-//@import "../scss/recit/fontawesome.min";
+@import "../scss/recit/bootstrap-override";
+@import "../scss/recit/moodle-override";
 @import "../scss/recit/animate.min";
 @import "../scss/extras/transitions";
 @import "../scss/extras/simple-line-icons";
 @import "../scss/extras/animate";
-//@import "../scss/ekko-lightbox";
 @import "../scss/extras/metismenu";
 @import "../scss/recit/general";
 @import "../scss/recit/breadcrumb";
@@ -24,12 +25,6 @@
 @import "../scss/recit/responsive";
 @import "../scss/recit/stylesmbededquestionsUBEO";
 @import "../scss/recit/glossairestyleUBEO";
-//@import "recit/questionecitubeo";
 @import "../scss/recit/recit";
-/*@import "recit/timeline";*/
-/*@import "recit/jquery.mb.YTPlayer.min";*/
-//@import "recit/custom";
-//@import "../scss/recit/customrecit";
-//@import "../scss/recit/customubeo";
 @import "../scss/recit/editeur_html";
 @import "../scss/recit/recit-course-navigation";
