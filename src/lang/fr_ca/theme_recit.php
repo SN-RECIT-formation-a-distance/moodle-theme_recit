@@ -187,7 +187,7 @@ $string['clientsurldesc'] = 'Enter the client\'s site URL';
 
 // Footer settings tab.
 $string['footersettings'] = 'Pied de page';
-$string['getintouchcontent'] = 'Get In Touch Content';
+$string['getintouchcontent'] = 'Briser les murs de l\'école';
 $string['getintouchcontentdesc'] = 'Enter Get In Touch Content Text';
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Main company Website';

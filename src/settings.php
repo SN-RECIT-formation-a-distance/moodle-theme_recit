@@ -586,7 +586,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/website';
     $title = get_string('website', 'theme_recit');
     $description = get_string('websitedesc', 'theme_recit');
-    $default = 'http://conecti.me';
+    $default = 'https://rectfad.ca';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -604,7 +604,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/mail';
     $title = get_string('mail', 'theme_recit');
     $description = get_string('maildesc', 'theme_recit');
-    $default = 'willianmano@conectime.com';
+    $default = 'info@recitfad.ca';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
