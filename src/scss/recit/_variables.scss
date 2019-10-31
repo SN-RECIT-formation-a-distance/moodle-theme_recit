@@ -1,4 +1,3 @@
-$pix-path: "recit/pix/" !default;
 
 $font-family-sans-serif: 'Ubuntu', sans-serif !default;
 $subheadings-font-family:'Viga', sans-serif;
@@ -13,7 +12,7 @@ $danger:#d0181e;
 $info:#fbb140;
 $warning:#384f5c;
 $light:#f4f4f6;
-$dark:#555555;
+$dark:#373a3c;
 $color1:#000;
 $color2:#000;
 $color3:#000;
@@ -66,55 +65,3 @@ $m-instagram-color: #8a3ab9 !default;
 $carousel-control-color: $secondary !default;
 $carousel-control-prev-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z\'/%3E%3C/svg%3E" !default;
 $carousel-control-next-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z\'/%3E%3C/svg%3E" !default;
-
-
-h5 a,
-h5 a.style_btn_1 {
-    display: inline-block;
-    padding: 4px 10px;
-    color: $secondary;
-    border: solid 2px $secondary;
-    background: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-h5 a:hover,
-h5 a.style_btn_1:hover {
-    text-decoration: none;
-    color: white;
-    border: solid 2px $secondary;
-    background: $secondary;
-}
-.btn-secondary, .recit-btn, .recit-btn-style_btn_1 {
-    display: inline-block;
-    padding: 4px 10px;
-    color: $secondary;
-    border: solid 2px $secondary;
-    background: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-.btn-secondary, .recit-btn-style_btn_1:hover {
-    text-decoration: none;
-    color: white;
-    border: solid 2px $secondary;
-    background: $secondary;
-}/*-- Button 2 --*/
-.btn-primary, .recit-btn, .recit-btn-style_btn_1 {
-    display: inline-block;
-    padding: 4px 10px;
-    color: $primary;
-    border: solid 2px $primary;
-    background: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-.btn-primary, .recit-btn-style_btn_1:hover {
-    text-decoration: none;
-    color: white;
-    border: solid 2px $primary;
-    background: $primary;
-}/*-- Button 2 --*/

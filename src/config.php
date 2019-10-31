@@ -41,6 +41,7 @@ $THEME->sheets[] = "fontawesome";
 $THEME->sheets[] = "moodle-base";
 //$THEME->sheets[] = "moodle-scss";
 $THEME->sheets[] = "recit";
+
 // This is a setting that can be used to provide some styling to the content in the TinyMCE text editor. This is no longer the
 // default text editor and "Atto" does not need this setting so we won't provide anything. If we did it would work the same
 // as the previous setting - listing a file in the /styles/ folder.
@@ -77,6 +78,8 @@ $THEME->scss = function($theme) {
     return theme_recit_get_main_scss_content($theme);
 };
 
+//$THEME->csstreepostprocessor = 'theme_recit_css_tree_post_processor';
+
 // Process extra scss to our final stylesheet.
 $THEME->extrascsscallback = 'theme_recit_get_extra_scss';
 
@@ -99,26 +102,6 @@ $THEME->layouts = [
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
-    'admin' => array(
-        'file' => 'columns2.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
-		'options' => array('nofooter' => true),
-    ),
-    // The site home page.
-    'frontpage' => array(
-        'file' => 'frontpage.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => true),
-    ),
-    // My dashboard page.
-    'mydashboard' => array(
-        'file' => 'mydashboard.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),
-    ),
     // Course page.
     'course' => array(
         'file' => 'course.php',
@@ -138,6 +121,28 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
     ),
+    // The site home page.
+    'frontpage' => array(
+        'file' => 'frontpage.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter' => true, 'nonavbar' => true),
+    ),
+    // Server administration scripts.
+    'admin' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+		'options' => array('nofooter' => true),
+    ),
+    // My dashboard page.
+    'mydashboard' => array(
+        'file' => 'mydashboard.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),
+    ),
+    
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),

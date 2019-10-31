@@ -1,7 +1,15 @@
 /*#region-main.card-body {
 	padding: 0px;
 }*/
+#page-header .card{background-image:  url('[[pix:theme|banner-course]]');}
 
+body.theme-recit-francais{
+	#page-header .card{background-image:  url('[[pix:theme|banner-francais]]');}
+}
+
+body.theme-recit-histoire{
+	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]');}
+}
 body.drawer-open-right{
 	margin-right: 260px;
 }
@@ -788,27 +796,6 @@ body.drawer-open-right #sidepreopen-control{
     display: none;
 }
 
-/*****************************
- * BOOTSTRAP OVERRIDE
- *****************************/
-.mform{
-	fieldset{
-		legend{
-			font-size: 1.2em;
-		}
-	}
-}
-
-/*****************************
- * MOODLE OVERRIDE
- *****************************/
- .block_myoverview .card-deck .myoverviewimg.courseimage{
-	background-size: contain;
-	background-repeat: no-repeat;	
- }
- section .block_myoverview .card{
-	 border: none;
- }
 //medium+ screen sizes
  
 //small screen sizes

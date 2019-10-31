@@ -1,0 +1,42 @@
+/*****************************
+ * MOODLE OVERRIDE
+ *****************************/
+ .block_myoverview .card-deck .myoverviewimg.courseimage{
+	background-size: contain;
+	background-repeat: no-repeat;	
+ }
+ section .block_myoverview .card{
+	 border: none;
+ }
+
+.bg-secondary {
+	background-color: $secondary !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.bg-success {
+    background-color: $success !important;
+}
+
+.bg-danger {
+    background-color: $danger !important;
+}
+
+.bg-warning {
+    background-color: $warning !important;
+}
+
+.bg-info {
+    background-color: $info !important;
+}
+
+.bg-dark {
+    background-color: $dark !important;
+}
+
+.bg-pale {
+    background-color: $light !important;
+}

@@ -25,12 +25,13 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
+require_once(__DIR__ ."/classes/admin_settingspage_tabs.php");
+
 // This is used for performance, we don't need to know about these settings on every page in Moodle, only when
 // we are looking at the admin settings pages.
 if ($ADMIN->fulltree) {
 
-    // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingrecit', get_string('configtitle', 'theme_recit'));
+    $settings = new theme_recit_admin_settingspage_tabs('themesettingrecit', get_string('configtitle', 'theme_recit'));
 
     /*
     * ----------------------
@@ -58,7 +59,7 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Preset.
-    $name = 'theme_recit/preset';
+    /*$name = 'theme_recit/preset';
     $title = get_string('preset', 'theme_recit');
     $description = get_string('preset_desc', 'theme_recit');
     $default = 'default.scss';
@@ -77,16 +78,16 @@ if ($ADMIN->fulltree) {
 
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Preset files setting.
-    $name = 'theme_recit/presetfiles';
+    /*$name = 'theme_recit/presetfiles';
     $title = get_string('presetfiles', 'theme_recit');
     $description = get_string('presetfiles_desc', 'theme_recit');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
         array('maxfiles' => 20, 'accepted_types' => array('.scss')));
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Login page background image.
     $name = 'theme_recit/loginbgimg';
@@ -114,6 +115,17 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
+
+    // Course theme.
+    /*$name = 'theme_recit/coursetheme';
+    $title = get_string('coursetheme', 'theme_recit');
+    $description = get_string('coursethemedesc', 'theme_recit');
+    $options = [];
+    $options['theme-recit-francais'] = get_string('themeFrancais', 'theme_recit');
+    $options['theme-recit-histoire'] = get_string('themeHistoire', 'theme_recit');
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);*/
 
     // Course format option.
     $name = 'theme_recit/coursepresentation';

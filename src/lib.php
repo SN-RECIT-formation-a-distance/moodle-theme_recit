@@ -30,10 +30,10 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $tree The CSS tree.
  * @param theme_config $theme The theme config object.
  */
-function theme_recit_css_tree_post_processor($tree, $theme) {
+/*function theme_recit_css_tree_post_processor($tree, $theme) {
     $prefixer = new theme_recit\autoprefixer($tree);
     $prefixer->prefix();
-}
+}*/
 
 /**
  * Inject additional SCSS.
@@ -41,13 +41,13 @@ function theme_recit_css_tree_post_processor($tree, $theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_get_extra_scss($theme) {
+function theme_recit_get_extra_scss($theme) { 
     $scss = $theme->settings->scss;
 
     $scss .= theme_recit_set_headerimg($theme);
     $scss .= theme_recit_set_topfooterimg($theme);
     $scss .= theme_recit_set_loginbgimg($theme);
-    $scss .= theme_recit_set_course_banner_img($theme);
+    //$scss .= theme_recit_set_course_banner_img($theme);
 
     return $scss;
 }
@@ -118,7 +118,7 @@ function theme_recit_set_loginbgimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_set_course_banner_img($theme) {
+/*function theme_recit_set_course_banner_img($theme) {
     global $OUTPUT;
 
     $img = $theme->setting_file_url('coursebanner', 'coursebanner');
@@ -130,7 +130,7 @@ function theme_recit_set_course_banner_img($theme) {
     $css = "#page-header .card{background-image: url('$img');}";
 
     return $css;
-}
+}*/
 
 /**
  * Returns the main SCSS content.
@@ -139,13 +139,13 @@ function theme_recit_set_course_banner_img($theme) {
  * @return string
  */
 function theme_recit_get_main_scss_content($theme) {
-    /*global $CFG;
+    global $CFG;
 
     $scss = '';
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();
+   /* $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
+    $fs = get_file_storage();*/
 
-    $context = context_system::instance();
+    /*$context = context_system::instance();
     if ($filename == 'default.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
@@ -156,26 +156,26 @@ function theme_recit_get_main_scss_content($theme) {
     } else {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
-    }
+    }*/
 
     //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
     //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
     //$scss .= theme_recit_get_precompiled_css();
 
-    if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
+    /*if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
-        var_dump($presetfile->get_content());
         $scss .= $presetfile->get_content();
-    } 
+    } */
 
     // Recit scss.
     //$recitvariables = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
-    $recit = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit.scss');
+    //$recit = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit.scss');
 
     // Combine them together.
-    //return $recitvariables . "\n" . $scss . "\n" . $recit;
-    return $scss . "\n" . $recit;*/
-    return "";
+    //return $scss . "\n" . $recit;
+    //return $scss . "\n" . $recit;
+
+    return $scss;
 }
 
 /*
@@ -212,10 +212,10 @@ function theme_recit_get_local_scss_content($theme, $variables) {
  *
  * @return string compiled css
  */
-function theme_recit_get_precompiled_css() {
+/*function theme_recit_get_precompiled_css() {
     global $CFG;
     return file_get_contents($CFG->dirroot . '/theme/recit/style/moodle.css');
-}
+}*/
 
 /**
  * Get SCSS to prepend.
@@ -317,6 +317,25 @@ function theme_recit_get_setting($setting, $format = false) {
     }
 }
 
+/**
+ * Get course theme name
+ *
+ * @param string $setting
+ * @param bool $format
+ * @return string
+ */
+function theme_recit_get_course_theme() {
+    global $COURSE;
+
+    switch($COURSE->theme){
+        case 'recit_francais':
+            return 'theme-recit-francais';
+        case 'recit_histoire':
+            return 'theme-recit-histoire';
+        default: 
+            return "theme-recit";
+    }
+}
 
 /**
  * Extend the Recit navigation
@@ -326,7 +345,7 @@ function theme_recit_get_setting($setting, $format = false) {
 function theme_recit_extend_flat_navigation(\flat_navigation $flatnav) {
     theme_recit_rebuildcoursesections($flatnav);
     theme_recit_delete_menuitems($flatnav);
-    theme_recit_add_user_menu($flatnav);
+    theme_recit_add_user_menu($flatnav);   
 }
 
 function theme_recit_add_user_menu(\flat_navigation $flatnav) {
