@@ -26,14 +26,15 @@
 }
 
 #sidepreopen-control {
-    background-color: $brand-primary;
+    background-color: $primary;
     position: fixed;
-    right: -15px;
+    right: -40px;
     top: 300px;
     color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    width: 70px;
+    height: 64px;
+    line-height: 50px;
+    border-radius: 50px;
     font-size: 20px;
     padding: 8px 0 0 4px;
     cursor: pointer;
@@ -54,6 +55,48 @@
     &:hover {
         box-shadow: 0 0 6px $brand-primary;
     }
+}
+
+body.drawer-open-right #sidepreopen-control{
+	right: 260px;
+}
+
+
+#sidepre-blocks{
+	overflow-y: auto;
+    width: 300px;
+    
+    //background-color: rgba(0, 0, 0, 0.5);
+    
+    /*#block-region-side-pre{
+        .card{
+            background-color: transparent;
+            border: none;
+            margin-bottom: 10px;
+            .card-body{
+                padding: 0px;
+                h5{
+                    display: inline-block!important;
+                    width: 100%;
+                    line-height: 32px;
+                    color: white;
+                    background-color: black;
+                    padding: 16px;
+                    margin-bottom: 0px;
+                }
+                .card-text{
+                    padding: 16px;
+                    background-color: #ebedee;
+                }
+                .unlist{
+                    padding-left: 0px;
+                    a{
+                        color: $body-color;                        
+                    }
+                }
+            }
+        }
+    }*/
 }
 
 [data-region="blocks-column"] {

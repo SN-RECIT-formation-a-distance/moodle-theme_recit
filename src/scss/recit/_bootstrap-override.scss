@@ -10,6 +10,15 @@
 	}
 }
 
+.card{
+    .card-header{
+        color: #FFF;
+        padding: 7px;
+        background-color: $primary;
+    }
+    .card-footer{padding: 7px;}
+}
+
 .btn-secondary, .recit-btn, .recit-btn-style_btn_1 {
     display: inline-block;
     padding: 4px 10px;
