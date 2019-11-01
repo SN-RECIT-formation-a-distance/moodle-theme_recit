@@ -65,3 +65,99 @@ $m-instagram-color: #8a3ab9 !default;
 $carousel-control-color: $secondary !default;
 $carousel-control-prev-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z\'/%3E%3C/svg%3E" !default;
 $carousel-control-next-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z\'/%3E%3C/svg%3E" !default;
+
+/*CSS propre à chaque thème de cours*/
+
+/*Bouton RÉCIT*/
+section[data-recit-block="1"] {
+  .btn-default, .recit-btn-primary{
+    color: $secondary;
+    border: solid 2px $secondary;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-primary:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-primary{
+  color: white;
+  }
+  .recit-btn-secondary{
+    color: $secondary;
+    border: solid 2px $secondary;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-secondary:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-secondary{
+  color: white;
+  }
+  .recit-btn-danger{
+    color: $danger;
+    border: solid 2px $danger;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-danger:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-danger{
+  color: white;
+  }
+
+  .recit-btn-success{
+    color: $success;
+    border: solid 2px $success;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-success:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-success{
+  color: white;
+  }
+  .recit-btn-warning{
+    color: $warning;
+    border: solid 2px $warning;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-warning:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-warning{
+  color: white;
+  }
+  .recit-btn-info{
+    color: $info;
+    border: solid 2px $info;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+  }
+  .recit-btn-info:hover{
+  border: solid 4px white;
+  }
+  .recit-btn-info{
+  color: white;
+  }
+  
+  
+  
+  
+  
+}
