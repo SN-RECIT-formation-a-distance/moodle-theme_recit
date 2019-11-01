@@ -113,42 +113,6 @@ Pages
     }
 }
 
-#sidepre-blocks{
-	overflow-y: scroll;
-	width: 265px;
-    //background-color: rgba(0, 0, 0, 0.5);
-    
-    #block-region-side-pre{
-        .card{
-            background-color: transparent;
-            border: none;
-            margin-bottom: 10px;
-            .card-body{
-                padding: 0px;
-                h5{
-                    display: inline-block!important;
-                    width: 100%;
-                    line-height: 32px;
-                    color: white;
-                    background-color: black;
-                    padding: 16px;
-                    margin-bottom: 0px;
-                }
-                .card-text{
-                    padding: 16px;
-                    background-color: #ebedee;
-                }
-                .unlist{
-                    padding-left: 0px;
-                    a{
-                        color: $body-color;                        
-                    }
-                }
-            }
-        }
-    }
-}
-
 /* recit icons */
 /*.icon {
     font-size: 16px;
