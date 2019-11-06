@@ -100,21 +100,21 @@ if ($ADMIN->fulltree) {
 
     // Variable $brand-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_recit/brandcolor';
+   /* $name = 'theme_recit/brandcolor';
     $title = get_string('brandcolor', 'theme_recit');
     $description = get_string('brandcolor_desc', 'theme_recit');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-
+*/
     // Variable $navbar-header-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_recit/navbarheadercolor';
+    /*$name = 'theme_recit/navbarheadercolor';
     $title = get_string('navbarheadercolor', 'theme_recit');
     $description = get_string('navbarheadercolor_desc', 'theme_recit');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Course theme.
     /*$name = 'theme_recit/coursetheme';
@@ -127,7 +127,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);*/
 
-    // Course format option.
+    /* Course format option.
     $name = 'theme_recit/coursepresentation';
     $title = get_string('coursepresentation', 'theme_recit');
     $description = get_string('coursepresentationdesc', 'theme_recit');
@@ -142,7 +142,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('courselistview', 'theme_recit');
     $description = get_string('courselistviewdesc', 'theme_recit');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Must add the page after definiting all the settings!
     $settings->add($page);
@@ -194,16 +194,16 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Bannerheading.
-    $name = 'theme_recit/bannerheading';
+  /*  $name = 'theme_recit/bannerheading';
     $title = get_string('bannerheading', 'theme_recit');
     $description = get_string('bannerheadingdesc', 'theme_recit');
     $default = 'Perfect Learning System';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Bannercontent.
-    $name = 'theme_recit/bannercontent';
+   /* $name = 'theme_recit/bannercontent';
     $title = get_string('bannercontent', 'theme_recit');
     $description = get_string('bannercontentdesc', 'theme_recit');
     $default = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
@@ -217,183 +217,183 @@ if ($ADMIN->fulltree) {
     $default = 0;
     $choices = array(0 => 'No', 1 => 'Yes');
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing1icon.
-    $name = 'theme_recit/marketing1icon';
+   /* $name = 'theme_recit/marketing1icon';
     $title = get_string('marketing1icon', 'theme_recit');
     $description = get_string('marketing1icondesc', 'theme_recit');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing1icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing1heading.
-    $name = 'theme_recit/marketing1heading';
+   /* $name = 'theme_recit/marketing1heading';
     $title = get_string('marketing1heading', 'theme_recit');
     $description = get_string('marketing1headingdesc', 'theme_recit');
     $default = 'We host';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing1subheading.
-    $name = 'theme_recit/marketing1subheading';
+  /*  $name = 'theme_recit/marketing1subheading';
     $title = get_string('marketing1subheading', 'theme_recit');
     $description = get_string('marketing1subheadingdesc', 'theme_recit');
     $default = 'your MOODLE';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing1content.
-    $name = 'theme_recit/marketing1content';
+    /*$name = 'theme_recit/marketing1content';
     $title = get_string('marketing1content', 'theme_recit');
     $description = get_string('marketing1contentdesc', 'theme_recit');
     $default = 'Moodle hosting in a powerful cloud infrastructure';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing1url.
-    $name = 'theme_recit/marketing1url';
+  /*  $name = 'theme_recit/marketing1url';
     $title = get_string('marketing1url', 'theme_recit');
     $description = get_string('marketing1urldesc', 'theme_recit');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing2icon.
-    $name = 'theme_recit/marketing2icon';
+ /*   $name = 'theme_recit/marketing2icon';
     $title = get_string('marketing2icon', 'theme_recit');
     $description = get_string('marketing2icondesc', 'theme_recit');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing2icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing2heading.
-    $name = 'theme_recit/marketing2heading';
+   /* $name = 'theme_recit/marketing2heading';
     $title = get_string('marketing2heading', 'theme_recit');
     $description = get_string('marketing2headingdesc', 'theme_recit');
     $default = 'Consulting';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing2subheading.
-    $name = 'theme_recit/marketing2subheading';
+    /*$name = 'theme_recit/marketing2subheading';
     $title = get_string('marketing2subheading', 'theme_recit');
     $description = get_string('marketing2subheadingdesc', 'theme_recit');
     $default = 'for your company';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing2content.
-    $name = 'theme_recit/marketing2content';
+ /*   $name = 'theme_recit/marketing2content';
     $title = get_string('marketing2content', 'theme_recit');
     $description = get_string('marketing2contentdesc', 'theme_recit');
     $default = 'Moodle consulting and training for you';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing2url.
-    $name = 'theme_recit/marketing2url';
+   /* $name = 'theme_recit/marketing2url';
     $title = get_string('marketing2url', 'theme_recit');
     $description = get_string('marketing2urldesc', 'theme_recit');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing3icon.
-    $name = 'theme_recit/marketing3icon';
+  /*  $name = 'theme_recit/marketing3icon';
     $title = get_string('marketing3icon', 'theme_recit');
     $description = get_string('marketing3icondesc', 'theme_recit');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing3icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing3heading.
-    $name = 'theme_recit/marketing3heading';
+   /* $name = 'theme_recit/marketing3heading';
     $title = get_string('marketing3heading', 'theme_recit');
     $description = get_string('marketing3headingdesc', 'theme_recit');
     $default = 'Development';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing3subheading.
-    $name = 'theme_recit/marketing3subheading';
+  /*  $name = 'theme_recit/marketing3subheading';
     $title = get_string('marketing3subheading', 'theme_recit');
     $description = get_string('marketing3subheadingdesc', 'theme_recit');
     $default = 'themes and plugins';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing3content.
-    $name = 'theme_recit/marketing3content';
+   /* $name = 'theme_recit/marketing3content';
     $title = get_string('marketing3content', 'theme_recit');
     $description = get_string('marketing3contentdesc', 'theme_recit');
     $default = 'We develop themes and plugins as your desires';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing3url.
-    $name = 'theme_recit/marketing3url';
+  /*  $name = 'theme_recit/marketing3url';
     $title = get_string('marketing3url', 'theme_recit');
     $description = get_string('marketing3urldesc', 'theme_recit');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing4icon.
-    $name = 'theme_recit/marketing4icon';
+   /* $name = 'theme_recit/marketing4icon';
     $title = get_string('marketing4icon', 'theme_recit');
     $description = get_string('marketing4icondesc', 'theme_recit');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing4icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing4heading.
-    $name = 'theme_recit/marketing4heading';
+   /* $name = 'theme_recit/marketing4heading';
     $title = get_string('marketing4heading', 'theme_recit');
     $description = get_string('marketing4headingdesc', 'theme_recit');
     $default = 'Support';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing4subheading.
-    $name = 'theme_recit/marketing4subheading';
+  /*  $name = 'theme_recit/marketing4subheading';
     $title = get_string('marketing4subheading', 'theme_recit');
     $description = get_string('marketing4subheadingdesc', 'theme_recit');
     $default = 'we give you answers';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing4content.
-    $name = 'theme_recit/marketing4content';
+    /*$name = 'theme_recit/marketing4content';
     $title = get_string('marketing4content', 'theme_recit');
     $description = get_string('marketing4contentdesc', 'theme_recit');
     $default = 'MOODLE specialized support';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Marketing4url.
-    $name = 'theme_recit/marketing4url';
+   /* $name = 'theme_recit/marketing4url';
     $title = get_string('marketing4url', 'theme_recit');
     $description = get_string('marketing4urldesc', 'theme_recit');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Enable or disable Slideshow settings.
     $name = 'theme_recit/sliderenabled';
@@ -454,15 +454,15 @@ if ($ADMIN->fulltree) {
     }
 
     // Enable or disable Slideshow settings.
-    $name = 'theme_recit/numbersfrontpage';
+    /*$name = 'theme_recit/numbersfrontpage';
     $title = get_string('numbersfrontpage', 'theme_recit');
     $description = get_string('numbersfrontpagedesc', 'theme_recit');
     $default = 1;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Enable sponsors on frontpage guest page.
-    $name = 'theme_recit/sponsorsfrontpage';
+   /* $name = 'theme_recit/sponsorsfrontpage';
     $title = get_string('sponsorsfrontpage', 'theme_recit');
     $description = get_string('sponsorsfrontpagedesc', 'theme_recit');
     $default = 0;
@@ -517,10 +517,10 @@ if ($ADMIN->fulltree) {
         $description = get_string('sponsorsurldesc', 'theme_recit');
         $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
         $page->add($setting);
-    }
+    }*/
 
     // Enable clients on frontpage guest page.
-    $name = 'theme_recit/clientsfrontpage';
+  /*  $name = 'theme_recit/clientsfrontpage';
     $title = get_string('clientsfrontpage', 'theme_recit');
     $description = get_string('clientsfrontpagedesc', 'theme_recit');
     $default = 0;
@@ -575,7 +575,7 @@ if ($ADMIN->fulltree) {
         $description = get_string('clientsurldesc', 'theme_recit');
         $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
         $page->add($setting);
-    }
+    }*/
 
     $settings->add($page);
 
@@ -607,7 +607,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/mobile';
     $title = get_string('mobile', 'theme_recit');
     $description = get_string('mobiledesc', 'theme_recit');
-    $default = 'Mobile : +55 (98) 00123-45678';
+    $default = '418-228-5541';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -676,23 +676,23 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Top footer background image.
-    $name = 'theme_recit/topfooterimg';
+  /* $name = 'theme_recit/topfooterimg';
     $title = get_string('topfooterimg', 'theme_recit');
     $description = get_string('topfooterimgdesc', 'theme_recit');
     $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'topfooterimg', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Disable bottom footer.
     $name = 'theme_recit/disablebottomfooter';
     $title = get_string('disablebottomfooter', 'theme_recit');
     $description = get_string('disablebottomfooterdesc', 'theme_recit');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
     $page->add($setting);
     $setting->set_updatedcallback('theme_reset_all_caches');
 
-    $settings->add($page);
+ /*   $settings->add($page);
 
     // Forum page.
     $settingpage = new admin_settingpage('theme_recit_forum', get_string('forumsettings', 'theme_recit'));
@@ -724,5 +724,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $settingpage->add($setting);
 
-    $settings->add($settingpage);
+    $settings->add($settingpage);*/
 }
