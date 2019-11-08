@@ -1,0 +1,123 @@
+body.theme-recit-francais{
+	#page-header .card{background-image:  url('[[pix:theme|banner-francais]]');}
+}
+
+body.theme-recit-histoire{
+	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]');}
+}
+
+body.theme-recit-mathematique{
+	#page-header .card{background-image:  url('[[pix:theme|banner-mathematique]]');}
+	/*-------------------------------*\
+    Buttons - Bars
+\*-------------------------------*/
+/*-- Button 1 --*/
+.recit-btn,.recit-btn-style_btn_1,h5 a,
+h5 a.style_btn_1,
+.submit.btn.btn-default {
+    display: inline-block;
+    padding: 12px 12px 14px;
+    margin: 0 2px 4px 2px;
+    color: $theme_color1;
+    border: solid 1px $theme_color1;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: #ffffff;
+    background: -moz-linear-gradient(-70deg,  #ffffff 0%, #ffffff 50%, #e3ebeb 50%, #e3ebeb 100%);
+    background: -webkit-linear-gradient(-70deg,  #ffffff 0%,#ffffff 50%,#e3ebeb 50%,#e3ebeb 100%);
+    background: linear-gradient(160deg,  #ffffff 0%,#ffffff 50%,#e3ebeb 50%,#e3ebeb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3ebeb',GradientType=1 );
+}
+.submit.btn.btn-default {
+    padding: 12px 12px 11px;
+}
+.recit-btn-style_btn_1:hover,h5 a:hover,
+h5 a.style_btn_1:hover {
+    color: $theme_color1;
+    border: solid 1px $theme_color1;
+    text-decoration: none;
+    background: #e1e3e4;
+    background: -moz-linear-gradient(-70deg,  #e1e3e4 0%, #e1e3e4 50%, #cdd4d4 50%, #cdd4d4 100%);
+    background: -webkit-linear-gradient(-70deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    background: linear-gradient(160deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e3e4', endColorstr='#cdd4d4',GradientType=1 );
+}
+/*-- Button 2 --*/
+.recit-btn-style_btn_2,h5 a.style_btn_2,
+.submit.btn.btn-default {
+    color: $theme_color4;
+    border: solid 1px $theme_color4;
+    background: #ffffff;
+    background: -moz-linear-gradient(-70deg,  #ffffff 0%, #ffffff 50%, #edf7ec 50%, #edf7ec 100%);
+    background: -webkit-linear-gradient(-70deg,  #ffffff 0%,#ffffff 50%,#edf7ec 50%,#edf7ec 100%);
+    background: linear-gradient(160deg,  #ffffff 0%,#ffffff 50%,#edf7ec 50%,#edf7ec 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edf7ec',GradientType=1 );
+}
+.recit-btn-style_btn_5:hover,h5 a.style_btn_2:hover,
+.submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+    color: $theme_color4;
+    border: solid 1px $theme_color4;
+    background: #e1e3e4;
+    background: -moz-linear-gradient(-70deg,  #e1e3e4 0%, #e1e3e4 50%, #cdd4d4 50%, #cdd4d4 100%);
+    background: -webkit-linear-gradient(-70deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    background: linear-gradient(160deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e3e4', endColorstr='#cdd4d4',GradientType=1 );
+}
+/*-- Button 3 --*/
+.recit-btn-style_btn_3,h5 a.style_btn_3 {
+    color: $theme_color3;
+    border: solid 1px $theme_color3;
+    background: #ffffff;
+    background: -moz-linear-gradient(-70deg,  #ffffff 0%, #ffffff 50%, #edf7ec 50%, #edf7ec 100%);
+    background: -webkit-linear-gradient(-70deg,  #ffffff 0%,#ffffff 50%,#edf7ec 50%,#edf7ec 100%);
+    background: linear-gradient(160deg,  #ffffff 0%,#ffffff 50%,#edf7ec 50%,#edf7ec 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edf7ec',GradientType=1 );
+}
+.recit-btn-style_btn_3:hover,h5 a.style_btn_3:hover {
+    color: $theme_color3;
+    border: solid 1px $theme_color3;
+    background: #e1e3e4;
+    background: -moz-linear-gradient(-70deg,  #e1e3e4 0%, #e1e3e4 50%, #cdd4d4 50%, #cdd4d4 100%);
+    background: -webkit-linear-gradient(-70deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    background: linear-gradient(160deg,  #e1e3e4 0%,#e1e3e4 50%,#cdd4d4 50%,#cdd4d4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e3e4', endColorstr='#cdd4d4',GradientType=1 );
+}
+/*-- Button 4 --*/
+.recit-btn-style_btn_4,h5 a.style_btn_4 {
+    color: $white;
+    border: solid 1px $theme_color1;
+    background: $theme_color1;
+}
+.recit-btn-style_btn_4:hover,h5 a.style_btn_4:hover {
+    color: $white;
+    border: solid 1px $black;
+    background: $black;
+}
+/*-- Button 5 --*/
+.recit-btn-style_btn_5,h5 a.style_btn_5 {
+    color: $white;
+    border: solid 1px $theme_color4;
+    background: $theme_color4;
+}
+.recit-btn-style_btn_5:hover,h5 a.style_btn_5:hover {
+    color: $white;
+    border: solid 1px $black;
+    background: $black;
+}
+/*-- Button 6 --*/
+.recit-btn-style_btn_6,h5 a.style_btn_6 {
+    color: $black;
+    border: solid 1px $theme_color2;
+    background: $theme_color2;
+}
+.recit-btn-style_btn_6:hover,h5 a.style_btn_6:hover {
+    color: $white;
+    border: solid 1px $black;
+    background: $black;
+}
+}
+
+body.theme-recit-science{
+	#page-header .card{background-image:  url('[[pix:theme|banner-science]]');}
+}

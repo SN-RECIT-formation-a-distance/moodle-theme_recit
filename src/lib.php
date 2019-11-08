@@ -328,7 +328,17 @@ function theme_recit_get_course_theme() {
     global $COURSE;
 
     switch($COURSE->theme){
-        case 'recit_francais':
+        case 'recit_art':
+            return 'theme-recit-art';
+		case 'recit_ecr':
+            return 'theme-recit-ecr';
+		case 'recit_mathematique':
+            return 'theme-recit-mathematique';
+		case 'recit_science':
+            return 'theme-recit-science';
+		case 'recit_anglais':
+            return 'theme-recit-anglais';
+		case 'recit_francais':
             return 'theme-recit-francais';
         case 'recit_histoire':
             return 'theme-recit-histoire';
