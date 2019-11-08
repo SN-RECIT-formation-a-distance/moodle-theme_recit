@@ -4,6 +4,7 @@
 @import "../scss/recit/variables";
 @import "../scss/recit/bootstrap-override";
 @import "../scss/recit/moodle-override";
+@import "../scss/recit/_vendor.scss";
 @import "../scss/recit/animate.min";
 @import "../scss/extras/transitions";
 @import "../scss/extras/simple-line-icons";
@@ -28,3 +29,4 @@
 @import "../scss/recit/recit";
 @import "../scss/recit/editeur_html";
 @import "../scss/recit/recit-course-navigation";
+
