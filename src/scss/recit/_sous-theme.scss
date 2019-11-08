@@ -1,9 +1,286 @@
 body.theme-recit-francais{
-	#page-header .card{background-image:  url('[[pix:theme|banner-francais]]') no-repeat right center;}
+    #page-header .card{background-image:  url('[[pix:theme|banner-francais]]') no-repeat right center;}
+    
+    
+/*-------------------------------*\
+    Buttons - Bars
+\*-------------------------------*/
+/*-- Button 1 --*/
+h5 a,
+h5 a.style_btn_1 {
+    display: inline-block;
+    padding: 4px 10px;
+    color: $theme_color4;
+    border: solid 2px $theme_color4;
+    background: $white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+h5 a:hover,
+h5 a.style_btn_1:hover {
+    text-decoration: none;
+    color: $white;
+    border: solid 2px $theme_color4;
+    background: $theme_color4;
+}
+.recit-btn, .recit-btn-style_btn_1 {
+    display: inline-block;
+    padding: 4px 10px;
+    color: $theme_color4;
+    border: solid 2px $theme_color4;
+    background: $white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+.recit-btn-style_btn_1:hover {
+    text-decoration: none;
+    color: $white;
+    border: solid 2px $theme_color4;
+    background: $theme_color4;
+}/*-- Button 2 --*/
+.recit-btn-style_btn_2, h5 a.style_btn_2 {
+    color: $theme_color3;
+    border: solid 2px $theme_color3;
+    background: $white;
+}
+.recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+    color: $white;
+    border: solid 2px $theme_color3;
+    background: $theme_color3;
+}
+/*-- Button 3 --*/
+.recit-btn-style_btn_3, h5 a.style_btn_3 {
+    color: $theme_color1;
+    border: solid 2px $theme_color1;
+    background: $white;
+}
+.recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
+    color: $white;
+    border: solid 2px $theme_color1;
+    background: $theme_color1;
+}
+/*-- Button 4 --*/
+.recit-btn-style_btn_4, h5 a.style_btn_4 {
+    color: $theme_color1;
+    border: solid 2px $theme_color2;
+    background: $theme_color2;
+}
+.recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
+    color: $white;
+    border: solid 2px $theme_color1;
+    background: $theme_color1;
+}
+/*-- Button 5 --*/
+.recit-btn-style_btn_5, h5 a.style_btn_5 {
+    color: $white;
+    border: solid 2px $theme_color3;
+    background: $theme_color3;
+}
+.recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
+    color: $white;
+    border: solid 2px $theme_color1;
+    background: $theme_color1;
+}
+/*-- Button 6 --*/
+.recit-btn-style_btn_6,h5 a.style_btn_6 {
+    color: $white;
+    border: solid 2px $theme_color4;
+    background: $theme_color4;
+}
+.recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
+    color: $white;
+    border: solid 2px $theme_color1;
+    background: $theme_color1;
+}
+/*-------------------------------*\
+    Custom rows styles
+\*-------------------------------*/
+.color-row {
+    background: #004e95;
+}
+.diago-row {
+    background: #0057a7;
+    background: -moz-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+    background: -webkit-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+    background: linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#004e95",endColorstr="#0057a7",GradientType=1);
+}
+.degrade-row {
+    background: rgb(0,58,109);
+    background: -moz-linear-gradient(45deg,  rgba(0,58,109,1) 0%, rgba(19,97,165,1) 100%);
+    background: -webkit-linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
+    background: linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003a6d', endColorstr='#1361a5',GradientType=1 );
+}
+
+
+@media screen and (min-width: 992px) {
+    h5 a {
+        padding: 6px 14px;
+    }
+}
 }
 
 body.theme-recit-histoire{
 	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]') no-repeat right center;}
+
+    
+h5 a,
+h5 a.style_btn_1 {
+    display: inline-block;
+    padding: 12px 12px 14px;
+    margin: 0 2px 4px 2px;
+    -moz-transform:    skewX(15deg) !important;
+    -webkit-transform: skewX(15deg) !important;
+    -o-transform:      skewX(15deg) !important;
+    transform:         skewX(15deg) !important;
+    color: $dark;
+    border-left: solid 5px $theme_color2;
+    background: #fff;
+}
+h5 a:hover,
+h5 a.style_btn_1:hover {
+    color: $white;
+    text-decoration: none;
+    border-left: solid 5px $theme_color2;
+    background: $theme_color1;
+}
+
+.recit-btn, .recit-btn-style_btn_1 {
+    display: inline-block;
+    padding: 12px 12px 14px;
+    margin: 0 2px 4px 2px;
+    -moz-transform:    skewX(15deg) !important;
+    -webkit-transform: skewX(15deg) !important;
+    -o-transform:      skewX(15deg) !important;
+    transform:         skewX(15deg) !important;
+    color: $dark;
+    border-left: solid 5px $theme_color2;
+    background: #fff;
+}
+.recit-btn-style_btn_1:hover {
+    color: $white;
+    text-decoration: none;
+    border-left: solid 5px $theme_color2;
+background: $theme_color1;}
+/*-- Button 2 --*/
+.recit-btn-style_btn_2, h5 a.style_btn_2 {
+    border-left: solid 5px $theme_color1;
+}
+.recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+    color: $white;
+    border-left: solid 5px $theme_color1;
+    background: $theme_color2;
+}
+/*-- Button 3 --*/
+h5 a.style_btn_3 {
+    color: $white;
+    border-left: solid 5px $theme_color1;
+    background: $dark;
+}
+h5 a.style_btn_3:hover {
+    color: $white;
+    border-left: solid 5px $theme_color2;
+    background: $dark;
+}
+/*-- Button 4 --*/
+h5 a.style_btn_4 {
+    color: $dark;
+    border-left: solid 5px $white;
+    border-right: solid 5px $white;
+    background: $white;
+}
+h5 a.style_btn_4:hover {
+    color: $white;
+    border-left: solid 5px $dark;
+    border-right: solid 5px $dark;
+    background: $dark;
+}
+/*-- Button 5 --*/
+h5 a.style_btn_5 {
+    color: $white;
+    border-left: solid 5px $theme_color1;
+    border-right: solid 5px $theme_color1;
+    background: $theme_color1;
+}
+h5 a.style_btn_5:hover {
+    color: $theme_color1;
+    border-left: solid 5px $white;
+    border-right: solid 5px $white;
+    background: $white;
+}
+/*-- Button 6 --*/
+h5 a.style_btn_6 {
+    color: $white;
+    border-left: solid 5px $theme_color2;
+    border-right: solid 5px $theme_color2;
+    background: $theme_color2;
+}
+h5 a.style_btn_6:hover {
+    color: $theme_color2;
+    border-left: solid 5px $white;
+    border-right: solid 5px $white;
+    background: $white;
+}
+
+h5 a strong {
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    -moz-transform:    skewX(-15deg) !important;
+    -webkit-transform: skewX(-15deg) !important;
+    -o-transform:      skewX(-15deg) !important;
+    transform:         skewX(-15deg) !important;
+    background: none;
+}
+
+.recit-btn {
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    -moz-transform:    skewX(-15deg) !important;
+    -webkit-transform: skewX(-15deg) !important;
+    -o-transform:      skewX(-15deg) !important;
+    transform:         skewX(-15deg) !important;
+    background: none;
+}
+
+@media screen and (min-width: 768px) {
+    h4 strong {
+        padding: 14px 52px 16px 0;
+    }
+    h4 strong:after {
+        display: block;
+        width: 60px;
+        height: 100%;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -28px;
+        transform: skewX(15deg);
+        background: $theme_color2;
+        z-index: 2;
+    }
+    h4 strong:before {
+        display: block;
+        width: 1000px;
+        height: 100%;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -998px;
+        background: $theme_color2;
+        z-index: 2;
+    }
+    h4 strong:after {
+        left: auto;
+        right: -28px;
+    }
+}
+
+
 }
 
 body.theme-recit-mathematique{
