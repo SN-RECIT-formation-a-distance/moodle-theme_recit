@@ -10,8 +10,17 @@ body.theme-recit-francais{
 body.theme-recit-histoire{
 	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]');}
 }
+
+body.theme-recit-mathmatique{
+	#page-header .card{background-image:  url('[[pix:theme|banner-mathematique]]');}
+}
 body.drawer-open-right{
 	margin-right: 260px;
+}
+#page-header {
+	    .page-header-headings h1 {
+        font-family: $headings-font-family !important;
+          }
 }
 body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
