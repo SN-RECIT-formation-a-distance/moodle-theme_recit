@@ -56,7 +56,7 @@ if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinb
 
     $extraclasses = [];
 }
-
+$extraclasses[] = theme_recit_get_course_theme();
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [

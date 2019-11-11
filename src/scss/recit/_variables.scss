@@ -70,7 +70,7 @@ $carousel-control-next-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'
 /*CSS propre à chaque thème de cours*/
 
 /*Bouton RÉCIT*/
-section[data-recit-block="1"] , :not(.section0){
+/*section[data-recit-block="1"] , :not(.section0){
   .btn-default, .recit-btn-primary{
     color: $secondary;
     border: solid 2px $secondary;
@@ -156,5 +156,5 @@ section[data-recit-block="1"] , :not(.section0){
   .recit-btn-info{
   color: white;
   }
-}
+}*/
 
