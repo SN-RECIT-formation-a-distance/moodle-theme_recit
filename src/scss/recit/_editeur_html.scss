@@ -99,6 +99,9 @@ section[data-recit-block="1"], .editeur{
     }
 
     
+.moodle-dialogue {
+z-index: 1000!important;
+}
 
 
     /*-------------------------------*\
@@ -938,7 +941,7 @@ section[data-recit-block="1"], .editeur{
     }
 
     /*Bouton RÉCIT*/
-    .btn-default, .recit-btn-primary{
+    /*.btn-default, .recit-btn-primary{
       color: $secondary;
       border: solid 2px $secondary;
       -webkit-border-radius: 30px;
@@ -1022,7 +1025,7 @@ section[data-recit-block="1"], .editeur{
     }
     .recit-btn-info{
     color: white;
-    }
+    }*/
 
 
 
@@ -2102,6 +2105,111 @@ section[data-recit-block="1"], .editeur{
       }
 }
 
+
+.recit-alert{
+  position: absolute;
+  padding-right: 55px;
+padding-left: 30px;
+  width: 80%;
+  padding-bottom: 20px;
+font-family: $subheadings-font-family;
+  border-radius: 15px;
+  background-color: #FFF;
+  color: #000;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  display: block;
+}
+/*alert-success*/
+.alert-success button{
+  background-color: $success;
+  color:#FFF;
+}
+
+hr .alert-success hr{
+      border-color: $success;
+}
+/*alert-danger*/
+.alert-danger button{
+  background-color: $danger;
+  color:#FFF;
+}
+
+.alert-danger hr{
+      border-color: $danger;
+}
+/*alert-primary*/
+.alert-primary button, .alert-primary {
+  background-color: $primary;
+  color:#FFF;
+}
+
+.alert-primary hr{
+      border-color: $primary;
+}
+/*alert-secondary*/
+.alert-secondary button, .I902c{
+  background-color: $secondary;
+  color:#FFF;
+}
+
+.alert-secondary hr{
+      border-color: $secondary;
+}/**/
+/*alert-warning*/
+.alert-warning button{
+  background-color: $warning;
+  color:#FFF;
+}
+
+.alert-warning hr{
+      border-color: $warning;
+}
+/**/
+/*alert-error*/
+.alert-error button{
+  background-color: #FF0000;
+  color:#FFF;
+}
+
+.alert-error hr{
+  border-color: #FF0000;
+}
+/**/
+
+.hr-alert {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 4px solid #eee;
+}
+
+
+.btn-circle.btn-xl-alert  {
+width: 70px;
+height: 70px;
+/* padding: 10px 16px;*/
+font-size: 24px;
+line-height: 1.33;
+border-radius: 35px;
+cursor:default;
+transition: background-color 1s, color 1s;
+display:-webkit-flex; -webkit-justify-content:center; -webkit-align-items:center;
+display:flex; justify-content:center; align-items:center; /* pour centrer les images */
+position: absolute;
+right:-20px;
+top:-20px;
+z-index: 5;
+}
+
+.recit-retrait-gauche {
+  position: relative;
+  left: 10%;
+/*padding-right:200px;*/
+top:50px;
+padding-bottom : 50px;
+} 
 
   @media screen and (min-width: 576px) {
       .math_boxes_row {

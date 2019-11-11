@@ -125,7 +125,16 @@ h5 a.style_btn_1:hover {
 
 body.theme-recit-histoire{
 	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]') no-repeat right center;}
-
+    .recit-btn {
+        position: relative;
+        display: inline-block;
+        font-weight: 500;
+        -moz-transform:    skewX(-15deg) !important;
+        -webkit-transform: skewX(-15deg) !important;
+        -o-transform:      skewX(-15deg) !important;
+        transform:         skewX(-15deg) !important;
+        background: none;
+    }
     
 h5 a,
 h5 a.style_btn_1 {
@@ -148,7 +157,7 @@ h5 a.style_btn_1:hover {
     background: $theme_color1;
 }
 
-.recit-btn, .recit-btn-style_btn_1 {
+ .recit-btn-style_btn_1 {
     display: inline-block;
     padding: 12px 12px 14px;
     margin: 0 2px 4px 2px;
@@ -175,7 +184,7 @@ background: $theme_color1;}
     background: $theme_color2;
 }
 /*-- Button 3 --*/
-h5 a.style_btn_3 {
+ h5 a.style_btn_3 {
     color: $white;
     border-left: solid 5px $theme_color1;
     background: $dark;
@@ -212,13 +221,13 @@ h5 a.style_btn_5:hover {
     background: $white;
 }
 /*-- Button 6 --*/
-h5 a.style_btn_6 {
+.recit-btn-primary, h5 a.style_btn_6 {
     color: $white;
     border-left: solid 5px $theme_color2;
     border-right: solid 5px $theme_color2;
     background: $theme_color2;
 }
-h5 a.style_btn_6:hover {
+.recit-btn-primary:hover, h5 a.style_btn_6:hover {
     color: $theme_color2;
     border-left: solid 5px $white;
     border-right: solid 5px $white;
@@ -236,16 +245,7 @@ h5 a strong {
     background: none;
 }
 
-.recit-btn {
-    position: relative;
-    display: inline-block;
-    font-weight: 500;
-    -moz-transform:    skewX(-15deg) !important;
-    -webkit-transform: skewX(-15deg) !important;
-    -o-transform:      skewX(-15deg) !important;
-    transform:         skewX(-15deg) !important;
-    background: none;
-}
+
 
 @media screen and (min-width: 768px) {
     h4 strong {
@@ -279,9 +279,25 @@ h5 a strong {
         right: -28px;
     }
 }
-
-
 }
+body.theme-recit-histoire#page-mod-book-view{
+    .block-region {
+        .card-header {
+            font-family: $headings-font-family;
+            text-transform: uppercase;
+            display: inline-block;
+            line-height: 72px;
+            margin-bottom: 20px;
+            font-size: x-large;
+            padding: .75rem 1.25rem;
+            //margin-bottom: 0;
+            background-color: rgba(46, 43, 43, 0.459);
+            border-bottom: 1px solid rgba(0,0,0,.125);
+        }
+    }
+}
+
+
 
 body.theme-recit-mathematique{
 	#page-header .card{background-image:  url('[[pix:theme|banner-mathematique]]') no-repeat right center;}
