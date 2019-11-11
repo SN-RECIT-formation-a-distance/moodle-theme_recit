@@ -1,10 +1,16 @@
 #page-my-index {
     .admininfos {
         padding-bottom: 0;
+        
 
         .breadcrumb-button {
             margin-right: 0 !important;
         }
+    }
+    .admininfos > *{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #FFF;
     }
 
     .bg-1 {

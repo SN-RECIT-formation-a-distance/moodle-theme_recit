@@ -75,9 +75,11 @@ Pages
 *******************/
 #page-wrapper {
     margin-top: 56px;
+    background-color: #efefef;
     #page{
         max-width: $page-max-width;
         background-color: #FFF;
+        margin: auto;
         /*padding: 15px;*/
     }
 }
@@ -90,28 +92,20 @@ Pages
     }
 }
 
-#page-header{
-    .card{
-        border: none;
-        height: 150px;
-        .card-body{
-            .page-header-headings{
-                h1{
-                    color: #FFF;
-                }
+body{
+    #page-content{
+        display: flex; flex-wrap: wrap; padding-left: 15px; padding-right: 15px;
+        #region-main-box{
+            width: 100%;
+            background-color: #FFF;
+            padding: 0px;
+            #region-main > .card{
+                border: none;
             }
         }
     }
 }
 
-#page-content{
-    #region-main-box{
-        width: 100%;
-        #region-main > .card{
-            border: none;
-        }
-    }
-}
 
 /* recit icons */
 /*.icon {

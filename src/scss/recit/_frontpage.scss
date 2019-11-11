@@ -9,7 +9,7 @@
     }
 
     .course-contacts {
-        margin: -30px 6px -20px 6px;
+        margin: -30px 6px 0px 6px;
         text-align: right;
 
         .contact {
@@ -28,6 +28,7 @@
 #frontpage-course-list{
     h2{color: $body-color}
 }
+
 .recit-course-list{
     display: flex;
     flex-wrap: wrap;

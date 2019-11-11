@@ -1,5 +1,5 @@
 body.theme-recit-francais{
-    #page-header .card{background-image:  url('[[pix:theme|banner-francais]]') no-repeat right center;}
+    #course-banner{background-image:  url('[[pix:theme|banner-francais]]');}
     
     
 /*-------------------------------*\
@@ -124,7 +124,7 @@ h5 a.style_btn_1:hover {
 }
 
 body.theme-recit-histoire{
-	#page-header .card{background-image:  url('[[pix:theme|banner-histoire]]') no-repeat right center;}
+	#course-banner{background-image:  url('[[pix:theme|banner-histoire]]') ;}
     .recit-btn {
         position: relative;
         display: inline-block;
@@ -300,7 +300,7 @@ body.theme-recit-histoire#page-mod-book-view{
 
 
 body.theme-recit-mathematique{
-	#page-header .card{background-image:  url('[[pix:theme|banner-mathematique]]') no-repeat right center;}
+	#course-banner{background-image:  url('[[pix:theme|banner-mathematique]]') ;}
 	/*-------------------------------*\
     Buttons - Bars
 \*-------------------------------*/
@@ -412,13 +412,13 @@ body.theme-recit-mathematique{
 }
 
 body.theme-recit-science{
-	#page-header .card{background-image:  url('[[pix:theme|banner-science]]') ;}
+	#course-banner{background-image:  url('[[pix:theme|banner-science]]') ;}
 }
 
 
 
 body.theme-recit-art{
-    #page-header .card{background-image:  url('[[pix:theme|banner-art]]') ;}
+    #course-banner{background-image:  url('[[pix:theme|banner-art]]') ;}
     .page-header-headings h1 {color: $black!important; font-size: xx-large;}
 
 /*-------------------------------*\
