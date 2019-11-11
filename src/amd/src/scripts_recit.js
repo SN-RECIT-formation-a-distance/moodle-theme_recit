@@ -2,7 +2,8 @@
     // Background parallax effect
 // Background parallax effect
 $(window).scroll(function () {
-    $(".c_parallax-recit, .parallax-pale-row, .parallax-dark-row").css("background-position","10% " + ($(this).scrollTop() / -10) + "px");
+    $(".c_parallax-recit, .parallax-pale-row, .parallax-dark-row").css("background-position","10% " + ($(this).scrollTop() / -5 + 90) + "px");
+	console.log("test yvon",$(this).scrollTop() );
 });
 /*
     function isInViewport(node) {
@@ -82,4 +83,5 @@ $('.ubeo_btn_expand').click(function() {
 		
 
 })(jQuery);
+
 
