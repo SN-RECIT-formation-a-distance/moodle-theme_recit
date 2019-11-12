@@ -1,6 +1,9 @@
 /*#region-main.card-body {
 	padding: 0px;
 }*/
+body.theme-recit{
+    #page-header .card{background-image:  url('[[pix:theme|banner-francais]]') no-repeat right center;}
+}
 #page-header .card{background-image:  url('[[pix:theme|banner-course]]');}
 #page-header .card{background-repeat: no-repeat;}
 #page-header .card{background-position: right top;}

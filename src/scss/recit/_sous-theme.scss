@@ -297,6 +297,84 @@ body.theme-recit-histoire#page-mod-book-view{
     }
 }
 
+body.theme-recit-ecr{
+	#page-header .card{background-image:  url('[[pix:theme|banner-ecr]]') no-repeat right center;}
+.ecr-grey-row {
+    position: relative;
+    padding: 60px 0;
+    color: #fff;
+    background: #3b505d;
+}
+.list_num.list_num_color li::before {
+    background: $color1;
+}
+.ecr-grey-row.list_num.list_f_a ul li::before {
+    color: #fff;
+}
+.round-corners-shadow .row div p {
+    display: block;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5);
+}
+
+/*-------------------------------*\
+    Buttons - Bars
+\*-------------------------------*/
+h5 a {
+    position: relative;
+    display: inline-block;
+    padding: 5px 12px 7px 22px;
+    color: $color2;
+}
+h5 a:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    width: 5px;
+    height: 70%;
+    background: $color2;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+}
+h5 a:hover {
+    color: #fff;
+    text-decoration: none;
+    background: $color2;
+}
+h5 a:hover:before {
+    height: 90%;
+    background: $color1;
+}
+
+
+
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .ecr-grey-row.ecr-dark-pale-grey-row {
+        background: rgb(59,80,93);
+        background: -moz-linear-gradient(left,  rgba(59,80,93,1) 50%, rgba(239,239,239,1) 50%);
+        background: -webkit-linear-gradient(left,  rgba(59,80,93,1) 50%,rgba(239,239,239,1) 50%);
+        background: linear-gradient(to right,  rgba(59,80,93,1) 50%,rgba(239,239,239,1) 50%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b505d', endColorstr='#efefef',GradientType=1 );
+    }
+    .ecr-grey-row.ecr-dark-pale-grey-row .row div:nth-child(2) {
+        color: #000;
+    }
+}
 
 
 body.theme-recit-mathematique{
