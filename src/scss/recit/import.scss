@@ -1,0 +1,34 @@
+/*! 
+ * Theme RECIT
+ * L'ordre des fichiers est important. Réfléchir avant de faire un changement.
+ */
+ 
+@import "_bootstrap-override";
+@import "_moodle-override";
+@import "_vendor.scss";
+@import "animate.min";
+@import "../extras/transitions";
+@import "../extras/simple-line-icons";
+@import "../extras/animate";
+@import "../extras/metismenu";
+@import "general";
+@import "breadcrumb";
+@import "navbar";
+@import "frontpage";
+@import "login";
+@import "footer";
+@import "nav-overlay";
+@import "blocks";
+@import "mydashboard";
+@import "course";
+@import "grade";
+@import "btnapp";
+@import "calendar";
+@import "responsive";
+@import "stylesmbededquestionsUBEO";
+@import "questionrecitUBEO";
+@import "glossairestyleUBEO";
+@import "recit";
+@import "editeur_html";
+@import "recit-course-navigation";
+@import "sous-theme";
