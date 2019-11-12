@@ -1,9 +1,11 @@
 /*! 
  * Theme RECIT
+ * L'ordre des fichiers est important. Réfléchir avant de faire un changement.
  */
+ 
 @import "../scss/recit/variables";
-@import "../scss/recit/bootstrap-override";
-@import "../scss/recit/moodle-override";
+@import "../scss/recit/_bootstrap-override";
+@import "../scss/recit/_moodle-override";
 @import "../scss/recit/_vendor.scss";
 @import "../scss/recit/animate.min";
 @import "../scss/extras/transitions";

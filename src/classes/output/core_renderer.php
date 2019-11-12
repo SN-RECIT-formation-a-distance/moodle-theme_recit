@@ -50,6 +50,41 @@ defined('MOODLE_INTERNAL') || die;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer {
+    /** @var custom_menu_item language The language menu if created */
+    protected $language = null;
+
+    /**
+     * Outputs the opening section of a box.
+     *
+     * @param string $classes A space-separated list of CSS classes
+     * @param string $id An optional ID
+     * @param array $attributes An array of other attributes to give the box.
+     * @return string the HTML to output.
+     */
+    public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
+        if (is_array($classes)) {
+            $classes = implode(' ', $classes);
+        }
+        return parent::box_start($classes . ' py-3', $id, $attributes);
+    }
+
+    /**
+     * Wrapper for header elements.
+     *
+     * @return string HTML to display the main header.
+     */
+    public function full_header() {
+        global $PAGE;
+
+        $header = new stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        $header->contextheader = $this->context_header();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+        $header->pageheadingbutton = $this->page_heading_button();
+        $header->courseheader = $this->course_header();
+        return $this->render_from_template('theme_recit/header', $header);
+    }
 
     /**
      * Renders the custom menu
@@ -114,7 +149,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function mydashboard_admin_header() {
         global $PAGE;
 
-        $html = html_writer::start_div('row');
+        $html = html_writer::start_div();
         $html .= html_writer::start_div('col-xs-12 p-a-1');
 
         $pageheadingbutton = $this->page_heading_button();

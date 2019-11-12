@@ -3,7 +3,7 @@
 // Background parallax effect
 $(window).scroll(function () {
     $(".c_parallax-recit, .parallax-pale-row, .parallax-dark-row").css("background-position","10% " + ($(this).scrollTop() / -5 + 90) + "px");
-	console.log("test yvon",$(this).scrollTop() );
+	// console.log("test yvon",$(this).scrollTop() );
 });
 /*
     function isInViewport(node) {
