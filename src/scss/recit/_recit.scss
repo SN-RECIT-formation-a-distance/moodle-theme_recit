@@ -1,18 +1,13 @@
 /*#region-main.card-body {
 	padding: 0px;
 }*/
-body{
-	#page-header{
-		background-color: #fff;
-		#course-banner{
-			background-image:  url('[[pix:theme|banner-course]]'); background-repeat: no-repeat; background-position: right center; height: 150px; border: none; padding: 1.25rem;
-			.page-header-headings{
-				h1{color: #FFF;}
-			}
-		}	
-		.second-navbar{display: flex;  justify-content: space-between; padding-top: 0.5rem; padding-left: 15px; padding-right: 15px;}
-	}
+body.theme-recit{
+    #page-header .card{background-image:  url('[[pix:theme|banner-francais]]') no-repeat right center;}
 }
+#page-header .card{background-image:  url('[[pix:theme|banner-course]]');}
+#page-header .card{background-repeat: no-repeat;}
+#page-header .card{background-position: right top;}
+
 
 body.drawer-open-right{
 	margin-right: 260px;
