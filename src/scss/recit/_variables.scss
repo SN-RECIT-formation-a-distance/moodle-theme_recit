@@ -1,9 +1,15 @@
-
+/**************************************
+ * FONTS
+ *************************************/
 $font-family-sans-serif: 'Ubuntu', sans-serif !default;
 $subheadings-font-family:'Viga', sans-serif;
 $headings-font-family:'Viga', sans-serif;
 $figuretexte: 'Times New Roman', serif;
 
+/**************************************
+ * COLORS
+ *************************************/
+$enable-gradients: true;
 $primary:#0069bf;
 $secondary:#faa22a;
 $secondarypale:#0082C6;
@@ -13,21 +19,29 @@ $info:#fbb140;
 $warning:#384f5c;
 $light:#f4f4f6;
 $dark:#373a3c;
+$white:#ffffff;
+$black:#000;
+
 $color1:#000;
 $color2:#000;
 $color3:#000;
 $color4:#000;
 $color5:#000;
+
 $brand-primary: $primary;
 $body-color: #373a3c;
-$white:#ffffff; //
-$black:#000;
+
 $theme_color1:#007a76;
 $theme_color2:#f6b100;
 $theme_color3:#ef783b;
 $theme_color4:#68b459;
+$theme_color5:#494755;
 
+/**************************************
+ * GENERAL
+ *************************************/
 $btn-radius: 30px;
+
 $navbar-header-color: #fff !default;
 
 $headings-font-family: $font-family-sans-serif !default;
@@ -66,95 +80,4 @@ $m-instagram-color: #8a3ab9 !default;
 $carousel-control-color: $secondary !default;
 $carousel-control-prev-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z\'/%3E%3C/svg%3E" !default;
 $carousel-control-next-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z\'/%3E%3C/svg%3E" !default;
-
-/*CSS propre à chaque thème de cours*/
-
-/*Bouton RÉCIT*/
-/*section[data-recit-block="1"] , :not(.section0){
-  .btn-default, .recit-btn-primary{
-    color: $secondary;
-    border: solid 2px $secondary;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-primary:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-primary{
-  color: black;
-  }
-  .recit-btn-secondary{
-    color: $secondary;
-    border: solid 2px $secondary;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-secondary:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-secondary{
-  color: white;
-  }
-  .recit-btn-danger{
-    color: $danger;
-    border: solid 2px $danger;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-danger:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-danger{
-  color: white;
-  }
-
-  .recit-btn-success{
-    color: $success;
-    border: solid 2px $success;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-success:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-success{
-  color: white;
-  }
-  .recit-btn-warning{
-    color: $warning;
-    border: solid 2px $warning;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-warning:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-warning{
-  color: white;
-  }
-  .recit-btn-info{
-    color: $info;
-    border: solid 2px $info;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    transform: skewX(0);
-  }
-  .recit-btn-info:hover{
-  border: solid 4px white;
-  }
-  .recit-btn-info{
-  color: white;
-  }
-}*/
 

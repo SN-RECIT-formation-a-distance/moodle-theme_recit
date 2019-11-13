@@ -4,33 +4,5 @@
  */
  
 @import "../scss/recit/variables";
-@import "../scss/recit/_bootstrap-override";
-@import "../scss/recit/_moodle-override";
-@import "../scss/recit/_vendor.scss";
-@import "../scss/recit/animate.min";
-@import "../scss/extras/transitions";
-@import "../scss/extras/simple-line-icons";
-@import "../scss/extras/animate";
-@import "../scss/extras/metismenu";
-@import "../scss/recit/general";
-@import "../scss/recit/breadcrumb";
-@import "../scss/recit/navbar";
-@import "../scss/recit/frontpage";
-@import "../scss/recit/login";
-@import "../scss/recit/footer";
-@import "../scss/recit/nav-overlay";
-@import "../scss/recit/blocks";
-@import "../scss/recit/mydashboard";
-@import "../scss/recit/course";
-@import "../scss/recit/grade";
-@import "../scss/recit/btnapp";
-@import "../scss/recit/calendar";
-@import "../scss/recit/responsive";
-@import "../scss/recit/stylesmbededquestionsUBEO";
-@import "../scss/recit/questionrecitUBEO";
-@import "../scss/recit/glossairestyleUBEO";
-@import "../scss/recit/recit";
-@import "../scss/recit/editeur_html";
-@import "../scss/recit/recit-course-navigation";
-@import "../scss/recit/sous-theme";
+@import "../scss/recit/import.scss";
 

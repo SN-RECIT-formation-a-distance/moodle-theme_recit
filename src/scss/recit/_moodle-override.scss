@@ -1,6 +1,15 @@
 /*****************************
  * MOODLE OVERRIDE
  *****************************/
+ body{
+    height: auto;
+    
+    #page-wrapper{
+        padding: 0px;
+    }
+ }
+ 
+
  .block_myoverview .card-deck .myoverviewimg.courseimage{
 	background-size: contain;
 	background-repeat: no-repeat;	

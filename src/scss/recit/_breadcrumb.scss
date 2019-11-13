@@ -1,8 +1,6 @@
 #page-navbar {
     float: left;
-    .page-header-headings h1 {
-        font-size: 2.34375rem;
-    }
+
     @media (max-width: 767px) {
       .breadcrumb { margin-left: 10px; margin-right: 10px; width: calc(100% - 20px) !important; }
     }
