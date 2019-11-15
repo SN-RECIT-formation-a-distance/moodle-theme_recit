@@ -125,6 +125,99 @@ h5 a.style_btn_1:hover {
 }
 }
 
+body.theme-recit-anglais{
+	#course-banner{background-image:  url('[[pix:theme|banner-anglais]]') ;}
+    .recit-btn {
+        position: relative;
+        display: inline-block;
+        font-weight: 500;
+        -moz-transform:    skewX(-15deg) !important;
+        -webkit-transform: skewX(-15deg) !important;
+        -o-transform:      skewX(-15deg) !important;
+        transform:         skewX(-15deg) !important;
+        background: none;
+    }
+
+/*-------------------------------*\
+    Buttons - Bars
+\*-------------------------------*/
+.recit-btn, h5 a {
+    color: $secondary;
+    border: solid 2px $secondary;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transform: skewX(0);
+}
+h5 a strong {
+    color: #59B5BE;
+    transform: skewX(0);
+}
+h5 a:hover {
+    color: #fff;
+    background: #59B5BE;
+}
+h5 a:hover strong, h5 a.dark-btn:hover strong, h5 a.red-btn:hover strong, h5 a.btn_fill strong, h5 a.btn_red_fill strong, h5 a.btn_yellow_fill:hover strong {
+    color: #fff;
+}
+.recit-btn-style_btn_1, h5 a.dark-btn {
+    color: $secondary;
+    border: solid 2px $secondary;
+}
+h5 a.dark-btn strong {
+    color: #1A425C;
+}
+.recit-btn-style_btn_1:hover, h5 a.dark-btn:hover {
+    background: $danger;
+}
+h5 a.red-btn {
+    color: #DF6660;
+    border: solid 2px #DF6660;
+}
+h5 a.red-btn strong {
+    color: #DF6660;
+}
+h5 a.red-btn:hover {
+    background: #DF6660;
+}
+h5 a.btn_fill {
+    border: solid 2px #59B5BE;
+    background: #59B5BE;
+}
+h5 a.btn_red_fill {
+    border: solid 2px #DF6660;
+    background: #DF6660;
+}
+h5 a.btn_yellow_fill {
+    border: solid 2px #E9C06B;
+    background: #E9C06B;
+}
+h5 a.btn_yellow_fill strong {
+    color: #1A425C;
+}
+h5 a.btn_fill:hover,
+h5 a.btn_red_fill:hover,
+h5 a.btn_yellow_fill:hover {
+    border: solid 2px #1A425C;
+    background: #1A425C;
+}
+
+figure.figure {
+    display: block !important;
+    -webkit-border-radius: 16px !important;
+    -moz-border-radius: 16px !important;
+    border-radius: 16px !important;
+    margin-bottom: 40px !important;
+    overflow: hidden !important;
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
+    -moz-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
+}
+}
+
+
+
+
 body.theme-recit-histoire{
 	#course-banner{background-image:  url('[[pix:theme|banner-histoire]]') ;}
     .recit-btn {
