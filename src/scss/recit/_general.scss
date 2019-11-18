@@ -92,7 +92,15 @@ Pages
     }
 }
 
+// on veut pas que le scroll s'affiche sur le contenu de la page
 body{
+    #page-content{
+        overflow: hidden;
+    }
+}
+
+// ceci est le #page-content de la page principale (ce n'est pas un iframe genre le plug-in h5p)
+body.pagelayout-incourse{
     #page-content{
         display: flex; flex-wrap: wrap; padding-left: 15px; padding-right: 15px;
         #region-main-box{
@@ -106,6 +114,12 @@ body{
     }
 }
 
+// ceci est des #page-content des iframes (genre h5p) et le display doit être bloc pour rétablir la largeur pour l'affichage
+body.pagelayout-embedded{
+    #page-content{
+        display: block; 
+    }
+}
 
 /* recit icons */
 /*.icon {
