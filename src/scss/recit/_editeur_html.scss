@@ -117,6 +117,36 @@ z-index: 1000!important;
   .bg_pale  {
       background: #efefef;
   }
+  .bg_color1  {
+    background: $color1;
+  }
+  .bg_color2  {
+    background: $color2;
+  }
+  .bg_color3  {
+    background: $color3;
+  }
+  .bg_color4  {
+    background: $color4;
+  }
+  .bg_color5  {
+    background: $color5;
+  }
+  .bg_theme_color1  {
+    background: $theme_color1;
+  }   
+  .bg_theme_color2  {
+    background: $theme_color2;
+  } 
+  .bg_theme_color3  {
+    background: $theme_color3;
+  }
+  .bg_theme_color4  {
+    background: $theme_color4;
+  }
+  .bg_theme_color5  {
+    background: $theme_color5;
+  }
   .bg_math_title_bar {
       /*padding: 40px 20px;*/
       background: url("https://recitfad.ca/widgets/assets/images/bg_math_numbers.jpg") center bottom no-repeat;
