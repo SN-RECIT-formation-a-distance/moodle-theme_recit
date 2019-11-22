@@ -598,7 +598,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/website';
     $title = get_string('website', 'theme_recit');
     $description = get_string('websitedesc', 'theme_recit');
-    $default = 'https://rectfad.ca';
+    $default = 'https://recitfad.ca';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -692,9 +692,9 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
     $setting->set_updatedcallback('theme_reset_all_caches');
 
- /*   $settings->add($page);
+    $settings->add($page);
 
-    // Forum page.
+  /*  // Forum page.
     $settingpage = new admin_settingpage('theme_recit_forum', get_string('forumsettings', 'theme_recit'));
 
     $settingpage->add(new admin_setting_heading('theme_recit_forumheading', null,
