@@ -36,8 +36,8 @@ $THEME->name = 'recit';
 // This setting list the style sheets we want to include in our theme. Because we want to use SCSS instead of CSS - we won't
 // list any style sheets. If we did we would list the name of a file in the /styles/ folder for our theme without any css file
 // extensions.
-//$THEME->sheets[] = "bootstrap";
-//$THEME->sheets[] = "fontawesome";
+$THEME->sheets[] = "bootstrap";
+$THEME->sheets[] = "fontawesome";
 $THEME->sheets[] = "moodle-base";
 //$THEME->sheets[] = "moodle-scss";
 $THEME->sheets[] = "recit";

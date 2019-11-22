@@ -1,69 +1,3 @@
-#tt-recit-nav{
-    background-color: $primary;
-
-    ul.navbar-nav{
-        .nav-item{
-            .nav-link{color: #FFF;}
-            .nav-link:hover{color: rgba(255,255,255,.5);}
-        }
-        ul.dropdown-menu{
-            background-color: $primary;
-            margin: 0;
-            border-radius: 0px;
-            border: none;
-            
-            li{
-                .dropdown-item{
-                    color: #fff;
-                    
-                }
-                .dropdown-item:hover{
-                    color: rgba(255,255,255,.5);
-                    background-color: transparent;
-                }
-            }
-    
-            li.dropdown-submenu{
-                ul.dropdown-menu{
-                    top: 2.5rem;
-                    left: 8.5rem;
-                    margin-left: 1.5rem;
-                }
-            }
-        }
-        .dropdown-submenu > a:after{
-            display:inline-block;
-            content:" ";
-            //float:right;
-            width:0;
-            height:0;
-            border-color:transparent;
-            border-style:solid;
-            border-width:5px 0 5px 5px;
-            border-left-color:#cccccc;
-            margin-top:5px;
-            margin-right:-10px;
-        }
-        
-        .dropdown-submenu:hover > a:after{
-            border-left-color:#00d936;
-        }
-        
-        .dropdown-submenu .pull-left{
-            float:none;
-        }
-        
-        .dropdown-submenu.pull-left > .dropdown-menu{
-            left:-100%;
-            margin-left:10px;
-            -webkit-border-radius:6px 0 15px 15px;
-            -moz-border-radius:6px 0 15px 15px;
-            border-radius:6px 0 15px 15px;
-        }
-    }
-    
-}
-
 nav.navbar {
     max-height: inherit; // min-content does not work with firefox;
     
@@ -73,7 +7,7 @@ nav.navbar {
 
         .logo img {
             max-height: 40px;
-            //content: url([[pix:theme|recit-logo]]);
+            /*content: url([[pix:theme|recit-logo]]);*/
         }
     }
 
@@ -83,9 +17,7 @@ nav.navbar {
         }
     }
 
-    
-
-    /*.recit-search-input {
+    .recit-search-input {
         margin: 0 .8rem;
         line-height: 70px;
         padding: 0;
@@ -147,7 +79,7 @@ nav.navbar {
                 }
             }
         }
-    }*/
+    }
 
     .custom-menus {
         li {
@@ -156,7 +88,7 @@ nav.navbar {
     }
 
     ul.navbar-nav {
-       /*li,
+        li,
         .nav-item {
             list-style-type: none;
 
@@ -176,7 +108,7 @@ nav.navbar {
                     line-height: 32px;
                 }
             }
-        }*/
+        }
 
         .popover-region {
             margin-right: 0;

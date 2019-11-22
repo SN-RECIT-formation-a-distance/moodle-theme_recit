@@ -14,7 +14,7 @@ body{
 				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: 2.34375rem;	}
 			}
 		}	
-		.second-navbar{display: flex;  justify-content: space-between; padding: 0.8rem; align-items: center;}
+		.second-navbar{display: flex;  justify-content: space-between; padding-top: 0.5rem; padding-left: 15px; padding-right: 15px;}
 	}
 }
 
@@ -790,11 +790,11 @@ body, #page-content, #page-header, #top-footer .row{
 {
     height: auto;
 }*/
-/*
+
 #region-main .card-body
 {
     padding-top: 4px;
-}*/
+}
 
 .course-content .current::before
 {
