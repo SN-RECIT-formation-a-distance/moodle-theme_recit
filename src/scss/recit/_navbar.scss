@@ -11,6 +11,7 @@
             margin: 0;
             border-radius: 0px;
             border: none;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
             
             li{
                 .dropdown-item{
@@ -46,7 +47,7 @@
         }
         
         .dropdown-submenu:hover > a:after{
-            border-left-color:#00d936;
+            border-left-color:#333333;
         }
         
         .dropdown-submenu .pull-left{

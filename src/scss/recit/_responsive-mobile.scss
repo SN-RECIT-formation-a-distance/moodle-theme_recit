@@ -1,0 +1,51 @@
+/**********************************************************
+/ Smartphone layout
+/*********************************************************/
+@media screen and (max-width: 767px){
+    body{
+        #page-header{
+            #course-banner{
+                background-image:  url('[[pix:theme|avenir-mobile]]'); background-size: cover; height: 100px;
+                .page-context-header{ display: none;}
+            }	
+        }
+    }
+    
+    #page-site-index.notloggedin {
+        #page-header {
+            background-image: url('[[pix:theme|avenir-mobile]]'); background-size: cover; min-height: 100px;
+        }
+    }
+
+    
+    .recit-course-list{
+        justify-content: center;
+    }
+
+    #tt-recit-nav{
+        ul.navbar-nav{
+            ul.dropdown-menu{
+                box-shadow: none;
+            }
+        }
+    }
+
+    #page-login-index.recit-login {
+        #page-wrapper {
+            #page {
+                #region-main-box {
+                    .loginpanel {
+                        border-radius: 0;
+
+                        .instructions {
+                            border-radius: 0;
+                        }
+                        .form{
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
