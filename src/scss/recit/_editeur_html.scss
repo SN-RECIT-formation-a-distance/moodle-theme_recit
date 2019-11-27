@@ -56,8 +56,71 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 .wirisembeddedtextinput {
   width: 80px !important;
 }
-section[data-recit-block="1"], .editeur{
+
+/*Onglets*/
+.recit_tab_1 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #f9f9f9;
+}
+.recit_tab_1 .recit-section-text {
+  color: #767676;
+}
+.recit_tab_1 .recit-section-subtitle {
+  color: #767676;
+}
+.recit_tab_1 .tabcont {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.recit_tab_1 .recit-iconfont {
+  font-size: 48px;
+}
+.recit_tab_1 .card-img {
+  margin-bottom: 1.5rem;
+}
+.recit_tab_1 .tab-content-row {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.recit_tab_1 .tab-content {
+  margin-top: 3rem;
+  width: 100%;
+}
+.recit_tab_1 .nav-tabs {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-bottom: none;
+}
+.recit_tab_1 .nav-tabs .nav-link {
+  box-sizing: border-box;
+  color: #767676;
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 1rem 3rem;
+  margin: 0.4rem .8rem !important;
+  transition: color .3s;
+  border: 2px solid #767676;
+}
+.recit_tab_1 .nav-tabs .nav-link:hover {
+  background: $secondary;
+}
+.recit_tab_1 .nav-tabs .nav-link.active {
+  color: #ffffff;
+  font-style: normal;
+  border: 2px solid $secondary;
+  background: $secondary;
+}
+.recit_tab_1 .nav-tabs .nav-link.active:hover {
+  border: 2px solid $secondary;
+}
   
+section[data-recit-block="1"]{
+
+     
     #vvveb-builder .component-properties .form-control, #vvveb-builder .component-properties .custom-select {
       padding: .5rem 0.5rem; 
   }
@@ -82,9 +145,9 @@ z-index: 1000!important;
         HTML tags
     \*-------------------------------*/
     
-    .row {
+   /* .row {
       background-color: transparent;
-    }
+    }*/
 
   .bg_dark {
     background: $color2;
@@ -1592,6 +1655,8 @@ z-index: 1000!important;
             color: #000;
             background: $light;
         }
+
+ 
     /*------------------*\
       image flip
     \*------------------*/
@@ -2239,6 +2304,113 @@ z-index: 1000!important;
           color: $theme_color1;
       }
     
+
+/* Plus spécifique aux arts*/
+
+      .white-row.programmation-row, .pale-row.programmation-row {
+        padding: 20px 0;
+    }
+    .title-head-row {
+        padding: 10px 0;
+        font-weight: 700;
+        background: #d3e3ed;
+    }
+    .parcours-box {
+        color: #fff;
+        font-weight: 700;
+        padding: 5px 15px;
+        background: #2c2c2c;
+    }
+    @media screen and (max-width: 575px) {
+        .title-head-row {
+            display: none;
+        }
+        .programmation-cell > div:before {
+            display: block;
+            padding: 5px 15px;
+            font-weight: 700;
+            margin: 15px 0 5px;
+            background: #d3e3ed;
+        }
+        .programmation-cell > div:nth-child(1):before {
+            content: 'Projet';
+        }
+        .programmation-cell > div:nth-child(2):before {
+            content: 'Activités';
+        }
+        .programmation-cell > div:nth-child(3):before {
+            content: 'Évaluations';
+        }
+    }
+    .ubeo_astuce_box {
+      margin-bottom: 25px;
+  }
+  .ubeo_astuce {
+      display: inline-block;
+      padding: 10px 30px 10px 25px;
+      color: #fff;
+      line-height: 28px;
+      background: #999;
+  }
+  .ubeo_astuce img {
+      display: inline-block;
+      width: 25px;
+      height: auto;
+      vertical-align: middle;
+      position: relative;
+      margin: -4px 0 0 -2px;
+  }
+  .ubeo_astuce_text {
+      display: block;
+      padding: 15px 20px 5px;
+      background: #eee;
+  }
+  .ubeo_astuce_box_rouge .ubeo_astuce {
+      background: #ce161c;
+  }
+  .ubeo_astuce_box_rouge .ubeo_astuce_text {
+      background: #eed1d2;
+  }
+  .ubeo_astuce_box_bleu .ubeo_astuce {
+      background: #006bb5;
+  }
+  .ubeo_astuce_box_bleu .ubeo_astuce_text {
+      background: #d3e3ed;
+  }
+  .ubeo_astuce_box_jaune .ubeo_astuce {
+      background: #f7b803;
+  }
+  .ubeo_astuce_box_jaune .ubeo_astuce_text {
+      background: #f5edd5;
+  }
+  .ubeo_astuce_box_vert .ubeo_astuce {
+      background: #05a03d;
+  }
+  .ubeo_astuce_box_vert .ubeo_astuce_text {
+      background: #d5eadc;
+  }
+  .ubeo_barre_grise {
+    padding: 25px 20px 5px 20px;
+    color: #fff;
+    background: #2c2c2c;
+}
+.ubeo_barre_grise img {
+    display: inline-block;
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+}
+@media screen and (min-width: 576px) {
+    .ubeo_barre_grise img {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+}
+
+.svg-couleur {
+  fill: rebeccapurple !important;
+}
+
 }
   .bandedessnee{
       .comic {

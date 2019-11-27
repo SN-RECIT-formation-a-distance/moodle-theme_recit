@@ -512,9 +512,76 @@ body.theme-recit-science{
 
 
 
-body.theme-recit-art{
-    #course-banner{background-image:  url('[[pix:theme|banner-art]]') ;}
-    .page-header-headings h1 {color: $black!important; font-size: xx-large;}
+
+	
+/*body.theme-recit-art::before {
+    content: "";
+    background-image: url("https://moodledev.recitfad.ca/file.php/18/39fb86_de63d5f6c97b4363891db10434cd9464_mv2.jpg");
+    background-repeat: no-repeat;
+    background-size: 800px auto;
+    background-position: left 30%; 
+    //z-index: 1;
+    height: 800px;
+    width: 300px;
+    position: fixed;
+    left: 0;
+	top:  30%;
+}*/
+    body.theme-recit-art{
+		#course-banner{background-image:  url('[[pix:theme|banner-art]]') ;}
+    .page-header-headings h1 {
+		color: $black!important; //font-size: xx-large;	
+		max-width: 500px;
+		padding: 40px 40px 40px 40px;
+    }
+	
+	/*#page {
+				
+		
+	}*/
+	
+section.card {
+background-color: transparent;}
+
+.accueil {
+	display: grid;
+}
+
+.accueil ul {
+	margin: 0;
+    padding:10px 0 0 0;
+	a {
+		color: white;
+	}
+	a:hover{
+font-style: bold;
+	}
+	
+}
+.accueil a {
+		color: white;
+	}
+.accueil	a:hover{
+font-style: bold;
+	}
+	
+
+.accueil li {
+	margin: 0;
+    padding: 5px 0 0 0;
+}
+
+.art_ref {
+	position: absolute;
+	background: #000;
+	color: white;
+	width: 280px;
+	height: 50px;
+	right: 30px;
+	bottom : 50px;
+	padding: 3px;
+	
+}
 
 /*-------------------------------*\
     Buttons - Bars

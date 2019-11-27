@@ -9,9 +9,9 @@ body{
 	#page-header{
 		background-color: #fff;
 		#course-banner{
-			background-image:  url('[[pix:theme|banner-course]]'); background-repeat: no-repeat; background-position: right center; height: 150px; border: none; padding: 1.25rem;
+			background-image:  url('[[pix:theme|banner-course]]'); background-repeat: no-repeat; background-position: right center; height: $header-hight; border: none; padding: 1.25rem;
 			.page-header-headings{
-				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: 2.34375rem;	}
+				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: $headings-font-family-font-size;	}
 			}
 		}	
 		.second-navbar{display: flex;  justify-content: space-between; padding: 0.8rem; align-items: center;}
