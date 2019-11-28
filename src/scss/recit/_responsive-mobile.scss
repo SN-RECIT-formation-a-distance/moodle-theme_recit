@@ -5,17 +5,17 @@
     body{
         #page-header{
             #course-banner{
-                background-image:  url('[[pix:theme|avenir-mobile]]'); background-size: cover; height: 100px;
+               // background-image:  url('[[pix:theme|avenir-mobile]]'); background-size: cover; height: 100px;
                 .page-context-header{ display: none;}
             }	
         }
     }
     
-    #page-site-index.notloggedin {
+   /* #page-site-index.notloggedin {
         #page-header {
-            background-image: url('[[pix:theme|avenir-mobile]]'); background-size: cover; min-height: 100px;
+           // background-image: url('[[pix:theme|avenir-mobile]]'); background-size: cover; min-height: 100px;
         }
-    }
+    }*/
 
     
     .recit-course-list{
