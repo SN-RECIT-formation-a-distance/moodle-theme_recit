@@ -20,9 +20,8 @@
 }
 
 .row{ background-color: unset !important;}
-
-.btn-secondary/*, .recit-btn, .recit-btn-style_btn_1*/ {
-    display: inline-block;
+/*.btn-secondary, .recit-btn, .recit-btn-style_btn_1 {
+   display: inline-block;
     padding: 4px 10px;
     color: $secondary;
     border: solid 2px $secondary;
@@ -31,13 +30,13 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-.btn-secondary/*, .recit-btn-style_btn_1:hover */{
-    text-decoration: none;
+.btn-secondary, .recit-btn-style_btn_1:hover {
+   text-decoration: none;
     color: white;
     border: solid 2px $secondary;
     background: $secondary;
-}/*-- Button 2 --*/
-.btn-primary/*, .recit-btn, .recit-btn-style_btn_1*/ {
+}-- Button 2 --
+.btn-primary/*, .recit-btn, .recit-btn-style_btn_1 {
     display: inline-block;
     padding: 4px 10px;
     color: $primary;
@@ -47,9 +46,9 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-.btn-primary/*, .recit-btn-style_btn_1:hover*/ {
+.btn-primary, .recit-btn-style_btn_1:hover {
     text-decoration: none;
     color: white;
     border: solid 2px $primary;
     background: $primary;
-}/*-- Button 2 --*/
+}-- Button 2 --*/
