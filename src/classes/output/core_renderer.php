@@ -42,7 +42,7 @@ use context_system;
 
 defined('MOODLE_INTERNAL') || die;
 
-js_reset_all_caches();
+//js_reset_all_caches();
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
