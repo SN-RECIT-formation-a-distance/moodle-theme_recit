@@ -352,14 +352,14 @@ function theme_recit_get_course_theme() {
  *
  * @param flat_navigation $flatnav
  */
-function theme_recit_extend_flat_navigation(\flat_navigation $flatnav) {
+/*function theme_recit_extend_flat_navigation(\flat_navigation $flatnav) {
     theme_recit_rebuildcoursesections($flatnav);
     theme_recit_delete_menuitems($flatnav);
     theme_recit_add_user_menu($flatnav);   
-}
+}*/
 
-function theme_recit_add_user_menu(\flat_navigation $flatnav) {
-    /*global $USER, $PAGE;
+/*function theme_recit_add_user_menu(\flat_navigation $flatnav) {
+    global $USER, $PAGE;
     $opts = user_get_user_navigation_info($USER, $PAGE);
     
     $options = [
@@ -373,15 +373,15 @@ function theme_recit_add_user_menu(\flat_navigation $flatnav) {
         
    $nav_node = new \flat_navigation_node($options, $flatnav);
         
-   $flatnav->add($nav_node, null);*/
-}
+   $flatnav->add($nav_node, null);
+}*/
 
 /**
  * Remove items from navigation
  *
  * @param flat_navigation $flatnav
  */
-function theme_recit_delete_menuitems(\flat_navigation $flatnav) {
+/*function theme_recit_delete_menuitems(\flat_navigation $flatnav) {
 
     $itemstodelete = [
         'coursehome'
@@ -408,14 +408,14 @@ function theme_recit_delete_menuitems(\flat_navigation $flatnav) {
             continue;
         }
     }
-}
+}*/
 
 /**
  * Improve flat navigation menu
  *
  * @param flat_navigation $flatnav
  */
-function theme_recit_rebuildcoursesections(\flat_navigation $flatnav) {
+/*function theme_recit_rebuildcoursesections(\flat_navigation $flatnav) {
     global $PAGE;
 
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
@@ -460,4 +460,4 @@ function theme_recit_rebuildcoursesections(\flat_navigation $flatnav) {
 
         $flatnav->add($mycourses, 'privatefiles');
     }
-}
+}*/

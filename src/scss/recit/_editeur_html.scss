@@ -49,14 +49,6 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-style: normal;
 }
 
-@font-face {
-  font-family: 'fjalla_oneregular';
-  src: url('../../../recit/scss/fjallaone-regular-webfont.woff2') format('woff2'),
-  url('../../../recit/scss/fjallaone-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css');
 
@@ -1791,10 +1783,7 @@ z-index: 1000!important;
       transform: rotateX(-180deg);
     }
     .card, .card-img-top {
-      border-radius: 10px;
-      img {
-      padding-top: 15px;
-      }
+      border-radius: 0;
     }
     @media screen and (min-width: 576px) {
       .image-flip {

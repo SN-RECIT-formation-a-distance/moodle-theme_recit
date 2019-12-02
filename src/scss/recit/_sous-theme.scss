@@ -3,103 +3,93 @@
                         Buttons - Bars
                     \*-------------------------------*/
                     /*-- Button 1 --*/
-                    .submit, .btn.btn-default, .btn-primary,.recit-btn-style_btn_1,h5 a,
-                h5 a.style_btn_1 {
+                    h5 a,
+                    h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
-                        color: $primary;
-                        border: solid 2px $primary;
+                        color: $theme_color4;
+                        border: solid 2px $theme_color4;
                         background: $white;
                         -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         border-radius: 30px;
                     }
-                    .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
-                h5 a.style_btn_1:hover,
-                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                    h5 a:hover,
+                    h5 a.style_btn_1:hover {
                         text-decoration: none;
                         color: $white;
-                        border: solid 2px $primary;
-                        background: $primary;
-                    }/*-- Button 2 --*/
-                    .btn-secondary,  .recit-btn, .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }
+                    .recit-btn, .recit-btn-style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
-                        color: $secondary;
-                        border: solid 2px $secondary;
+                        color: $theme_color4;
+                        border: solid 2px $theme_color4;
                         background: $white;
                         -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         border-radius: 30px;
                     }
-                    .btn-secondary:hover, .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+                    .recit-btn-style_btn_1:hover {
+                        text-decoration: none;
                         color: $white;
-                        border: solid 2px $secondary;
-                        background: $secondary;
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }/*-- Button 2 --*/
+                    .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                        color: $theme_color3;
+                        border: solid 2px $theme_color3;
+                        background: $white;
+                    }
+                    .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+                        color: $white;
+                        border: solid 2px $theme_color3;
+                        background: $theme_color3;
                     }
                     /*-- Button 3 --*/
-                    .btn-success, .recit-btn-style_btn_3, h5 a.style_btn_3 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $success;
-                        border: solid 2px $success;
+                    .recit-btn-style_btn_3, h5 a.style_btn_3 {
+                        color: $theme_color1;
+                        border: solid 2px $theme_color1;
                         background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
                     }
-                    .btn-success:hover, .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
+                    .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
                         color: $white;
-                        border: solid 2px $success;
-                        background: $success;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
-                     /*-- Button 4 --*/
-                     .btn-danger, .recit-btn-style_btn_4, h5 a.style_btn_4 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                         color: $danger;
-                        border: solid 2px $danger;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
+                    /*-- Button 4 --*/
+                    .recit-btn-style_btn_4, h5 a.style_btn_4 {
+                        color: $theme_color1;
+                        border: solid 2px $theme_color2;
+                        background: $theme_color2;
                     }
-                    .btn-danger:hover, .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
+                    .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
                         color: $white;
-                        border: solid 2px $danger;
-                        background: $danger;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
                     /*-- Button 5 --*/
-                    .btn-warning, .recit-btn-style_btn_5, h5 a.style_btn_5 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $warning;
-                        border: solid 2px $warning;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    .btn-warning:hover, .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
+                    .recit-btn-style_btn_5, h5 a.style_btn_5 {
                         color: $white;
-                        border: solid 2px $warning;
-                        background: $warning;
+                        border: solid 2px $theme_color3;
+                        background: $theme_color3;
                     }
-                       /*-- Button 6 --*/
-                    .btn-info, .recit-btn-style_btn_6, h5 a.style_btn_6 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                         color: $info;
-                        border: solid 2px $info;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    .btn-info:hover, .recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
+                    .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
                         color: $white;
-                        border: solid 2px $info;
-                        background: $info;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
+                    }
+                    /*-- Button 6 --*/
+                    .recit-btn-style_btn_6,h5 a.style_btn_6 {
+                        color: $white;
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }
+                    .recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
+                        color: $white;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
 }
     
@@ -114,103 +104,93 @@
                         Buttons - Bars
                     \*-------------------------------*/
                     /*-- Button 1 --*/
-                    .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
-                h5 a.style_btn_1 {
+                    h5 a,
+                    h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
-                        color: $primary;
-                        border: solid 2px $primary;
+                        color: $theme_color4;
+                        border: solid 2px $theme_color4;
                         background: $white;
                         -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         border-radius: 30px;
                     }
-                    .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
-                h5 a.style_btn_1:hover,
-                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                    h5 a:hover,
+                    h5 a.style_btn_1:hover {
                         text-decoration: none;
                         color: $white;
-                        border: solid 2px $primary;
-                        background: $primary;
-                    }/*-- Button 2 --*/
-                    .btn-secondary, .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }
+                    .recit-btn, .recit-btn-style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
-                        color: $secondary;
-                        border: solid 2px $secondary;
+                        color: $theme_color4;
+                        border: solid 2px $theme_color4;
                         background: $white;
                         -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         border-radius: 30px;
                     }
-                    .btn-secondary:hover, .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+                    .recit-btn-style_btn_1:hover {
+                        text-decoration: none;
                         color: $white;
-                        border: solid 2px $secondary;
-                        background: $secondary;
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }/*-- Button 2 --*/
+                    .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                        color: $theme_color3;
+                        border: solid 2px $theme_color3;
+                        background: $white;
+                    }
+                    .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+                        color: $white;
+                        border: solid 2px $theme_color3;
+                        background: $theme_color3;
                     }
                     /*-- Button 3 --*/
-                    .btn-success, .recit-btn-style_btn_3, h5 a.style_btn_3 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $success;
-                        border: solid 2px $success;
+                    .recit-btn-style_btn_3, h5 a.style_btn_3 {
+                        color: $theme_color1;
+                        border: solid 2px $theme_color1;
                         background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
                     }
-                    .btn-success:hover, .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
+                    .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
                         color: $white;
-                        border: solid 2px $success;
-                        background: $success;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
-                     /*-- Button 4 --*/
-                     .btn-danger, .recit-btn-style_btn_4, h5 a.style_btn_4 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                         color: $danger;
-                        border: solid 2px $danger;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
+                    /*-- Button 4 --*/
+                    .recit-btn-style_btn_4, h5 a.style_btn_4 {
+                        color: $theme_color1;
+                        border: solid 2px $theme_color2;
+                        background: $theme_color2;
                     }
-                    .btn-danger:hover, .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
+                    .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
                         color: $white;
-                        border: solid 2px $danger;
-                        background: $danger;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
                     /*-- Button 5 --*/
-                    .btn-warning, .recit-btn-style_btn_5, h5 a.style_btn_5 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $warning;
-                        border: solid 2px $warning;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    .btn-warning:hover, .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
+                    .recit-btn-style_btn_5, h5 a.style_btn_5 {
                         color: $white;
-                        border: solid 2px $warning;
-                        background: $warning;
+                        border: solid 2px $theme_color3;
+                        background: $theme_color3;
                     }
-                       /*-- Button 6 --*/
-                    .btn-info, .recit-btn-style_btn_6, h5 a.style_btn_6 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                         color: $info;
-                        border: solid 2px $info;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    .btn-info:hover, .recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
+                    .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
                         color: $white;
-                        border: solid 2px $info;
-                        background: $info;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
+                    }
+                    /*-- Button 6 --*/
+                    .recit-btn-style_btn_6,h5 a.style_btn_6 {
+                        color: $white;
+                        border: solid 2px $theme_color4;
+                        background: $theme_color4;
+                    }
+                    .recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
+                        color: $white;
+                        border: solid 2px $theme_color1;
+                        background: $theme_color1;
                     }
                     /*-------------------------------*\
                         Custom rows styles
@@ -255,107 +235,68 @@
         background: none;
     }*/
 
-                       /*-------------------------------*\
-                        Buttons - Bars
-                    \*-------------------------------*/
-                    /*-- Button 1 --*/
-                    .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
-                    h5 a.style_btn_1 {
-                            display: inline-block;
-                            padding: 4px 10px;
-                            color: $primary;
-                            border: solid 2px $primary;
-                            background: $white;
-                            -webkit-border-radius: 30px;
-                            -moz-border-radius: 30px;
-                            border-radius: 30px;
-                        }
-                        .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
-                    h5 a.style_btn_1:hover,
-                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
-                            text-decoration: none;
-                            color: $white;
-                            border: solid 2px $primary;
-                            background: $primary;
-                        }/*-- Button 2 --*/
-                        .btn-secondary, .recit-btn-style_btn_2, h5 a.style_btn_2 {
-                            display: inline-block;
-                            padding: 4px 10px;
+                        /*-------------------------------*\
+                            Buttons - Bars
+                        \*-------------------------------*/
+                        .recit-btn, h5 a {
                             color: $secondary;
                             border: solid 2px $secondary;
-                            background: $white;
                             -webkit-border-radius: 30px;
                             -moz-border-radius: 30px;
                             border-radius: 30px;
+                            transform: skewX(0);
                         }
-                        .btn-secondary:hover, .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
-                            color: $white;
+                        h5 a strong {
+                            color: #59B5BE;
+                            transform: skewX(0);
+                        }
+                        .recit-btn:hover, h5 a:hover {
+                            color: #fff;
+                            background: #59B5BE;
+                        }
+                        h5 a:hover strong, h5 a.dark-btn:hover strong, h5 a.red-btn:hover strong, h5 a.btn_fill strong, h5 a.btn_red_fill strong, h5 a.btn_yellow_fill:hover strong {
+                            color: #fff;
+                        }
+                        .recit-btn-style_btn_1, h5 a.dark-btn {
+                            color: $secondary;
                             border: solid 2px $secondary;
-                            background: $secondary;
                         }
-                        /*-- Button 3 --*/
-                        .btn-success, .recit-btn-style_btn_3, h5 a.style_btn_3 {
-                            display: inline-block;
-                            padding: 4px 10px;
-                            color: $success;
-                            border: solid 2px $success;
-                            background: $white;
-                            -webkit-border-radius: 30px;
-                            -moz-border-radius: 30px;
-                            border-radius: 30px;
+                        h5 a.dark-btn strong {
+                            color: #1A425C;
                         }
-                        .btn-success:hover, .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
-                            color: $white;
-                            border: solid 2px $success;
-                            background: $success;
-                        }
-                         /*-- Button 4 --*/
-                         .btn-danger, .recit-btn-style_btn_4, h5 a.style_btn_4 {
-                            display: inline-block;
-                            padding: 4px 10px;
-                             color: $danger;
-                            border: solid 2px $danger;
-                            background: $white;
-                            -webkit-border-radius: 30px;
-                            -moz-border-radius: 30px;
-                            border-radius: 30px;
-                        }
-                        .btn-danger:hover, .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
-                            color: $white;
-                            border: solid 2px $danger;
+                        .recit-btn-style_btn_1:hover, h5 a.dark-btn:hover {
                             background: $danger;
                         }
-                        /*-- Button 5 --*/
-                        .btn-warning, .recit-btn-style_btn_5, h5 a.style_btn_5 {
-                            display: inline-block;
-                            padding: 4px 10px;
-                            color: $warning;
-                            border: solid 2px $warning;
-                            background: $white;
-                            -webkit-border-radius: 30px;
-                            -moz-border-radius: 30px;
-                            border-radius: 30px;
+                        .recit-btn-style_btn_2, h5 a.red-btn {
+                            color: #DF6660;
+                            border: solid 2px #DF6660;
                         }
-                        .btn-warning:hover, .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
-                            color: $white;
-                            border: solid 2px $warning;
-                            background: $warning;
+                        h5 a.red-btn strong {
+                            color: #DF6660;
                         }
-                           /*-- Button 6 --*/
-                        .btn-info, .recit-btn-style_btn_6, h5 a.style_btn_6 {
-                            display: inline-block;
-                            padding: 4px 10px;
-                             color: $info;
-                            border: solid 2px $info;
-                            background: $white;
-                            -webkit-border-radius: 30px;
-                            -moz-border-radius: 30px;
-                            border-radius: 30px;
+                        .recit-btn-style_btn_2:hover,h5 a.red-btn:hover {
+                            background: #DF6660;
                         }
-                        .btn-info:hover, .recit-btn-style_btn_6:hover, h5 a.style_btn_6:hover {
-                            color: $white;
-                            border: solid 2px $info;
-                            background: $info;
+                        h5 a.btn_fill {
+                            border: solid 2px #59B5BE;
+                            background: #59B5BE;
+                        }
+                        h5 a.btn_red_fill {
+                            border: solid 2px #DF6660;
+                            background: #DF6660;
+                        }
+                        .recit-btn-style_btn_3, h5 a.btn_yellow_fill {
+                            border: solid 2px #E9C06B;
+                            background: #E9C06B;
+                        }
+                        h5 a.btn_yellow_fill strong {
+                            color: #1A425C;
+                        }
+                        h5 a.btn_fill:hover,
+                        h5 a.btn_red_fill:hover,
+                        h5 a.btn_yellow_fill:hover {
+                            border: solid 2px #1A425C;
+                            background: #1A425C;
                         }
 
                         figure.figure {
@@ -377,7 +318,7 @@
 .editeur, body.theme-recit-histoire{
 	#course-banner{background-image:  url('[[pix:theme|banner-histoire]]') ;}
    
-                       /* .recit-btn {
+                        .recit-btn {
                             position: relative;
                             display: inline-block;
                             font-weight: 500;
@@ -386,10 +327,10 @@
                             -o-transform:      skewX(-15deg) !important;
                             transform:         skewX(-15deg) !important;
                             background: none;
-                        }*/
+                        }
                         
-                        .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
-                        h5 a.style_btn_1 {
+                    h5 a,
+                    h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 12px 12px 14px;
                         margin: 0 2px 4px 2px;
@@ -401,83 +342,72 @@
                         border-left: solid 5px $theme_color2;
                         background: #fff;
                     }
-                    .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
-                    h5 a.style_btn_1:hover,
-                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                    h5 a:hover,
+                    h5 a.style_btn_1:hover {
+                        color: $white;
+                        text-decoration: none;
+                        border-left: solid 5px $theme_color2;
+                        background: $theme_color1;
+                    }
+
+                    .recit-btn-style_btn_1 {
+                        display: inline-block;
+                        padding: 12px 12px 14px;
+                        margin: 0 2px 4px 2px;
+                        -moz-transform:    skewX(15deg) !important;
+                        -webkit-transform: skewX(15deg) !important;
+                        -o-transform:      skewX(15deg) !important;
+                        transform:         skewX(15deg) !important;
+                        color: $dark;
+                        border-left: solid 5px $theme_color2;
+                        background: #fff;
+                    }
+                    .recit-btn-style_btn_1:hover {
                         color: $white;
                         text-decoration: none;
                         border-left: solid 5px $theme_color2;
                     background: $theme_color1;}
                     /*-- Button 2 --*/
-                    .btn-secondary, .recit-btn-style_btn_2, h5 a.style_btn_2 {
-                        display: inline-block;
-                        padding: 12px 12px 14px;
-                        margin: 0 2px 4px 2px;
-                        color: $dark;
-                            -moz-transform:    skewX(-15deg) !important;
-                            -webkit-transform: skewX(-15deg) !important;
-                            -o-transform:      skewX(-15deg) !important;
-                            transform:         skewX(-15deg) !important;
-                            background: none;border-left: solid 5px $theme_color1;
+                    .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                        border-left: solid 5px $theme_color1;
                     }
-                    .btn-secondary:hover, .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover  {
+                    .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
                         color: $white;
                         border-left: solid 5px $theme_color1;
                         background: $theme_color2;
                     }
                     /*-- Button 3 --*/
-                    .btn-success, .recit-btn-style_btn_3, h5 a.style_btn_3 {
-                        display: inline-block;
-                        padding: 12px 12px 14px;
-                        margin: 0 2px 4px 2px;
-                            -moz-transform:    skewX(-15deg) !important;
-                            -webkit-transform: skewX(-15deg) !important;
-                            -o-transform:      skewX(-15deg) !important;
-                            transform:         skewX(-15deg) !important;
-                            background: none;color: $white;
+                    .recit-btn-style_btn_3, h5 a.style_btn_3 {
+                        color: $white;
                         border-left: solid 5px $theme_color1;
                         background: $dark;
                     }
-                    .btn-success:hover, .recit-btn-style_btn_2:hover, h5 a.style_btn_3:hover {
+                    .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
                         color: $white;
                         border-left: solid 5px $theme_color2;
                         background: $dark;
                     }
                     /*-- Button 4 --*/
-                    .btn-info, .recit-btn-style_btn_4, h5 a.style_btn_4 {
-                        display: inline-block;
-                        padding: 12px 12px 14px;
-                        margin: 0 2px 4px 2px;
-                            -moz-transform:    skewX(-15deg) !important;
-                            -webkit-transform: skewX(-15deg) !important;
-                            -o-transform:      skewX(-15deg) !important;
-                            transform:         skewX(-15deg) !important;
-                            background: none;color: $dark;
+                    .recit-btn-style_btn_4, h5 a.style_btn_4 {
+                        color: $dark;
                         border-left: solid 5px $white;
                         border-right: solid 5px $white;
                         background: $white;
                     }
-                    .btn-info:hover, .recit-btn-style_btn_4:hover, h5 a.style_btn_4:hover {
+                    .recit-btn-style_btn_46:hover, h5 a.style_btn_4:hover {
                         color: $white;
                         border-left: solid 5px $dark;
                         border-right: solid 5px $dark;
                         background: $dark;
                     }
                     /*-- Button 5 --*/
-                    .btn-danger, .recit-btn-style_btn_5, h5 a.style_btn_5 {
-                        display: inline-block;
-                        padding: 12px 12px 14px;
-                        margin: 0 2px 4px 2px;
-                            -moz-transform:    skewX(-15deg) !important;
-                            -webkit-transform: skewX(-15deg) !important;
-                            -o-transform:      skewX(-15deg) !important;
-                            transform:         skewX(-15deg) !important;
-                            background: none;color: $white;
+                    .recit-btn-style_btn_5, h5 a.style_btn_5 {
+                        color: $white;
                         border-left: solid 5px $theme_color1;
                         border-right: solid 5px $theme_color1;
                         background: $theme_color1;
                     }
-                    .btn-danger:hover, .recit-btn-style_btn_5:hover, h5 a.style_btn_5:hover {
+                    .recit-btn-style_btn_56:hover, h5 a.style_btn_5:hover {
                         color: $theme_color1;
                         border-left: solid 5px $white;
                         border-right: solid 5px $white;
@@ -485,14 +415,7 @@
                     }
                     /*-- Button 6 --*/
                     .recit-btn-style_btn_6, .recit-btn-primary, h5 a.style_btn_6 {
-                        display: inline-block;
-                        padding: 12px 12px 14px;
-                        margin: 0 2px 4px 2px;
-                            -moz-transform:    skewX(-15deg) !important;
-                            -webkit-transform: skewX(-15deg) !important;
-                            -o-transform:      skewX(-15deg) !important;
-                            transform:         skewX(-15deg) !important;
-                            background: none;color: $white;
+                        color: $white;
                         border-left: solid 5px $theme_color2;
                         border-right: solid 5px $theme_color2;
                         background: $theme_color2;
@@ -504,7 +427,7 @@
                         background: $white;
                     }
 
-                    /*h5 a strong {
+                    h5 a strong {
                         position: relative;
                         display: inline-block;
                         font-weight: 500;
@@ -513,7 +436,7 @@
                         -o-transform:      skewX(-15deg) !important;
                         transform:         skewX(-15deg) !important;
                         background: none;
-                    }*/
+                    }
 
 
 
@@ -550,7 +473,7 @@
                         }
                     }
 }
-/*.editeur, body.theme-recit-histoire#page-mod-book-view{
+.editeur, body.theme-recit-histoire#page-mod-book-view{
     .block-region {
         .card-header {
             font-family: $headings-font-family;
@@ -565,7 +488,7 @@
             border-bottom: 1px solid rgba(0,0,0,.125);
         }
     }
-}*/
+}
 
 
 
@@ -575,8 +498,9 @@
                     Buttons - Bars
                 \*-------------------------------*/
                 /*-- Button 1 --*/
-                .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
-                h5 a.style_btn_1 {
+                    .recit-btn,.recit-btn-style_btn_1,h5 a,
+                    h5 a.style_btn_1,
+                    .submit.btn.btn-default {
                         display: inline-block;
                         padding: 12px 12px 14px;
                         margin: 0 2px 4px 2px;
@@ -591,12 +515,11 @@
                         background: linear-gradient(160deg,  #ffffff 0%,#ffffff 50%,#e3ebeb 50%,#e3ebeb 100%);
                         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3ebeb',GradientType=1 );
                     }
-                    .submit, .btn.btn-default {
+                    .submit.btn.btn-default {
                         padding: 12px 12px 11px;
                     }
-                    .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
-                h5 a.style_btn_1:hover,
-                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                    .recit-btn-style_btn_1:hover,h5 a:hover,
+                    h5 a.style_btn_1:hover {
                         color: $theme_color1;
                         border: solid 1px $theme_color1;
                         text-decoration: none;
@@ -608,7 +531,7 @@
                     }
                     /*-- Button 2 --*/
                     .recit-btn-style_btn_2,h5 a.style_btn_2,
-                    .submit, .btn.btn-default {
+                    .submit.btn.btn-default {
                         color: $theme_color4;
                         border: solid 1px $theme_color4;
                         background: #ffffff;
@@ -618,7 +541,7 @@
                         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edf7ec',GradientType=1 );
                     }
                     .recit-btn-style_btn_2:hover,h5 a.style_btn_2:hover,
-                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                    .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
                         color: $theme_color4;
                         border: solid 1px $theme_color4;
                         background: #e1e3e4;
@@ -688,7 +611,7 @@
                     Buttons - Bars
                 \*-------------------------------*/
                 /*-- Button 1 --*/
-                .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                 h5 a.style_btn_1 {
                     display: inline-block;
                     padding: 12px 12px 14px;
@@ -704,12 +627,12 @@
                     background: linear-gradient(160deg,  #ffffff 0%,#9dd3e4 20%,#464f52 70%,#518494 100%);
                     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#518494',GradientType=1 );
                 }
-                .submit, .btn.btn-default {
+                .submit.btn.btn-default {
                     padding: 12px 12px 11px;
                 }
                 .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                 h5 a.style_btn_1:hover,
-                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
+                .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
                     color: $dark;
                     border: solid 2px $theme_color1;
                     -webkit-border-radius: 20px;
@@ -1111,15 +1034,12 @@
 /*-------------------------------*\
     Buttons - Bars
 \*-------------------------------*/
- /*-- Button 1 --*/
 .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                 h5 a.style_btn_1 {
     position: relative;
     display: inline-block;
     padding: 5px 12px 7px 22px;
-    border: solid 2px $primary;
     color: $color2;
-    background: $light;
 }
 .btn-primary:before, .recit-btn:before,.recit-btn-style_btn_1:before,
                 h5 a.style_btn_1:before, h5 a:before {
@@ -1130,7 +1050,7 @@
     left: 7px;
     width: 5px;
     height: 70%;
-    background: $primary;
+    background: $color2;
     -webkit-transition: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;
     -ms-transition: all 0.25s ease-out;
@@ -1145,191 +1065,6 @@
 }
 .btn-primary:hover:before, .recit-btn-style_btn_1:hover:before,
                 h5 a.style_btn_1:hover:before,h5 a:hover:before {
-    height: 90%;
-    background: $color1;
-}
- /*-- Button 2 --*/
-.btn-secondary, .recit-btn,.recit-btn-style_btn_2,h5 a,
-                h5 a.style_btn_2 {
-    position: relative;
-    display: inline-block;
-    padding: 5px 12px 7px 22px;
-    border: solid 2px $secondary;
-    color: $color2;
-    background: $light;
-}
-.btn-secondary:before, .recit-btn:before,.recit-btn-style_btn_2:before,
-                h5 a.style_btn_2:before, h5 a:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 7px;
-    width: 5px;
-    height: 70%;
-    background: $secondary;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -ms-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-}
-.btn-secondary:hover, .recit-btn-style_btn_2:hover,h5 a:hover,
-                h5 a.style_btn_2:hover {
-    color: #fff;
-    text-decoration: none;
-    background: $color2;
-}
-.btn-secondary:hover:before, .recit-btn-style_btn_2:hover:before,
-                h5 a.style_btn_2:hover:before,h5 a:hover:before {
-    height: 90%;
-    background: $color1;
-}
-/*-- Button 3 --*/
-.btn-success, .recit-btn,.recit-btn-style_btn_3,h5 a,
-                h5 a.style_btn_3 {
-    position: relative;
-    display: inline-block;
-    padding: 5px 12px 7px 22px;
-    border: solid 2px $success;
-    color: $color2;
-    background: $light;
-}
-.btn-success:before, .recit-btn:before,.recit-btn-style_btn_3:before,
-                h5 a.style_btn_3:before, h5 a:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 7px;
-    width: 5px;
-    height: 70%;
-    background: $success;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -ms-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-}
-.btn-success:hover, .recit-btn-style_btn_3:hover,h5 a:hover,
-                h5 a.style_btn_3:hover {
-    color: #fff;
-    text-decoration: none;
-    background: $color2;
-}
-.btn-success:hover:before, .recit-btn-style_btn_3:hover:before,
-                h5 a.style_btn_3:hover:before,h5 a:hover:before {
-    height: 90%;
-    background: $color1;
-}
-/*-- Button 4 --*/
-.btn-danger, .recit-btn,.recit-btn-style_btn_4,h5 a,
-                h5 a.style_btn_4 {
-    position: relative;
-    display: inline-block;
-    padding: 5px 12px 7px 22px;
-    border: solid 2px $danger;
-    color: $color2;
-    background: $light;
-}
-.btn-danger:before, .recit-btn:before,.recit-btn-style_btn_4:before,
-                h5 a.style_btn_4:before, h5 a:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 7px;
-    width: 5px;
-    height: 70%;
-    background: $danger;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -ms-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-}
-.btn-danger:hover, .recit-btn-style_btn_4:hover,h5 a:hover,
-                h5 a.style_btn_4:hover {
-    color: #fff;
-    text-decoration: none;
-    background: $color2;
-}
-.btn-danger:hover:before, .recit-btn-style_btn_4:hover:before,
-                h5 a.style_btn_4:hover:before,h5 a:hover:before {
-    height: 90%;
-    background: $color1;
-}
-/*-- Button 5 --*/
-.btn-warning, .recit-btn,.recit-btn-style_btn_5,h5 a,
-                h5 a.style_btn_5 {
-    position: relative;
-    display: inline-block;
-    padding: 5px 12px 7px 22px;
-    border: solid 2px $warning;
-    color: $color2;
-    background: $light;
-}
-.btn-warning:before, .recit-btn:before,.recit-btn-style_btn_5:before,
-                h5 a.style_btn_5:before, h5 a:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 7px;
-    width: 5px;
-    height: 70%;
-    background: $warning;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -ms-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-}
-.btn-warning:hover, .recit-btn-style_btn_5:hover,h5 a:hover,
-                h5 a.style_btn_5:hover {
-    color: #fff;
-    text-decoration: none;
-    background: $color2;
-}
-.btn-warning:hover:before, .recit-btn-style_btn_5:hover:before,
-                h5 a.style_btn_5:hover:before,h5 a:hover:before {
-    height: 90%;
-    background: $color1;
-}
-/*-- Button 6 --*/
-.btn-info, .recit-btn,.recit-btn-style_btn_6,h5 a,
-                h5 a.style_btn_6 {
-    position: relative;
-    display: inline-block;
-    padding: 5px 12px 7px 22px;
-    border: solid 2px $info;
-    color: $color2;
-    background: $light;
-}
-.btn-info:before, .recit-btn:before,.recit-btn-style_btn_6:before,
-                h5 a.style_btn_6:before, h5 a:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 7px;
-    width: 5px;
-    height: 70%;
-    background: $info;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -ms-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-}
-.btn-info:hover, .recit-btn-style_btn_6:hover,h5 a:hover,
-                h5 a.style_btn_6:hover {
-    color: #fff;
-    text-decoration: none;
-    background: $color2;
-}
-.btn-info:hover:before, .recit-btn-style_btn_6:hover:before,
-                h5 a.style_btn_6:hover:before,h5 a:hover:before {
     height: 90%;
     background: $color1;
 }

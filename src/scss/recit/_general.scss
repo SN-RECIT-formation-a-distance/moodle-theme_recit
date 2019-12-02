@@ -74,7 +74,7 @@ h5 {
 Pages
 *******************/
 #page-wrapper {
-    margin-top: 56px;
+    margin-top: $top-navbar-height;
     background-color: #efefef;
     #page{
         max-width: $page-max-width;

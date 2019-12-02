@@ -65,6 +65,48 @@
     
 }
 
+#recitNavbarTop{
+    max-width: $page-max-width;
+    min-height:  $top-navbar-height;
+    margin: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    .site-name {margin-left: .5rem;}
+    .navbar-nav{ 
+        align-items: baseline;    
+        
+        .nav-link{
+         //   text-align: center; 
+           // i{margin-bottom: .2rem; display: block;}
+           min-width: 50px;
+        }
+    }
+
+    
+
+    /*.nav-item[data-pinned="1"]{
+        //width: 75px;
+        border-right: 1px solid #555;
+        .nav-link{ 
+            text-align: center; 
+            i{display: block; margin-bottom: .2rem; }
+        }
+    }*/
+
+    .dropdown-menu{
+        right: 0;
+        left: auto;
+    }
+
+    .DescResponsive{display: inline;}
+
+    @media screen and (min-width: 992px){
+        .DescResponsive{display: none;}
+    }
+}
+
 nav.navbar {
     max-height: inherit; // min-content does not work with firefox;
     

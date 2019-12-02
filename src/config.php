@@ -37,7 +37,7 @@ $THEME->name = 'recit';
 // list any style sheets. If we did we would list the name of a file in the /styles/ folder for our theme without any css file
 // extensions.
 //$THEME->sheets[] = "bootstrap";
-//$THEME->sheets[] = "fontawesome";
+//$THEME->sheets[] = "fontawesome"; 
 $THEME->sheets[] = "moodle-base";
 //$THEME->sheets[] = "moodle-scss";
 $THEME->sheets[] = "recit";
@@ -147,12 +147,6 @@ $THEME->layouts = [
         'file' => 'login.php',
         'regions' => array(),
         'options' => array('langmenu' => true),
-    ),
-    // Pages that appear in pop-up windows - no navigation, no blocks, no header.
-    'popup' => array(
-        'file' => 'columns1.php',
-        'regions' => array(),
-        'options' => array('nofooter' => true, 'nonavbar' => true),
     ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(

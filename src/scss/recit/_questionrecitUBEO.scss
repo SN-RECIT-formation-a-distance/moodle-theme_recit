@@ -1,14 +1,9 @@
 /*Change question appearance*/
- .qn-container, .que {
+.que {
     
     max-width: 95%;
     margin: 15px;
 }  
-
-.qn-container {
-  margin: 55px;
-}
-
 .que .answernumber {
 text-indent: -25px!important;
 font-size:1.5rem;
@@ -90,19 +85,19 @@ margin-bottom: auto;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.que-legend, .qn-container, .que {
+.que {
 .answer label {
   font-display: block;
   vertical-align: middle !important;}
 
 
 
-.qn-legend,.info {
+.info {
 color: $secondary!important;
 /*background-color: $secondary;
 opacity: 0.1;*/
 float: none;
-width: 100%;
+width: auto;
 border-radius: 5px 5px 0 0;
 margin-bottom: 1px;
 border: 1px solid $secondary;
@@ -115,8 +110,7 @@ border-radius: 10px 10px 0px 0px;
   padding: 15px;
 
 }
-
-.qn-content, .content {
+.content {
 margin: 0;
 
 }
@@ -125,9 +119,7 @@ margin: 0;
 padding-left: 40px;
 
 }
-.qn-question {
-  background: white;
-}
+
 
 h3.no {
 color: $secondary;
@@ -141,7 +133,7 @@ color: $secondary;
 font-size: 1.2em;
 }
 
-.qn-legend, .info > div {
+.info > div {
 
 font-size: 1em;
 color: $secondary;
@@ -149,16 +141,16 @@ display: inline-block;
 margin-right: 25px
 }
 
-.qn-legend, .info > div.state, .que .info > div.grade {
+.info > div.state, .que .info > div.grade {
 font-size: 0.9em;
 color: $secondary;
 }
 
-.qn-legend,  .info > div.questionflag, .que .info > div.editquestion {
+.info > div.questionflag, .que .info > div.editquestion {
 font-weight: bold;
 }
 
-.qn-content, .formulation{
+.formulation{
 padding: 20px;
 border-radius: 0px 0px 10px 10px;
 color: Black;
@@ -167,8 +159,7 @@ border-bottom: 1px  $secondary solid;
 border-top: 0 ;
 border-left: 1px  $secondary solid; 
 border-right: 1px $secondary solid;
-}
+}}
 .que.multichoice .answer div.r0 label, .que.multichoice .answer div.r1 label, .que.multichoice .answer div.r0 div.specificfeedback, .que.multichoice .answer div.r1 div.specificfeedback {
 text-indent: -25px !important; 
-}
 }

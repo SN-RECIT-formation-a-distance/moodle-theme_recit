@@ -108,11 +108,12 @@ body.drawer-open-right #sidepreopen-control{
     width: 280px;
     background-color: #fff;
     position: fixed;
-    top: 70px;
+    top: 0;
     right: -320px;
-    height: calc(100% - 50px);
+    height: 100%;
     overflow-y: scroll;
-    z-index: 999;
+    z-index: 1050;
+    border-left: 1px solid #DDD;
 }
 
 body.drawer-open-right {

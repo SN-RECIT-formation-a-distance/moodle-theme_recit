@@ -24,13 +24,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once("common.php");
+
 $bodyattributes = $OUTPUT->body_attributes([]);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
+    'page' => $PAGE,
     'bodyattributes' => $bodyattributes
 ];
+
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
 
 echo $OUTPUT->render_from_template('theme_recit/columns1', $templatecontext);
 

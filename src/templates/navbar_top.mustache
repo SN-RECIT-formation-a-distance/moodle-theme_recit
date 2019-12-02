@@ -21,7 +21,8 @@
 
     Example context (json): {}
 }}
-<nav class="fixed-top navbar navbar-dark bg-dark navbar-expand moodle-has-zindex"> 
+
+<nav id="recitNavbarTop" class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg moodle-has-zindex"> 
     <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}">
         <span class="logo d-sm-inline">
         {{#output.get_logo}}
@@ -31,15 +32,114 @@
             <img src="{{{ config.wwwroot }}}/theme/recit/pix/recit-logo.png" alt="{{sitename}}">
         {{/output.get_logo}}
         </span>
-        <span class="site-name  d-md-inline">{{{ sitename }}}</span>
     </a>
 
-    <ul class="navbar-nav d-none d-md-flex custom-menus">
-        {{{ output.custom_menu }}}
-        
-        {{!<li class="nav-item lang-menu">
-            {{{ output.render_lang_menu }
-        </li>}}
-    </ul>    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {{#isloggedin}}            
+        <div class="collapse navbar-collapse" id="navbarMenuItems">
+            <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem;'>
+                <span class="site-name d-md-inline">{{{ sitename }}}</span>
+            </a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{settingsmenu.editsettings.url}}" title="{{settingsmenu.editsettings.title}}"><i class="fa {{settingsmenu.editsettings.pix}}"></i><span class="DescResponsive"> {{settingsmenu.editsettings.title}}</span></a>
+                </li>
+                {{#is_siteadmin}}
+                    {{#modeedition}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                        </li>
+                    {{/modeedition}}
+                    {{^modeedition}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                        </li>                        
+                    {{/modeedition}}
+                {{/is_siteadmin}} 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{settingsmenu.questions.url}}" title="{{settingsmenu.questions.title}}"><i class="fa {{settingsmenu.questions.pix}}"></i><span class="DescResponsive"> {{settingsmenu.questions.title}}</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0" >    
+                <li class="nav-item">
+                    <a class="nav-link" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i><span class="DescResponsive"> {{usermenu.home.title}}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="DescResponsive"> {{usermenu.mymoodle.title}}</span></a>
+                </li>       
+                {{#usermenu.messages.url}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{usermenu.messages.url}}" title="{{usermenu.messages.title}}"><i class="fa {{usermenu.messages.pix}}"></i><span class="DescResponsive"> {{usermenu.messages.title}}</span></a>
+                    </li>
+                {{/usermenu.messages.url}}               
+                {{#is_siteadmin}}       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Administration">
+                            <i class="fa fa-user-shield"></i> 
+                            <span class="DescResponsive"> Administration</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{usermenu.sitesettings.url}}"><i class="fa {{usermenu.sitesettings.pix}}"></i> {{usermenu.sitesettings.title}}</a>
+                            <a class="dropdown-item" href="{{usermenu.switchroleto.url}}"><i class="fa {{usermenu.switchroleto.pix}}"></i> {{usermenu.switchroleto.title}}</a>
+                        </div>
+                    </li>
+                {{/is_siteadmin}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
+                        {{{usermenu.user.pix}}}
+                        <span class="DescResponsive"> {{usermenu.user.title}}</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
+                        {{#usermenu.profile.url}}
+                            <a class="dropdown-item" href="{{usermenu.profile.url}}" title="{{usermenu.profile.title}}"><i class="fa {{usermenu.profile.pix}}"></i> {{usermenu.profile.title}}</a>
+                        {{/usermenu.profile.url}}    
+                        {{#usermenu.preferences.url}}
+                            <a class="dropdown-item" href="{{usermenu.preferences.url}}" title="{{usermenu.preferences.title}}"><i class="fa {{usermenu.preferences.pix}}"></i> {{usermenu.preferences.title}}</a>
+                        {{/usermenu.preferences.url}}
+                        {{#usermenu.grades.url}}
+                            <a class="dropdown-item" href="{{usermenu.grades.url}}" title="{{usermenu.grades.title}}"><i class="fa {{usermenu.grades.pix}}"></i> {{usermenu.grades.title}}</a>
+                        {{/usermenu.grades.url}}
+                        <div class="dropdown-divider"></div>
+                        {{#usermenu.participants.url}}
+                            <a class="dropdown-item" href="{{usermenu.participants.url}}"><i class="fa {{usermenu.participants.pix}}"></i> {{usermenu.participants.title}}</a>
+                        {{/usermenu.participants.url}}
+                        {{#usermenu.badgesview.url}}
+                            <a class="dropdown-item" href="{{usermenu.badgesview.url}}"><i class="fa {{usermenu.badgesview.pix}}"></i> {{usermenu.badgesview.title}}</a>
+                        {{/usermenu.badgesview.url}}
+                        {{#usermenu.competencies.url}}
+                            <a class="dropdown-item" href="{{usermenu.competencies.url}}"><i class="fa {{usermenu.competencies.pix}}"></i> {{usermenu.competencies.title}}</a>
+                        {{/usermenu.competencies.url}}
+                        {{#usermenu.calendar.url}}
+                            <a class="dropdown-item" href="{{usermenu.calendar.url}}"><i class="fa {{usermenu.calendar.pix}}"></i> {{usermenu.calendar.title}}</a>
+                        {{/usermenu.calendar.url}}
+                        {{#usermenu.privatefiles.url}}
+                            <a class="dropdown-item" href="{{usermenu.privatefiles.url}}"><i class="fa {{usermenu.privatefiles.pix}}"></i> {{usermenu.privatefiles.title}}</a>
+                        {{/usermenu.privatefiles.url}}
+                        {{#usermenu.logout.url}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{usermenu.logout.url}}" title="{{usermenu.logout.title}}"><i class="fa {{usermenu.logout.pix}}"></i> {{usermenu.logout.title}}</a>
+                        {{/usermenu.logout.url}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    {{/isloggedin}}
+    {{^isloggedin}}
+        <div class="collapse navbar-collapse" id="navbarMenuItems">
+            <span class="site-name  d-md-inline">{{{ sitename }}}</span>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+               
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0" >  
+                <li class="nav-item">
+                    <a class="nav-link" href="{{{ config.wwwroot }}}/login/index.php" title="Connexion"><i class="fa fa-sign-in-alt"></i> Connexion</a>
+                </li>
+            </ul>
+        </div>
+    {{/isloggedin}}
 </nav>
 

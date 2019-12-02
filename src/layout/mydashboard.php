@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
 
+require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
 if (isloggedin()) {
@@ -53,7 +54,7 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
+    'page' => $PAGE,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
@@ -61,9 +62,7 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'isloggedin' => isloggedin(),
-    'is_siteadmin' => is_siteadmin()
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
 $themesettings = new \theme_recit\util\theme_settings();
@@ -111,8 +110,10 @@ if (is_siteadmin()) {
 }
 
 // Improve boost navigation.
-theme_recit_extend_flat_navigation($PAGE->flatnav);
+//theme_recit_extend_flat_navigation($PAGE->flatnav);
 
-$templatecontext['flatnavigation'] = $PAGE->flatnav;
+//$templatecontext['flatnavigation'] = $PAGE->flatnav;
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
+
 
 echo $OUTPUT->render_from_template('theme_recit/mydashboard', $templatecontext);

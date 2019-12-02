@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once("common.php");
+
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
 
@@ -60,7 +62,6 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
@@ -68,14 +69,22 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'isloggedin' => isloggedin()
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-// Improve boost navigation.
-theme_recit_extend_flat_navigation($PAGE->flatnav);
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
 
-$templatecontext['flatnavigation'] = $PAGE->flatnav;
+// Improve boost navigation.
+//theme_recit_extend_flat_navigation($PAGE->flatnav);
+
+
+/*foreach ($PAGE->flatnav as $item) {
+    print_r($item->icon);
+    echo "<br>";
+}
+die();*/
+
+//$templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 $themesettings = new \theme_recit\util\theme_settings();
 
