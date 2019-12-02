@@ -3,7 +3,7 @@
                         Buttons - Bars
                     \*-------------------------------*/
                     /*-- Button 1 --*/
-                    .submit.btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                    .submit, .btn.btn-default, .btn-primary,.recit-btn-style_btn_1,h5 a,
                 h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
@@ -16,13 +16,13 @@
                     }
                     .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                 h5 a.style_btn_1:hover,
-                .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                         text-decoration: none;
                         color: $white;
                         border: solid 2px $primary;
                         background: $primary;
                     }/*-- Button 2 --*/
-                    .btn-secondary, .recit-btn-style_btn_2, h5 a.style_btn_2 {
+                    .btn-secondary,  .recit-btn, .recit-btn-style_btn_2, h5 a.style_btn_2 {
                         display: inline-block;
                         padding: 4px 10px;
                         color: $secondary;
@@ -114,7 +114,7 @@
                         Buttons - Bars
                     \*-------------------------------*/
                     /*-- Button 1 --*/
-                    .submit.btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                    .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                 h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 4px 10px;
@@ -127,7 +127,7 @@
                     }
                     .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                 h5 a.style_btn_1:hover,
-                .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                         text-decoration: none;
                         color: $white;
                         border: solid 2px $primary;
@@ -259,7 +259,7 @@
                         Buttons - Bars
                     \*-------------------------------*/
                     /*-- Button 1 --*/
-                    .submit.btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                    .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                     h5 a.style_btn_1 {
                             display: inline-block;
                             padding: 4px 10px;
@@ -272,7 +272,7 @@
                         }
                         .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                     h5 a.style_btn_1:hover,
-                    .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                             text-decoration: none;
                             color: $white;
                             border: solid 2px $primary;
@@ -388,7 +388,7 @@
                             background: none;
                         }*/
                         
-                        .submit.btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                        .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                         h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 12px 12px 14px;
@@ -403,7 +403,7 @@
                     }
                     .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                     h5 a.style_btn_1:hover,
-                    .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                         color: $white;
                         text-decoration: none;
                         border-left: solid 5px $theme_color2;
@@ -550,7 +550,7 @@
                         }
                     }
 }
-.editeur, body.theme-recit-histoire#page-mod-book-view{
+/*.editeur, body.theme-recit-histoire#page-mod-book-view{
     .block-region {
         .card-header {
             font-family: $headings-font-family;
@@ -565,7 +565,7 @@
             border-bottom: 1px solid rgba(0,0,0,.125);
         }
     }
-}
+}*/
 
 
 
@@ -575,9 +575,8 @@
                     Buttons - Bars
                 \*-------------------------------*/
                 /*-- Button 1 --*/
-                    .recit-btn,.recit-btn-style_btn_1,h5 a,
-                    h5 a.style_btn_1,
-                    .submit.btn.btn-default {
+                .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                h5 a.style_btn_1 {
                         display: inline-block;
                         padding: 12px 12px 14px;
                         margin: 0 2px 4px 2px;
@@ -592,11 +591,12 @@
                         background: linear-gradient(160deg,  #ffffff 0%,#ffffff 50%,#e3ebeb 50%,#e3ebeb 100%);
                         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3ebeb',GradientType=1 );
                     }
-                    .submit.btn.btn-default {
+                    .submit, .btn.btn-default {
                         padding: 12px 12px 11px;
                     }
-                    .recit-btn-style_btn_1:hover,h5 a:hover,
-                    h5 a.style_btn_1:hover {
+                    .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
+                h5 a.style_btn_1:hover,
+                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                         color: $theme_color1;
                         border: solid 1px $theme_color1;
                         text-decoration: none;
@@ -608,7 +608,7 @@
                     }
                     /*-- Button 2 --*/
                     .recit-btn-style_btn_2,h5 a.style_btn_2,
-                    .submit.btn.btn-default {
+                    .submit, .btn.btn-default {
                         color: $theme_color4;
                         border: solid 1px $theme_color4;
                         background: #ffffff;
@@ -618,7 +618,7 @@
                         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edf7ec',GradientType=1 );
                     }
                     .recit-btn-style_btn_2:hover,h5 a.style_btn_2:hover,
-                    .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                    .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                         color: $theme_color4;
                         border: solid 1px $theme_color4;
                         background: #e1e3e4;
@@ -688,7 +688,7 @@
                     Buttons - Bars
                 \*-------------------------------*/
                 /*-- Button 1 --*/
-                .submit.btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
+                .submit, .btn.btn-default, .btn-primary, .recit-btn,.recit-btn-style_btn_1,h5 a,
                 h5 a.style_btn_1 {
                     display: inline-block;
                     padding: 12px 12px 14px;
@@ -704,12 +704,12 @@
                     background: linear-gradient(160deg,  #ffffff 0%,#9dd3e4 20%,#464f52 70%,#518494 100%);
                     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#518494',GradientType=1 );
                 }
-                .submit.btn.btn-default {
+                .submit, .btn.btn-default {
                     padding: 12px 12px 11px;
                 }
                 .btn-primary:hover, .recit-btn-style_btn_1:hover,h5 a:hover,
                 h5 a.style_btn_1:hover,
-                .submit.btn.btn-default:hover, .submit.btn.btn-default:focus, .submit.btn.btn-default:active {
+                .submit, .btn.btn-default:hover, .submit, .btn.btn-default:focus, .submit, .btn.btn-default:active {
                     color: $dark;
                     border: solid 2px $theme_color1;
                     -webkit-border-radius: 20px;

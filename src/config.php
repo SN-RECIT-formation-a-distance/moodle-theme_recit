@@ -148,6 +148,12 @@ $THEME->layouts = [
         'regions' => array(),
         'options' => array('langmenu' => true),
     ),
+    // Pages that appear in pop-up windows - no navigation, no blocks, no header.
+    'popup' => array(
+        'file' => 'columns1.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'nonavbar' => true),
+    ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
         'file' => 'columns1.php',
