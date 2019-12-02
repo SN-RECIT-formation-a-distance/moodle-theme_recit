@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
+//user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+//user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
 
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
@@ -38,14 +38,14 @@ if (isloggedin()) {
     $blockshtml = $OUTPUT->blocks('side-pre');
     $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
-    $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-    $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
+   // $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+    //$draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
 
-    if ($navdraweropen) {
+   /* if ($navdraweropen) {
         $extraclasses[] = 'drawer-open-left';
-    }
+    }*/
 
-    if ($draweropenright && $hasblocks) {
+    if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
         $extraclasses[] = 'drawer-open-right';
     }
 
@@ -59,8 +59,8 @@ if (isloggedin()) {
         'hasblocks' => $hasblocks,
         'bodyattributes' => $bodyattributes,
         'hasdrawertoggle' => true,
-        'navdraweropen' => $navdraweropen,
-        'draweropenright' => $draweropenright,
+        'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),
+        'draweropenright' => ThemeRecitUtils::isDrawerOpenRight(),
         'regionmainsettingsmenu' => $regionmainsettingsmenu,
         'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
     ];

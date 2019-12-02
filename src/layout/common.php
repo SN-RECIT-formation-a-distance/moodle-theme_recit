@@ -6,23 +6,47 @@ require_once($CFG->dirroot . '/theme/recit/classes/util/icon_system.php');
 require_once($CFG->dirroot . '/user/lib.php');
 
 class ThemeRecitUtils{
+    public static function isNavDrawerOpen(){
+        //return (get_user_preferences('drawer-open-nav', 'true') == 'true');
+        return false; // par default
+    }
+
+    public static function isDrawerOpenRight(){
+        //return (get_user_preferences('sidepre-open', 'true') == 'true');
+        return false; // par default
+    }
+
     public static function userIsEditing($page){
         return $page->user_is_editing();
     }
     
-    public static function getUrlEditionMode($page){
-        $obj = parse_url($page->url);
+    public static function getPurgeAllCachesNavItem(){
+        global $CFG;
 
-        $separator = (isset($obj['query']) ? "&" : "?");
-        $editParam = (is_siteadmin() ? "adminedit" : "edit");
-        if($editParam == "adminedit"){
-            $editValue = (self::userIsEditing($page) ? '0' : '1');
-        }
-        else{
-            $editValue = (self::userIsEditing($page) ? 'off' : 'on');
-        }
-        
-        return sprintf("%s%ssesskey=%s&%s=%s", $page->url->out(), $separator, sesskey(), $editParam, $editValue);
+        $item = new stdClass();
+        $item->url = sprintf("%s/%s?sesskey=%s&confirm=1", $CFG->wwwroot, "admin/purgecaches.php", sesskey());
+        $item->pix = "fa-trash-alt";
+        $item->title = get_string('purgecaches', 'admin');
+        return $item;
+    }
+
+    public static function getPurgeThemeCacheNavItem(){
+        global $CFG;
+
+        $item = new stdClass();
+        $item->url = sprintf("%s/%s?sesskey=%s&reset=1", $CFG->wwwroot, "theme/index.php", sesskey());
+        $item->pix = "fa-trash-alt";
+        $item->title = get_string('themeresetcaches', 'admin');
+        return $item;
+    }
+
+    public static function getExtraMenu(){
+        $result = array();
+
+        $result['purgeallcaches'] = self::getPurgeAllCachesNavItem();
+        $result['purgethemecache'] = self::getPurgeThemeCacheNavItem();
+
+        return $result;
     }
 
     public static function getTemplateContextCommon($output, $page, $user = null){
@@ -30,10 +54,11 @@ class ThemeRecitUtils{
             'output' => $output,
             'isloggedin' => isloggedin(),
             'modeedition' => ThemeRecitUtils::userIsEditing($page),
-            'is_siteadmin' => is_siteadmin()
+            'is_siteadmin' => is_siteadmin(),
         ];
 
         $result['settingsmenu'] = self::getContextHeaderSettingsMenu($page);
+        $result['extra'] = self::getExtraMenu();
 
         if($user != null){
             $result['usermenu'] = ThemeRecitUtils::getUserMenu($page, $user);

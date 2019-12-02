@@ -378,7 +378,9 @@ class icon_system extends icon_system_font {
         'core:t/unlock' => 'fa-lock',
         'core:t/up' => 'fa-arrow-up',
         'core:t/user' => 'fa-user',
-        'core:t/viewdetails' => 'fa-layer-group'
+        'core:t/viewdetails' => 'fa-layer-group',
+        'enrol_self:withkey' => 'fa-key',
+        'enrol_self:withoutkey' => 'fa-sign-in-alt'
     ];
 
     /**

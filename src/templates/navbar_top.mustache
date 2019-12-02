@@ -43,11 +43,13 @@
             <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem;'>
                 <span class="site-name d-md-inline">{{{ sitename }}}</span>
             </a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{settingsmenu.editsettings.url}}" title="{{settingsmenu.editsettings.title}}"><i class="fa {{settingsmenu.editsettings.pix}}"></i><span class="DescResponsive"> {{settingsmenu.editsettings.title}}</span></a>
-                </li>
-                {{#is_siteadmin}}
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
+                {{#settingsmenu.editsettings}}      
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.editsettings.url}}" title="{{settingsmenu.editsettings.title}}"><i class="fa {{settingsmenu.editsettings.pix}}"></i><span class="DescResponsive"> {{settingsmenu.editsettings.title}}</span></a>
+                    </li>
+                {{/settingsmenu.editsettings}}
+                {{#settingsmenu.turneditingonoff}}
                     {{#modeedition}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
@@ -58,10 +60,12 @@
                             <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>                        
                     {{/modeedition}}
-                {{/is_siteadmin}} 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{settingsmenu.questions.url}}" title="{{settingsmenu.questions.title}}"><i class="fa {{settingsmenu.questions.pix}}"></i><span class="DescResponsive"> {{settingsmenu.questions.title}}</span></a>
-                </li>
+                {{/settingsmenu.turneditingonoff}} 
+                {{#settingsmenu.questions}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.questions.url}}" title="{{settingsmenu.questions.title}}"><i class="fa {{settingsmenu.questions.pix}}"></i><span class="DescResponsive"> {{settingsmenu.questions.title}}</span></a>
+                    </li>
+                {{/settingsmenu.questions}}
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >    
                 <li class="nav-item">
@@ -83,6 +87,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{usermenu.sitesettings.url}}"><i class="fa {{usermenu.sitesettings.pix}}"></i> {{usermenu.sitesettings.title}}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{extra.purgeallcaches.url}}"><i class="fa {{extra.purgeallcaches.pix}}"></i> {{extra.purgeallcaches.title}}</a>
+                            <a class="dropdown-item" href="{{extra.purgethemecache.url}}"><i class="fa {{extra.purgethemecache.pix}}"></i> {{extra.purgethemecache.title}}</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{usermenu.switchroleto.url}}"><i class="fa {{usermenu.switchroleto.pix}}"></i> {{usermenu.switchroleto.title}}</a>
                         </div>
                     </li>
@@ -129,10 +137,12 @@
     {{/isloggedin}}
     {{^isloggedin}}
         <div class="collapse navbar-collapse" id="navbarMenuItems">
-            <span class="site-name  d-md-inline">{{{ sitename }}}</span>
+            <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem;'>
+                <span class="site-name d-md-inline">{{{ sitename }}}</span>
+            </a>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-               
+                {{{ output.custom_menu }}}
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >  
                 <li class="nav-item">
