@@ -157,7 +157,7 @@ z-index: 1000!important;
   .bg_secondary  {
       background: $secondary;
   }
-  .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondary 100%); }
+  .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $primary 100%); }
   .bg_primary  {
       background: $primary;
   }
@@ -398,6 +398,7 @@ z-index: 1000!important;
       line-height: 1.4em;
     }
     /*Marges composant série 1001*/
+    
     .marg_s {
       margin: 0.3remx;
     }
@@ -446,12 +447,24 @@ z-index: 1000!important;
       bottom: -34px;
       background: url("//recitfad.ca/depot/ubeo/images/border-math.png") left center no-repeat;
     }
+
+    &.C1011,&.C1001 .G1011, &.C1002 .G1011, &.C1003 .G1011, &.C1004 .G1011 {
+      /*Marges composant série 1011*/
+      .c_espacement-nul {padding: 0rem 0;}
+      .c_espacement-etroit {padding: 0.1rem 0;}
+      .c_espacement-moyen {padding: 0.2rem 0;}
+      .c_espacement-large {padding: 0.3rem 0;}
+      .c_espacement-Xlarge {padding: 8.4rem 0;}
+      .c_espacement-XXlarge {padding: 0.5rem 0;}
+    }
+    &.C1001, &.C1002 ,&.C1003, &.C1004, &.C1212 {
     .c_espacement-nul {padding: 0rem 0;}
     .c_espacement-etroit {padding: 2rem 0;}
     .c_espacement-moyen {padding: 4rem 0;}
     .c_espacement-large {padding: 6rem 0;}
     .c_espacement-Xlarge {padding: 8rem 0;}
     .c_espacement-XXlarge {padding: 10rem 0;}	
+    }
     .c_parallax-recit  {
         position: relative;
         background-position: center top;
