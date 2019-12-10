@@ -148,11 +148,22 @@ $THEME->layouts = [
         'regions' => array(),
         'options' => array('langmenu' => true),
     ),
+	// Pages that appear in pop-up windows - no navigation, no blocks, no header.
+    'popup' => array(
+        'file' => 'columns1.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'nonavbar' => true),
+    ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
         'file' => 'columns1.php',
         'regions' => array(),
         'options' => array('nofooter' => true, 'nocoursefooter' => true),
+    ),
+	 // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
+    'embedded' => array(
+        'file' => 'embedded.php',
+        'regions' => array()
     ),
     // Used during upgrade and install, and for the 'This site is undergoing maintenance' message.
     // This must not have any blocks, links, or API calls that would lead to database or cache interaction.

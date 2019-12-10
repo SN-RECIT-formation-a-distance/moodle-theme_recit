@@ -5,7 +5,7 @@
     color: $headings-color;
     background-color: #343a40;
     //position: fixed;
-    width: $page-max-width;
+    max-width: $page-max-width;
     bottom: 0;
     margin: auto;
 
