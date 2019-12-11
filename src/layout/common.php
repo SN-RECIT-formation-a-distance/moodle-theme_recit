@@ -19,7 +19,12 @@ class ThemeRecitUtils{
     public static function userIsEditing($page){
         return $page->user_is_editing();
     }
-    
+
+    public static function setUserPreferenceDrawer(){
+        user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+        user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
+    }
+
     public static function getPurgeAllCachesNavItem(){
         global $CFG;
 

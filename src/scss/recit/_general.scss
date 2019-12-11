@@ -105,7 +105,7 @@ body{
 // ceci est le #page-content de la page principale (ce n'est pas un iframe genre le plug-in h5p)
 body.pagelayout-course, body.pagelayout-coursecategory, body.pagelayout-incourse, 
 body.pagelayout-admin, body.pagelayout-frontpage, body.pagelayout-mydashboard,
-body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard {
+body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pagelayout-mypublic  {
     #page-content{
         display: flex; flex-wrap: wrap;
         // padding-left: 15px; padding-right: 15px;
@@ -116,9 +116,9 @@ body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard {
             #region-main > .card{
                 border: none;
                 .card-body{
-                    padding: .5rem; // main padding of the content container
+                    padding: 1rem; // main padding of the content container
                     .treetopics{
-                        margin: -.5rem; // the tree topics navbar has no padding
+                        margin: -1rem; // the tree topics navbar has no padding
                     }
                 }
             }

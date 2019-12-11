@@ -24,11 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-//user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-//user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
-
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
+
+ThemeRecitUtils::setUserPreferenceDrawer();
 
 /*if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');

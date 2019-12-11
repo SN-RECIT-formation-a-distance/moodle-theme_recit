@@ -17,7 +17,7 @@
  * Custom form error event handler to manipulate the bootstrap markup and show
  * nicely styled errors in an mform.
  *
- * @module     theme_boost/form-display-errors
+ * @module     theme_recit/form-display-errors
  * @copyright  2016 Damyon Wiese <damyon@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

@@ -18,12 +18,12 @@
 /**
  * Overriden core maintenance renderer.
  *
- * @package    theme_boost
+ * @package    theme_recit
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_boost\output;
+namespace theme_recit\output;
 defined('MOODLE_INTERNAL') || die();
 
 use coding_exception;
@@ -34,7 +34,7 @@ use stdClass;
 /**
  * The maintenance renderer.
  *
- * @package    theme_boost
+ * @package    theme_recit
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
