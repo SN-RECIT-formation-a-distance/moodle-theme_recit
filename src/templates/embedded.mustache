@@ -15,9 +15,9 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost/maintenance
+    @template theme_recit/maintenance
 
-    Boost maintenance layout template.
+    Recit maintenance layout template.
 
     Context variables required for this template:
     * output - The core renderer for the page
@@ -53,8 +53,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
-  M.util.js_complete('theme_boost/loader');
+M.util.js_pending('theme_recit/loader');
+require(['theme_recit/loader'], function() {
+  M.util.js_complete('theme_recit/loader');
 });
 {{/js}}

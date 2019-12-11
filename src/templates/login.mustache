@@ -69,5 +69,8 @@
 </body>
 </html>
 {{#js}}
-require(['theme_boost/loader']);
+M.util.js_pending('theme_recit/loader');
+require(['theme_recit/loader'], function() {
+  M.util.js_complete('theme_recit/loader');
+});
 {{/js}}

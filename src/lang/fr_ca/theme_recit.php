@@ -60,7 +60,7 @@ $string['favicondesc'] = 'Téléverser votre favicon.  Ce doit être un ficher .
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
 $string['presetfiles'] = 'Additional theme preset files';
-$string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme. See <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> for information on creating and sharing your own preset files, and see the <a href=http://moodle.net/boost>Presets repository</a> for presets that others have shared.';
+$string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme.';
 $string['loginbgimg'] = 'Arrière-plan de la page de connexion';
 $string['loginbgimg_desc'] = 'Téléverser votre image d\'arrère-plan de page de connexion.';
 $string['brandcolor'] = 'Brand colour';
@@ -145,7 +145,7 @@ $string['sliderfrontpagedesc'] = 'Si cette option est activée, le diaporama ser
 $string['slidercount'] = 'Nombre de diapositives';
 $string['slidercountdesc'] = 'Sélectionnez le nombre de diapositives que vous souhaitez ajouter et <strong>cliquez sur ENREGISTRER</strong> pour charger les champs de saisie.';
 $string['sliderimage'] = 'Image de la diapositive';
-$string['sliderimagedesc'] = 'Ajoutez une image pour votre diaporama. La taille recommandée est 1500 px x 540 px ou plus.';
+$string['sliderimagedesc'] = 'Ajoutez une image pour votre diaporama. La taille recommandée est 1500 px x 500 px ou plus.';
 $string['slidertitle'] = 'Titre de la diapositive';
 $string['slidertitledesc'] = 'Ajouter un titre à la diapositive.';
 $string['slidercaption'] = 'Texte de la diapositive';

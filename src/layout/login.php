@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A login page layout for the boost theme.
+ * A login page layout for the recit theme.
  *
  * @package   theme_recit
  * @copyright 2017 Willian Mano - http://conecti.me

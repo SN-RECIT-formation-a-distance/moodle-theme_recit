@@ -52,12 +52,12 @@
                 {{#settingsmenu.turneditingonoff}}
                     {{#modeedition}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>
                     {{/modeedition}}
                     {{^modeedition}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>                        
                     {{/modeedition}}
                 {{/settingsmenu.turneditingonoff}} 
@@ -102,7 +102,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
                         {{#usermenu.profile.url}}
-                            <a class="dropdown-item" href="{{usermenu.profile.url}}" title="{{usermenu.profile.title}}"><i class="fa {{usermenu.profile.pix}}"></i> {{usermenu.profile.title}}</a>
+                            <a class="dropdown-item" href="{{usermenu.profile.url}}" title="{{usermenu.profile.title}}"><i class="fa {{usermenu.profile.pix}}"></i> {{usermenu.user.title}} ({{usermenu.profile.title}})</a>
                         {{/usermenu.profile.url}}    
                         {{#usermenu.preferences.url}}
                             <a class="dropdown-item" href="{{usermenu.preferences.url}}" title="{{usermenu.preferences.title}}"><i class="fa {{usermenu.preferences.pix}}"></i> {{usermenu.preferences.title}}</a>
@@ -126,6 +126,10 @@
                         {{#usermenu.privatefiles.url}}
                             <a class="dropdown-item" href="{{usermenu.privatefiles.url}}"><i class="fa {{usermenu.privatefiles.pix}}"></i> {{usermenu.privatefiles.title}}</a>
                         {{/usermenu.privatefiles.url}}
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript:M.recit.course.theme.ThemeRecit.instance.ctrlFullScreen(event)"  title="Plein écran"><i class="fa fa-compress"></i> Plein écran</a>
+
                         {{#usermenu.logout.url}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{usermenu.logout.url}}" title="{{usermenu.logout.title}}"><i class="fa {{usermenu.logout.pix}}"></i> {{usermenu.logout.title}}</a>

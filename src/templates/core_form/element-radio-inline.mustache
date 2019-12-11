@@ -1,5 +1,5 @@
 {{!
-@template theme_boost/core_form/element-radio-online
+@template theme_recit/core_form/element-radio-online
 
    Example context (json):
    {
@@ -33,7 +33,7 @@
 </span>
 {{^element.frozen}}
 {{#js}}
-require(['theme_boost/form-display-errors'], function(module) {
+require(['theme_recit/form-display-errors'], function(module) {
     module.enhance({{#quote}}{{element.id}}{{/quote}});
 });
 {{/js}}

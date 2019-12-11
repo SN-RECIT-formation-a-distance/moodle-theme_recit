@@ -1,60 +1,136 @@
+(function($){
+    // Background parallax effect
+// Background parallax effect
+$(window).scroll(function () {
+    //$(".c_parallax-recit, .parallax-pale-row, .parallax-dark-row").css("background-position","10% " + ($(this).scrollTop() / -5 + 90) + "px");
+	// console.log("test yvon",$(this).scrollTop() );
+});
+/*
+    function isInViewport(node) {
+        var rect = node.getBoundingClientRect()
+        return (
+            (rect.height > 0 || rect.width > 0) &&
+            rect.bottom >= 0 &&
+            rect.right >= 0 &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+        )
+    }
+    $(window).scroll(function() {
+        var scrolled = $(window).scrollTop()
+        $('').each(function(index, element) {
+            var initY = $(this).offset().top
+            var height = $(this).height()
+            var endY  = initY + $(this).height()
 
-/*M.recit = M.recit || {};
+            // Check if the element is in the viewport.
+            var visible = isInViewport(this)
+            if(visible) {
+                var diff = scrolled - initY
+                var ratio = Math.round((diff / height) * 300)
+                $(this).css('background-position','center ' + parseInt(-(ratio * -0.7)) + 'px')
+            }
+        })
+    })*/
+
+
+    // Gets the video src from the data-src on each button
+    var $videoSrc;
+    $('.video-btn').click(function() {
+        $videoSrc = $(this).data( "src" );
+    });
+   // console.log($videoSrc);
+    // when the modal is opened autoplay it
+    $('#myModal').on('shown.bs.modal', function (e) {
+    // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src',$videoSrc + "?autoplay=0&amp;modestbranding=1&amp;showinfo=0" );
+    })
+    // stop playing the youtube video when I close the modal
+    $('#myModal').on('hide.bs.modal', function (e) {
+        // a poor man's stop video
+        $("#video").attr('src',$videoSrc);
+    })
+
+
+    // Youtube video background
+    $(".player").mb_YTPlayer({
+        showControls : false,
+        showYTLogo: false
+    });
+	
+	
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+	
+ /* $('[data-toggle="popover"]').popover({
+        html : true,
+        trigger: 'focus',
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        }
+    });*/
+
+$('.ubeo_btn_expand').click(function() {
+            $(this).parents('.math_content_expand').toggleClass('ubeo_zoom');
+            $(this).parents('.container').toggleClass('ubeo_zoom');
+            $(this).toggleClass('ubeo_zoom');
+            $('html, body').toggleClass('ubeo_zoom');
+        });
+		
+		
+
+})(jQuery);
+
+
+M.recit = M.recit || {};
 M.recit.course = M.recit.course || {};
 M.recit.course.theme = M.recit.course.theme || {};
 M.recit.course.theme.ThemeRecit = class{
     constructor(){
-        this.navbar = null;
-
-        this.getBtnBar = this.getBtnBar.bind(this);
+        this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
 
         this.init();
     }
 
     init(){
-        this.navbar = document.getElementById("recitNavbarTop");
-       // this.setBtnModeEdition();
+        document.onkeyup = this.ctrlShortcuts;
     }
 
-    getBtnBar(pos){
-        let result = this.navbar.querySelectorAll(`[data-pos='${pos}']`);
-
-        return (result.length >= 1 ? result[0] : null);
+    ctrlShortcuts(e){
+        /*if (e.which == 77) {
+            alert("M key was pressed");
+        } else if (e.ctrlKey && e.which == 66) {
+            alert("Ctrl + B shortcut combination was pressed");
+        } else if (e.ctrlKey && e.altKey && e.which == 89) {
+            alert("Ctrl + Alt + Y shortcut combination was pressed");
+        } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
+            alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
+        }*/
+        // 69 = e
+        if (e.ctrlKey && e.altKey && e.which == 69){
+            this.ctrlModeEdition(); 
+        }
     }
 
-    createNavItem(faIcon, desc, url){
-        let li = document.createElement("li");
-        let link = document.createElement("a");
-        let i = document.createElement("i");
-
-        li.appendChild(link);
-        li.classList.add("nav-item");
-        
-        
-        link.classList.add("nav-link");
-        link.setAttribute("href", url);
-        link.setAttribute("title", desc);
-        link.setAttribute("innerHTML", desc);
-        link.appendChild(i);
-
-        i.classList.add("fa");
-        i.classList.add(faIcon);
-
-        return li;
+    ctrlModeEdition(){
+        let btn = document.getElementById("btnEditionMode");
+        if(btn !== null){
+            btn.click();
+        }
     }
 
-    setBtnModeEdition(){
-        let urlParams = new URLSearchParams(window.location.search);
-        let url = `${window.location.origin}${window.location.pathname}${window.location.search}`;
-        url += `&sesskey=${M.cfg.sesskey}`;
-        url += `&edit=on`;
-        urlParams.get('id');
+    ctrlFullScreen(){
+        if (!document.fullscreenEnabled) { return; }
 
-        let btnBar = this.getBtnBar('r');
-
-        btnBar.appendChild(this.createNavItem("fa-pencil-alt", "bbb", url));
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
     }
 }
 
 M.recit.course.theme.ThemeRecit.instance = new M.recit.course.theme.ThemeRecit(); 
-*/
