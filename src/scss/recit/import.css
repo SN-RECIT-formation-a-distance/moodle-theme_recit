@@ -11,7 +11,7 @@ Error: Undefined variable: "$primary".
 17: @import "frontpage";
 18: @import "login";
 19: @import "footer";
-20: @import "nav-overlay";
+20: //@import "nav-overlay";
 21: @import "blocks";
 22: @import "mydashboard";
 
@@ -88,4 +88,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$primary\".\A         on line 17 of C:/recitfad-vm-devserver/shared/moodle/theme/recit/scss/recit/_bootstrap-override.scss\A         from line 6 of C:\recitfad-vm-devserver\shared\moodle\theme\recit\scss\recit\import.scss\A \A 12: @import \"../extras/animate\";\A 13: @import \"../extras/metismenu\";\A 14: @import \"general\";\A 15: @import \"breadcrumb\";\A 16: @import \"navbar\";\A 17: @import \"frontpage\";\A 18: @import \"login\";\A 19: @import \"footer\";\A 20: @import \"nav-overlay\";\A 21: @import \"blocks\";\A 22: @import \"mydashboard\";"; }
+  content: "Error: Undefined variable: \"$primary\".\A         on line 17 of C:/recitfad-vm-devserver/shared/moodle/theme/recit/scss/recit/_bootstrap-override.scss\A         from line 6 of C:\recitfad-vm-devserver\shared\moodle\theme\recit\scss\recit\import.scss\A \A 12: @import \"../extras/animate\";\A 13: @import \"../extras/metismenu\";\A 14: @import \"general\";\A 15: @import \"breadcrumb\";\A 16: @import \"navbar\";\A 17: @import \"frontpage\";\A 18: @import \"login\";\A 19: @import \"footer\";\A 20: //@import \"nav-overlay\";\A 21: @import \"blocks\";\A 22: @import \"mydashboard\";"; }
