@@ -142,80 +142,9 @@ function theme_recit_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-   /* $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();*/
-
-    /*$context = context_system::instance();
-    if ($filename == 'default.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
-    } else if ($filename == 'plain.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/plain.scss');
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
-        $scss .= $presetfile->get_content();
-    } else {
-        // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
-    }*/
-
-    //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/bootstrap.scss');
-    //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/fontawesome.scss');
-    //$scss .= theme_recit_get_precompiled_css();
-
-    /*if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
-        $scss .= $presetfile->get_content();
-    } */
-
-    // Recit scss.
-    //$recitvariables = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
-    //$recit = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit.scss');
-
-    // Combine them together.
-    //return $scss . "\n" . $recit;
-    //return $scss . "\n" . $recit;
 
     return $scss;
 }
-
-/*
-function theme_recit_get_local_scss_content($theme, $variables) {
-    global $CFG;
-
-    $scss = '';
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();
-
-    $context = context_system::instance();
-    if ($filename == 'default.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/default.scss');
-    } else if ($filename == 'plain.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/recit/scss/preset/plain.scss');
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_recit', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_recit and not theme_boost (see the line above).
-        $scss .= $presetfile->get_content();
-    } else {
-        // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
-    }
-
-    // Recit scss.
-    $recitvariables = file_get_contents($CFG->dirroot . $variables);
-    $recit = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit.scss');
-
-    // Combine them together.
-    return $recitvariables . "\n" . $scss . "\n" . $recit;
-}*/
-
-/**
- * Get compiled css.
- *
- * @return string compiled css
- */
-/*function theme_recit_get_precompiled_css() {
-    global $CFG;
-    return file_get_contents($CFG->dirroot . '/theme/recit/style/moodle.css');
-}*/
 
 /**
  * Get SCSS to prepend.

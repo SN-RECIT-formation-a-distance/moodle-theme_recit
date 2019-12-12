@@ -41,7 +41,3 @@ $plugin->release = '3.5.0';
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
 
-// This is a list of plugins, this plugin depends on (and their versions).
-/*$plugin->dependencies = [
-    'theme_boost' => 2018051400
-];*/

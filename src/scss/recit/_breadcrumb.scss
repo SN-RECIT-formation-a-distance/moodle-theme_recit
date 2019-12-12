@@ -43,45 +43,4 @@
     .btn-breadcrumb .btn-derecha:after, .btn-breadcrumb .btn-derecha:before{
       content: none !important;
     }
-
-  /*.breadcrumb li::after {
-    content: " ";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 13px solid transparent;
-    border-bottom: 14px solid transparent;
-    border-left: 10px solid white;
-    position: absolute;
-    top: 50%;
-    margin-top: -14px;
-    margin-left: 0px;
-    left: 100%;
-    z-index: 3;
-  }
-  .breadcrumb li::before {
-    content: " ";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 13px solid transparent;
-    border-bottom: 14px solid transparent;
-    border-left: 10px solid rgb(173, 173, 173);
-    position: absolute;
-    top: 50%;
-    margin-top: -14px;
-    margin-left: 1px;
-    left: 100%;
-    z-index: 3;
-  }*/
-
-  /** The Spacing **/
-  /*.breadcrumb li{padding:6px 12px 6px 24px;}
-  .breadcrumb li:first-child {padding:6px 6px 6px 10px;}
-  .breadcrumb li:last-child {padding:6px 18px 6px 24px;}*/
-
-  /** Default button **/
-  /*.breadcrumb li::after { border-left: 10px solid #fff;}
-  .breadcrumb li:hover:after {border-left: 10px solid #e6e6e6;}
-  .breadcrumb li:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}*/
 }
