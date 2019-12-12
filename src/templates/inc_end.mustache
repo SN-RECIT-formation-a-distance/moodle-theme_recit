@@ -51,29 +51,4 @@ require([], function() {
     }
 });
 
-{{!require(['theme_recit/loader']);
-require(['theme_recit/drawer'], function(mod) {
-    mod.init();
-});
-
-require(['theme_recit/metismenu', 'jquery'], function(metisMenu, $) {
-    $(".metismenu").metisMenu();
-});
-
-require([], function() {
-    var iconsearch = document.querySelector('.recit-search-input .icon-magnifier');
-    var btnclosesearch = document.querySelector('.search-input-form .close-search');
-    var searchinputform = document.querySelector('.recit-search-input');
-
-    if (iconsearch) {
-
-        var togglesearchinputform = function() {
-            searchinputform.classList.toggle('expanded');
-        }
-
-        iconsearch.onclick = togglesearchinputform;
-        btnclosesearch.onclick = togglesearchinputform;
-    }
-});
-}}
 {{/js}}

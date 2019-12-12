@@ -29,22 +29,10 @@ require_once($CFG->libdir . '/behat/lib.php');
 
 ThemeRecitUtils::setUserPreferenceDrawer();
 
-/*
-if (isloggedin()) {
-    $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-    $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
-} else {
-    $navdraweropen = false;
-    $draweropenright = false;
-}*/
-
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
-/*if ($navdraweropen) {
-    $extraclasses[] = 'drawer-open-left';
-}*/
 
 if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
@@ -110,10 +98,6 @@ if (is_siteadmin()) {
     $templatecontext['onlineusers'] = $onlineusers;
 }
 
-// Improve boost navigation.
-//theme_recit_extend_flat_navigation($PAGE->flatnav);
-
-//$templatecontext['flatnavigation'] = $PAGE->flatnav;
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
 
 

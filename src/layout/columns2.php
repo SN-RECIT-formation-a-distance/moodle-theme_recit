@@ -18,7 +18,7 @@
  * A two column layout for the recit theme.
  *
  * @package   theme_recit
- * @copyright 2017 Willian Mano - http://conecti.me
+ * @copyright RÉCIT 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -69,11 +69,6 @@ $templatecontext = [
 ];
 
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
-
-// Improve boost navigation.
-//theme_recit_extend_flat_navigation($PAGE->flatnav);
-
-//$templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 $themesettings = new \theme_recit\util\theme_settings();
 

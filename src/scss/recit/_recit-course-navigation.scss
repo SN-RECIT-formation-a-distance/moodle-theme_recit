@@ -1,13 +1,3 @@
-/*.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu a::after {
-  transform: rotate(-90deg);
-  position: absolute;
-  right: 6px;
-  top: .8em;
-}*/
 #rheader-links{
 	list-style-type: none;
 	position: absolute;
@@ -47,59 +37,4 @@
  
 #rheader-links li .dropdown-menu:hover,.dropdown-submenu:hover > .dropdown-menu{
     display:block;
-}
-
-/* See more at: http://firdaus.grandexa.com/2013/09/twitter-bootstrap-3-multilevel-dropdown-menu/#sthash.h3DteUH5.dpuf */
-
-/*{
-  top: 0;
-  left: 100%;
-  margin-left: .1rem;
-  margin-right: .1rem;
-}*/
-/*
-#tt-recit-nav .nav-link
-{
-    padding-right: .5rem;
-	padding-top:  .5rem;
-    padding-left: .5rem;
-	padding-bottom:  .5rem;
-}
-
-#tt-recit-nav .nav-item > a
-{
-    color: rgba(0,0,0,.5);
-}
-
-#tt-recit-nav .nav-item > a:hover, #tt-recit-nav .nav-item.show > a, #tt-recit-nav .dropdown-item
-{
-    color: black;
-}
-
-#tt-recit-nav .navbar-collapse
-{
-    z-index : 1;
-    background: #f8f9fa;
-}
-*/
-
-@media (max-width:991.98px) 
-{
-	/*#tt-recit-nav
-    {
-        position: fixed;
-        left: 0px;
-        top: 60px;
-        right: auto;
-        padding: 0;
-	}
-    
-    #navbarTogglerCourse
-    {
-        top: 44px;
-        position: absolute;
-        width: 200px;
-        padding: 8px;
-        line-height: 1.7;
-    }*/
 }

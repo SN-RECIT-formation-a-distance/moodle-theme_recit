@@ -18,7 +18,7 @@
  * A two column layout for the recit theme.
  *
  * @package   theme_recit
- * @copyright 2017 Willian Mano - http://conecti.me
+ * @copyright RÉCIT 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -29,21 +29,10 @@ require_once($CFG->libdir . '/behat/lib.php');
 
 ThemeRecitUtils::setUserPreferenceDrawer();
 
-/*if (isloggedin()) {
-    $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-    $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
-} else {
-    $navdraweropen = false;
-    $draweropenright = false;
-}*/
-
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
-/*if ($navdraweropen) {
-    $extraclasses[] = 'drawer-open-left';
-}*/
 
 if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
@@ -74,11 +63,6 @@ $templatecontext = [
 ];
 
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
-
-// Improve boost navigation.
-//theme_recit_extend_flat_navigation($PAGE->flatnav);
-
-//$templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 $themesettings = new \theme_recit\util\theme_settings();
 
