@@ -54,6 +54,28 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   width: 80px !important;
 }
 
+/*editeur, body.#page-mod-hvp-view{
+
+}*/
+
+.text-white{
+ a strong, a b 
+ {
+   color: $atext-white !important;
+   font-size: x-large;
+
+ }
+}
+
+.text-dark{
+  a strong, a b 
+  {
+    color: $atext-dark;
+    font-size: x-large;
+ 
+  }
+ }
+
 /*Onglets*/
 .recit_tab_1 {
   padding-top: 60px;
@@ -61,10 +83,10 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   background-color: #f9f9f9;
 }
 .recit_tab_1 .recit-section-text {
-  color: #767676;
+  color: $dark;
 }
 .recit_tab_1 .recit-section-subtitle {
-  color: #767676;
+  color: $dark;
 }
 .recit_tab_1 .tabcont {
   -webkit-justify-content: center;
@@ -93,14 +115,14 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 }
 .recit_tab_1 .nav-tabs .nav-link {
   box-sizing: border-box;
-  color: #767676;
+  color: $dark;
   font-style: normal;
   font-weight: 500;
   border-radius: 3px;
   padding: 1rem 3rem;
   margin: 0.4rem .8rem !important;
   transition: color .3s;
-  border: 2px solid #767676;
+  border: 2px solid $dark;
 }
 .recit_tab_1 .nav-tabs .nav-link:hover {
   background: $secondary;
@@ -153,28 +175,69 @@ z-index: 1000!important;
   }
   .bg_secondary  {
       background: $secondary;
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      ad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $secondarycomplement;
+    }
   }
-  .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $primary 100%); }
+  .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondarypale 100%); }
   .bg_primary  {
       background: $primary;
+      .pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $primarycomplement;
+    }
   }
   .bg_danger  {
       background: $danger;
+      .pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $dangercomplement;
+    }
   }
   .bg_success  {
       background: $success;
+      .pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $successcomplement;
+    }
   }
   .bg_info  {
       background: $info;
+      .pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $infocomplement;
+    }
   }
   .bg_warning  {
       background: $warning;
+      .pad_ubeo_anecdote {
+        padding: 20px 20px 10px;
+        border-bottom: solid 8px $warningcomplement;
+    }
   }
   .bg_light  {
       background: $light;
   }
   .bg_pale  {
-      background: #efefef;
+      background: $primarypale;
   }
   .bg_color1  {
     background: $color1;
@@ -305,7 +368,7 @@ z-index: 1000!important;
     }
     body {
       font-family: $font-family-sans-serif; //$font-family-sans-serif
-        color: #373a3c;
+        color: $dark;
     }
     h1 {
     font-family: $headings-font-family; //$subheadings-font-family
@@ -346,7 +409,7 @@ z-index: 1000!important;
       border-radius: 3px;
     }
     hr {
-        border-top: 2px solid #cccccc;
+        border-top: 2px solid $primarypale;
     }
     .hr-center hr {
         width: 30%;
@@ -360,7 +423,7 @@ z-index: 1000!important;
       position: relative;
       padding: 5px;
       margin: 0 0 2rem;
-      border: solid 1px #a9a9aa;
+      border: solid 1px $primarypale;
       background: #fff;
       z-index: 3;
     }
@@ -556,7 +619,7 @@ z-index: 1000!important;
         background: $light;
     }
     .bg_pale  {
-        background: #efefef;
+        background: $primarypale;
     }
     .bg_math_title_bar {
         /*padding: 40px 20px;*/
@@ -623,10 +686,10 @@ z-index: 1000!important;
         -o-background-size: cover;
         background-size: cover;
     }
-    .pad_ubeo_anecdote {
+    /*.pad_ubeo_anecdote {
             padding: 20px 20px 10px;
             border-bottom: solid 8px $theme_color4;
-        }
+        }*/
     .pad_dark_green_box {
             padding: 20px;
             text-align: center;
@@ -742,7 +805,7 @@ z-index: 1000!important;
       background-color: #465052;
     }
     .I124 .recit-section-subtitle {
-      color: #767676;
+      color: $dark;
     }
     .I124 .recit-text {
       color: #ffffff;
@@ -772,7 +835,7 @@ z-index: 1000!important;
       -webkit-justify-content: center;
     }
     .I124 .card-wrapper .card-img .recit-overlay {
-      background-color: #efefef;
+      background-color: $primarypale;
       display: none;
       transition: opacity .3s;
     }
@@ -864,7 +927,7 @@ z-index: 1000!important;
       -webkit-justify-content: center;
     }
     .I124 .card-wrapper .card-img .recit-overlay {
-      background-color: #efefef;
+      background-color: $primarypale;
       display: none;
       transition: opacity .3s;
     }
@@ -931,7 +994,7 @@ z-index: 1000!important;
       content: "";
       width: 2px;
       height: calc(100% - (32px + 4px) * 2);
-      background-color: #efefef;
+      background-color: $primarypale;
     }
     @media (max-width: 767px) {
       .I125 .separline:after {
@@ -967,7 +1030,7 @@ z-index: 1000!important;
       background-color: unset;
     }
     .I125 .mbr-section-subtitle {
-      color: #767676;
+      color: $primary;
       text-align: center;
       font-weight: 300;
     }
@@ -976,7 +1039,7 @@ z-index: 1000!important;
       height: 64px;
       font-size: 32px;
       border-radius: 50%;
-      border: 2px solid #efefef;
+      border: 2px solid $primarypale;
     }
     @media (max-width: 767px) {
       .I125 .step {
@@ -995,7 +1058,7 @@ z-index: 1000!important;
       content: "";
       width: 2px;
       height: calc(100% - (32px + 4px) * 2);
-      background-color: #efefef;
+      background-color: $primarypale;
     }
     @media (max-width: 767px) {
       .I125 .separline:after {
@@ -1211,7 +1274,7 @@ z-index: 1000!important;
 	line-height: 1.6em;
 	color: #ffffff;
 	text-align: center;
-	background: #373a3c;
+	background: $primary;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
@@ -1519,7 +1582,7 @@ z-index: 1000!important;
     }
     .pale-row {
         color: #373a3c;
-        background: #efefef;
+        background: $primarypale;
     }
     .ico-gradient-row {
         margin-top: 60px;

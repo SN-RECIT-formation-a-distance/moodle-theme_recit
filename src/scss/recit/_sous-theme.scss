@@ -1,62 +1,52 @@
+.btn-round {
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+     border-radius: 30px;
+                
+}
+
+
 .editeur, body.theme-recit{
                     /*-------------------------------*\
                         Buttons - Bars
                     \*-------------------------------*/
+                    
+                   
+                    .recit-btn {
+                        display: inline-block;
+                        padding: 6px 25px;
+                        font-size: x-large;
+                    }
                     /*-- Button 1 --*/
-                    h5 a,
-                    h5 a.style_btn_1 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $theme_color4;
-                        border: solid 2px $theme_color4;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    h5 a:hover,
-                    h5 a.style_btn_1:hover {
-                        text-decoration: none;
-                        color: $white;
-                        border: solid 2px $theme_color4;
-                        background: $theme_color4;
-                    }
-                    .recit-btn, .recit-btn-style_btn_1 {
-                        display: inline-block;
-                        padding: 4px 10px;
-                        color: $theme_color4;
-                        border: solid 2px $theme_color4;
-                        background: $white;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
-                    }
-                    .recit-btn-style_btn_1:hover {
-                        text-decoration: none;
-                        color: $white;
-                        border: solid 2px $theme_color4;
-                        background: $theme_color4;
-                    }/*-- Button 2 --*/
-                    .recit-btn-style_btn_2, h5 a.style_btn_2 {
-                        color: $theme_color3;
-                        border: solid 2px $theme_color3;
+                   .recit-btn-style_btn_1 {
+                        color: $primary;
+                        border: solid 2px $primary;
                         background: $white;
                     }
-                    .recit-btn-style_btn_2:hover, h5 a.style_btn_2:hover {
+                    .recit-btn-style_btn_1:hover {                       
                         color: $white;
-                        border: solid 2px $theme_color3;
-                        background: $theme_color3;
+                        background: $primary;
+                    }
+
+                    /*-- Button 2 --*/
+                    .recit-btn-style_btn_2 {
+                        color: $secondary;
+                        border: solid 2px $secondary;
+                        background: $white;
+                    }
+                    .recit-btn-style_btn_2:hover{
+                        color: $white;
+                        background: $secondary;
                     }
                     /*-- Button 3 --*/
-                    .recit-btn-style_btn_3, h5 a.style_btn_3 {
-                        color: $theme_color1;
-                        border: solid 2px $theme_color1;
+                    .recit-btn-style_btn_3 {
+                        color: $danger;
+                        border: solid 2px $danger;
                         background: $white;
                     }
-                    .recit-btn-style_btn_3:hover, h5 a.style_btn_3:hover {
+                    .recit-btn-style_btn_3:hover{
                         color: $white;
-                        border: solid 2px $theme_color1;
-                        background: $theme_color1;
+                        background: $danger;
                     }
                     /*-- Button 4 --*/
                     .recit-btn-style_btn_4, h5 a.style_btn_4 {

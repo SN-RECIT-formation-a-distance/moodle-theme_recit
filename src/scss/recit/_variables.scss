@@ -11,12 +11,27 @@ $figuretexte: 'Times New Roman', serif;
  *************************************/
 $enable-gradients: true;
 $primary:#0069bf;
-$secondary:#faa22a;
-$secondarypale:#0082C6;
-$success:#b7d233;
 $danger:#d0181e;
-$info:#fbb140;
+$success:#B7D233;
+$info:#FBB040;
+$primarypale:#BFD9EF;
+$primarycomplement:$danger;
 $warning:#384f5c;
+$secondary:#faa22a;
+$secondarypale:#FEF3E4;
+$secondarycomplement:$warning;
+
+$successpale:#EDF4CC;
+$successcomplement:$primary;
+$dangerpale:#F9E2E3;
+$dangercomplement:$secondary;
+$atext-white: $primarypale;
+$atext-dark: $primary;
+
+$infopale:#FEF5E7;
+$infocomplement:$success;
+$warningpale:#CDD3D6;
+$warningcomplement:$info;
 $light:#f4f4f6;
 $dark:#373a3c;
 $white:#ffffff;

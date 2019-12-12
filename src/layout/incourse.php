@@ -39,6 +39,7 @@ if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
 }
 
 $moduleswithnavinblocks = ['book', 'quiz'];
+$moduleRecitQuestionnaire = ['questionnaire'];
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
    // $navdraweropen = false;
@@ -69,6 +70,9 @@ $templatecontext = array_merge($templatecontext, $themesettings->footer_items())
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     echo $OUTPUT->render_from_template('theme_recit/incourse', $templatecontext);
+}
+else if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleRecitQuestionnaire)) {
+    echo $OUTPUT->render_from_template('theme_recit/columns3', $templatecontext);
 } else {
     echo $OUTPUT->render_from_template('theme_recit/columns2', $templatecontext);
 }
