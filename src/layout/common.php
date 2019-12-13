@@ -93,6 +93,15 @@ class ThemeRecitUtils{
         return $result;
     }
     
+    public static function setRecitDashboard(&$item){
+        global $CFG;
+
+        $pathRecitDashboard = '/local/recitdashboard/view.php';
+        if(file_exists($CFG->dirroot . $pathRecitDashboard)){
+            $item->url = $CFG->wwwroot.$pathRecitDashboard;
+        }
+    }
+
     public static function getUserMenu($page, $user){
         $result = array();
 
@@ -155,6 +164,11 @@ class ThemeRecitUtils{
                 $item->pix = $iconMap["core:" . $navItem->pix];
                 $item->title = $navItem->title;
                 $navId = current(explode(",",$navItem->titleidentifier));
+
+                if($navId == "mymoodle"){
+                    ThemeRecitUtils::setRecitDashboard($item);
+                }
+
                 $result[$navId] = $item;
             }
         }

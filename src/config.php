@@ -142,7 +142,12 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),
     ),
-    
+    'myrecitdashboard' => array(
+        'file' => 'myrecitdashboard.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),
+    ),
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),
