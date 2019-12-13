@@ -54,9 +54,12 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   width: 80px !important;
 }
 
-/*editeur, body.#page-mod-hvp-view{
+b.vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs blockquote p, .vco-storyjs .twitter blockquote p 
+{
+  font-family: $font-family-sans-serif,$subheadings-font-family $headings-font-family !important;
+}
 
-}*/
+
 
 .text-white{
  a strong, a b 
