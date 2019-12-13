@@ -121,14 +121,14 @@
                 <hr align="left" />
 
                 <div class="m-t-1">
-                    <i class="fa fa-check-circle-o"></i>
+                    <i class="fa fa-check-circle"></i>
                     {{#str}} cookiesenabled {{/str}}
                     {{{cookieshelpiconformatted}}}
                 </div>
 
                 {{#canloginasguest}}
                     <div class="m-t-2">
-                        <p><i class="fa fa-user-circle-o"></i> {{#str}}someallowguest{{/str}}</p>
+                        <p><i class="fa fa-user-circle"></i> {{#str}}someallowguest{{/str}}</p>
                         <form action="{{loginurl}}" method="post" id="guestlogin">
                             <input type="hidden" name="username" value="guest" />
                             <input type="hidden" name="password" value="guest" />
