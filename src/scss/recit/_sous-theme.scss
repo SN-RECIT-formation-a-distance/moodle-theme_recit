@@ -12,8 +12,6 @@
 #top-1.engine{display: none;} // code dynamique intrusif du Mobirise     
     
 .editeur, body.theme-recit-francais{
-    #course-banner{background-image:  url('[[pix:theme|banner-francais]]');}
-
     #top-1.engine{display: none;} // code dynamique intrusif du Mobirise 
     
     
@@ -48,10 +46,6 @@
 }
 
 .editeur, body.theme-recit-anglais{
-    #course-banner{background-image:  url('[[pix:theme|banner-anglais]]') ;}
-    
-   
-
                         figure.figure {
                             display: block !important;
                             -webkit-border-radius: 16px !important;
@@ -63,16 +57,8 @@
                             -moz-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
                             box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
                         }
-                        }
-
-
-
-
-.editeur, body.theme-recit-histoire{
-	#course-banner{background-image:  url('[[pix:theme|banner-histoire]]') ;}
-   
-                      
 }
+
 .editeur, body.theme-recit-histoire#page-mod-book-view{
     .block-region {
         .card-header {
@@ -89,23 +75,6 @@
         }
     }
 }
-
-
-
-.editeur, body.theme-recit-mathematique{
-	#course-banner{background-image:  url('[[pix:theme|banner-mathematique]]') ;}
-                   
-}
-
-.editeur, body.theme-recit-science{
-    #course-banner{background-image:  url('[[pix:theme|banner-science]]') ;}
-    
-       
-}
-
-
-
-
 	
 /*body.theme-recit-art::before {
     content: "";
@@ -120,8 +89,8 @@
     left: 0;
 	top:  30%;
 }*/
+
 .editeur, body.theme-recit-art{
-		#course-banner{background-image:  url('[[pix:theme|banner-art]]') ;}
     .page-header-headings h1 {
 		color: $black!important; //font-size: xx-large;	
 		max-width: 500px;
@@ -242,8 +211,6 @@
 }
 
 .editeur, body.theme-recit-ecr{
-    #course-banner{background-image:  url('[[pix:theme|banner-ecr]]') ;}
-    
 .ecr-grey-row {
     position: relative;
     padding: 60px 0;
