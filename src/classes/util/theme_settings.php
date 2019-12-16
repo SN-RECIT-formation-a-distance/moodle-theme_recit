@@ -95,7 +95,7 @@ class theme_settings {
 
             $image = $theme->setting_file_url($sliderimage, $sliderimage);
             if (empty($image)) {
-                $image = $OUTPUT->image_url('slide_default', 'theme');
+                $image = $OUTPUT->image_url("slide_default_img$i", 'theme');
             }
             $templatecontext['slides'][$j]['image'] = $image;
             $templatecontext['slides'][$j]['title'] = $theme->settings->$slidertitle;

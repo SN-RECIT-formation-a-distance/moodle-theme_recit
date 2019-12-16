@@ -64,7 +64,7 @@ function theme_recit_set_headerimg($theme) {
     $headerimg = $theme->setting_file_url('headerimg', 'headerimg');
 
     if (is_null($headerimg)) {
-        $headerimg = $OUTPUT->image_url('headerimg', 'theme');
+        $headerimg = $OUTPUT->image_url('notconnected', 'theme');
     }
 
     $headercss = "#page-site-index.notloggedin #page-header {background-image: url('$headerimg');}";

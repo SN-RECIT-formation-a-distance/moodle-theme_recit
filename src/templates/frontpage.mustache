@@ -52,9 +52,14 @@
 
     <div id="page">
 
-        {{>theme_recit/slideshow}}
+        {{#sliderenabled}}
+            {{>theme_recit/slideshow}}
+        {{/sliderenabled}}
 
-        {{{ output.full_header }}}
+        {{^sliderenabled}}
+            {{{ output.full_header }}}
+        {{/sliderenabled}}
+       
 
         <div id="page-content" >
             <div id="region-main-box" class="col-xs-12">
