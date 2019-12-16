@@ -521,19 +521,19 @@ z-index: 1000!important;
     /*Marges composant série 1001*/
     
     .marg_s {
-      margin: 0.3remx;
+      margin: 0.3remx 0;
     }
     .marg_m {
-      margin: 1rem;
+      margin: 0 1rem;
     }
     .marg_l {
-      margin: 1.5rem;
+      margin: 1.5rem 0;
     }
     .marg_xl {
-      margin: 2rem;
+      margin: 2rem 0;
     }
     .C1005e, .C1006e {
-      padding-top: 3rem;
+      padding-top: 3rem 0;
     }
     .I1804 {padding-bottom:5px; padding-top:5px;}
     .decoration1:before, .decoration1:after {
@@ -578,7 +578,7 @@ z-index: 1000!important;
       .c_espacement-Xlarge {padding: 8.4rem 0;}
       .c_espacement-XXlarge {padding: 0.5rem 0;}
     }
-    &.C1001, &.C1002 ,&.C1003, &.C1004, &.C1212 {
+    &.C1001, &.C1002 ,&.C1003, &.C1004, &.C1007, &.C1509,  &.C1212 {
     .c_espacement-nul {padding: 0rem 0;}
     .c_espacement-etroit {padding: 2rem 0;}
     .c_espacement-moyen {padding: 4rem 0;}
