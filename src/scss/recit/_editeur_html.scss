@@ -382,10 +382,7 @@ section[data-recit-block="1"], .editeur {
                   }
                   /*-- Button 1 --*/
                  .bouton1, .recit-btn-style_btn_1 {
-                  display: inline-block;
-                  padding: 6px 25px;
-                  font-size: x-large;
-                  -webkit-border-radius: 30px;
+                        -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         border-radius: 30px;
                   }
@@ -401,10 +398,7 @@ section[data-recit-block="1"], .editeur {
                   
                   /*-- Button 3 --*/
                   .bouton3, .recit-btn-style_btn_3 {
-                    display: inline-block;
-                      padding: 6px 25px;
-                      font-size: x-large;
-                   position: relative;
+                                       position: relative;
                     display: inline-block;
                     font-weight: 500;
                     -moz-transform:    skewX(-15deg) !important;
@@ -1384,94 +1378,7 @@ z-index: 1000!important;
       }
     }
 
-    /*Bouton RÉCIT*/
-    /*.btn-default, .recit-btn-primary{
-      color: $secondary;
-      border: solid 2px $secondary;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-primary:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-primary{
-    color: white;
-    }
-    .recit-btn-secondary{
-      color: $secondary;
-      border: solid 2px $secondary;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-secondary:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-secondary{
-    color: white;
-    }
-    .recit-btn-danger{
-      color: $danger;
-      border: solid 2px $danger;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-danger:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-danger{
-    color: white;
-    }
-
-    .recit-btn-success{
-      color: $success;
-      border: solid 2px $success;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-success:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-success{
-    color: white;
-    }
-    .recit-btn-warning{
-      color: $warning;
-      border: solid 2px $warning;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-warning:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-warning{
-    color: white;
-    }
-    .recit-btn-info{
-      color: $info;
-      border: solid 2px $info;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      transform: skewX(0);
-    }
-    .recit-btn-info:hover{
-    border: solid 4px white;
-    }
-    .recit-btn-info{
-    color: white;
-    }*/
-
-
+   
 
 
     #banner_video {
@@ -2370,15 +2277,10 @@ z-index: 1000!important;
           overflow: hidden;
       }
       .math_content_expand.ubeo_zoom {
-       // position: absolute;
-          top: 25%;
-          left: 50%;
-          transform: translate(-50%, -25%);
           position: fixed;
-          //top: 15vh;
-          //left: 0;
-          max-width: $page-max-width;
-          width: 90vh;
+          top: 15vh;
+          left: 3%;
+          width: 94%;
           height: auto;
           max-height: 96vh;
           border: solid 2px #ccc;
