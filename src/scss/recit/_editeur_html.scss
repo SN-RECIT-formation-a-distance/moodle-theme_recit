@@ -2352,10 +2352,15 @@ z-index: 1000!important;
           overflow: hidden;
       }
       .math_content_expand.ubeo_zoom {
+       // position: absolute;
+          top: 25%;
+          left: 50%;
+          transform: translate(-50%, -25%);
           position: fixed;
-          top: 15vh;
-          left: 3%;
-          width: 94%;
+          //top: 15vh;
+          //left: 0;
+          max-width: $page-max-width;
+          width: 90vh;
           height: auto;
           max-height: 96vh;
           border: solid 2px #ccc;

@@ -18,7 +18,7 @@
  * Recit.
  *
  * @package    theme_recit
- * @copyright  2017 Willian Mano - conecti.me
+ * @copyright  RÉCIT 2019
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

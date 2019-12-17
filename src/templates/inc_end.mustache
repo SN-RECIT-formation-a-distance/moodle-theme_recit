@@ -51,4 +51,19 @@ require([], function() {
     }
 });
 
+M.util.js_pending('theme_recit/ekko-lightbox');
+require(['theme_recit/ekko-lightbox'], function(mod) {
+    M.util.js_complete('theme_recit/ekko-lightbox');
+});
+
+M.util.js_pending('theme_recit/jquery.mb.YTPlayer');
+require(['theme_recit/jquery.mb.YTPlayer'], function(mod) {
+    M.util.js_complete('theme_recit/jquery.mb.YTPlayer');
+});
+
+M.util.js_pending('theme_recit/theme-recit');
+require(['theme_recit/theme-recit'], function(mod) {
+    M.util.js_complete('theme_recit/theme-recit');
+});
+
 {{/js}}
