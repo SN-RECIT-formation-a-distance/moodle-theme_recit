@@ -1,3 +1,4 @@
+
 define(['jquery'], function($) {
     'use strict';
     M.recit.course.theme.ThemeRecit.createInstance();
@@ -7,15 +8,8 @@ define(['jquery'], function($) {
 M.recit = M.recit || {};
 M.recit.course = M.recit.course || {};
 M.recit.course.theme = M.recit.course.theme || {};
+
 M.recit.course.theme.ThemeRecit = class{
-    static instance = null;
-
-    static createInstance(){
-        if(M.recit.course.theme.ThemeRecit.instance === null){
-            M.recit.course.theme.ThemeRecit.instance = new M.recit.course.theme.ThemeRecit(); 
-        }
-    }
-
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
 
@@ -59,16 +53,16 @@ M.recit.course.theme.ThemeRecit = class{
         }
     }
 }
+// definition static attributes and methods to work with Firefox
+M.recit.course.theme.ThemeRecit.instance = null;
+
+M.recit.course.theme.ThemeRecit.createInstance = function(){
+    if(M.recit.course.theme.ThemeRecit.instance === null){
+        M.recit.course.theme.ThemeRecit.instance = new M.recit.course.theme.ThemeRecit(); 
+    }
+}
 
 M.recit.course.theme.EditorHTML = class{
-    static instance = null;
-
-    static createInstance(){
-        if(M.recit.course.theme.EditorHTML.instance === null){
-            M.recit.course.theme.EditorHTML.instance = new M.recit.course.theme.EditorHTML(); 
-        }
-    }
-
     constructor(){
         this.init = this.init.bind(this);
 
@@ -114,4 +108,10 @@ M.recit.course.theme.EditorHTML = class{
     }
 }
 
+M.recit.course.theme.EditorHTML.instance = null;
 
+M.recit.course.theme.EditorHTML.createInstance = function(){
+    if(M.recit.course.theme.EditorHTML.instance === null){
+        M.recit.course.theme.EditorHTML.instance = new M.recit.course.theme.EditorHTML(); 
+    }
+}
