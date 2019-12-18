@@ -1045,16 +1045,16 @@ z-index: 1000!important;
     }
     .diago-row {
         background: $secondary;
-        background: -moz-linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
-        background: -webkit-linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
-        background: linear-gradient(75deg, $secondarypale 0%, $secondarypale 50%, $secondary 50%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$secondarypale",endColorstr="$secondary",GradientType=1);
+        background: -moz-linear-gradient(75deg, $secondarycomplement 0%, $secondarycomplement 50%, $secondary 50%);
+        background: -webkit-linear-gradient(75deg, $secondarycomplement 0%, $secondarycomplement 50%, $secondary 50%);
+        background: linear-gradient(75deg, $secondarycomplement 0%, $secondarycomplement 50%, $secondary 50%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$secondarycomplement",endColorstr="$secondary",GradientType=1);
     }
     .degrade-row {
         background: $secondary;
-        background: -moz-linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
-        background: -webkit-linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
-        background: linear-gradient(45deg,  $secondary 0%, $secondarypale 100%);
+        background: -moz-linear-gradient(45deg,  $secondary 0%, $secondarycomplement 100%);
+        background: -webkit-linear-gradient(45deg,  $secondary 0%, $secondarycomplement 100%);
+        background: linear-gradient(45deg,  $secondary 0%, $secondarycomplement 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006391', endColorstr='$secondary',GradientType=1 );
     }
     .diago-row, .degrade-row, .diago-row-neutral, .degrade-row-neutral {
