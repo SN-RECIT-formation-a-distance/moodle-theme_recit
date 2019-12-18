@@ -697,9 +697,9 @@ z-index: 1000!important;
     figure.figure {
       display: block;
       position: relative;
-      padding: 5px;
-      margin: 0 0 2rem;
-      border: solid 1px $primarypale;
+      //padding: 5px;
+      //margin: 0 0 2rem;
+      //border: solid 1px $primarypale;
       background: #fff;
       z-index: 3;
     }
@@ -732,6 +732,7 @@ z-index: 1000!important;
       font-family: $figuretexte;
       font-size: 85%;
       line-height: 1.4em;
+      background: #fff;
     }
     /*Marges composant série 1001*/
     
