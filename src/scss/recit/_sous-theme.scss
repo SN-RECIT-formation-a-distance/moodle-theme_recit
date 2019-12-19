@@ -100,15 +100,13 @@
 .editeur, body.theme-recit-art{
     .page-header-headings h1 {
         color: $black!important; 
-        font-size: 22 em !important;	
-		max-width: 500px;
-		padding: 40px 40px 40px 40px;
-    }
-	
-	/*#page {
+        //font-size: 22 em !important;	
+		//max-width: 500px;
+		//padding: 40px 40px 40px 40px;
+    }/*#page {
 				
 		
-	}*/
+	}
 	
                     section.card {
                     background-color: transparent;}
@@ -151,23 +149,14 @@
                         bottom : 50px;
                         padding: 3px;
                         
-                    }
-
-                   
-                                                                
-                                        
-                                        
-                                        
-                                        
-                    
-                    
+                    }*/
 
                     /*-------------------------------*\
                         Side menu
                                                     
                                     
                     \*-------------------------------*/
-                    #sidepre-blocks .block_html .card-text.content {
+                   /* #sidepre-blocks .block_html .card-text.content {
                         color: #fff;
                         background: #192122;
                         .px-3 {
@@ -192,29 +181,11 @@
                             }
                         }
                     }
-
-
                     @media screen and (min-width: 768px) {
-                        h5 a {
-                                        
-                                    
-                                            
-                                        
-                                                                                                                                                    
-                                        
-                                                
-                                                    
-                            padding: 8px 18px 10px 38px;
-                                                                                        
-                                    
-                                    
-                                                
-                                    
-                                        
-                                                                
+                        h5 a {                  
+                            padding: 8px 18px 10px 38px;     
                         }
-                                            
-                    }
+                    }*/
 
 }
 

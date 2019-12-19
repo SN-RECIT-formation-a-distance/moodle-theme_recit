@@ -364,6 +364,9 @@ section[data-recit-block="1"], .editeur {
       padding: .5rem 0.5rem; 
   }
   
+  .summary .autocompletion{
+    margin-left: 10px;
+  }
 .I126 .card{
   border: none;
 }
@@ -462,52 +465,52 @@ z-index: 1000!important;
   }
   .bg_secondary  {
       background: $secondary;
-     &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $secondarypale;}      
+    /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $secondarypale;}      
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $secondarycomplement;
-    }
+    }*/
   }
   .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondarypale 100%); }
   .bg_primary  {
       background: $primary;
-      &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $primarypale;}
+    /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $primarypale;}
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $primarycomplement;
-    }
+    }*/
   }
   .bg_danger  {
       background: $danger;
-      &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $dangerpale;}
+    /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $dangerpale;}
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $dangercomplement;
-    }
+    }*/
   }
   .bg_success  {
       background: $success;
-      &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $successpale;}
+     /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $successpale;}
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $successcomplement;
-    }
+    }*/
   }
   .bg_info  {
       background: $info;
-      &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $infopale;}
+    /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $infopale;}
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $infocomplement;
-    }
+    }*/
   }
   .bg_warning  {
       background: $warning;
-      &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $warningpale;}
+     /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $warningpale;}
       .pad_ubeo_anecdote {
         padding: 20px 20px 10px;
         border-bottom: solid 8px $warningcomplement;
-    }
+    }*/
   }
   .bg_light  {
       background: $light;
@@ -2859,7 +2862,7 @@ font-family: $subheadings-font-family;
   display: block;
 }
 /*alert-success*/
-.alert-success button, .alert-success{
+.alert-success button{
   background-color: $success;
   color:$successcomplement;
 }
@@ -2868,7 +2871,7 @@ hr .alert-success hr{
       border-color: $success;
 }
 /*alert-info*/
-.alert-info button, .alert-info{
+.alert-info button {
   background-color: $info;
   color:$infocomplement;
 }
@@ -2877,7 +2880,7 @@ hr .alert-info hr{
       border-color: $info;
 }
 /*alert-danger*/
-.alert-danger button, .alert-danger{
+.alert-danger button{
   background-color: $danger;
   color:$dangercomplement;
 }
@@ -2886,7 +2889,7 @@ hr .alert-info hr{
       border-color: $danger;
 }
 /*alert-primary*/
-.alert-primary button, .alert-primary {
+.alert-primary button  {
   background-color: $primary;
   color:$primarycomplement;
 }
@@ -2895,7 +2898,7 @@ hr .alert-info hr{
       border-color: $primary;
 }
 /*alert-secondary*/
-.alert-secondary button,.alert-secondary {
+.alert-secondary button{
   background-color: $secondary;
   color:$secondarycomplement;
 }
@@ -2904,7 +2907,7 @@ hr .alert-info hr{
       border-color: $secondary;
 }/**/
 /*alert-warning*/
-.alert-warning button,.alert-warning{
+.alert-warning button{
   background-color: $warning;
   color:$warningcomplement;
 }
