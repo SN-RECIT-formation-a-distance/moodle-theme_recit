@@ -59,14 +59,14 @@ module.exports = function(grunt) {
                 tasks: ['amd', 'decache']
             },
             css: {
-                files: ["scss/**/histoire.scss"],
+                files: ["scss/**/*.scss"],
                 tasks: ["decache"]
             }
         },
         stylelint: {
             scss: {
                 options: {syntax: 'scss'},
-                src: ['*/**/histoire.scss']
+                src: ['*/**/*.scss']
             },
             css: {
                 src: ['*/**/*.css'],

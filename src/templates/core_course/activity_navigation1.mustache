@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-@template core_course/activity_navigation
+@template core_course/activity_navigation_top
 
 Displays the activity navigation
 
@@ -67,7 +67,7 @@ Example context (json):
 <div class="m-t-2 m-b-1">
     {{< core/columns-1to1to1}}
     {{$column1}}
-    <div class="pull-left btn-success btn-sm">
+    <div class="pull-left ">
         {{#prevlink}}{{#pix}} e/right_to_left, core {{/pix}}{{> core/action_link }}{{/prevlink}}
     </div>
     {{/column1}}
@@ -77,7 +77,7 @@ Example context (json):
     </div>
     {{/column2}}
     {{$column3}}
-    <div class="pull-right btn-success btn-sm">
+    <div class="pull-right ">
         {{#nextlink}}{{> core/action_link }}{{#pix}} e/left_to_right, core {{/pix}}{{/nextlink}}
     </div>
     {{/column3}}
