@@ -55,6 +55,7 @@ class ThemeRecitUtils{
     }
 
     public static function getTemplateContextCommon($output, $page, $user = null){
+        
         $result = [
             'output' => $output,
             'isloggedin' => isloggedin(),
@@ -64,7 +65,7 @@ class ThemeRecitUtils{
 
         $result['settingsmenu'] = self::getContextHeaderSettingsMenu($page);
         $result['extra'] = self::getExtraMenu();
-
+        
         if($user != null){
             $result['usermenu'] = ThemeRecitUtils::getUserMenu($page, $user);
         }
@@ -196,7 +197,7 @@ class ThemeRecitUtils{
     public static function addNavItemFromFlatNav(&$navItems, $flatnav, $key){
         $flatNavItem = $flatnav->find($key);
 
-        if(empty($flatNavItem)){
+        if(empty($flatNavItem) || empty($flatNavItem->action)){
             return;
         }
 
