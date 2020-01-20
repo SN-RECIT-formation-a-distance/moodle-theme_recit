@@ -56,7 +56,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 
 b.vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs blockquote p, .vco-storyjs .twitter blockquote p 
 {
-  font-family: $font-family-sans-serif,$subheadings-font-family $headings-font-family !important;
+  font-family: $font-family-sans-serif,$subheadings-font-family, $headings-font-family !important;
 }
 
 
@@ -133,12 +133,12 @@ b.vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs blockquote p, .vco-storyj
 .recit_tab_1 .nav-tabs .nav-link.active {
   color: #ffffff;
   font-style: normal;
-  border: 2px solid $secondary;
+  //border: 2px solid $secondary;
   background: $secondary;
 }
-.recit_tab_1 .nav-tabs .nav-link.active:hover {
+/*.recit_tab_1 .nav-tabs .nav-link.active:hover {
   border: 2px solid $secondary;
-}
+}*/
 .C1501{
   height: fit-content;
  // max-height: 800px;
@@ -195,7 +195,7 @@ b.vco-storyjs p, .vco-storyjs blockquote, .vco-storyjs blockquote p, .vco-storyj
     padding: 10px 0;
     float: left;
     overflow-x: hidden;
-    font-sizee: 12px;
+    font-size: 12px;
     line-height: 1.5;
     transition: all 700ms ease;
   }
@@ -385,9 +385,7 @@ section[data-recit-block="1"], .editeur {
                   }
                   /*-- Button 1 --*/
                  .bouton1, .recit-btn-style_btn_1 {
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        border-radius: 30px;
+                        @include vendor('border-radius', '30px');
                   }
                   
 
@@ -742,7 +740,7 @@ z-index: 1000!important;
     /*Marges composant série 1001*/
     
     .marg_s {
-      margin: 0.3remx 0;
+      margin: 0.3rem 0;
     }
     .marg_m {
       margin: 0 1rem;
@@ -754,7 +752,7 @@ z-index: 1000!important;
       margin: 2rem 0;
     }
     .C1005e, .C1006e {
-      padding-top: 3rem 0;
+      padding-top: 3rem;
     }
 
     .I302 {
@@ -1487,10 +1485,8 @@ z-index: 1000!important;
 	line-height: 1.6em;
 	color: #ffffff;
 	text-align: center;
-	background: $primary;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
+    background: $primary;
+    @include vendor('border-radius', '20px');
 	position: absolute;
 	left: -2.4em;
 	top: -1px;
@@ -2013,60 +2009,33 @@ z-index: 1000!important;
       height: 180px;
     }
     .mainflip {
-      -webkit-transition: 1s;
-      -webkit-transform-style: preserve-3d;
-      -ms-transition: 1s;
-      -moz-transition: 1s;
-      @include vendor('transform', 'perspective(1000px)');
-      -moz-transform-style: preserve-3d;
-      -ms-transform-style: preserve-3d;
-      transition: 1s;
-      transform-style: preserve-3d;
-      position: relative;
+        @include vendor('transform-style', 'preserve-3d');
+        @include vendor('transition', '1s');
+        @include vendor('transform', 'perspective(1000px)');
+        position: relative;
     }
     .frontside, .backside {
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
-      -webkit-transition: 1s;
-      -webkit-transform-style: preserve-3d;
-      -moz-transition: 1s;
-      -moz-transform-style: preserve-3d;
-      -o-transition: 1s;
-      -o-transform-style: preserve-3d;
-      -ms-transition: 1s;
-      -ms-transform-style: preserve-3d;
-      transition: 1s;
-      transform-style: preserve-3d;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+        @include vendor('backface-visibility', 'hidden');
+        @include vendor('transition', '1s');
+        @include vendor('transform-style', 'preserve-3d');
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     .frontside {
-      -webkit-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
-      z-index: 2;
+        @include vendor('transform', 'rotateY(0deg)');
+        z-index: 2;
     }
     .backside {
-      -webkit-transform: rotateY(-180deg);
-      -moz-transform: rotateY(-180deg);
-      -o-transform: rotateY(-180deg);
-      -ms-transform: rotateY(-180deg);
-      transform: rotateY(-180deg);
-      background: #fff;
+        @include vendor('transform', 'rotateY(-180deg)');
+        background: #fff;
     }
     .vertical-flip .frontside {
-      -webkit-transform: rotateX(0deg);
-      -ms-transform: rotateX(0deg);
+        @include vendor('transform', 'rotateX(0deg)');
     }
     .vertical-flip .backside {
-      -webkit-transform: rotateX(-180deg);
-      -moz-transform: rotateX(-180deg);
-      -o-transform: rotateX(-180deg);
-      -ms-transform: rotateX(-180deg);
-      transform: rotateX(-180deg);
+        @include vendor('transform', 'rotateX(-180deg)');
     }
     .card, .card-img-top {
       border-radius: 0;
@@ -2314,10 +2283,7 @@ z-index: 1000!important;
       }
       .math_title_bar.title_bar_number, .number_green_box {
           padding: 40px 20px;
-          background: url("https://recitfad.ca/widgets/assets/images/bg_math_numbers.jpg") center bottom no-repeat;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
+          background: url("https://recitfad.ca/widgets/assets/images/bg_math_numbers.jpg") center bottom no-repeat;          
           background-size: cover;
       }
       .number_green_box {
@@ -2338,7 +2304,7 @@ z-index: 1000!important;
           position: relative;
           padding: 8px 15px;
           min-height: 42px;
-          color: #fff;
+          color: #333;
           background: #fff;
       }
       .ubeo_box_title h5 {
@@ -2390,9 +2356,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $theme_color1;
       }
 	  .ubeo_primary_title em {
@@ -2405,9 +2369,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $primary;
       }
 	  .ubeo_secondary_title em {
@@ -2420,9 +2382,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $secondary;
       }
 	  .ubeo_danger_title em {
@@ -2435,9 +2395,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $danger;
       }
 	  .ubeo_success_title em {
@@ -2450,9 +2408,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $success;
       }
 	  .ubeo_info_title em {
@@ -2465,9 +2421,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $info;
       }
 	  .ubeo_warning_title em {
@@ -2480,9 +2434,7 @@ z-index: 1000!important;
           font-size: 18px;
           margin-right: 8px;
           font-style: normal;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
+          @include vendor('border-radius', '50%');
           background: $warning;
       }
       .ubeo_btn_expand {
@@ -2497,9 +2449,7 @@ z-index: 1000!important;
           position: absolute;
           top: 8px;
           right: 8px;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
-          border-radius: 5px;
+          @include vendor('border-radius', '5px');
           z-index: 2;
       }
       .ubeo_btn_expand:hover {
@@ -2858,9 +2808,7 @@ font-family: $subheadings-font-family;
   border-radius: 15px;
   background-color: #FFF;
   color: #000;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  @include vendor('box-shadow', '0px 0px 10px 0px rgba(0,0,0,0.75)');
   display: block;
 }
 /*alert-success*/
@@ -3110,8 +3058,8 @@ padding-bottom : 50px;
 
 .collapsible {
   border-top: 1px solid $collapsible-border-color;
-  border-right: 1px solid $collapsible-border-color;
-  border-left: 1px solid $collapsible-border-color;
+ // border-right: 1px solid $collapsible-border-color;
+ // border-left: 1px solid $collapsible-border-color;
   margin: $element-top-margin 0 $element-bottom-margin 0;
   
 }

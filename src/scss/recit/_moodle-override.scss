@@ -49,3 +49,16 @@
 .bg-pale {
     background-color: $light !important;
 }
+
+#categoryquestions{
+    td,th{
+        border: none;
+        padding: .4rem;
+    }
+}
+
+@media (min-width: 576px){
+    .form-inline .form-control {
+        width: 100%;
+    }
+}

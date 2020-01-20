@@ -5,23 +5,21 @@
     margin: 15px;
 }  
 .que .answernumber {
-text-indent: -25px!important;
-font-size:1.5rem;
-font-size: 12px;
-padding: 5px;
-width: 64px;
-height: 64px;
-line-height: px;
-color: #fff;
-text-align: center;
-background: $secondary;
--webkit-border-radius: 20px;
--moz-border-radius: 20px;
-border-radius: 30px;
-position: relative;
-left: -40px;
-margin-top: 50%;
-margin-bottom: auto;
+    text-indent: -25px!important;
+    font-size:1.5rem;
+    font-size: 12px;
+    padding: 5px;
+    width: 64px;
+    height: 64px;
+    //line-height: px;
+    color: #fff;
+    text-align: center;
+    background: $secondary;
+    @include vendor('border-radius', '30px');
+    position: relative;
+    left: -40px;
+    margin-top: 50%;
+    margin-bottom: auto;
 }
 
 .que [type="radio"]:checked,
@@ -68,27 +66,25 @@ margin-bottom: auto;
   position: absolute;
   top: 4px;
   left: 4px;
-  border-color:  2px $secondary solid ;;
-  border-radius: 100%;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  //border-color: none;
+  @include vendor('border-radius', '100%');
+  @include vendor('transition', 'all 0.2s ease');
 }
 .que [type="radio"]:not(:checked) + label:after,
 .que [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
-  -webkit-transform: scale(0);
-  transform: scale(0);
+  @include vendor('transform', 'scale(0)');
 }
 .que [type="radio"]:checked + label:after,
 .que [type="checkbox"]:checked + label:after {
   opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
+  @include vendor('transform', 'scale(1)');
 }
 .que {
-.answer label {
-  font-display: block;
-  vertical-align: middle !important;}
+    .answer label {
+        //font-display: block;
+        vertical-align: middle !important;
+    }
 
 
 
