@@ -62,3 +62,18 @@
         width: 100%;
     }
 }
+
+.generaltable{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.generaltable tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
+#id_onlinetext_editor_atto_image_widthentry, #id_onlinetext_editor_atto_image_heightentry{
+    width: 100px;
+}

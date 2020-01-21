@@ -48,11 +48,19 @@ Pages
     }
 }
 
+.pagelayout-maintenance{
+    #page-wrapper{
+        #page{
+            padding: 2rem;
+        }
+    }
+}
+
 #page-admin-index.pagelayout-maintenance {
     margin-left: 0;
 
     #page-wrapper::after {
-        min-height: inherit;
+        min-height: inherit;        
     }
 }
 
