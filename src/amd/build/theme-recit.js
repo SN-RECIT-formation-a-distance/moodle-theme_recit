@@ -70,24 +70,6 @@ M.recit.course.theme.EditorHTML = class{
     }
 
     init(){
-         // Gets the video src from the data-src on each button
-        let videoSrc;
-        $('.video-btn').click(function() {
-            videoSrc = $(this).data( "src" );
-        });
-
-    // console.log($videoSrc);
-        // when the modal is opened autoplay it
-        $('#myModal').on('shown.bs.modal', function (e) {
-        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-            $("#video").attr('src',videoSrc + "?autoplay=0&amp;modestbranding=1&amp;showinfo=0" );
-        })
-        // stop playing the youtube video when I close the modal
-        $('#myModal').on('hide.bs.modal', function (e) {
-            // a poor man's stop video
-            $("#video").attr('src',videoSrc);
-        })
-
         // Youtube video background
         $(".player").mb_YTPlayer({
             showControls : false,
@@ -105,7 +87,55 @@ M.recit.course.theme.EditorHTML = class{
                 $(this).toggleClass('ubeo_zoom');
                 $('html, body').toggleClass('ubeo_zoom');
         });
+		
+		this.initBtnVideo();
     }
+	
+	initBtnVideo(){
+        let bsModalVideo = document.createElement('template');
+        bsModalVideo.innerHTML = '\
+        <div class="modal fade" id="bsModalVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\
+            <div class="modal-dialog modal-dialog-centered" role="document">\
+                <div class="modal-content">\
+                    <!--<div class="modal-header">\
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">\
+                            <span aria-hidden="true">&times;</span>\
+                        </button>\
+                    </div>-->\
+                    <div class="modal-body" style="padding: 0;">\
+                        <div class="embed-responsive embed-responsive-16by9">\
+                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay" allowfullscreen></iframe>\
+                        </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>';
+        bsModalVideo = bsModalVideo.content.childNodes[1];
+
+		 // Gets the video src from the data-src on each button
+        $('.video-btn').click(function(event) {
+            let idVideo = $(event.target).data( "src" );
+
+            document.body.appendChild(bsModalVideo);
+            // when the modal is opened autoplay it
+            $(bsModalVideo).on('shown.bs.modal', function (e) {
+                let iFrame = $('#video').get(0);
+                
+                // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+                $(iFrame).attr('src',`https://www.youtube.com/embed/${idVideo}?autoplay=1&amp;modestbranding=1&amp;showinfo=0`);
+                // move to the end of the body to fix Bootstrap modal appearing under background
+                $(bsModalVideo).modal('show');
+                //$(iFrame).trigger('focus');
+            })
+            // stop playing the youtube video when I close the modal
+            $(bsModalVideo).on('hide.bs.modal', function (e) {
+                //document.body.removeChild(bsModalVideo);
+                let iFrame = $('#video').get(0);
+                // stop video
+                $(iFrame).attr('src',"");
+            })
+        });
+	}
 }
 
 M.recit.course.theme.EditorHTML.instance = null;

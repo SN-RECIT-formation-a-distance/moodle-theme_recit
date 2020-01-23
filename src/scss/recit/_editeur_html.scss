@@ -2233,11 +2233,16 @@ z-index: 1000!important;
             height: 60px;
             width: auto;
         }
-        .ubeo_ico_circle img {
-            width: 38px;
-            height: 38px;
-            margin-right: 4px;
-            fill: #009bcc;
+        .ubeo_ico_circle{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            img {
+                width: 38px;
+                height: 38px;
+                margin-right: 4px;
+                fill: #009bcc;
+            }
         }
         @media screen and (min-width: 768px) {
             .ubeo_framed_boxes {
