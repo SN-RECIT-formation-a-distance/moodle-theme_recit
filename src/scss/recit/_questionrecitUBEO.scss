@@ -159,3 +159,19 @@ border-right: 1px $secondary solid;
 .que.multichoice .answer div.r0 label, .que.multichoice .answer div.r1 label, .que.multichoice .answer div.r0 div.specificfeedback, .que.multichoice .answer div.r1 div.specificfeedback {
 text-indent: -25px !important; 
 }
+
+.question-wiris-superposition-img{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 2rem;
+    *:nth-child(0){
+        position: absolute; z-index: 1;
+        img{border: 0!important;}
+    }
+    *:nth-child(1){
+        position: absolute; z-index: 2;
+        img{border: 0!important;}
+    }
+}
