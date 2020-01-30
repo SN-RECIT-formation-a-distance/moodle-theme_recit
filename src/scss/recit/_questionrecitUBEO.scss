@@ -3,7 +3,7 @@
     
     max-width: 95%;
     margin: 15px;
-}  
+}/*  
 .que .answernumber {
     text-indent: -25px!important;
     font-size:1.5rem;
@@ -79,7 +79,7 @@
 .que [type="checkbox"]:checked + label:after {
   opacity: 1;
   @include vendor('transform', 'scale(1)');
-}
+}*/
 .que {
     .answer label {
         //font-display: block;
