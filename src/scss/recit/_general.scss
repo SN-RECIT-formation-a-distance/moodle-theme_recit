@@ -86,14 +86,7 @@ body.pagelayout-myrecitdashboard {
             #region-main > .card{
                 border: none;
                 .card-body{
-                    padding: 1rem; // main padding of the content container
-                    .treetopics{
-                        margin: -1rem; // the tree topics navbar has no padding
-                        nav{
-                            .nav-item{text-align: center;}
-                            .nav-item.dropdown{padding-right: 1rem;}
-                        }
-                    }
+                    padding: 1rem; // main padding of the content container                    
                 }
             }
         }

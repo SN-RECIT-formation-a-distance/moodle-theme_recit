@@ -178,6 +178,10 @@ class ThemeRecitUtils{
         $item->url = $navOptions->metadata['userprofileurl']->out();
         $item->pix = $navOptions->metadata['useravatar'];
         $item->title = $navOptions->metadata['userfullname'];
+        if(isset($navOptions->metadata['rolename'])){
+            $item->role =  $navOptions->metadata['rolename'];
+        }
+        
         $result["user"] = $item;
 
         self::addNavItemFromFlatNav($result, $page->flatnav, "home");

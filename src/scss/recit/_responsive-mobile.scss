@@ -1,6 +1,21 @@
 /**********************************************************
 / Smartphone layout
 /*********************************************************/
+@media  screen and (max-width: 992px){
+   
+    #tt-recit-nav{
+        .navbar-nav{
+            .nav-item{text-align: left;}
+        }
+        
+        ul.navbar-nav{
+            ul.dropdown-menu{
+                box-shadow: none;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 767px){
     body{
         #page-header{
@@ -18,18 +33,11 @@
         }
     }*/
 
-    
+    .breadcrumb { margin-left: 10px; margin-right: 10px; }
+
     .recit-course-list{
         justify-content: center;
-    }
-
-    #tt-recit-nav{
-        ul.navbar-nav{
-            ul.dropdown-menu{
-                box-shadow: none;
-            }
-        }
-    }
+    }  
 
     #page-login-index.recit-login {
         #page-wrapper {

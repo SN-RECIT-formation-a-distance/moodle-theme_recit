@@ -90,8 +90,14 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{extra.purgeallcaches.url}}"><i class="fa {{extra.purgeallcaches.pix}}"></i> {{extra.purgeallcaches.title}}</a>
                             <a class="dropdown-item" href="{{extra.purgethemecache.url}}"><i class="fa {{extra.purgethemecache.pix}}"></i> {{extra.purgethemecache.title}}</a>
+                            
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{usermenu.switchroleto.url}}"><i class="fa {{usermenu.switchroleto.pix}}"></i> {{usermenu.switchroleto.title}}</a>
+                            {{#usermenu.switchroleto.url}}
+                                <a class="dropdown-item" href="{{usermenu.switchroleto.url}}"><i class="fa {{usermenu.switchroleto.pix}}"></i> {{usermenu.switchroleto.title}}</a>
+                            {{/usermenu.switchroleto.url}}
+                            {{#usermenu.switchrolereturn.url}}
+                                <a class="dropdown-item" href="{{usermenu.switchrolereturn.url}}"><i class="fa {{usermenu.switchrolereturn.pix}}"></i> {{usermenu.switchrolereturn.title}}</a>
+                            {{/usermenu.switchrolereturn.url}}
                         </div>
                     </li>
                 {{/is_siteadmin}}
@@ -103,6 +109,9 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
                         {{#usermenu.profile.url}}
                             <a class="dropdown-item" href="{{usermenu.profile.url}}" title="{{usermenu.profile.title}}"><i class="fa {{usermenu.profile.pix}}"></i> {{usermenu.user.title}} ({{usermenu.profile.title}})</a>
+                            {{#usermenu.user.role}}
+                                <a class="dropdown-item disabled" href="#" title="{{usermenu.user.role}}">Role: {{usermenu.user.role}}</a>
+                            {{/usermenu.user.role}}
                         {{/usermenu.profile.url}}    
                         {{#usermenu.preferences.url}}
                             <a class="dropdown-item" href="{{usermenu.preferences.url}}" title="{{usermenu.preferences.title}}"><i class="fa {{usermenu.preferences.pix}}"></i> {{usermenu.preferences.title}}</a>

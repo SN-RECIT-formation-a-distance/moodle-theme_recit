@@ -357,7 +357,14 @@ li{
     display: none;
 }						  
 								  
- 
+.treetopics{
+    margin: -1rem; // the tree topics navbar has no padding
+    #tt-recit-nav{
+        .nav-item{text-align: center;}
+        .nav-item.dropdown{padding-right: 1rem;}
+    }
+}
+
 .tt-tabs-selector
 {
     display: none;
