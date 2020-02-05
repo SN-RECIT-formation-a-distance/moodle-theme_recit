@@ -75,27 +75,6 @@
         }
     }
 }
-    /*#tt-recit-nav {
-        display: flex;
-        @if (#tt-Présentation  {display: block;}) {
-            display: none;
-        }
-    }*/
-    
-	
-/*body.theme-recit-art::before {
-    content: "";
-    background-image: url("https://moodledev.recitfad.ca/file.php/18/39fb86_de63d5f6c97b4363891db10434cd9464_mv2.jpg");
-    background-repeat: no-repeat;
-    background-size: 800px auto;
-    background-position: left 30%; 
-    //z-index: 1;
-    height: 800px;
-    width: 300px;
-    position: fixed;
-    left: 0;
-	top:  30%;
-}*/
 
 .editeur, body.theme-recit-art{
     .page-header-headings h1 {
@@ -103,90 +82,7 @@
         //font-size: 22 em !important;	
 		//max-width: 500px;
 		//padding: 40px 40px 40px 40px;
-    }/*#page {
-				
-		
-	}
-	
-                    section.card {
-                    background-color: transparent;}
-
-                    .accueil {
-                        display: grid;
-                    }
-
-                    .accueil ul {
-                        margin: 0;
-                        padding:10px 0 0 0;
-                        a {
-                            color: white;
-                        }
-                        a:hover{
-                    font-style: bold;
-                        }
-                        
-                    }
-                    .accueil a {
-                            color: white;
-                        }
-                    .accueil	a:hover{
-                    font-style: bold;
-                        }
-                        
-
-                    .accueil li {
-                        margin: 0;
-                        padding: 5px 0 0 0;
-                    }
-
-                    .art_ref {
-                        position: absolute;
-                        background: #000;
-                        color: white;
-                        width: 280px;
-                        height: 50px;
-                        right: 30px;
-                        bottom : 50px;
-                        padding: 3px;
-                        
-                    }*/
-
-                    /*-------------------------------*\
-                        Side menu
-                                                    
-                                    
-                    \*-------------------------------*/
-                   /* #sidepre-blocks .block_html .card-text.content {
-                        color: #fff;
-                        background: #192122;
-                        .px-3 {
-                            padding: 0 !important;
-                            color: #fff;
-                            background: #192122;
-                            a {
-                                color: #fff;
-                            }
-                            .p-4 {
-                                padding: 8px 0 !important;
-                                .card-img.pr-3 {
-                                    width: 40px;
-                                    h3 {
-                                        margin-bottom: 0;
-                                    }
-                                }
-                                .card-text {
-                                    padding: 5px 0 0 0;
-                                    background: none;
-                                }
-                            }
-                        }
-                    }
-                    @media screen and (min-width: 768px) {
-                        h5 a {                  
-                            padding: 8px 18px 10px 38px;     
-                        }
-                    }*/
-
+    }
 }
 
 .editeur, body.theme-recit-ecr{

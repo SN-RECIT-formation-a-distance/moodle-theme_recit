@@ -1,21 +1,6 @@
 /**********************************************************
 / Smartphone layout
 /*********************************************************/
-@media  screen and (max-width: 992px){
-   
-    #tt-recit-nav{
-        .navbar-nav{
-            .nav-item{text-align: left;}
-        }
-        
-        ul.navbar-nav{
-            ul.dropdown-menu{
-                box-shadow: none;
-            }
-        }
-    }
-}
-
 @media screen and (max-width: 767px){
     body{
         #page-header{
