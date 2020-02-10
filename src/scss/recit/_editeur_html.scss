@@ -469,7 +469,6 @@ z-index: 1000!important;
         border-bottom: solid 8px $secondarycomplement;
     }*/
   }
-  .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondarypale 100%); }
   .bg_primary  {
       background: $primary;
     /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $primarypale;}
@@ -897,7 +896,6 @@ z-index: 1000!important;
     .bg_secondary  {
         background: $secondary;
     }
-    .bg_secondary2 { background-image: linear-gradient(15deg, $secondary 0%, $secondary 100%); }
     .bg_primary  {
         background: $primary;
     }
@@ -1382,21 +1380,208 @@ z-index: 1000!important;
       }
     }
 
-    .card-profile .card-avatar {
-      width: 130px;
-      max-width: 130px;
-      max-height: 130px;
-      margin: -50px auto 0;
-      border-radius: 50%;
-      overflow: hidden;
-      padding: 5;
-      box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-  }
-  
-  .card-profile .card-avatar img{
+    // début item carte Avatar
+    .card-profile{
+      .card-avatar {
+        width: 130px;
+        max-width: 130px;
+        max-height: 130px;
+        margin: -50px auto 0;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 5;
+        box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+      }
+      .card-avatar img{
+        width: 100%;
+      }
+    }
+  // fin item carte Avatar
+
+  // début carte rotative
+
+  .card-container {
+    -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+    -o-perspective: 800px;
+        perspective: 800px;
+        margin-bottom: 30px;
+    .flipcard {
+    /* flip speed goes here */     
+      -webkit-transition: -webkit-transform .5s;
+      -moz-transition: -moz-transform .5s;
+        -o-transition: -o-transform .5s;
+            transition: transform .5s;
+    -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+      position: relative;
+      border: 0px; 
+      background: none repeat scroll 0 0 #FFFFFF;
+      border-radius: 4px;
+      color: #444444;
+            /* hide back of pane during swap */
+        .front, .back {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+                backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #FFF;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+        }
+    
+        /* front pane, placed above back */
+        .front {
+            z-index: 2;
+        }
+    
+        /* back, initially hidden pane */
+        .back {
+            -webkit-transform: rotateY( 180deg );
+            -moz-transform: rotateY( 180deg );
+            -o-transform: rotateY( 180deg );
+                transform: rotateY( 180deg );
+                z-index: 3;
+        }
+        .cover{
+            height: 105px;
+            overflow: hidden;
+            border-radius: 4px 4px 0 0;
+        }
+        .cover img{
+            width: 100%;
+        }
+        .user{
+            border-radius: 50%;
+            display: block;
+            height: 120px;
+            margin: -55px auto 0;
+            overflow: hidden;
+            width: 120px;
+            box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+        }
+        .user img{
+            background: none repeat scroll 0 0 #FFFFFF;
+            //border: 4px solid #FFFFFF;
+            width: 100%;
+        }
+        
+        .content{
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: none;
+            padding: 10px 20px 20px;
+        }
+        .content .main {
+            min-height: 160px;
+        }
+        .back .content .main {
+            height: 215px;
+        }
+        .name {
+            font-size: 22px;
+            line-height: 28px;
+            margin: 10px 0 0;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        h5{
+            margin: 5px 0;
+            font-weight: 400;
+            line-height: 20px;
+        }
+        .profession{
+            color: #999999;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer {
+            border-top: 1px solid #EEEEEE;
+            color: #999999;
+            margin: 30px 0 0;
+            padding: 10px 0 0;
+            text-align: center;
+        }
+        .footer .social-links{
+            font-size: 18px;
+        }
+        .footer .social-links a{
+            margin: 0 7px;
+        }
+        .footer .btn-simple{
+            margin-top: -6px;
+        }
+        .header {
+            padding: 15px 20px;
+            height: 90px;
+        }
+        .motto{
+            border-bottom: 1px solid #EEEEEE;
+            color: #999999;
+            font-size: 14px;
+            font-weight: 400;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .stats-container{
+          width: 100%;
+          margin-top: 50px;
+        }
+        .stats{
+          display: block;
+          float: left;
+          width: 33.333333%;
+          text-align: center;
+        }
+        
+        .stats:first-child{
+          border-right: 1px solid #EEEEEE;
+        }
+        .stats:last-child{
+          border-left: 1px solid #EEEEEE;
+        }
+        .stats h4{
+          font-weight: 300;
+          margin-bottom: 5px;
+        }
+        .stats p{
+          color: #777777;
+        }
+
+
+    }
+}
+
+
+
+    /* flip the pane when hovered */
+    .card-container:not(.manual-flip):hover .card,
+    .card-container.hover.manual-flip .card{
+        -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+        transform: rotateY( 180deg );
+    }
+
+
+    .card-container.static:hover .card,
+    .card-container.static.hover .card {
+        -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+        transform: none;
+    }
+
+    .card-container, .front, .back {
       width: 100%;
-  }
-  
+      height: 420px;
+      border-radius: 4px;
+    }
+// fin carte rotative
 
 
     #banner_video {
