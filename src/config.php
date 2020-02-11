@@ -70,7 +70,7 @@ $THEME->requiredblocks = '';
 
 // This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in Récit based themes
 // because it forces a block region into the page when editing is enabled and it takes up too much room.
-$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_DEFAULT ;
 
 // This is the function that returns the SCSS source for the main file in our theme. We override the Récit version because
 // we want to allow presets uploaded to our own theme file area to be selected in the preset list.
