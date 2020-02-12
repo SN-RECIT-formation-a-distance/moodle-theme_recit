@@ -665,14 +665,14 @@ z-index: 1000!important;
     font-size: 1.7em;
     //font-weight: 300;
       }
-  h4 strong {
+  /*h4 strong {
     position: relative;
     display: inline-block;
     padding: 14px 12px 16px;
     font-weight: 500;
     color: #fff;
     background: $secondary;
-  }
+  } */
   h5 {
     font-family: $font-family-sans-serif;
     font-size: 1.25em;
@@ -1488,7 +1488,7 @@ z-index: 1000!important;
             text-align: center;
             text-transform: capitalize;
         }
-        h5{
+        h5{  //ok classe dans la flipcard
             margin: 5px 0;
             font-weight: 400;
             line-height: 20px;
@@ -2343,7 +2343,7 @@ z-index: 1000!important;
 
 
 
-    @media screen and (min-width: 768px) {
+/*    @media screen and (min-width: 768px) {
 
       h4 strong {
         padding: 14px 52px 16px 0;
@@ -2377,7 +2377,7 @@ z-index: 1000!important;
       }
     }
 
-
+*/
 
 
     @media screen and (max-width: 991px) {
@@ -2387,10 +2387,10 @@ z-index: 1000!important;
       }
     }
 
-      h3 {
+     /* h3 {
             font-family: Verdana, sans-serif;
         }
-
+     */
         .ubeo_alert_box {
             padding: 0 0 10px 10px;
         }
