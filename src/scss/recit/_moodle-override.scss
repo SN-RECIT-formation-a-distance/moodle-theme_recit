@@ -57,11 +57,7 @@
     }
 }
 
-@media (min-width: 576px){
-    .form-inline .form-control {
-        width: 100%;
-    }
-}
+.editor_atto_content{width: 100%!important;}
 
 .generaltable{
     width: 100%;
@@ -77,3 +73,8 @@
 #id_onlinetext_editor_atto_image_widthentry, #id_onlinetext_editor_atto_image_heightentry{
     width: 100px;
 }
+
+.path-mod-quiz #mod_quiz_navblock .qnbutton{color: #333;}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.thispage .thispageholder{border: 1px solid #666;}
+
+input[type=text], input[type=password], textarea{width: 100%;}
