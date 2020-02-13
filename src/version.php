@@ -33,7 +33,7 @@ $plugin->requires = 2018050800;
 
 // This is the component name of the plugin - it always starts with 'theme_'
 // for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_recit';
+$plugin->component = 'theme_recit 20200214';
 
 // This is the named version.
 $plugin->release = 'R1-2020020500';
