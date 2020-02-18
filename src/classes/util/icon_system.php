@@ -185,7 +185,7 @@ class icon_system extends icon_system_font {
         'theme:fp/view_tree_active' => 'fa-folder',
         'core:i/addblock' => 'fa-plus-square',
         'core:i/assignroles' => 'fa-user-plus',
-        'core:i/backup' => 'fa-file-zip-o',
+        'core:i/backup' => 'fa-file-archive',
         'core:i/badge' => 'fa-shield-alt',
         'core:i/calc' => 'fa-calculator',
         'core:i/calendar' => 'fa-calendar',
