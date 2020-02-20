@@ -17,6 +17,38 @@
  section .block_myoverview .card{
 	 border: none;
  }
+/*
+.bg-secondary {
+	background-color: $secondary !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.bg-success {
+    background-color: $success !important;
+}
+
+.bg-danger {
+    background-color: $danger !important;
+}
+
+.bg-warning {
+    background-color: $warning !important;
+}
+
+.bg-info {
+    background-color: $info !important;
+}
+
+.bg-dark {
+    background-color: $dark !important;
+}
+
+.bg-pale {
+    background-color: $light !important;
+}*/
 
 #categoryquestions{
     td,th{
@@ -42,8 +74,8 @@
     width: 100px;
 }
 
-//.path-mod-quiz #mod_quiz_navblock .qnbutton{color: #333;}
-//.path-mod-quiz #mod_quiz_navblock .qnbutton.thispage .thispageholder{border: 1px solid #666;}
+.path-mod-quiz #mod_quiz_navblock .qnbutton{color: #333;}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.thispage .thispageholder{border: 1px solid #666;}
 
 //input[type=text], input[type=password], textarea{width: 100%;}
 

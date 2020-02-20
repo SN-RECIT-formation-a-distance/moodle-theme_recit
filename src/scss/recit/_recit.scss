@@ -19,12 +19,11 @@ body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
 }
 
-/*
 .alert-info, #page-admin-index .releasenoteslink, #adminsettings .form-overridden, .que .formulation, .assignfeedback_editpdf_widget .label {
     color: #373a3c ;
     background-color: #f1f1f1 ;
     border: solid 1px #ccc ;
-}*/
+}
 /*
 .moodle-dialogue {
 z-index: 1000!important;
@@ -284,30 +283,36 @@ form.form-inline.m-b-1 {
     }
 }
 }
-/*
+
 #page-mod-quiz-view .card-body h2:first-of-type {
+    /*padding-left: 20px;
+    padding-right: 20px;*/
 	vertical-align: baseline;
     color: $white;
     background: $theme_color1;
 }
 #page-mod-quiz-view .card-body h2:first-of-type {
+	/*margin-left: 50px;*/
     margin-bottom: 0;
     font-weight: 700;
     font-size: 22px;
+    /*text-align: center;*/
 }
 #page-mod-quiz-view .card-body h2:first-of-type:before {
     display: inline-block;
+		/*padding-right:50px;*/
     content: '';
     width: 47px;
     height: 47px;
 	vertical-align: middle;
+   /* margin: 0 auto 5px;*/
     background: url("https://recitfad.ca/widgets/assets/images/target.svg");
 	background-repeat: no-repeat;
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
     -o-background-size: 100% auto;
     background-size: 100% auto;
-}*/
+}
 
 
 
