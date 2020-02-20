@@ -48,9 +48,6 @@ use context_system;
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once('mod_quiz_renderer.php');
-require_once('core_question/core_question_renderer.php');
-require_once('core_question/qtype_renderer.php');
 //js_reset_all_caches();
 
 /**
