@@ -454,7 +454,20 @@ z-index: 1000!important;
    /* .row {
       background-color: transparent;
     }*/
-
+    .bg_diago_row {
+      background: $secondary;
+      background: -moz-linear-gradient(75deg, $secondaryBold 0%, $secondaryBold 50%, $secondary 50%);
+      background: -webkit-linear-gradient(75deg, $secondaryBold 0%, $secondaryBold 50%, $secondary 50%);
+      background: linear-gradient(75deg, $secondaryBold 0%, $secondaryBold 50%, $secondary 50%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$secondaryBold",endColorstr="$secondary",GradientType=1);
+  }
+  .bg_degrade_row {
+      background: $secondary;
+      background: -moz-linear-gradient(45deg,  $secondary 0%, $secondaryBold 100%);
+      background: -webkit-linear-gradient(45deg,  $secondary 0%, $secondaryBold 100%);
+      background: linear-gradient(45deg,  $secondary 0%, $secondaryBold 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006391', endColorstr='$secondary',GradientType=1 );
+  }
   .bg_dark {
     background: $color2;
   }
