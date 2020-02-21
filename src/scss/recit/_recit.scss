@@ -19,6 +19,10 @@ body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
 }
 
+.theme-bg-color{
+    background-color: $primary;
+}
+
 /*
 .alert-info, #page-admin-index .releasenoteslink, #adminsettings .form-overridden, .que .formulation, .assignfeedback_editpdf_widget .label {
     color: #373a3c ;

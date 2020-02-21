@@ -380,7 +380,9 @@ class icon_system extends icon_system_font {
         'core:t/user' => 'fa-user',
         'core:t/viewdetails' => 'fa-layer-group',
         'enrol_self:withkey' => 'fa-key',
-        'enrol_self:withoutkey' => 'fa-sign-in-alt'
+        'enrol_self:withoutkey' => 'fa-sign-in-alt',
+        'atto_recordrtc:i/videortc' => 'fa-video',
+        'atto_collapse:icon' => 'fa-level-down-alt'
     ];
 
     /**
