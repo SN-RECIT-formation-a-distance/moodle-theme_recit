@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2020020500;
+$plugin->version = 2020022900;
 
 // This is the version of Moodle this plugin requires.
 $plugin->requires = 2018050800;
@@ -36,7 +36,7 @@ $plugin->requires = 2018050800;
 $plugin->component = 'theme_recit';
 
 // This is the named version.
-$plugin->release = 'R2-2020021500_';
+$plugin->release = 'R5-2020022900';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
