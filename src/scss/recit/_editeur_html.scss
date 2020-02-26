@@ -60,7 +60,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   li:nth-child(even) >
         input + label {	 background: #3a4059;} label:hover, li:nth-child(even) >
         input + label:hover {	 background: blue;	 color: #fff;	 cursor: pointer;} 
-        input[type="radio"]:checked ~ label {	 background: blue;	 color: #fff;	 cursor: default !important;} .accslide {	 display: block;	 height: 100%;	 width: 0px;	 padding: 10px 0;	 float: left;	 overflow-x: hidden;	 font-sizes: 12px;	 line-height: 1.5;	 transition: all 700ms ease;} .accslide * {	 padding-left: 10px;} .accslide img {	 margin-top: 10px;} 
+        input[type="radio"]:checked ~ label {	 background: blue;	 color: #fff;	 cursor: default !important;} .accslide {	 display: block;	 height: 100%;	 width: 0px;	 padding: 10px 0;	 float: left;	 overflow-x: hidden;	 font-size: 12px;	 line-height: 1.5;	 transition: all 700ms ease;} .accslide * {	 padding-left: 10px;} .accslide img {	 margin-top: 10px;} 
         input[type="radio"]:not(:checked) ~ label >
         * {	 padding-left: 7px;	 font-size: 1.2em;	 white-space: nowrap;	 transform: rotate(90deg);} input[type="radio"]:checked ~ label >
         * {	 display: none;} li:nth-child(1):nth-last-child(2) 
@@ -657,6 +657,13 @@ z-index: 1000!important;
   }
   .bg_sc_title_bar3 {
     background:  url("//recitfad.ca/depot/sc1/bg_sc_fonce_2.png") center top no-repeat;
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+  .bg_sc_title_bar4 {
+    background:  url("//recitfad.ca/depot/sc1/bg_sc_4.jpg") center top no-repeat;
     -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
