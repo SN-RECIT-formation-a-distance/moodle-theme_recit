@@ -61,7 +61,7 @@ class theme_recit_core_question_renderer extends core_question_renderer {
         $classes = implode(' ', $classes);
 
         $output .= html_writer::start_tag('div', array(
-            'id' => $qa->get_outer_question_div_unique_id(),
+            'id' => $this->bypass_get_outer_question_div_unique_id($qa), //$qa->get_outer_question_div_unique_id(),
             'class' => $classes,
             'style' => 'margin-bottom: 1rem')
         );
@@ -92,6 +92,19 @@ class theme_recit_core_question_renderer extends core_question_renderer {
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
         return $output;
+    }
+
+    /**
+     * When the question is rendered, this unique id is added to the
+     * outer div of the question. It can be used to uniquely reference
+     * the question from JavaScript.
+     *
+     * Note, this is not truly unique. It will be changed in Moodle 3.7. See MDL-65029.
+     *
+     * @return string id added to the outer <div class="que ..."> when the question is rendered.
+     */
+    public function bypass_get_outer_question_div_unique_id(question_attempt $qa) {
+        return 'q' . $qa->get_slot();
     }
 
     /**
