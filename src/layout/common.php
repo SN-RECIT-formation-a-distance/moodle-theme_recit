@@ -178,6 +178,8 @@ class ThemeRecitUtils{
         $item->url = $navOptions->metadata['userprofileurl']->out();
         $item->pix = $navOptions->metadata['useravatar'];
         $item->title = $navOptions->metadata['userfullname'];
+        $item->extra = "";
+
         if(isset($navOptions->metadata['rolename'])){
             $item->role =  $navOptions->metadata['rolename'];
         }
@@ -192,6 +194,10 @@ class ThemeRecitUtils{
         self::addNavItemFromFlatNav($result, $page->flatnav, "privatefiles");
         self::addNavItemFromFlatNav($result, $page->flatnav, "sitesettings");
 
+
+        // number of unread messages
+        $result["messages"]->extra = \core_message\api::count_unread_conversations($user);
+        
         /*echo "<pre>";
         print_r($result);
         die();*/
