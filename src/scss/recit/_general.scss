@@ -65,9 +65,10 @@ Pages
 }
 
 // on veut pas que le scroll s'affiche sur le contenu de la page
+// il faut pas qu'il soit hidden sinon le menu flotant ne s'affiche pas au complet
 body{
     #page-content{
-        overflow: hidden;
+        overflow: inherit;
     }
 }
 
