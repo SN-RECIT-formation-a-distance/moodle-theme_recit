@@ -267,7 +267,9 @@ function theme_recit_get_course_theme() {
             return 'theme-recit-science';
 		case 'recit_campus':
             return 'theme-recit-campus';
-		case 'recit_anglais':
+		case 'recit_campus':
+            return 'theme-recit-fga';
+		case 'recit_fga':
             return 'theme-recit-anglais';
 		case 'recit_francais':
             return 'theme-recit-francais';
