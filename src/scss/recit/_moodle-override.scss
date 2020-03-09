@@ -52,3 +52,11 @@
         width: inherit;
     }
 }
+
+// prevent the #page to move towards left when opening the drawer
+body.drawer-open-right{margin-right: inherit;}
+@media (min-width:768px){body.drawer-open-right{margin-right: inherit;}}
+
+
+#page-wrapper{margin-bottom: 0px}
+#page-wrapper::after{content:"";display:block;min-height:0px}

@@ -38,6 +38,7 @@ body{
 Pages
 *******************/
 #page-wrapper {
+    position: relative;
     margin-top: $top-navbar-height;
     background-color: #efefef;
     #page{

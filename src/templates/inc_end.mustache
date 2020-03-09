@@ -8,7 +8,7 @@
             title="{{#str}} showhideblocks, theme_recit {{/str}}">
         </i>
 
-        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print">
+        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print {{^navdraweropen}}closed{{/navdraweropen}}">
             {{{ sidepreblocks }}}
         </section>
     {{/hasblocks}}
