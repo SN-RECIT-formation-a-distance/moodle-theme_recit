@@ -48,6 +48,21 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-weight: normal;
     font-style: normal;
 }
+.answersaved.btn-link{
+  background-color: $secondary;
+  border-style: solid;
+  border-color: $secondary;
+}
+.notyetanswered.btn-link{
+  background-color: transparent;
+  border-style: solid;
+  border-color: $secondary;
+}
+.recit-display-4 {
+  font-family: $subheadings-font-family;
+  font-size: 1rem;
+  padding: 10px 10px 10px 10px;
+}
  .C1500{
   input[type="radio"]:checked ~ label {
     background: #2196f3;
@@ -759,6 +774,7 @@ z-index: 1000!important;
     .display-1 {
         font-size: 3rem;
     }
+    
     /*figure*/
     figure.figure {
       display: block;
