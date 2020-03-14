@@ -162,7 +162,11 @@ class ThemeRecitUtils{
             if($navItem->itemtype == "link"){
                 $item = new stdClass();
                 $item->url = $navItem->url->out();
-                $item->pix = $iconMap["core:" . $navItem->pix];
+                
+                if(isset($iconMap["core:" . $navItem->pix])){
+                    $item->pix = $iconMap["core:" . $navItem->pix];
+                }
+                
                 $item->title = $navItem->title;
                 $navId = current(explode(",",$navItem->titleidentifier));
 

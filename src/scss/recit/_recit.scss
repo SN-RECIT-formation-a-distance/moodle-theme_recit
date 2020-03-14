@@ -10,14 +10,14 @@ body{
 		.second-navbar{display: flex;  justify-content: space-between; padding: 0 0.8rem 0 0.8rem; align-items: center;}
 	}
 }
-
+/*
 body.drawer-open-right{
 	margin-right: 260px;
 }
 
 body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
-}
+}*/
 
 .theme-bg-color{
     background-color: $primary;
