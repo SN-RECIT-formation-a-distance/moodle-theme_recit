@@ -26,7 +26,8 @@
     background-color: $secondary;
     position: absolute;
     right: 0;
-    top: 50vmin;
+    top: 40%;
+    transform: translateY(-40%);
     color: #fff;
     width: 30px;
     height: 64px;
