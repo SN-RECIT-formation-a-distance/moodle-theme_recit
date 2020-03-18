@@ -138,7 +138,7 @@ class icon_system extends icon_system_font {
         'core:e/restore_last_draft' => 'fa-undo',
         'core:e/right_to_left' => 'fa-chevron-left',
         'core:e/row_props' => 'fa-info',
-        'core:e/save' => 'fa-floppy-o',
+        'core:e/save' => 'fa-save',
         'core:e/screenreader_helper' => 'fa-braille',
         'core:e/search' => 'fa-search',
         'core:e/select_all' => 'fa-arrows-h',

@@ -60,3 +60,6 @@ body.drawer-open-right{margin-right: inherit;}
 
 #page-wrapper{margin-bottom: 0px}
 #page-wrapper::after{content:"";display:block;min-height:0px}
+ 
+.block_navigation .block_tree [aria-expanded=false]:before, .block_settings .block_tree [aria-expanded=false]:before{content: "\23F5"; }
+.block_navigation .block_tree [aria-expanded=true]:before, .block_settings .block_tree [aria-expanded=true]:before {content: "\23F7"; }
