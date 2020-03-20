@@ -63,3 +63,6 @@ body.drawer-open-right{margin-right: inherit;}
  
 .block_navigation .block_tree [aria-expanded=false]:before, .block_settings .block_tree [aria-expanded=false]:before{content: "\23F5"; }
 .block_navigation .block_tree [aria-expanded=true]:before, .block_settings .block_tree [aria-expanded=true]:before {content: "\23F7"; }
+
+.messaging-area-container .messaging-area .contacts-area{width: 340px;}
+.messaging-area-container .messaging-area .messages-area{width:calc(100% - 340px);}
