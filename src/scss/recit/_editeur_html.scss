@@ -865,6 +865,88 @@ z-index: 1000!important;
       -o-background-size: cover;
       background-size: cover;
   }
+
+  // début icones SVG
+
+.svg_dark {
+    fill: $color2 !important;
+  }
+  .svg_black  {
+      fill: #000 !important;
+  }
+  .svg_secondary  {
+      fill: $secondary !important;
+  }
+  .svg_primary  {
+      fill: $primary !important;
+  }
+  .svg_danger  {
+      fill: $danger !important;
+  }
+  .svg_success  {
+      fill: $success !important;
+  }
+  .svg_info  {
+      fill: $info !important;
+	}
+  .svg_warning  {
+      fill: $warning !important;
+  }
+  .svg_light  {
+      fill: $light !important;
+  }
+  .svg_pale  {
+      fill: $primarypale !important;
+  }
+  .svg_color1  {
+    fill: $color1 !important;
+  }
+  .svg_color2  {
+    fill: $color2 !important;
+  }
+  .svg_color3  {
+    fill: $color3 !important;
+  }
+  .svg_color4  {
+    fill: $color4 !important;
+  }
+  .svg_color5  {
+    fill: $color5 !important;
+  }
+  .svg_theme_color1  {
+    fill: $theme_color1 !important;
+  }   
+  .svg_theme_color2  {
+    fill: $theme_color2 !important;
+  } 
+  .svg_theme_color3  {
+    fill: $theme_color3 !important;
+  }
+  .svg_theme_color4  {
+    fill: $theme_color4 !important;
+  }
+  .svg_theme_color5  {
+    fill: $theme_color5 !important;
+  }
+  .svg_sm  {
+    height: 40px;
+    width: 40px;
+  }
+  .svg_md  {
+    height: 60px;
+    width: 60px;
+  }
+  .svg_lg  {
+    height: 80px;
+    width: 80px;
+  }
+  .svg_xl  {
+    height: 100px;
+    width: 100px;
+  }
+
+// fin icones SVG
+
   .pad_ubeo_anecdote {
           padding: 20px 20px 10px;
           border-bottom: solid 8px $theme_color4;
