@@ -99,13 +99,13 @@ $THEME->layouts = [
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'columns2.php',
-        'regions' => array('side-pre'),
+        'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
     ),
     // Course page.
     'course' => array(
         'file' => 'course.php',
-        'regions' => array('side-pre'),
+        'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
     ),
@@ -117,7 +117,7 @@ $THEME->layouts = [
     // Internal course modules page.
     'incourse' => array(
         'file' => 'incourse.php',
-        'regions' => array('side-pre'),
+        'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
     ),

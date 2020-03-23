@@ -40,7 +40,10 @@ if (isloggedin()) {
 }
 
 $blockshtml = $OUTPUT->blocks('side-pre');
+$topblockshtml = $OUTPUT->blocks('side-post');
+
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 /*if ($navdraweropen) {
@@ -60,6 +63,8 @@ $templatecontext = [
     'page' => $PAGE,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
+    'sidetopblocks' => $topblockshtml,
+    'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => $hasdrawertoggle,
     'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),

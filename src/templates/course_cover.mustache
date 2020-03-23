@@ -63,6 +63,11 @@
                         <div> {{{ output.region_main_settings_menu }}} </div>
                     </div>
                 {{/hasregionmainsettingsmenu}}
+                {{#hastopblocks}}
+                <section data-region="blocks-row" class="d-print-none hidden-print">
+                    {{{ sidetopblocks }}}
+                </section>
+                {{/hastopblocks}}
                 <section id="region-main">
 
                     {{{ output.full_header }}}

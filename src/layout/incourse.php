@@ -30,7 +30,9 @@ require_once($CFG->libdir . '/behat/lib.php');
 ThemeRecitUtils::setUserPreferenceDrawer();
 
 $blockshtml = $OUTPUT->blocks('side-pre');
+$topblockshtml = $OUTPUT->blocks('side-post');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 
@@ -54,6 +56,8 @@ $templatecontext = [
     'page' => $PAGE,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
+    'sidetopblocks' => $topblockshtml,
+    'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
     'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),

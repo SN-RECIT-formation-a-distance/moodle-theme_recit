@@ -38,7 +38,10 @@ ThemeRecitUtils::setUserPreferenceDrawer();
 }*/
 
 $blockshtml = $OUTPUT->blocks('side-pre');
+$topblockshtml = $OUTPUT->blocks('side-post');
+
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 /*if ($navdraweropen) {
@@ -62,6 +65,8 @@ $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
+    'sidetopblocks' => $topblockshtml,
+    'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
     'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),

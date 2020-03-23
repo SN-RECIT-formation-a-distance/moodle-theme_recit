@@ -227,5 +227,5 @@ $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
 
 $string['coursesections'] = 'Course sections';
-
-$string['region-side-post'] = 'region-side-post';
+//$string['region-side-top'] = 'En haut';
+$string['region-side-post'] = 'To the top';

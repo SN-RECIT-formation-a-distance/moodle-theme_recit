@@ -275,6 +275,20 @@ function theme_recit_get_course_theme() {
             return 'theme-recit-francais';
         case 'recit_histoire':
             return 'theme-recit-histoire';
+        case 'recit_ecolea':
+            return 'theme-recit-ecolea';
+        case 'recit_ecoleb':
+            return 'theme-recit-ecoleb';
+        case 'recit_ecolec':
+            return 'theme-recit-ecolec';
+        case 'recit_ecoled':
+            return 'theme-recit-ecoled';
+        case 'recit_ecolee':
+            return 'theme-recit-ecolee';
+        case 'recit_ecolef':
+            return 'theme-recit-ecolef';
+        case 'recit_ecoleg':
+            return 'theme-recit-ecoleg';
         default: 
             return "theme-recit";
     }
