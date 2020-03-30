@@ -1055,14 +1055,14 @@ z-index: 1000!important;
     //margin-bottom: 1.2em;
   }
 
-  // Utiliser ces classes qui sont en lien avec le sélecteur de niveau de titre
+  /* Utiliser ces classes qui sont en lien avec le sélecteur de niveau de titre
   .h1 {font-family: $headings-font-family; text-transform: uppercase;}
   .h2 {font-family: $headings-font-family;}
   .h3 {font-family: $subheadings-font-family;}
   .h4 {font-family: $subheadings-font-family;}
   .h5 {font-family: $font-family-sans-serif;}
   .h6 {font-family: $font-family-sans-serif;}
-
+*/
 
 
     hr.new5 {
@@ -2719,12 +2719,12 @@ z-index: 1000!important;
         border-left: none;
         border-top: solid 15px #fff;
       }
-        h1 {
+       /* h1 {
             font-size: 1.6rem;
         }
         h2 {
             font-size: 1.5rem;
-        }
+        } */
     }
 
 
