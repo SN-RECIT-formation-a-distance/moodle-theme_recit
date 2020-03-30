@@ -48,7 +48,62 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-weight: normal;
     font-style: normal;
 }
-
+.I1009 {
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  #toolbar {
+    display: flex;
+    align-items: center;
+    background-color: #555;
+    color: #fff;
+    padding: 0.5em;
+  }
+  #toolbar button,
+  #page-mode input {
+    color: currentColor;
+    background-color: transparent;
+    font: inherit;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 0.25em 0.5em;
+  }
+  #toolbar button:hover,
+  #toolbar button:focus,
+  #page-mode input:hover,
+  #page-mode input:focus {
+    color: lightGreen;
+  }
+  #page-mode {
+    display: flex;
+    align-items: center;
+    padding: 0.25em 0.5em;
+  }
+  
+  #viewport-container {
+    flex: 1;
+    background: #eee;
+    overflow: auto;
+  }
+  #viewport {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  #viewport > div {
+    text-align: center;
+    max-width: 100%;
+  }
+  #viewport canvas {
+    width: 100%;
+    box-shadow: 0 2px 5px gray;
+  }
+  
+}
 /* début l'item 604 */
 
 .etapes	{
@@ -122,99 +177,143 @@ DÉBUT feuille de style DLL
     background-color: #EFEFEF;
     
     }
-    .ddl-niveaux-bar li:after {
+.ddl-niveaux-bar li:after {
+content: "";
+position: absolute;
+width: 100%;
+height: 1px;
+background-color: #EFEFEF;
+top: 4px;
+left: calc(-50% + 5px);
+z-index : -1;
+}
+.ddl-niveaux-bar li:first-child:after {
+content: none;
+}
+.ddl-niveaux-bar li.active {
+color:  #1E3F5A;
+}
+.ddl-niveaux-bar li.active:before {
+background-color:  #1E3F5A;
+} 
+.ddl-niveaux-bar li.active:after {
+background-color: #1E3F5A;
+}
+
+/* Niveaux 2*/
+.ddl-niveaux-bar2 {
+    display:flex;
+    flex-wrap:wrap;
+    padding:0;
+    margin:0;
+    }
+    .ddl-niveaux-bar2 li {
+    flex:1;
+    list-style: none;
+    display:block;
+    text-align: center;
+    background-color: #ddd;
+    padding:5px;
+    margin:2px;
+    max-width:400px;
+    }
+    
+    .ddl-niveaux-bar2 li:first-child:after {
+    content: none;
+    }
+    .ddl-niveaux-bar2 li.active {
+    background-color:  #1E3F5A;
+    color: #fff;
+    }
+
+    /* Steps*/
+    .ddl-steps {
+    list-style: none;
+    display: inline-block;
+    width:100%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    z-index: 6;
+    }
+    .ddl-steps span {
+    width: 40px;
+    height:40px;
+    font-size:20px;
+    line-height : 40px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    background-color: #fff;
+    }
+    .ddl-steps span:after {
     content: "";
     position: absolute;
     width: 100%;
     height: 1px;
-    background-color: #EFEFEF;
-    top: 4px;
-    left: calc(-50% + 5px);
+    background-color: #ddd;
+    top: 15px;
+    left:0;
     z-index : -1;
     }
-    .ddl-niveaux-bar li:first-child:after {
-    content: none;
-    }
-    .ddl-niveaux-bar li.active {
-    color:  #1E3F5A;
-    }
-    .ddl-niveaux-bar li.active:before {
-    background-color:  #1E3F5A;
-    } 
-    .ddl-niveaux-bar li.active:after {
-    background-color: #1E3F5A;
+    .ddl-steps em {
+    font-size:1.3em;
+    font-style: normal;
     }
     
-    /* Niveaux 2*/
-    .ddl-niveaux-bar2 {
-        display:flex;
-        flex-wrap:wrap;
-        padding:0;
-        margin:0;
-      }
-      .ddl-niveaux-bar2 li {
-        flex:1;
-        list-style: none;
-        display:block;
-        text-align: center;
-        background-color: #ddd;
-        padding:5px;
-        margin:2px;
-        max-width:400px;
-      }
-      
-      .ddl-niveaux-bar2 li:first-child:after {
-        content: none;
-      }
-      .ddl-niveaux-bar2 li.active {
-        background-color:  #1E3F5A;
-        color: #fff;
+    .ddl-steps p {
+    color: #5D5D5D;
+    }
+
+//début Bloc H1
+    .barre-progres {
+        border-top:none;
+        background-color: rgba(255, 255, 255, 0)!important;
       }
     
-      /* Steps*/
-      .ddl-steps {
-        list-style: none;
-        display: inline-block;
-        width:100%;
-        position: relative;
-        text-align: center;
-        cursor: pointer;
-        z-index: 6;
+       .barre-progres p {
+        color: rgba(255, 255, 255, 0.50)!important;
+        font-size:15px;
+       }
+    
+      .barre-progres.barre-active {
+        border-top:none;
+        background-color: rgba(255, 255, 255, 1)!important;
       }
-      .ddl-steps span {
-        width: 40px;
-        height:40px;
-        font-size:20px;
-        line-height : 40px;
-        border: 1px solid #ddd;
-        border-radius: 100%;
-        display: block;
-        text-align: center;
-        margin: 0 auto 10px auto;
-        background-color: #fff;
+    
+    .barre-progres.barre-active p{
+        color: #1a425c!important;
+        font-weight:bold;
       }
-      .ddl-steps span:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        background-color: #ddd;
-        top: 15px;
-        left:0;
-        z-index : -1;
+    
+    @media only screen and (min-width: 768px) {
+      .barre-progres {
+        border-top:1px solid rgba(255, 255, 255, 0.50)!important;
+        background-color: rgba(255, 255, 255, 0)!important;
       }
-        .ddl-steps em {
-        font-size:1.3em;
-        font-style: normal;
-        }
-        
-        .ddl-steps p {
-        color: #5D5D5D;
-        }
-        
-    /*****************
-    FIN feuille de style DLL
-    ******************/
+    
+       .barre-progres p {
+        color: rgba(255, 255, 255, 0.50)!important;
+        font-size:17px;
+       }
+    
+      .barre-progres.barre-active {
+        border-top:4px solid rgba(255, 255, 255, 1)!important;
+        background-color: rgba(255, 255, 255, 0)!important;
+      }
+    
+      .barre-progres.barre-active p{
+        color: rgba(255, 255, 255, 1)!important;
+    
+        font-weight:bold;
+      }
+    }    
+//fin Bloc H1
+/*****************
+FIN feuille de style DLL
+******************/
 .answersaved.btn-link{
   background-color: $secondary;
   border-style: solid;
@@ -1010,6 +1109,17 @@ z-index: 1000!important;
     //font-weight: 500;
     //margin-bottom: 1.2em;
   }
+
+  /* Utiliser ces classes qui sont en lien avec le sélecteur de niveau de titre
+  .h1 {font-family: $headings-font-family; text-transform: uppercase;}
+  .h2 {font-family: $headings-font-family;}
+  .h3 {font-family: $subheadings-font-family;}
+  .h4 {font-family: $subheadings-font-family;}
+  .h5 {font-family: $font-family-sans-serif;}
+  .h6 {font-family: $font-family-sans-serif;}
+*/
+
+
     hr.new5 {
       border: 6px solid $light;
       border-radius: 3px;
@@ -2664,12 +2774,12 @@ z-index: 1000!important;
         border-left: none;
         border-top: solid 15px #fff;
       }
-        h1 {
+       /* h1 {
             font-size: 1.6rem;
         }
         h2 {
             font-size: 1.5rem;
-        }
+        } */
     }
 
 

@@ -13,36 +13,45 @@
     
 .editeur, body.theme-recit-francais{
     #top-1.engine{display: none;} // code dynamique intrusif du Mobirise 
-    
-    
-                    
-                    /*-------------------------------*\
-                        Custom rows styles
-                    \*-------------------------------*/
-                    .color-row {
-                        background: #004e95;
-                    }
-                    .diago-row {
-                        background: #0057a7;
-                        background: -moz-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
-                        background: -webkit-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
-                        background: linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
-                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#004e95",endColorstr="#0057a7",GradientType=1);
-                    }
-                    .degrade-row {
-                        background: rgb(0,58,109);
-                        background: -moz-linear-gradient(45deg,  rgba(0,58,109,1) 0%, rgba(19,97,165,1) 100%);
-                        background: -webkit-linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
-                        background: linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003a6d', endColorstr='#1361a5',GradientType=1 );
-                    }
 
 
-                    @media screen and (min-width: 992px) {
-                        h5 a {
-                            padding: 6px 14px;
-                        }
+    
+    /*-------------------------------*\
+        Custom rows styles
+    \*-------------------------------*/
+    .color-row {
+        background: #004e95;
+    }
+    .diago-row {
+        background: #0057a7;
+        background: -moz-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+        background: -webkit-linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+        background: linear-gradient(75deg, #004e95 0%, #004e95 50%, #0057a7 50%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#004e95",endColorstr="#0057a7",GradientType=1);
+    }
+    .degrade-row {
+        background: rgb(0,58,109);
+        background: -moz-linear-gradient(45deg,  rgba(0,58,109,1) 0%, rgba(19,97,165,1) 100%);
+        background: -webkit-linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
+        background: linear-gradient(45deg,  rgba(0,58,109,1) 0%,rgba(19,97,165,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003a6d', endColorstr='#1361a5',GradientType=1 );
+    }
+
+
+/*    @media screen and (min-width: 992px) {
+        h5 a {
+            padding: 6px 14px;
+        }
                     }
+                    */
+
+    h1 {font-family: 'vigaregular', sans-serif;}
+    h2 {font-family: 'vigaregular', sans-serif;}
+    h3 {font-family: 'vigaregular', sans-serif;}
+    h4 {font-family: 'vigaregular', sans-serif;} 
+    h5 {font-family: 'vigaregular', sans-serif;}
+    h6 {font-family: 'vigaregular', sans-serif;} 
+
 }
 
 .editeur, body.theme-recit-anglais{
