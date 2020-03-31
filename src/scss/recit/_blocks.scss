@@ -24,9 +24,9 @@
 
 #sidepreopen-control {
     background-color: $secondary;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
+    top: $top-navbar-height;
     color: #fff;
     width: 30px;
     height: 64px;
