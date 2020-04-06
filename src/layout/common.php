@@ -74,6 +74,8 @@ class ThemeRecitUtils{
     }
 
     public static function getContextHeaderSettingsMenu($page){
+        global $CFG, $COURSE, $PAGE;
+
         $result = array();
 
         //$settingsnode = $page->settingsnav->find('turneditingonoff', navigation_node::TYPE_COURSE);
@@ -86,7 +88,29 @@ class ThemeRecitUtils{
             $result['questions']->pix = "fa-database";
         }
         
-        
+        // if $result is empty then the user has not permission to access these shortcuts
+        if(!empty($result)){
+            $item = new stdClass();
+            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-user-graduate';
+            $item->title = 'Utilisateurs inscrits';
+            $result['users'] = $item;
+    
+            $item = new stdClass();
+            $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-users';
+            $item->title = 'Groups';
+            $result['groups'] = $item;
+
+            if(!empty($PAGE->cm->id)){
+                $item = new stdClass();
+                $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
+                $item->pix = 'fa-sliders-h';
+                $item->title = 'Paramètres activité';
+                $result['paramsact'] = $item;
+            }
+        }
+
         /*echo "<pre>";
         print_r($result);
         die();*/

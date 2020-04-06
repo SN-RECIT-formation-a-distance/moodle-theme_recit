@@ -66,6 +66,22 @@
                         <a class="nav-link" href="{{settingsmenu.questions.url}}" title="{{settingsmenu.questions.title}}"><i class="fa {{settingsmenu.questions.pix}}"></i><span class="DescResponsive"> {{settingsmenu.questions.title}}</span></a>
                     </li>
                 {{/settingsmenu.questions}}
+                {{#settingsmenu.users}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="DescResponsive"> {{settingsmenu.users.title}}</span></a>
+                    </li>
+                {{/settingsmenu.users}}
+                {{#settingsmenu.groups}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.groups.url}}" title="{{settingsmenu.groups.title}}"><i class="fa {{settingsmenu.groups.pix}}"></i><span class="DescResponsive"> {{settingsmenu.groups.title}}</span></a>
+                    </li>
+                {{/settingsmenu.groups}}
+                {{#settingsmenu.paramsact}}
+                    <li class="nav-item-divider">|</li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="DescResponsive"> {{settingsmenu.paramsact.title}}</span></a>
+                    </li>
+                {{/settingsmenu.paramsact}}                
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >    
                 <li class="nav-item">
@@ -135,11 +151,13 @@
                             <a class="dropdown-item" href="{{usermenu.privatefiles.url}}"><i class="fa {{usermenu.privatefiles.pix}}"></i> {{usermenu.privatefiles.title}}</a>
                         {{/usermenu.privatefiles.url}}
 
-                        <div class="dropdown-divider"></div>
                         {{#usermenu.switchroleto.url}}
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{usermenu.switchroleto.url}}"><i class="fa {{usermenu.switchroleto.pix}}"></i> {{usermenu.switchroleto.title}}</a>
                         {{/usermenu.switchroleto.url}}
+
                         {{#usermenu.switchrolereturn.url}}
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{usermenu.switchrolereturn.url}}"><i class="fa {{usermenu.switchrolereturn.pix}}"></i> {{usermenu.switchrolereturn.title}}</a>
                         {{/usermenu.switchrolereturn.url}}
 
