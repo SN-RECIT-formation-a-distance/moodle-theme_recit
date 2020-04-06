@@ -152,22 +152,22 @@ if ($ADMIN->fulltree) {
     * Advanced settings tab
     * ----------------------
     */
-    $page = new admin_settingpage('theme_recit_advanced', get_string('advancedsettings', 'theme_recit'));
+    /*$page = new admin_settingpage('theme_recit_advanced', get_string('advancedsettings', 'theme_recit'));*/
 
     // Raw SCSS to include before the content.
-    $setting = new admin_setting_scsscode('theme_recit/scsspre',
+    /*$setting = new admin_setting_scsscode('theme_recit/scsspre',
         get_string('rawscsspre', 'theme_recit'), get_string('rawscsspre_desc', 'theme_recit'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Raw SCSS to include after the content.
-    $setting = new admin_setting_scsscode('theme_recit/scss', get_string('rawscss', 'theme_recit'),
+    /*$setting = new admin_setting_scsscode('theme_recit/scss', get_string('rawscss', 'theme_recit'),
         get_string('rawscss_desc', 'theme_recit'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    $page->add($setting);*/
 
     // Google analytics block.
-    $name = 'theme_recit/googleanalytics';
+    /*$name = 'theme_recit/googleanalytics';
     $title = get_string('googleanalytics', 'theme_recit');
     $description = get_string('googleanalyticsdesc', 'theme_recit');
     $default = '';
@@ -176,7 +176,7 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     $settings->add($page);
-
+*/
     /*
     * -----------------------
     * Frontpage settings tab
@@ -589,7 +589,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_recit/getintouchcontent';
     $title = get_string('getintouchcontent', 'theme_recit');
     $description = get_string('getintouchcontentdesc', 'theme_recit');
-    $default = 'Conecti.me';
+    $default = 'RecitFad';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
