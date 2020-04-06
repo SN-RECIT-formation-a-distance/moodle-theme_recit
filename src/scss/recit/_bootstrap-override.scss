@@ -12,13 +12,25 @@
 
 .card{
     .card-header{
-        color: #FFF;
+        color: #000;
         padding: 7px;
-        background-color: $primary;
+        border-color: $primary;
+        border-bottom-style: ridge;
     }
     .card-footer{padding: 7px;}
 }
+.homelink  {
+display: inline-block;
+//padding-right: 2px;
+position: relative;
+bottom: 15px;
+}
+.recit_icon_titre, .recit_titre
+{
+    display: inline-block;
+    padding-right: 15px;
 
+    }
 .row{ background-color: unset !important;}
 
 // Début ajout classe bootstrap 4.4 

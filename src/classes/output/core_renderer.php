@@ -23,6 +23,7 @@
  */
 
 namespace theme_recit\output;
+require_once($CFG->dirroot . "/lib/outputrenderers.php");
 
 use html_writer;
 use tabobject;
@@ -45,9 +46,15 @@ use theme_config;
 use core_text;
 use help_icon;
 use context_system;
+use renderer_base;
+use home_link;
+use ThemeRecitUtils;
+use lang_string;
 
 defined('MOODLE_INTERNAL') || die;
-
+require_once($CFG->dirroot . '/theme/recit/layout/common.php');
+require_once($CFG->libdir . '/behat/lib.php');
+//require_once('..lib_/outputrenderers.php');
 require_once('mod_quiz_renderer.php');
 require_once('core_question/core_question_renderer.php');
 require_once('core_question/qtype_renderer.php');
@@ -1277,6 +1284,120 @@ class core_renderer extends \core_renderer {
 
         return $output;
     }
+ /**
+     * Return the 'back' link that normally appears in the footer.
+     *
+     * @return string HTML fragment.
+     */
+    public function home_link() {
+        global $CFG, $SITE;
 
- 
+        if ($this->page->pagetype == 'site-index') {
+            // Special case for site home page - please do not remove
+            return '<div class="sitelink">' .
+                   '<a title="Moodle" href="http://moodle.org/">' .
+                   '<img src="' . $this->image_url('moodlelogo') . '" alt="'.get_string('moodlelogo').'" /></a></div>';
+
+        } else if (!empty($CFG->target_release) && $CFG->target_release != $CFG->release) {
+            // Special case for during install/upgrade.
+            return '<div class="sitelink">'.
+                   '<a title="Moodle" href="http://docs.moodle.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">' .
+                   '<img src="' . $this->image_url('moodlelogo') . '" alt="'.get_string('moodlelogo').'" /></a></div>';
+
+        } else if ($this->page->course->id == $SITE->id || strpos($this->page->pagetype, 'course-view') === 0) {
+            return '';
+            //<div class="homelink"><a href="' . $CFG->wwwroot . '/">' .
+           // get_string('home') . '</a></div>
+
+        } else {
+            return '<span class="homelink"><a href="' . $CFG->wwwroot . '/course/view.php?id=' . $this->page->course->id . '"><i class="icon fa fa-chevron-circle-up  fa-2x fa-fw "  title="Retour" aria-label="Retour"></i></a></span>';
+        }
+    }
+  
+   
+    /**
+     * Outputs a heading
+     *
+     * @param string $text The text of the heading
+     * @param int $level The level of importance of the heading. Defaulting to 2
+     * @param string $classes A space-separated list of CSS classes. Defaulting to null
+     * @param string $id An optional ID
+     * @return string the HTML to output.
+     */
+    public function heading($text, $level = 2, $classes = null, $id = null) {
+        global $OUTPUT, $PAGE, $USER, $CFG;
+       // $p = $PAGE->cm->modname;
+        $icon_assign = '';
+        
+        $level = (integer) $level;
+        $homelink='';
+        $homelink = $this->home_link()   ;
+        if ($level < 1 or $level > 6) {
+            throw new coding_exception('Heading level must be an integer between 1 and 6.');
+        }
+        elseif (isset($PAGE->cm->modname) && $level == 2  ) {
+            //$icon_assign = $this->image_url('pix_plugins/mod/'. $PAGE->cm->modname.'/icon', 'theme');
+            $icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
+            $Aname =$PAGE->cm->modname ;
+            if ($Aname === "quiz"){
+            $AnameS = get_string('mod-quiz-name', 'theme_recit','fr_ca');
+            $AnameC = new lang_string('mod-quiz-name-consigne', 'theme_recit','fr_ca');
+            }
+            elseif ($Aname === "book"){
+                $AnameS = get_string('mod-book-name', 'theme_recit','fr_ca');
+                $AnameC = new lang_string('mod-book-name-consigne', 'theme_recit','fr_ca');
+                }
+            else {
+                $AnameS = new lang_string('mod-page-name', 'theme_recit','fr_ca');
+                $AnameC = new lang_string('mod-page-name-consigne', 'theme_recit','fr_ca');
+            }
+            $output = "<div class='card'>";
+        $output .= sprintf(" <div class='card-header'>$homelink <div class=\"recit_icon_titre\"><button type=\"button\" data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" html=\"true\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"42\" width=\"42\"></button></div>  %s</div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
+        //$output .= $Aname;
+        //$output .= $AnameS;
+    }
+        else{
+            $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));
+        }
+        return $output;
+    }
+    
+
+    
 }
+class core_renderer_cli extends core_renderer {
+     /**
+     * Returns a template fragment representing a Heading.
+     *
+     * @param string $text The text of the heading
+     * @param int $level The level of importance of the heading
+     * @param string $classes A space-separated list of CSS classes
+     * @param string $id An optional ID
+     * @return string A template fragment for a heading
+     */
+    public function heading($text, $level = 2, $classes = 'main', $id = null) {
+        $text .= "\n";
+        switch ($level) {
+            case 1:
+                return '=>' . $text;
+            case 2:
+                return '-->' . $text;
+            default:
+                return $text;
+        }
+    }
+}
+class core_renderer_ajax extends core_renderer {
+    /**
+    * No need for headers in an AJAX request... this should never happen.
+    * @param string $text
+    * @param int $level
+    * @param string $classes
+    * @param string $id
+    */
+   public function heading($text, $level = 2, $classes = 'main', $id = null) {}
+   }
+
+
+        
+        

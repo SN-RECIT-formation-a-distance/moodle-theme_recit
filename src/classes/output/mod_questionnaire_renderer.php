@@ -24,7 +24,8 @@
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot . "/mod/questionnaire/classes/output/renderer.php");
-
+require_once($CFG->dirroot . "/theme/recit/classes/output/core_renderer.php");
+use heading;
 /*$blockDiagTagQuestion = $CFG->dirroot . "/blocks/recitdiagtagquestion/block_recitdiagtagquestion.php";
 define('BLOCK_DIAG_TAG_QUESTION_EXIST', file_exists($blockDiagTagQuestion));
 if(BLOCK_DIAG_TAG_QUESTION_EXIST){
@@ -43,12 +44,14 @@ class theme_recit_mod_questionnaire_renderer extends \mod_questionnaire\output\r
 defined('MOODLE_INTERNAL') || die();*/
 
 //lass renderer extends \plugin_renderer_base {
-    /**
-     * Main view page.
-     * @param \templateable $page
-     * @return string | boolean
-     */
+
     public function render_viewpage($page) {
+        global $OUTPUT, $PAGE, $USER;
+        //$title1 = $PAGE->title;
+        //$rentry = new core_renderer;
+        //$rentry->heading(format_string($PAGE->title), 2);
+                
+        echo $OUTPUT->heading(format_string($PAGE->title), 2);;
         $data = $page->export_for_template($this);
         return $this->render_from_template('theme_recit/mod_questionnaire_viewpage', $data);
     }

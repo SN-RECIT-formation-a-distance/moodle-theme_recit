@@ -27,7 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'Recit';
 $string['configtitle'] = 'Recit';
 $string['choosereadme'] = 'Recit is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
-
+$string['mod-quiz-name'] = 'Consigne pour effectuer un test';
+$string['mod-quiz-name-consigne'] = 'Consigne pour effectuer un test Consigne pour effectuer un test Consigne pour effectuer un test';
+$string['mod-page-name'] = 'Consigne pour consulter une page';
+$string['mod-page-name-consigne'] = 'Consigne pour effectuer un page Consigne pour effectuer un test Consigne pour effectuer un test';
+$string['mod-book-name'] = 'Consigne pour consulter un livre';
+$string['mod-book-name-consigne'] = 'Consigne pour effectuer un page Consigne pour effectuer un test Consigne pour effectuer un test';
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';
 $string['login'] = 'Already have an account?';

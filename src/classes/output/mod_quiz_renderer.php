@@ -24,6 +24,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot . "/mod/quiz/renderer.php");
+require_once($CFG->dirroot . "/lib/outputrenderers.php");
+
+use heading;
 
 $blockDiagTagQuestion = $CFG->dirroot . "/blocks/recitdiagtagquestion/block_recitdiagtagquestion.php";
 define('BLOCK_DIAG_TAG_QUESTION_EXIST', file_exists($blockDiagTagQuestion));
@@ -57,7 +60,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function view_page($course, $quiz, $cm, $context, $viewobj) {
         $output = "<div class='card'>";        
-        $output .= sprintf("<div class='card-header'>%s</div>", format_string($quiz->name));
+        $output .= sprintf("<div class='card-header'>%s</div>", $this->heading(format_string($quiz->name), 2));
         $output .= sprintf("<div class='alert alert-primary' style='margin: 1rem'>%s%s</div>", $this->quiz_intro($quiz, $cm), $this->access_messages($viewobj->infomessages));
         //$output .= sprintf("<div class='card-header'>%s</div>", $this->view_information($quiz, $cm, $context, $viewobj->infomessages));
         $output .= "<div class='card-body'>";
