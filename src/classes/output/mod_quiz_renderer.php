@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot . "/mod/quiz/renderer.php");
 require_once($CFG->dirroot . "/lib/outputrenderers.php");
 
-use heading;
+//use heading;
 
 $blockDiagTagQuestion = $CFG->dirroot . "/blocks/recitdiagtagquestion/block_recitdiagtagquestion.php";
 define('BLOCK_DIAG_TAG_QUESTION_EXIST', file_exists($blockDiagTagQuestion));
