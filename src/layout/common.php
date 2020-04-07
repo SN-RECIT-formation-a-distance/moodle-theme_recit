@@ -221,14 +221,17 @@ class ThemeRecitUtils{
         self::addNavItemFromFlatNav($result, $page->flatnav, "calendar");
         self::addNavItemFromFlatNav($result, $page->flatnav, "privatefiles");
         self::addNavItemFromFlatNav($result, $page->flatnav, "sitesettings");
-
-
+   
         // number of unread messages
         $result["messages"]->extra = \core_message\api::count_unread_conversations($user);
-        
-        /*echo "<pre>";
-        print_r($result);
-        die();*/
+   
+        $item = new stdClass();
+        $item->url = new moodle_url('/message/output/popup/notifications.php');
+        $item->pix = "fa-bell";
+        $item->extra = \message_popup\api::count_unread_popup_notifications($user->id);
+        $item->title = get_string("unreadnotification", "message", $item->extra);
+        $result["notifications"] = $item;
+
         return $result;
     }
 
