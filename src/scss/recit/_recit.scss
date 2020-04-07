@@ -10,6 +10,19 @@ body{
 		.second-navbar{display: flex;  justify-content: space-between; padding: 0 0.8rem 0 0.8rem; align-items: center;}
 	}
 }
+
+
+    .titre_actvity{
+        h2 {
+            font-size: 3em;
+        }
+		color: #000;
+		border: none;
+        //padding: 7px;
+       // border-color: $primary;
+        //border-bottom-style: ridge;
+    }
+    
 /*
 body.drawer-open-right{
 	margin-right: 260px;
@@ -214,7 +227,7 @@ z-index: 1000!important;
 /*-------------------------------*\
     Glosaire
 \*-------------------------------*/
-#page-mod-glossary-view {
+/*#page-mod-glossary-view {
 	#intro.box.generalbox.py-3 p:first-of-type  {
     padding-left: 20px;
     padding-right: 20px;
@@ -254,7 +267,7 @@ form.form-inline.m-b-1 {
 }
 .form.form-inline.m-b-1 input[type="radio"], .form.form-inline.m-b-1 input[type="checkbox"] {
     margin-right: 4px;
-}
+}*/
 
 /*.btn.btn-secondary.m-r-1,
 .form.form-inline.m-b-1 .btn.btn-secondary {
@@ -271,7 +284,7 @@ form.form-inline.m-b-1 {
     color: $white;
     background: $theme_color4;
 }*/
-.singlebutton.glossaryaddentry {
+/*.singlebutton.glossaryaddentry {
     display: block;
 }
 .singlebutton.glossaryaddentry .form.form-inline.m-b-1 {
@@ -292,7 +305,7 @@ form.form-inline.m-b-1 {
         text-align: left;
     }
 }
-}
+}*/
 /*
 #page-mod-quiz-view .card-body h2:first-of-type {
 	vertical-align: baseline;

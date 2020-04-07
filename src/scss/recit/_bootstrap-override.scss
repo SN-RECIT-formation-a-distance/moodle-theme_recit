@@ -10,18 +10,10 @@
 	}
 }
 
-.card{
-    .card-header{
-        color: #000;
-        padding: 7px;
-        border-color: $primary;
-        border-bottom-style: ridge;
-    }
-    .card-footer{padding: 7px;}
-}
-.homelink  {
+
+/*.homelink  {
 display: inline-block;
-//padding-right: 2px;
+padding-right: 2px;
 position: relative;
 bottom: 15px;
 }
@@ -30,7 +22,7 @@ bottom: 15px;
     display: inline-block;
     padding-right: 15px;
 
-    }
+    }*/
 .row{ background-color: unset !important;}
 
 // Début ajout classe bootstrap 4.4 

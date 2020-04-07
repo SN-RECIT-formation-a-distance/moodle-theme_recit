@@ -28,7 +28,7 @@ $string['pluginname'] = 'Recit';
 $string['configtitle'] = 'Recit';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 $string['mod-quiz-name'] = 'Consigne pour effectuer un test';
-$string['mod-quiz-name-consigne'] = 'Consigne pour effectuer un test Consigne pour effectuer un test Consigne pour effectuer un test';
+$string['mod-quiz-name-consigne'] = '&lt;audio controls&gt;&lt;source src="https:\/\/recitfad.ca\/depot\/inserer_audio.mp3" type="audio/mpeg"&gt;&lt;audio&gt;';
 $string['mod-page-name'] = 'Consigne pour effectuer un page';
 $string['mod-page-name-consigne'] = 'Consigne pour effectuer un page Consigne pour effectuer un test Consigne pour effectuer un test';
 $string['mod-book-name'] = 'Consigne pour consulter une livre';

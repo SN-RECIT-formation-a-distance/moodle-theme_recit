@@ -1291,7 +1291,7 @@ class core_renderer extends \core_renderer {
      */
     public function home_link() {
         global $CFG, $SITE;
-
+        $icon_retour = $CFG->wwwroot . '/theme/recit/pix/retour.svg';
         if ($this->page->pagetype == 'site-index') {
             // Special case for site home page - please do not remove
             return '<div class="sitelink">' .
@@ -1310,7 +1310,7 @@ class core_renderer extends \core_renderer {
            // get_string('home') . '</a></div>
 
         } else {
-            return '<span class="homelink"><a href="' . $CFG->wwwroot . '/course/view.php?id=' . $this->page->course->id . '"><i class="icon fa fa-chevron-circle-up  fa-2x fa-fw "  title="Retour" aria-label="Retour"></i></a></span>';
+            return '<div class="homelink"><a href="' . $CFG->wwwroot . '/course/view.php?id=' . $this->page->course->id . '"><img src='. $icon_retour.' alt="Retour" height="30" width="30"></a></div>';
         }
     }
   
@@ -1351,8 +1351,8 @@ class core_renderer extends \core_renderer {
                 $AnameS = new lang_string('mod-page-name', 'theme_recit','fr_ca');
                 $AnameC = new lang_string('mod-page-name-consigne', 'theme_recit','fr_ca');
             }
-            $output = "<div class='card'>";
-        $output .= sprintf(" <div class='card-header'>$homelink <div class=\"recit_icon_titre\"><button type=\"button\" data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" html=\"true\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"42\" width=\"42\"></button></div>  %s</div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
+            $output = "<div class='card titre_actvity'>";
+        $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"focus\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
         //$output .= $Aname;
         //$output .= $AnameS;
     }

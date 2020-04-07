@@ -28,7 +28,7 @@ $string['pluginname'] = 'Recit';
 $string['configtitle'] = 'Recit';
 $string['choosereadme'] = 'Recit is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
 $string['mod-quiz-name'] = 'Consigne pour effectuer un test';
-$string['mod-quiz-name-consigne'] = 'Consigne pour effectuer un test Consigne pour effectuer un test Consigne pour effectuer un test';
+$string['mod-quiz-name-consigne'] = 'Consigne pour effectuer un test Consigne pour effectuer un test Consigne pour effectuer un test.<audio controls><source src="horse.ogg" type="audio/ogg"><source src="horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>';
 $string['mod-page-name'] = 'Consigne pour consulter une page';
 $string['mod-page-name-consigne'] = 'Consigne pour effectuer un page Consigne pour effectuer un test Consigne pour effectuer un test';
 $string['mod-book-name'] = 'Consigne pour consulter un livre';
