@@ -51,7 +51,7 @@ defined('MOODLE_INTERNAL') || die();*/
         //$rentry = new core_renderer;
         //$rentry->heading(format_string($PAGE->title), 2);
                 
-        echo $OUTPUT->heading(format_string($PAGE->title), 2);;
+        echo $OUTPUT->heading(format_string($PAGE->title), 2);
         $data = $page->export_for_template($this);
         return $this->render_from_template('theme_recit/mod_questionnaire_viewpage', $data);
     }

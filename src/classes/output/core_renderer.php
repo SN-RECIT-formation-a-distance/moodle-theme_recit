@@ -1324,11 +1324,20 @@ class core_renderer extends \core_renderer {
      * @param string $id An optional ID
      * @return string the HTML to output.
      */
+    public  function act_name(){
+        global $OUTPUT, $PAGE, $USER, $CFG;
+    $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
+            return get_string($Aname, 'theme_recit','fr_ca');
+    }
+    public  function act_name_cons(){
+        global $OUTPUT, $PAGE, $USER, $CFG;
+    $Aname =strval("mod-".$PAGE->cm->modname."-name-consigne") ;
+   
+        return get_string($Aname, 'theme_recit','fr_ca');
+    }
     public function heading($text, $level = 2, $classes = null, $id = null) {
         global $OUTPUT, $PAGE, $USER, $CFG;
-       // $p = $PAGE->cm->modname;
         $icon_assign = '';
-        
         $level = (integer) $level;
         $homelink='';
         $homelink = $this->home_link()   ;
@@ -1336,32 +1345,27 @@ class core_renderer extends \core_renderer {
             throw new coding_exception('Heading level must be an integer between 1 and 6.');
         }
         elseif (isset($PAGE->cm->modname) && $level == 2  ) {
+           
             //$icon_assign = $this->image_url('pix_plugins/mod/'. $PAGE->cm->modname.'/icon', 'theme');
             $icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
-            $Aname =$PAGE->cm->modname ;
-            if ($Aname === "quiz"){
-            $AnameS = get_string('mod-quiz-name', 'theme_recit','fr_ca');
-            $AnameC = new lang_string('mod-quiz-name-consigne', 'theme_recit','fr_ca');
+            $AnameS = $this->act_name();
+            $AnameC = $this->act_name_cons();
+           
+            $output = "<div class='card '>";
+        $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
             }
-            elseif ($Aname === "book"){
-                $AnameS = get_string('mod-book-name', 'theme_recit','fr_ca');
-                $AnameC = new lang_string('mod-book-name-consigne', 'theme_recit','fr_ca');
-                }
-            else {
-                $AnameS = new lang_string('mod-page-name', 'theme_recit','fr_ca');
-                $AnameC = new lang_string('mod-page-name-consigne', 'theme_recit','fr_ca');
-            }
-            $output = "<div class='card titre_actvity'>";
-        $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"focus\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
-        //$output .= $Aname;
-        //$output .= $AnameS;
-    }
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));
         }
         return $output;
     }
-    
+    public function modtab() {
+        global $OUTPUT, $PAGE, $USER, $CFG;
+        if ($PAGE->cm->modname = 'tab')
+        {
+        echo $OUTPUT->heading(format_string($tab->name), 2, 'main', 'pageheading');
+        }
+    }
 
     
 }
@@ -1397,6 +1401,7 @@ class core_renderer_ajax extends core_renderer {
     */
    public function heading($text, $level = 2, $classes = 'main', $id = null) {}
    }
+
 
 
         
