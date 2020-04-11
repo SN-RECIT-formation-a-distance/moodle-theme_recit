@@ -48,6 +48,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-weight: normal;
     font-style: normal;
 }
+
 .I1009 {
   #app {
     display: flex;
@@ -3683,11 +3684,15 @@ padding-bottom : 50px;
   align-self: flex-start;
   padding-left: 4rem;
 }
-@media (max-width: 991px) {
+@media (min-width: 991px) {
   .I500 .recit-figure {
     padding-right: 0;
     padding-left: 0;
     padding-top: 2rem;
+  }
+  .block_book_toc  {
+    width:320px;
+    position: fixed;
   }
 }
 
