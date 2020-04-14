@@ -58,6 +58,9 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
             }
         });
 
+        //initialiser le tooltip Bootstrap
+        jQuery('[data-toggle="tooltip"]').tooltip();
+
         // We need to call popover automatically if nodes are added to the page later.
         Event.getLegacyEvents().done(function(events) {
             jQuery(document).on(events.FILTER_CONTENT_UPDATED, function() {

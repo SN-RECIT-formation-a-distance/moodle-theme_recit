@@ -18,7 +18,7 @@ M.recit.course.theme.ThemeRecit = class{
 
     init(){
         document.onkeyup = this.ctrlShortcuts;
-    }
+     }
 
     ctrlShortcuts(e){
         /*if (e.which == 77) {
