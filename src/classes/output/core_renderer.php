@@ -1289,30 +1289,30 @@ class core_renderer extends \core_renderer {
      *
      * @return string HTML fragment.
      */
-    /*public function home_link() {
+    public function home_link() {
         global $CFG, $SITE;
         $icon_retour = $CFG->wwwroot . '/theme/recit/pix/retour.svg';
-        if ($this->page->pagetype == 'site-index') {*/
+        if ($this->page->pagetype == 'site-index') {
             // Special case for site home page - please do not remove
-           /* return '<div class="sitelink">' .
+            return '<div class="sitelink">' .
                    '<a title="Moodle" href="http://moodle.org/">' .
                    '<img src="' . $this->image_url('moodlelogo') . '" alt="'.get_string('moodlelogo').'" /></a></div>';
 
-        } else if (!empty($CFG->target_release) && $CFG->target_release != $CFG->release) {*/
+        } else if (!empty($CFG->target_release) && $CFG->target_release != $CFG->release) {
             // Special case for during install/upgrade.
-            /*return '<div class="sitelink">'.
+            return '<div class="sitelink">'.
                    '<a title="Moodle" href="http://docs.moodle.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">' .
                    '<img src="' . $this->image_url('moodlelogo') . '" alt="'.get_string('moodlelogo').'" /></a></div>';
 
         } else if ($this->page->course->id == $SITE->id || strpos($this->page->pagetype, 'course-view') === 0) {
-            return '';*/
-            //<div class="homelink"><a href="' . $CFG->wwwroot . '/">' .
-           // get_string('home') . '</a></div>
+            return '';
+           // <div class="homelink"><a href="' . $CFG->wwwroot . '/">' .
+            //get_string('home') . '</a></div>
 
-        /*} else {
+        } else {
             return '<div class="homelink"><a href="' . $CFG->wwwroot . '/course/view.php?id=' . $this->page->course->id . '"><img src='. $icon_retour.' alt="Retour" height="30" width="30"></a></div>';
         }
-    }*/
+    }
   
    
     /**
@@ -1324,7 +1324,7 @@ class core_renderer extends \core_renderer {
      * @param string $id An optional ID
      * @return string the HTML to output.
      */
-    /*public  function act_name(){
+    public  function act_name(){
         global $OUTPUT, $PAGE, $USER, $CFG;
     $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
             return get_string($Aname, 'theme_recit','fr_ca');
@@ -1357,9 +1357,9 @@ class core_renderer extends \core_renderer {
         return $output;
     }
     
-    */
+    
 }
-//class core_renderer_cli extends core_renderer {
+class core_renderer_cli extends core_renderer {
      /**
      * Returns a template fragment representing a Heading.
      *
@@ -1369,7 +1369,7 @@ class core_renderer extends \core_renderer {
      * @param string $id An optional ID
      * @return string A template fragment for a heading
      */
-    /*public function heading($text, $level = 2, $classes = 'main', $id = null) {
+    public function heading($text, $level = 2, $classes = 'main', $id = null) {
         $text .= "\n";
         switch ($level) {
             case 1:
@@ -1380,8 +1380,8 @@ class core_renderer extends \core_renderer {
                 return $text;
         }
     }
-}*/
-//class core_renderer_ajax extends core_renderer {
+}
+class core_renderer_ajax extends core_renderer {
     /**
     * No need for headers in an AJAX request... this should never happen.
     * @param string $text
@@ -1389,8 +1389,8 @@ class core_renderer extends \core_renderer {
     * @param string $classes
     * @param string $id
     */
-   //public function heading($text, $level = 2, $classes = 'main', $id = null) {}
-   //}
+   public function heading($text, $level = 2, $classes = 'main', $id = null) {}
+   }
 
 
 
