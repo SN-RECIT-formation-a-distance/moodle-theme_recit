@@ -44,6 +44,11 @@
                 <span class="site-name d-md-inline">{{{ sitename }}}</span>
             </a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
+                {{#settingsmenu.courseadmin}}      
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="DescResponsive"> {{settingsmenu.courseadmin.title}}</span></a>
+                    </li>
+                {{/settingsmenu.courseadmin}}
                 {{#settingsmenu.editsettings}}      
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.editsettings.url}}" title="{{settingsmenu.editsettings.title}}"><i class="fa {{settingsmenu.editsettings.pix}}"></i><span class="DescResponsive"> {{settingsmenu.editsettings.title}}</span></a>

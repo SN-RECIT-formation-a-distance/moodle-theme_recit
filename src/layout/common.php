@@ -81,9 +81,11 @@ class ThemeRecitUtils{
         //$settingsnode = $page->settingsnav->find('turneditingonoff', navigation_node::TYPE_COURSE);
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
         //$settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
-        self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
+       // self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
         self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
         self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
+
+
         if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
         }
@@ -91,16 +93,22 @@ class ThemeRecitUtils{
         // if $result is empty then the user has not permission to access these shortcuts
         if(!empty($result)){
             $item = new stdClass();
-            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-user-graduate';
-            $item->title = 'Utilisateurs inscrits';
-            $result['users'] = $item;
+            $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-cog';
+            $item->title =  get_string('courseadministration');
+            $result['courseadmin'] = $item;
+
+           /* $item = new stdClass();
+            $item->url = sprintf("%s/course/admin.php?courseid=%ld#linkusers", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-users';
+            $item->title = get_string('users');
+            $result['users'] = $item;*/
     
-            $item = new stdClass();
+           /* $item = new stdClass();
             $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-users';
-            $item->title = 'Groups';
-            $result['groups'] = $item;
+            $item->title = get_string('groups');
+            $result['groups'] = $item;*/
 
             if(!empty($PAGE->cm->id)){
                 $item = new stdClass();

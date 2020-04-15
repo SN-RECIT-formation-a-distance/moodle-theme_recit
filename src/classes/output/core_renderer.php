@@ -155,6 +155,17 @@ class core_renderer extends \core_renderer {
      * @return string HTML for the header bar.
      */
     public function context_header($headerinfo = null, $headinglevel = 1) {
+        global $COURSE, $CFG;
+        
+        if($COURSE->id == 1){
+            return "";
+        }
+        else{
+            $template = '<div class="page-context-header"><div class="page-header-headings"><a href="%s/course/view.php?id=%ld"><h1><i class="fa fa-home" style="margin-right: 5px;"></i>%s</h1></a></div></div>';
+            return sprintf($template, $CFG->wwwroot, $COURSE->id, $COURSE->shortname);
+        }
+        
+        /*
         global $SITE;
 
         if ($this->should_display_main_logo($headinglevel)) {
@@ -162,8 +173,9 @@ class core_renderer extends \core_renderer {
             return html_writer::div(html_writer::empty_tag('img', [
                 'src' => $this->get_logo_url(null, 150), 'alt' => $sitename, 'class' => 'img-fluid']), 'logo');
         }
+        
 
-        return parent::context_header($headerinfo, $headinglevel);
+        return parent::context_header($headerinfo, $headinglevel);*/
     }
 
     /**
