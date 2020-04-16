@@ -46,10 +46,21 @@ class ThemeRecitUtils{
     }
 
     public static function getExtraMenu(){
+        global $CFG;
+
         $result = array();
 
         $result['purgeallcaches'] = self::getPurgeAllCachesNavItem();
-        $result['purgethemecache'] = self::getPurgeThemeCacheNavItem();
+        $result['purgethemecache'] = self::getPurgeThemeCacheNavItem();       
+
+        if(file_exists("{$CFG->dirroot}/local/recitgestioncontenu/version.php")){
+            $item = new stdClass();
+            $item->url = sprintf("%s/local/recitgestioncontenu/view.php", $CFG->wwwroot);
+            $item->pix = "fa";
+            $item->title = get_string('pluginname', 'local_recitgestioncontenu');
+            $result['contentmanagement'] = $item;
+        }
+        
 
         return $result;
     }
