@@ -4,7 +4,7 @@ body{
 		#course-banner{
 			background-image:  url('[[pix:theme|banner-course]]'); background-size: cover; background-repeat: no-repeat; background-position: top center; height: 10vw; max-height: $header-hight; border: none; padding: 1.25rem;
 			.page-header-headings{
-				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: $headings-font-family-font-size; text-decoration: underline;	}
+				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: $headings-font-family-font-size; }
 			}
 		}	
 		.second-navbar{display: flex;  justify-content: space-between; padding: 0 0.8rem 0 0.8rem; align-items: center;}

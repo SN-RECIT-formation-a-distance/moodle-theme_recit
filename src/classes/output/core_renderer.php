@@ -161,8 +161,9 @@ class core_renderer extends \core_renderer {
             return "";
         }
         else{
-            $template = '<div class="page-context-header"><div class="page-header-headings"><a href="%s/course/view.php?id=%ld"><h1><i class="fa fa-home" style="margin-right: 5px;"></i>%s</h1></a></div></div>';
-            return sprintf($template, $CFG->wwwroot, $COURSE->id, $COURSE->shortname);
+            //$template = '<div class="page-context-header"><div class="page-header-headings"><a href="%s/course/view.php?id=%ld"><h1><i class="fa fa-home" style="margin-right: 5px;"></i>%s</h1></a></div></div>';
+            $template = '<div class="page-context-header"><div class="page-header-headings"><h1>%s</h1></div></div>';
+            return sprintf($template, $COURSE->fullname);
         }
         
         /*
@@ -1337,32 +1338,46 @@ class core_renderer extends \core_renderer {
      * @return string the HTML to output.
      */
     public  function act_name(){
-        global $OUTPUT, $PAGE, $USER, $CFG;
-    $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
+        global $PAGE;
+
+        try{
+            $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
             return get_string($Aname, 'theme_recit','fr_ca');
+        }catch(Exception $ex){
+
+        }
     }
     public  function act_name_cons(){
         global $OUTPUT, $PAGE, $USER, $CFG;
-    $Aname =strval("mod-".$PAGE->cm->modname."-name-consigne") ;
-   
+    
+        $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
         return get_string($Aname, 'theme_recit','fr_ca');
     }
+
     public function heading($text, $level = 2, $classes = null, $id = null) {
-        global $OUTPUT, $PAGE, $USER, $CFG;
-        $icon_assign = '';
+       // global $OUTPUT, $PAGE, $USER, $CFG;
+        global $PAGE;
+
+        //$icon_assign = '';
         $level = (integer) $level;
-        $homelink='';
-        $homelink = $this->home_link()   ;
+        //$homelink='';
+       // $homelink = $this->home_link();
         if ($level < 1 or $level > 6) {
             throw new coding_exception('Heading level must be an integer between 1 and 6.');
         }
-        elseif (isset($PAGE->cm->modname) && $level == 2  ) {
-            $icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
+        elseif (isset($PAGE->cm->modname) && $level == 2) {
+            $output = "<div>";
+            $tooltip = sprintf("<button class='btn btn-link  btn-lg' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
+                        $this->act_name(), $this->act_name_cons());
+            $output .= sprintf("<h%s class='%s'>%s%s</h%s>", $level, renderer_base::prepare_classes($classes), $text, $tooltip, $level);
+            $output .= "</div>";
+            
+            /*$icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
             $AnameS = $this->act_name();
             $AnameC = $this->act_name_cons();
-                       $output = "<div class='card '>";
-        $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));
-            }
+            $output = "<div class='card'>";
+            $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));*/
+        }
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));
         }

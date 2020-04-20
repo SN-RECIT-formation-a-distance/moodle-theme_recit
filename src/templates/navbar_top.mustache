@@ -44,6 +44,11 @@
                 <span class="site-name d-md-inline">{{{ sitename }}}</span>
             </a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
+                {{#settingsmenu.coursehome}}      
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="DescResponsive"> {{settingsmenu.coursehome.title}}</span></a>
+                    </li>
+                {{/settingsmenu.coursehome}}
                 {{#settingsmenu.courseadmin}}      
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="DescResponsive"> {{settingsmenu.courseadmin.title}}</span></a>
@@ -82,7 +87,7 @@
                     </li>
                 {{/settingsmenu.groups}}
                 {{#settingsmenu.paramsact}}
-                    <li class="nav-item-divider">|</li>  
+                    <li class="nav-item-divider"></li>  
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="DescResponsive"> {{settingsmenu.paramsact.title}}</span></a>
                     </li>

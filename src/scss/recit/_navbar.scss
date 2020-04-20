@@ -15,7 +15,8 @@
            // i{margin-bottom: .2rem; display: block;}
            min-width: 50px;
         }
-        .nav-item-divider{color: #666; font-size: 25px; padding-left: 1rem; padding-right: 1rem; font-weight: 100;}
+        /*.nav-item-divider{color: #666; font-size: 25px; padding-left: 1rem; padding-right: 1rem; font-weight: 100;}*/
+        .nav-item-divider{width: 90%; height: 25px; border-right: none; border-bottom: 1px solid #666; border-right: none; margin-right: 0; margin-bottom: 1rem; align-self: center;}        
     }
 
     
@@ -37,6 +38,10 @@
     .DescResponsive{display: inline;}
 
     @media screen and (min-width: 992px){
+        .navbar-nav{ 
+            .nav-item-divider{width: 2px; height: 25px; border-right: 1px solid #666; margin-bottom: 0rem; margin-right: 1rem; display: flex; align-self: center;}
+        }
+
         .DescResponsive{display: none;}
     }
 }
