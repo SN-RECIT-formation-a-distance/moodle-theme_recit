@@ -59,9 +59,14 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
      *      attempt this quiz now, if appicable this quiz
      */
     public function view_page($course, $quiz, $cm, $context, $viewobj) {
+        $accmess = $this->view_informations( $quiz, $cm, $context, $viewobj->infomessages);
+        //$this->access_messages($viewobj->infomessages);
+        $quizint = $this->quiz_intro($quiz, $cm);
         //$output = "<div class='card'>";        
         $output = /*sprintf("<div class='card-header'>%s</div>",*/ $this->heading(format_string($quiz->name), 2)/*)*/;
-        $output .= sprintf("<div class='alert alert-primary' style='margin: 1rem'>%s%s</div>", $this->quiz_intro($quiz, $cm), $this->access_messages($viewobj->infomessages));
+        $output .= sprintf("<div class='alert alert-primary' style='margin: 1rem'>%s</div>",$accmess);
+        //$output .= $accmess;
+        
         //$output .= sprintf("<div class='card-header'>%s</div>", $this->view_information($quiz, $cm, $context, $viewobj->infomessages));
         $output .= "<div class='card-body'>";
         $output .= sprintf('<h5 class="card-title">%s</h5>', get_string('summaryofattempts', 'quiz'));
@@ -69,7 +74,9 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->view_result_info($quiz, $context, $cm, $viewobj);
         $output .= $this->box($this->view_page_buttons($viewobj), 'quizattempt');
         $output .= "</div>";
-        //$output .= "</div>";
+        $output .= "<div>";
+        //$output .= print_object($this->view_information( $quiz, $cm, $context, $viewobj->infomessages)) ;
+        $output .= "</div>";
         return $output;
     }
     
@@ -82,13 +89,13 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
      * @param array $messages any access messages that should be described.
      * @return string HTML to output.
      */
-    /*public function view_information($quiz, $cm, $context, $messages) {
+    public function view_informations($quiz, $cm, $context, $messages) {
         global $CFG;
 
         $output = '';
 
         // Print quiz name and description.
-        $output .= $this->heading(format_string($quiz->name));
+        //$output .= $this->heading(format_string($quiz->name));
         $output .= $this->quiz_intro($quiz, $cm);
 
         // Output any access messages.
@@ -105,7 +112,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
             }
         }
         return $output;
-    }*/
+    }
 
     /**
      * Generates the table of data
@@ -587,6 +594,8 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
         $bc->content = $content;
         return $bc;
     }
+
+    
 
     public function get_block_diagtagquestion(){
         if(BLOCK_DIAG_TAG_QUESTION_EXIST){

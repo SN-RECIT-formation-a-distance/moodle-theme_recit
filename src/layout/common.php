@@ -127,13 +127,13 @@ class ThemeRecitUtils{
                 $item->title = 'Paramètres activité';
                 $result['paramsact'] = $item;
             }
-
+        }
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-id-card';
             $item->title =  get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
-        }
+        
 
         /*echo "<pre>";
         print_r($result);
