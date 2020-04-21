@@ -133,6 +133,12 @@ class ThemeRecitUtils{
             $item->pix = 'fa-id-card';
             $item->title =  get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
+
+            $item = new stdClass();
+            $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-graduation-cap';
+            $item->title =  get_string('grade', 'theme_recit');
+            $result['grade'] = $item;
         
 
         /*echo "<pre>";

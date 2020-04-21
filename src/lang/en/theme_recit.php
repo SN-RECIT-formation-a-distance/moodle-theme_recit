@@ -68,6 +68,7 @@ $string['onlineusers'] = 'Online users(last 5 minutes)';
 $string['showhideblocks'] = 'Show/hide blocks';
 $string['privacy:metadata'] = 'The Recit theme does not store any personal data about any user.';
 $string['coursehome'] = 'Course Home';
+$string['grade'] = 'Grade';
 
 // General settings tab.
 $string['generalsettings'] = 'General';

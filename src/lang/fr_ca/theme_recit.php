@@ -75,6 +75,7 @@ $string['onlineusers'] = 'Usagers en ligne lors de 5 dernières minutes)';
 $string['showhideblocks'] = 'montrer /cacher blocks';
 $string['privacy:metadata'] = 'Le thème  Recit ne conserve aucune données utilisateur.';
 $string['coursehome'] = 'Accueil du cours';
+$string['grade'] = 'Carnet des résultats';
 
 // General settings tab.
 $string['generalsettings'] = 'Général';
