@@ -86,37 +86,23 @@ class ThemeRecitUtils{
 
     public static function getContextHeaderSettingsMenu($page){
         global $DB, $CFG, $COURSE, $PAGE,$USER;
-        $roleid = $DB->get_field('role', 'id', ['shortname' => 'editingteacher']);
-        $isteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleid]);
-        $roleidt = $DB->get_field('role', 'id', ['shortname' => 'teacher']);
-        $isnoneditteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleidt]);
-        
-        
-        
+
         $result = array();
 
+        /*$roleid = $DB->get_field('role', 'id', ['shortname' => 'editingteacher']);
+        $isteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleid]);
+        $roleidt = $DB->get_field('role', 'id', ['shortname' => 'teacher']);
+        $isnoneditteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleidt]);*/
+        
         //$settingsnode = $page->settingsnav->find('turneditingonoff', navigation_node::TYPE_COURSE);
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
         //$settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
        // self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
         self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
-        self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
+        //self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
 
         if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
-        }
-        if ($isteacheranywhere == true  || $isnoneditteacheranywhere == true) {
-            $item = new stdClass();
-            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('users');
-            $result['users'] = $item;
-    
-            $item = new stdClass();
-            $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('groups');
-            $result['groups'] = $item;
         }
         
         // if $result is empty then the user has not permission to access these shortcuts
@@ -127,7 +113,17 @@ class ThemeRecitUtils{
             $item->title =  get_string('courseadministration');
             $result['courseadmin'] = $item;
 
-           /* */
+            $item = new stdClass();
+            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-users';
+            $item->title = get_string('users');
+            $result['users'] = $item;
+            
+            /*$item = new stdClass();
+            $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-users';
+            $item->title = get_string('groups');
+            $result['groups'] = $item;*/
 
             if(!empty($PAGE->cm->id)){
                 $item = new stdClass();
@@ -137,30 +133,27 @@ class ThemeRecitUtils{
                 $result['paramsact'] = $item;
             }
             
-            $item = new stdClass();
+            /*$item = new stdClass();
             $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-graduation-cap';
             $item->title =  get_string('grade', 'theme_recit');
-            $result['grade'] = $item;
+            $result['grade'] = $item;*/
         }
-        if(($PAGE->cm->id) != "0"){
+
+        /*if(($PAGE->cm->id) != "0"){
             $item = new stdClass();
             $item->url = sprintf("%s/course/user.php?mode=grade&id=%ld&user=%ld", $CFG->wwwroot, $COURSE->id, $USER->id);
             $item->pix = 'fas fa-user-graduate';
             $item->title =  get_string('grade', 'theme_recit');
             $result['gradeuser'] = $item;
-            }   
-            $item = new stdClass();
-            $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-id-card';
-            $item->title =  get_string('coursehome', 'theme_recit');
-            $result['coursehome'] = $item;
-        
-            
+        } */  
 
+        $item = new stdClass();
+        $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+        $item->pix = 'fa-home';
+        $item->title =  get_string('coursehome', 'theme_recit');
+        $result['coursehome'] = $item;
         
-        
-
         /*echo "<pre>";
         print_r($result);
         die();*/

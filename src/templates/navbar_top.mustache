@@ -23,7 +23,7 @@
 }}
 
 <nav id="recitNavbarTop" class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg moodle-has-zindex"> 
-    <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}">
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}" title="{{usermenu.home.title}}">
         <span class="logo d-sm-inline">
         {{#output.get_logo}}
             <img src="{{output.get_logo}}" alt="{{sitename}}" >            
@@ -49,26 +49,13 @@
                         <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="DescResponsive"> {{settingsmenu.coursehome.title}}</span></a>
                     </li></span>
                 {{/settingsmenu.coursehome}}
-                {{#settingsmenu.grade}}      
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.grade.url}}" title="{{settingsmenu.grade.title}}"><i class="fa {{settingsmenu.grade.pix}}"></i><span class="DescResponsive"> {{settingsmenu.grade.title}}</span></a>
-                    </li>
-                {{/settingsmenu.grade}}
-                {{#settingsmenu.gradeuser}}      
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.gradeuser.url}}" title="{{settingsmenu.gradeuser.title}}"><i class="fa {{settingsmenu.gradeuser.pix}}"></i><span class="DescResponsive"> {{settingsmenu.gradeuser.title}}</span></a>
-                    </li>
-                {{/settingsmenu.gradeuser}}
+               
                 {{#settingsmenu.courseadmin}}      
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="DescResponsive"> {{settingsmenu.courseadmin.title}}</span></a>
                     </li>
                 {{/settingsmenu.courseadmin}}
-                {{#settingsmenu.editsettings}}      
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.editsettings.url}}" title="{{settingsmenu.editsettings.title}}"><i class="fa {{settingsmenu.editsettings.pix}}"></i><span class="DescResponsive"> {{settingsmenu.editsettings.title}}</span></a>
-                    </li>
-                {{/settingsmenu.editsettings}}
+
                 {{#settingsmenu.turneditingonoff}}
                     {{#modeedition}}
                         <li class="nav-item">
@@ -81,21 +68,13 @@
                         </li>                        
                     {{/modeedition}}
                 {{/settingsmenu.turneditingonoff}} 
-                {{#settingsmenu.questions}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.questions.url}}" title="{{settingsmenu.questions.title}}"><i class="fa {{settingsmenu.questions.pix}}"></i><span class="DescResponsive"> {{settingsmenu.questions.title}}</span></a>
-                    </li>
-                {{/settingsmenu.questions}}
+                
                 {{#settingsmenu.users}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="DescResponsive"> {{settingsmenu.users.title}}</span></a>
                     </li>
                 {{/settingsmenu.users}}
-                {{#settingsmenu.groups}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.groups.url}}" title="{{settingsmenu.groups.title}}"><i class="fa {{settingsmenu.groups.pix}}"></i><span class="DescResponsive"> {{settingsmenu.groups.title}}</span></a>
-                    </li>
-                {{/settingsmenu.groups}}
+                
                 {{#settingsmenu.paramsact}}
                     <li class="nav-item-divider"></li>  
                     <li class="nav-item">
@@ -104,7 +83,7 @@
                 {{/settingsmenu.paramsact}}                
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >    
-                <li class="nav-item">
+                <li class="nav-item" style='display: none;'>
                     <a class="nav-link" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i><span class="DescResponsive"> {{usermenu.home.title}}</span></a>
                 </li>
                 <li class="nav-item">
