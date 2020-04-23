@@ -12,6 +12,25 @@
         }
     }
     
+    // ceci est le #page-content de la page principale (ce n'est pas un iframe genre le plug-in h5p)
+    body.pagelayout-course, body.pagelayout-coursecategory, body.pagelayout-incourse, 
+    body.pagelayout-admin, body.pagelayout-frontpage, body.pagelayout-mydashboard,
+    body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pagelayout-mypublic,
+    body.pagelayout-myrecitdashboard {
+        #page-content{
+            #region-main-box{
+                #region-main > .card{
+                    .card-body{
+                        .activity-title-container{
+                            grid-template-columns: auto; grid-template-rows: auto auto; margin-top: 1rem; margin-bottom: .5rem;
+                            .activity-title{font-size: 30px; }
+                            .activity-controls{justify-content: space-between;}
+                        }                        
+                    }
+                }
+            }
+        }
+    }
    /* #page-site-index.notloggedin {
         #page-header {
            // background-image: url('[[pix:theme|avenir-mobile]]'); background-size: cover; min-height: 100px;

@@ -2,7 +2,8 @@ body{
 	#page-header{
 		background-color: #fff;
 		#course-banner{
-			background-image:  url('[[pix:theme|banner-course]]'); background-size: cover; background-repeat: no-repeat; background-position: top center; height: 10vw; max-height: $header-hight; border: none; padding: 1.25rem;
+            background-image:  url('[[pix:theme|banner-course]]'); background-size: cover; background-repeat: no-repeat; background-position: top center; height: 10vw; 
+            max-height: $header-hight; border: none; padding: 1.25rem; display: flex; align-items: center;
 			.page-header-headings{
 				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: $headings-font-family-font-size; }
 			}
@@ -34,6 +35,14 @@ body.drawer-open-right [data-region="blocks-column"]{
 
 .theme-bg-color{
     background-color: $primary;
+}
+
+.tt-menu-color1{
+    background-color: $tt-menu-color1;
+}
+
+.tt-menu-color2{
+    background-color: $tt-menu-color2;
 }
 
 /*
@@ -658,3 +667,5 @@ body {
          clear:both !important;
     }
 }
+
+.truncate-text{text-overflow: ellipsis; white-space: nowrap;    overflow: hidden;}

@@ -69,12 +69,6 @@
                 </div>
             {{/hasblocks}}
             <div id="region-main-box" class="{{#hasblocks}}col-md-9{{/hasblocks}}{{^hasblocks}}col-md-12{{/hasblocks}} col-sm-12 col-xs-12">
-                {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="hidden-print">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
-                </div>
-                {{/hasregionmainsettingsmenu}}
-
                  {{#hastopblocks}}
                 <section data-region="blocks-row" class="d-print-none hidden-print">
                     {{{ sidetopblocks }}}
@@ -84,10 +78,6 @@
                 <section id="region-main">
                     <div class="card">
                         <div class="card-body">
-                            {{#hasregionmainsettingsmenu}}
-                                <div class="region_main_settings_menu_proxy"></div>
-                            {{/hasregionmainsettingsmenu}}
-                            {{{ output.course_content_header }}}
                             {{{ output.main_content }}}
                              {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}

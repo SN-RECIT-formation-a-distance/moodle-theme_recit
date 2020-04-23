@@ -116,7 +116,7 @@ class ThemeRecitUtils{
             $item = new stdClass();
             $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-users';
-            $item->title = get_string('users');
+            $item->title = get_string('participants');
             $result['users'] = $item;
             
             /*$item = new stdClass();

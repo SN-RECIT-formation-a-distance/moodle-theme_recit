@@ -64,12 +64,15 @@ Example context (json):
 }
 }
 }}
-<div class="m-t-2 m-b-1">
+<div class="activity-nav m-t-2 m-b-1">
     {{< core/columns-1to1to1}}
     {{$column1}}
-    <div class="pull-left btn-light btn-sm">
-        {{#prevlink}}{{#pix}} e/right_to_left, core {{/pix}}{{> core/action_link }}{{/prevlink}}
+    <div class='btn-group'>
+        <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+            {{#prevlink}}{{> core/action_link }}{{/prevlink}}
+        </button>
     </div>
+    
     {{/column1}}
     {{$column2}}
     <div class="mdl-align">
@@ -77,8 +80,10 @@ Example context (json):
     </div>
     {{/column2}}
     {{$column3}}
-    <div class="pull-right btn-light btn-sm">
-        {{#nextlink}}{{> core/action_link }}{{#pix}} e/left_to_right, core {{/pix}}{{/nextlink}}
+    <div class='btn-group pull-right'>
+        <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+            {{#nextlink}}{{> core/action_link }}{{/nextlink}}            
+        </button>
     </div>
     {{/column3}}
     {{/ core/columns-1to1to1}}

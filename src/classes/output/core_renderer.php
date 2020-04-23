@@ -83,6 +83,8 @@ class core_renderer extends \core_renderer {
         if (is_array($classes)) {
             $classes = implode(' ', $classes);
         }
+
+        $classes = "activity-content $classes";
         return parent::box_start($classes . ' py-3', $id, $attributes);
     }
 
@@ -1356,20 +1358,30 @@ class core_renderer extends \core_renderer {
 
     public function heading($text, $level = 2, $classes = null, $id = null) {
        // global $OUTPUT, $PAGE, $USER, $CFG;
-        global $PAGE;
+        global $PAGE, $OUTPUT;
 
         //$icon_assign = '';
         $level = (integer) $level;
         //$homelink='';
        // $homelink = $this->home_link();
+        $output = "";
+
         if ($level < 1 or $level > 6) {
             throw new coding_exception('Heading level must be an integer between 1 and 6.');
         }
         elseif (isset($PAGE->cm->modname) && $level == 2) {
-            $output = "<div>";
-            $tooltip = sprintf("<button class='btn btn-link  btn-lg' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
+            $output = "<div class='activity-title-container'>";
+            $output .= "<div>";            
+            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $text);
+            $output .= "</div>";           
+            $output .= "<div class='activity-controls'>"; 
+            $output .= "<div class='btn-group' style='margin-right: 1rem;'>";
+            $output .= sprintf("<button  class='btn btn-primary' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
                         $this->act_name(), $this->act_name_cons());
-            $output .= sprintf("<h%s class='%s'>%s%s</h%s>", $level, renderer_base::prepare_classes($classes), $text, $tooltip, $level);
+            $output .= sprintf("<button class='btn btn-outline-secondary' disabled>%s</button>", $this->act_name());
+            $output .= "</div>";
+            $output .= $OUTPUT->region_main_settings_menu();
+            $output .= "</div>";
             $output .= "</div>";
             
             /*$icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
@@ -1381,6 +1393,7 @@ class core_renderer extends \core_renderer {
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));
         }
+
         return $output;
     }
     

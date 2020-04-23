@@ -56,12 +56,7 @@
 
         <div id="page-content">
             <div id="region-main-box" class="col-12">
-                {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="d-print-none">
-                        <div> {{{ output.region_main_settings_menu }}} </div>
-                    </div>
-                {{/hasregionmainsettingsmenu}}
-                                {{#hastopblocks}}
+                {{#hastopblocks}}
                 <section data-region="blocks-row" class="d-print-none hidden-print">
                     {{{ sidetopblocks }}}
                 </section>
@@ -69,11 +64,6 @@
                 <section id="region-main">
                     <div class="card">
                         <div class="card-body">
-                            {{#hasregionmainsettingsmenu}}
-                                <div class="region_main_settings_menu_proxy"></div>
-                            {{/hasregionmainsettingsmenu}}
-                            {{{ output.course_content_header }}}
-                            
 							{{{ output.main_content }}}
                             {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}
