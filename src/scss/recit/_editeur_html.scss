@@ -778,7 +778,144 @@ z-index: 1000!important;
       border: solid 2px $light;
     }
     
+    /*-------------------------------*\
+       Début Borders
+    \*-------------------------------*/
+    .border_dark {
+        border-color: $color2!important;
+      }
+      .border_black  {
+        border-color: #000!important;
+      }
+      .border_secondary  {
+        border-color: $secondary!important;
+      }
+      .border_primary  {
+        border-color: $primary!important;
+      }
+      .border_danger  {
+        border-color: $danger!important;
+      }
+      .border_success  {
+        border-color: $success!important;
+      }
+      .border_info  {
+        border-color: $info!important;
+      }
+      .border_warning  {
+        border-color: $warning!important;
+      }
+      .border_light  {
+        border-color: $light!important;
+      }
+      .border_pale  {
+        border-color: $primarypale!important;
+      }
+      .border_color1  {
+        border-color: $color1!important;
+      }
+      .border_color2  {
+        border-color: $color2!important;
+      }
+      .border_color3  {
+        border-color: $color3!important;
+      }
+      .border_color4  {
+        border-color: $color4!important;
+      }
+      .border_color5  {
+        border-color: $color5!important;
+      }
+      .border_theme_color1  {
+        border-color: $theme_color1!important;
+      }   
+      .border_theme_color2  {
+        border-color: $theme_color2!important;
+      } 
+      .border_theme_color3  {
+        border-color: $theme_color3!important;
+      }
+      .border_theme_color4  {
+        border-color: $theme_color4!important;
+      }
+      .border_theme_color5  {
+        border-color: $theme_color5!important;
+      }
+      .border_top_2  {
+        border-top: 2px solid;
+      }
+      .border_top_4  {
+        border-top: 4px solid;
+      }
+      .border_top_6  {
+        border-top: 6px solid;
+      }
+      .border_top_8  {
+        border-top: 8px solid;
+      }
+      .border_top_10  {
+        border-top: 10px solid;
+      }
+      .border_top_12  {
+        border-top: 12px solid;
+      }
+      .border_top_14  {
+        border-top: 14px solid;
+      }      
+      .border_bottom_2  {
+        border-bottom: 2px solid;
+      }
+      .border_bottom_4  {
+        border-bottom: 4px solid;
+      }
+      .border_bottom_6  {
+        border-bottom: 6px solid;
+      }
+      .border_bottom_8  {
+        border-bottom: 8px solid;
+      }
+      .border_bottom_10  {
+        border-bottom: 10px solid;
+      }
+      .border_bottom_12  {
+        border-bottom: 12px solid;
+      }
+      .border_bottom_14  {
+        border-bottom: 14px solid;
+      }
+    /*-------------------------------*\
+       Fin Borders
+    \*-------------------------------*/
+
+    /*-------------------------------*\
+       Début couleur texte
+    \*-------------------------------*/
+    .text_primary  {
+        color: $primary!important;
+      }
+      .text_secondary  {
+        color: $secondary!important;
+      }
+      .text_danger  {
+        color: $danger!important;
+      }
+      .text_success  {
+        color: $success!important;
+      }
+      .text_info  {
+        color: $info!important;
+      }
+      .text_warning  {
+        color: $warning!important;
+      }
+      .text_light  {
+        color: $light!important;
+      }
     
+    /*-------------------------------*\
+       Fin couleur texte
+    \*-------------------------------*/
+
    /* .row {
       background-color: transparent;
     }*/
