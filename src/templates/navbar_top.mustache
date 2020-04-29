@@ -84,7 +84,7 @@
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >    
                 <li class="nav-item" style='display: none;'>
-                    <a class="nav-link" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i><span class="DescResponsive"> {{usermenu.home.title}}</span></a>
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="DescResponsive"> {{usermenu.mymoodle.title}}</span></a>
@@ -142,13 +142,18 @@
                             {{#usermenu.user.role}}
                                 <a class="dropdown-item disabled" href="#" title="{{usermenu.user.role}}">Role: {{usermenu.user.role}}</a>
                             {{/usermenu.user.role}}
-                        {{/usermenu.profile.url}}    
+                        {{/usermenu.profile.url}}  
+                                                
                         {{#usermenu.preferences.url}}
                             <a class="dropdown-item" href="{{usermenu.preferences.url}}" title="{{usermenu.preferences.title}}"><i class="fa {{usermenu.preferences.pix}}"></i> {{usermenu.preferences.title}}</a>
                         {{/usermenu.preferences.url}}
                         {{#usermenu.grades.url}}
                             <a class="dropdown-item" href="{{usermenu.grades.url}}" title="{{usermenu.grades.title}}"><i class="fa {{usermenu.grades.pix}}"></i> {{usermenu.grades.title}}</a>
                         {{/usermenu.grades.url}}
+                        {{#usermenu.home.url}}
+                            <a class="dropdown-item" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i> {{usermenu.home.title}}</a>  
+                        {{/usermenu.home.url}}
+                        
                         <div class="dropdown-divider"></div>
                         {{#usermenu.participants.url}}
                             <a class="dropdown-item" href="{{usermenu.participants.url}}"><i class="fa {{usermenu.participants.pix}}"></i> {{usermenu.participants.title}}</a>

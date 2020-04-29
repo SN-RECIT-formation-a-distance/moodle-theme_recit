@@ -94,16 +94,15 @@ class ThemeRecitUtils{
         $roleidt = $DB->get_field('role', 'id', ['shortname' => 'teacher']);
         $isnoneditteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleidt]);*/
         
-        //$settingsnode = $page->settingsnav->find('turneditingonoff', navigation_node::TYPE_COURSE);
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
         //$settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
        // self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
         self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
         //self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
 
-        if(isset($result['questions'])){
+        /*if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
-        }
+        }*/
         
         // if $result is empty then the user has not permission to access these shortcuts
         if(!empty($result)){
@@ -148,11 +147,15 @@ class ThemeRecitUtils{
             $result['gradeuser'] = $item;
         } */  
 
-        $item = new stdClass();
-        $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-        $item->pix = 'fa-home';
-        $item->title =  get_string('coursehome', 'theme_recit');
-        $result['coursehome'] = $item;
+        // le courseId = 1 est l'accueil du site donc on l'ignore ici
+        if($COURSE->id > 1){
+            $item = new stdClass();
+            $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            $item->pix = 'fa-home';
+            $item->title =  get_string('coursehome', 'theme_recit');
+            $result['coursehome'] = $item;
+        }
+        
         
         /*echo "<pre>";
         print_r($result);
