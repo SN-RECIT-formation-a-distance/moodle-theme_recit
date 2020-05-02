@@ -393,6 +393,47 @@ background-color: #1E3F5A;
       }
     }    
 //fin Bloc H1
+
+.cover {
+    /* by default center center */
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .cover-t {background-position: center top;}
+  .cover-b {background-position: center bottom;}
+  
+  .cover-r {background-position: right center;}
+  .cover-rt {background-position: right top;}
+  .cover-rb {background-position: right bottom;}
+  
+  .cover-l {background-position: left center;}
+  .cover-lt {background-position: left top;}
+  .cover-lb {background-position: left bottom;}
+  
+  @media only screen and (min-width: 992px) {
+  .parallax {
+      /* by default center center */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    } 
+    
+  .parallax-t {background-position: center top;}
+  .parallax-b {background-position: center bottom;}
+  
+  .parallax-r {background-position: right center;}
+  .parallax-rt {background-position: right top;}
+  .parallax-rb {background-position: right bottom;}
+  
+  .parallax-l {background-position: left center;}
+  .parallax-lt {background-position: left top;}
+  .parallax-lb {background-position: left bottom;}
+  
+  }
+
 /*****************
 FIN feuille de style DLL
 ******************/
