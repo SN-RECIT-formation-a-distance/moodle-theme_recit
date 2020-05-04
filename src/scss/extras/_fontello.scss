@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('http://devserver/shared/moodle/theme/recit/fonts/fontello.eot?21999518');
+  src: url('http://devserver/shared/moodle/theme/recit/fonts/fontello.eot?21999518#iefix') format('embedded-opentype'),
+       url('http://devserver/shared/moodle/theme/recit/fonts/fontello.woff2?21999518') format('woff2'),
+       url('http://devserver/shared/moodle/theme/recit/fonts/fontello.woff?21999518') format('woff'),
+       url('http://devserver/shared/moodle/theme/recit/fonts/fontello.ttf?21999518') format('truetype'),
+       url('http://devserver/shared/moodle/theme/recit/fonts/fontello.svg?21999518#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?21999518#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="recitfad-"]:before, [class*=" recitfad-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+
+ 
+.recitfad-avant-daller-plus-loin_b:before { content: '\e800'; } /* '' */
+.recitfad-actualiser-son-potentiel_n:before { content: '\e802'; } /* '' */
+.recitfad-etau:before { content: '\e803'; } /* '' */
+.recitfad-inhalation:before { content: '\e804'; } /* '' */
+.recitfad-laver-mains:before { content: '\e805'; } /* '' */
+.recitfad-manches-repliees:before { content: '\e806'; } /* '' */
+.recitfad-nettoyer:before { content: '\e807'; } /* '' */
+.recitfad-pas-courir:before { content: '\e808'; } /* '' */
+.recitfad-pas-jeter-dans-evier:before { content: '\e809'; } /* '' */
+.recitfad-pas-nourriture:before { content: '\e80a'; } /* '' */
+.recitfad-pas-verres-contact:before { content: '\e80b'; } /* '' */
+.recitfad-pas-vetements-amples:before { content: '\e80c'; } /* '' */
+.recitfad-pichenote:before { content: '\e80d'; } /* '' */
+.recitfad-porter-sarrau:before { content: '\e80e'; } /* '' */
+.recitfad-port-lunettes:before { content: '\e80f'; } /* '' */
+.recitfad-position-adequate:before { content: '\e810'; } /* '' */
+.recitfad-suggestions-outils:before { content: '\e811'; } /* '' */
+.recitfad-tenir-xacto:before { content: '\e812'; } /* '' */
+.recitfad-xacto:before { content: '\e813'; } /* '' */
+.recitfad-chaussures-adequates:before { content: '\e814'; } /* '' */
+.recitfad-cheveux:before { content: '\e815'; } /* '' */
+.recitfad-choix-outils:before { content: '\e816'; } /* '' */
+.recitfad-couper-avec-xacto:before { content: '\e817'; } /* '' */
+.recitfad-bloc-argile_n:before { content: '\e818'; } /* '' */
+.recitfad-ce-travai-compte_n:before { content: '\e819'; } /* '' */
+.recitfad-collaboration_n:before { content: '\e81a'; } /* '' */
+.recitfad-communiquer_n:before { content: '\e81b'; } /* '' */
+.recitfad-consignes-audio_n:before { content: '\e81c'; } /* '' */
+.recitfad-consultable-sur-un-cellulaire_n:before { content: '\e81d'; } /* '' */
+.recitfad-consultable-sur-une-tablette_n:before { content: '\e81e'; } /* '' */
+.recitfad-consultable-sur-un-ordi_n:before { content: '\e81f'; } /* '' */
+.recitfad-consulte-la-carte_n:before { content: '\e820'; } /* '' */
+.recitfad-consulte-le-diagramme_n:before { content: '\e821'; } /* '' */
+.recitfad-consulte-le-document_n:before { content: '\e822'; } /* '' */
+.recitfad-consulte-le-graphique_n:before { content: '\e823'; } /* '' */
+.recitfad-consulte-le-tableau_n:before { content: '\e824'; } /* '' */
+.recitfad-consulte-limage_n:before { content: '\e825'; } /* '' */
+.recitfad-creativite_n:before { content: '\e826'; } /* '' */
+.recitfad-criteres-de-succes_n:before { content: '\e827'; } /* '' */
+.recitfad-vivre-ensemble-et-citoyennete_n:before { content: '\e82a'; } /* '' */
+.recitfad-utilise-suite-bureautique-en-ligne_n:before { content: '\e82b'; } /* '' */
+.recitfad-univers_n:before { content: '\e82c'; } /* '' */
+.recitfad-televerse-la-piece_n:before { content: '\e82d'; } /* '' */
+.recitfad-telecharge-la-piece-suivante_n:before { content: '\e82e'; } /* '' */
+.recitfad-techniques_n:before { content: '\e82f'; } /* '' */
+.recitfad-sante-et-bien-etre_n:before { content: '\e830'; } /* '' */
+.recitfad-robotique_n:before { content: '\e831'; } /* '' */
+.recitfad-resoudre-un-probleme_n:before { content: '\e832'; } /* '' */
+.recitfad-recommencer-avec-nouveaux-exercices_n:before { content: '\e833'; } /* '' */
+.recitfad-realite-virtuelle_n:before { content: '\e834'; } /* '' */
+.recitfad-realite-augmentee_n:before { content: '\e835'; } /* '' */
+.recitfad-programmation_n:before { content: '\e836'; } /* '' */
+.recitfad-prends-des-notes_n:before { content: '\e837'; } /* '' */
+.recitfad-pinceaux_n:before { content: '\e838'; } /* '' */
+.recitfad-pastels_n:before { content: '\e839'; } /* '' */
+.recitfad-orientation-et-entrepreneuriat_n:before { content: '\e83a'; } /* '' */
+.recitfad-notions-cles_n:before { content: '\e83b'; } /* '' */
+.recitfad-narration-dun-texte_n:before { content: '\e83c'; } /* '' */
+.recitfad-methode-de-travail_n:before { content: '\e83d'; } /* '' */
+.recitfad-media_n:before { content: '\e83e'; } /* '' */
+.recitfad-lunettes-realitevirtuelle_n:before { content: '\e83f'; } /* '' */
+.recitfad-livre-de-reference-a-se-procurer_n:before { content: '\e840'; } /* '' */
+.recitfad-laisse-des-traces-demarche_n:before { content: '\e841'; } /* '' */
+.recitfad-jugement-critique_n:before { content: '\e842'; } /* '' */
+.recitfad-jette-un-oeil_n:before { content: '\e843'; } /* '' */
+.recitfad-intentions_n:before { content: '\e844'; } /* '' */
+.recitfad-important_n:before { content: '\e845'; } /* '' */
+.recitfad-gouache_n:before { content: '\e846'; } /* '' */
+.recitfad-gestes-et-materiel_n:before { content: '\e847'; } /* '' */
+.recitfad-exporter-linformation_n:before { content: '\e848'; } /* '' */
+.recitfad-exploiter-les-technologies_n:before { content: '\e849'; } /* '' */
+.recitfad-environnement-et-consommation_n:before { content: '\e84a'; } /* '' */
+.recitfad-enregistre-une-video_n:before { content: '\e84b'; } /* '' */
+.recitfad-enregistre-un-audio_n:before { content: '\e84c'; } /* '' */
+.recitfad-ecoute-la-video_n:before { content: '\e84d'; } /* '' */
+.recitfad-duree_n:before { content: '\e84e'; } /* '' */
+.recitfad-document-a-imprimer_n:before { content: '\e84f'; } /* '' */
+.recitfad-demande-un-casque-ecoute-micro_n:before { content: '\e851'; } /* '' */
+.recitfad-demande-un-cellulaire_n:before { content: '\e852'; } /* '' */
+.recitfad-demande-une-tablette_n:before { content: '\e853'; } /* '' */
+.recitfad-demande-une-webcam_n:before { content: '\e854'; } /* '' */
+.recitfad-demande-un-ordinateur_n:before { content: '\e855'; } /* '' */
