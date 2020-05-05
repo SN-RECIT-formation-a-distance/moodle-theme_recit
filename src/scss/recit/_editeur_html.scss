@@ -51,8 +51,8 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 // début icones SVG
 
 .svg_dark {
-  fill: $color2 !important;
-  color: $color2 !important;
+  fill: $dark !important;
+  color: $dark !important;
 }
 .svg_black  {
     fill: #000 !important;
@@ -152,7 +152,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   width: 100px;
 }
 .i_sm  {
-  font-size: 1em;
+  font-size: 1.5em;
 }
 .i_md  {
   font-size: 2em;
