@@ -129,28 +129,40 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 }
 .svg_theme_color5  {
   fill: $theme_color5 !important;
-  fill: $theme_color5 !important;
+  color: $theme_color5 !important;
 }
 .svg_sm  {
-  font-size: 1em;
+  
   height: 40px;
   width: 40px;
 }
 .svg_md  {
-  font-size: 2em;
+  
   height: 60px;
   width: 60px;
 }
 .svg_lg  {
-  font-size: 3em;
+ 
   height: 80px;
   width: 80px;
 }
 .svg_xl  {
   
-  font-size: 4em;
   height: 100px;
   width: 100px;
+}
+.i_sm  {
+  font-size: 1em;
+}
+.i_md  {
+  font-size: 2em;
+}
+.i_lg  {
+  font-size: 3em;
+}
+.i_xl  {
+  
+  font-size: 4em;
 }
 
 .recitfad
@@ -186,7 +198,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
       -moz-osx-font-smoothing: grayscale;
      
       /* Uncomment for 3D effect */
-      /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+       text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
 // fin icones SVG
 
