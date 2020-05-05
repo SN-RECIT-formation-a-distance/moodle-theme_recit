@@ -93,18 +93,23 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 }
 .svg_color1  {
   fill: $color1 !important;
+  color: $color1 !important;
 }
 .svg_color2  {
   fill: $color2 !important;
+  color: $color2 !important;
 }
 .svg_color3  {
   fill: $color3 !important;
+  color: $color3 !important;
 }
 .svg_color4  {
   fill: $color4 !important;
+  color: $color5 !important;
 }
 .svg_color5  {
   fill: $color5 !important;
+  color: $color5 !important;
 }
 .svg_theme_color1  {
   fill: $theme_color1 !important;
@@ -148,7 +153,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   width: 100px;
 }
 
-.demo-icon
+.recitfad
     {
       font-family: "fontello";
       font-style: normal;
