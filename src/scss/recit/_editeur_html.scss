@@ -50,6 +50,10 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 }
 // début icones SVG
 
+.svg_white {
+    fill: $white !important;
+    color: $white !important;
+  }
 .svg_dark {
   fill: $dark !important;
   color: $dark !important;
@@ -73,7 +77,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 }
 .svg_success  {
     fill: $success !important;
-    fill: $success !important;
+    color: $success !important;
 }
 .svg_info  {
     fill: $info !important;
