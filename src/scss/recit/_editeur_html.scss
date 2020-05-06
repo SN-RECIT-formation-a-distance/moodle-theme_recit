@@ -168,7 +168,9 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   
   font-size: 4em;
 }
-
+.i_inline  {  
+    display: inline-block;
+}
 .recitfad
     {
       font-family: "fontello";
@@ -176,10 +178,12 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
       font-weight: normal;
       speak: none;
      
-      display: inline-block;
+      display: block;
       text-decoration: inherit;
       width: 1em;
-      margin-right: .2em;
+      height: 1em;
+      margin-right: 0;
+      margin-left: 0;
       text-align: center;
       /* opacity: .8; */
      
