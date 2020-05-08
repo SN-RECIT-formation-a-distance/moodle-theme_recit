@@ -18,10 +18,10 @@ M.recit.course.theme.ThemeRecit = class{
 
     init(){
         document.onkeyup = this.ctrlShortcuts;
-      // initsvgrecit();
+        //initsvgrecit();
     }
 
-  /*  initsvgrecit() {
+    /*initsvgrecit() {
         var base, cache = {}, hash, i, onload, request = false, url, uses = document.getElementsByTagName('use'), xhr;
         if (XMLHttpRequest) {
             request = new XMLHttpRequest();

@@ -67,11 +67,13 @@ Example context (json):
 <div class="activity-nav m-t-2 m-b-1">
     {{< core/columns-1to1to1}}
     {{$column1}}
-    <div class='btn-group'>
-        <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
-            {{#prevlink}}{{> core/action_link }}{{/prevlink}}
-        </button>
-    </div>
+    {{#prevlink}}
+        <div class='btn-group'>
+            <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+                {{> core/action_link }}
+            </button>
+        </div>
+    {{/prevlink}}
     
     {{/column1}}
     {{$column2}}
@@ -80,11 +82,13 @@ Example context (json):
     </div>
     {{/column2}}
     {{$column3}}
-    <div class='btn-group pull-right'>
-        <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
-            {{#nextlink}}{{> core/action_link }}{{/nextlink}}            
-        </button>
-    </div>
+    {{#nextlink}}
+        <div class='btn-group pull-right'>
+            <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+                {{> core/action_link }}
+            </button>
+        </div>
+    {{/nextlink}}
     {{/column3}}
     {{/ core/columns-1to1to1}}
 </div>
