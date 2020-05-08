@@ -48,6 +48,17 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+  font-family: 'special_eliteregular';
+  src: url('../../../recit_histoire/scss/SpecialElite-webfont.eot');
+  src: url('../../../recit_histoire/scss/SpecialElite-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../recit_histoire/scss/SpecialElite-webfont.woff') format('woff'),
+  url('../../../recit_histoire/scss/SpecialElite-webfont.ttf') format('truetype'),
+  url('../../../recit_histoire/scss/SpecialElite-webfont.svg#special_eliteregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 // début icones SVG
 
 .svg_white {
