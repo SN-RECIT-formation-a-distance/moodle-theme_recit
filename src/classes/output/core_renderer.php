@@ -419,7 +419,7 @@ class core_renderer extends \core_renderer {
             return '';
         }
         $context = $menu->export_for_template($this);
-
+        
         return $this->render_from_template('core/action_menu', $context);
     }
 
@@ -1365,14 +1365,14 @@ class core_renderer extends \core_renderer {
         //$homelink='';
        // $homelink = $this->home_link();
         $output = "";
-
+        
         if ($level < 1 or $level > 6) {
             throw new coding_exception('Heading level must be an integer between 1 and 6.');
         }
         elseif (isset($PAGE->cm->modname) && $level == 2) {
             $output = "<div class='activity-title-container'>";
             $output .= "<div>";            
-            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $text);
+            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $PAGE->cm->name); // $text);
             $output .= "</div>";           
             $output .= "<div class='activity-controls'>"; 
             $output .= "<div class='btn-group' style='margin-right: 1rem;'>";

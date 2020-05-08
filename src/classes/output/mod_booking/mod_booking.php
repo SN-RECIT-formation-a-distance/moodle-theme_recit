@@ -54,7 +54,7 @@ class theme_recit_mod_booking_option {
          // $PAGE->set_url('/mod/booking/index.php', array('id' => $id));
          //$page= $OUTPUT->set_heading(format_string($COURSE->fullname));
          echo $OUTPUT->heading(format_string( $mod_booking_external), 2);
-         echo  "etienne";
+         //echo  "etienne";
           
          print_object ($COURSE);
         // print_object ($cm);
