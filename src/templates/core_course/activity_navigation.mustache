@@ -69,7 +69,10 @@ Example context (json):
     {{$column1}}
     {{#prevlink}}
         <div class='btn-group'>
-            <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+            <button class="btn btn-sm btn-secondary" disabled>
+                <i class='fa fa-arrow-left'></i>
+            </button>
+            <button class="btn btn-sm btn-link truncate-text"  style='width: 200px; border: 1px solid #efefef;'>
                 {{> core/action_link }}
             </button>
         </div>
@@ -84,8 +87,11 @@ Example context (json):
     {{$column3}}
     {{#nextlink}}
         <div class='btn-group pull-right'>
-            <button class="btn btn-sm btn-light truncate-text"  style='width: 200px;'>
+            <button class="btn btn-sm btn-link truncate-text"  style='width: 200px; border: 1px solid #efefef;'>
                 {{> core/action_link }}
+            </button>
+            <button class="btn btn-sm btn-secondary" disabled>
+                <i class='fa fa-arrow-right'></i>
             </button>
         </div>
     {{/nextlink}}

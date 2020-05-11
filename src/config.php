@@ -184,3 +184,9 @@ $THEME->layouts = [
         'options' => array('nofooter' => true, 'nonavbar' => false),
     )
 ];
+
+$THEME->rarrow = "";
+$THEME->larrow = "";
+$THEME->uarrow = "";
+$THEME->darrow = "";
+//$THEME->enablecourseajax = false;
