@@ -231,7 +231,7 @@ class ThemeRecitUtils{
         foreach($navOptions->navitems as $navItem){
             if($navItem->itemtype == "link"){
                 $item = new stdClass();
-                $item->url = $navItem->url->out();
+                $item->url = $navItem->url->out(false);
                 
                 if(isset($iconMap["core:" . $navItem->pix])){
                     $item->pix = $iconMap["core:" . $navItem->pix];

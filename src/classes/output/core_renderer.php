@@ -1342,18 +1342,14 @@ class core_renderer extends \core_renderer {
     public  function act_name(){
         global $PAGE;
 
-        try{
-            $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
-            return get_string($Aname, 'theme_recit','fr_ca');
-        }catch(Exception $ex){
-
-        }
+        $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
+        return get_string($Aname, 'theme_recit');
     }
     public  function act_name_cons(){
-        global $OUTPUT, $PAGE, $USER, $CFG;
+        global $PAGE;
     
         $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
-        return get_string($Aname, 'theme_recit','fr_ca');
+        return get_string($Aname, 'theme_recit');
     }
 
     public function heading($text, $level = 2, $classes = null, $id = null) {

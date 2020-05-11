@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'Recit';
 $string['configtitle'] = 'Recit';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
+
 $string['mod-book-name'] = 'À propos du livre';
 $string['mod-book-name-consigne'] = "Un livre est un ensemble de pages regroupées àzz l'aide d'une table des matières. Tu peux naviguer d'une page à l'autre.";
 $string['mod-assign-name'] = 'À propos du devoir';
@@ -51,6 +52,8 @@ $string['mod-recitcahiercanada-name'] = "'À propos du cahier des traces";
 $string['mod-recitcahiercanada-name-consigne'] = 'Le cahier des traces permet à l\'élève de noter les renseignements présents à l\'intérieur d\'une activité ou d\'une ressource';
 $string['mod-workshop-name'] = 'À propos de l\'atelier';
 $string['mod-workshop-name-consigne'] = "Pour en savoir plus";
+$string['mod-questionnaire-name'] = 'À propos du questionnaire';
+$string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
 
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Droit';
