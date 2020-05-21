@@ -40,7 +40,7 @@
     .breadcrumb { margin-left: 10px; margin-right: 10px; }
 
     .recit-course-list{
-        justify-content: center;
+        grid-template-columns: auto;
     }  
 
     #page-login-index.recit-login {
