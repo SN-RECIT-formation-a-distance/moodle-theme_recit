@@ -382,7 +382,11 @@ class icon_system extends icon_system_font {
         'enrol_self:withkey' => 'fa-key',
         'enrol_self:withoutkey' => 'fa-sign-in-alt',
         'atto_recordrtc:i/videortc' => 'fa-video',
-        'atto_collapse:icon' => 'fa-level-down-alt'
+        'atto_collapse:icon' => 'fa-level-down-alt',
+        'core:i/previous' => 'fa-arrow-left',
+        'core:i/next' => 'fa-arrow-right',
+        'core:t/downlong' => 'fa-chevron-down',
+        'core:t/uplong' => 'fa-chevron-up'
     ];
 
     /**
