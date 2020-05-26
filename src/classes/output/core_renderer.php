@@ -1379,6 +1379,7 @@ class core_renderer extends \core_renderer {
             $output .= $OUTPUT->region_main_settings_menu();
             $output .= "</div>";
             $output .= "</div>";
+            $output .= "<hr/>";
             
             /*$icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
             $AnameS = $this->act_name();
