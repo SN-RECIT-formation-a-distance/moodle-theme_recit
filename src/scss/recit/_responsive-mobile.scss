@@ -7,7 +7,7 @@
             #course-banner{
                // background-image:  url('[[pix:theme|avenir-mobile]]'); background-size: cover; height: 100px;
                 background-image:  url('[[pix:theme|banner-course-mobile]]');
-                .page-context-header{ display: none;}
+                //.page-context-header{ display: none;} // hide the course title on smartphones
             }	
         }
     }
@@ -25,7 +25,11 @@
                             grid-template-columns: auto; grid-template-rows: auto auto; margin-top: 1rem; margin-bottom: .5rem;
                             .activity-title{font-size: 30px; }
                             .activity-controls{justify-content: space-between;}
-                        }                        
+                        }    
+                        
+                        .activity-nav{
+                            grid-template-columns: calc(50% - 1rem) calc(50% - 1rem); grid-template-rows: auto auto; grid-template-areas: "prevlink nextlink" "activitylist activitylist";
+                        }
                     }
                 }
             }

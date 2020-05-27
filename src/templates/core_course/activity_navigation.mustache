@@ -67,29 +67,25 @@ Example context (json):
 <br/><br/>
 <hr/>
 <div class="activity-nav m-t-2 m-b-1">
-    {{< core/columns-1to1to1}}
-    {{$column1}}
+    
     {{#prevlink}}
-        <div class='btn-group'>
+        <div class='prevlink btn-group'>
             <button class="btn btn-sm btn-secondary" disabled>
                 <i class='fa fa-arrow-left'></i>
             </button>
-            <button class="btn btn-sm btn-link truncate-text"  style='width: 200px; border: 1px solid #efefef;'>
+            <button class="btn btn-sm btn-link truncate-text">
                 {{> core/action_link }}
             </button>
         </div>
     {{/prevlink}}
     
-    {{/column1}}
-    {{$column2}}
-    <div class="mdl-align">
+    <div class="activitylist">
         {{#activitylist}}{{> core/url_select }}{{/activitylist}}
     </div>
-    {{/column2}}
-    {{$column3}}
+
     {{#nextlink}}
-        <div class='btn-group pull-right'>
-            <button class="btn btn-sm btn-link truncate-text"  style='width: 200px; border: 1px solid #efefef;'>
+        <div class='nextlink btn-group pull-right'>
+            <button class="btn btn-sm btn-link truncate-text">
                 {{> core/action_link }}
             </button>
             <button class="btn btn-sm btn-secondary" disabled>
@@ -97,6 +93,4 @@ Example context (json):
             </button>
         </div>
     {{/nextlink}}
-    {{/column3}}
-    {{/ core/columns-1to1to1}}
 </div>

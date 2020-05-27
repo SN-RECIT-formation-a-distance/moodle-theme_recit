@@ -34,6 +34,14 @@
         </span>
     </a>
 
+    <ul class="navbar-nav show-onmobile mr-auto ml-4">  
+        {{#settingsmenu.coursehome}}      
+            <li class="nav-item">
+                <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
+            </li></span>
+        {{/settingsmenu.coursehome}}
+    </ul>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,39 +54,39 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
                 {{#settingsmenu.coursehome}}      
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="DescResponsive"> {{settingsmenu.coursehome.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="show-onmobile"> {{settingsmenu.coursehome.title}}</span></a>
                     </li></span>
                 {{/settingsmenu.coursehome}}
                
                 {{#settingsmenu.courseadmin}}      
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="DescResponsive"> {{settingsmenu.courseadmin.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="show-onmobile"> {{settingsmenu.courseadmin.title}}</span></a>
                     </li>
                 {{/settingsmenu.courseadmin}}
 
                 {{#settingsmenu.turneditingonoff}}
                     {{#modeedition}}
                         <li class="nav-item">
-                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="show-onmobile"> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>
                     {{/modeedition}}
                     {{^modeedition}}
                         <li class="nav-item">
-                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="DescResponsive"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="show-onmobile"> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>                        
                     {{/modeedition}}
                 {{/settingsmenu.turneditingonoff}} 
                 
                 {{#settingsmenu.users}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="DescResponsive"> {{settingsmenu.users.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="show-onmobile"> {{settingsmenu.users.title}}</span></a>
                     </li>
                 {{/settingsmenu.users}}
                 
                 {{#settingsmenu.paramsact}}
                     <li class="nav-item-divider"></li>  
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="DescResponsive"> {{settingsmenu.paramsact.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="show-onmobile"> {{settingsmenu.paramsact.title}}</span></a>
                     </li>
                 {{/settingsmenu.paramsact}}                
             </ul>
@@ -87,7 +95,7 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="DescResponsive"> {{usermenu.mymoodle.title}}</span></a>
+                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="show-onmobile"> {{usermenu.mymoodle.title}}</span></a>
                 </li>       
                 {{#usermenu.notifications.url}}
                     <li class="nav-item">
@@ -97,7 +105,7 @@
                             {{/usermenu.notifications.extra}}
                             
                             <i class="fa {{usermenu.notifications.pix}}"></i>
-                            <span class="DescResponsive"> {{usermenu.notifications.title}}</span>
+                            <span class="show-onmobile"> {{usermenu.notifications.title}}</span>
                         </a>
                     </li>
                 {{/usermenu.notifications.url}}
@@ -109,15 +117,16 @@
                             {{/usermenu.messages.extra}}
                             
                             <i class="fa {{usermenu.messages.pix}}"></i>
-                            <span class="DescResponsive"> {{usermenu.messages.title}}</span>
+                            <span class="show-onmobile"> {{usermenu.messages.title}}</span>
                         </a>
                     </li>
-                {{/usermenu.messages.url}}                
+                {{/usermenu.messages.url}}      
+
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Administration">
                             <i class="fa fa-user-shield"></i> 
-                            <span class="DescResponsive"> Administration</span>
+                            <span class="show-onmobile"> Administration</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{usermenu.sitesettings.url}}"><i class="fa {{usermenu.sitesettings.pix}}"></i> {{usermenu.sitesettings.title}}</a>
@@ -131,10 +140,11 @@
                         </div>
                     </li>
                 {{/is_siteadmin}}
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
                         {{{usermenu.user.pix}}}
-                        <span class="DescResponsive"> {{usermenu.user.title}}</span>
+                        <span class="show-onmobile"> {{usermenu.user.title}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
                         {{#usermenu.profile.url}}

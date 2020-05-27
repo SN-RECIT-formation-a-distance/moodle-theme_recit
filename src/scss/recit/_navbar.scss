@@ -35,14 +35,14 @@
         left: auto;
     }
 
-    .DescResponsive{display: inline;}
+    .show-onmobile{display: inline;}
 
     @media screen and (min-width: 992px){
         .navbar-nav{ 
             .nav-item-divider{width: 2px; height: 25px; border-right: 1px solid #666; margin-bottom: 0rem; margin-right: 1rem; display: flex; align-self: center;}
         }
 
-        .DescResponsive{display: none;}
+        .show-onmobile{display: none;}
     }
 }
 

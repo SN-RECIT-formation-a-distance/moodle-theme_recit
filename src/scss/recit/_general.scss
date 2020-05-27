@@ -93,6 +93,20 @@ body.pagelayout-myrecitdashboard {
                         .activity-title{font-size: 36px; }
                         .activity-controls{display: flex; justify-content: flex-end; align-items: center;}
                     }
+
+                    .activity-nav{
+                        .prevlink{
+                            grid-area: prevlink; justify-self: start; width: 100%;
+                            button:nth-child(2){width: 100%; border: 1px solid #efefef;}
+                        }
+                        .nextlink{
+                            grid-area: nextlink; justify-self: end; width: 100%;
+                            button:nth-child(1){width: 100%; border: 1px solid #efefef;}
+                        }
+                        .activitylist{grid-area: activitylist; justify-self: stretch;}
+                        display: grid; grid-gap: 2rem; grid-template-columns: calc(33% - 2rem) 34% calc(33% - 2rem); grid-template-areas: "prevlink activitylist nextlink";
+                        
+                    }
                 }
             }
         }
