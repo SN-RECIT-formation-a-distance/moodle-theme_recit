@@ -31,7 +31,9 @@
 
 .recit-course-list{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-items: center;
+    
     .card {
         max-width: 345px;
         min-width: 250px;   
