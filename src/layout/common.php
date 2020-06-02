@@ -165,11 +165,11 @@ class ThemeRecitUtils{
     }
     
     public static function setRecitDashboard(&$item){
-        global $CFG;
+        global $CFG, $COURSE;
 
         $pathRecitDashboard = '/local/recitdashboard/view.php';
         if(file_exists($CFG->dirroot . $pathRecitDashboard)){
-            $item->url = $CFG->wwwroot.$pathRecitDashboard;
+            $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathRecitDashboard, $COURSE->id);
         }
     }
 
