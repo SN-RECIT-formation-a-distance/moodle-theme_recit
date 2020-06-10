@@ -54,9 +54,10 @@ class theme_recit_core_question_renderer extends core_question_renderer {
         $questionState = $qa->get_state_class($options->correctness && $qa->has_marks());
         $classes = array($qa->get_question()->qtype->name(), $qa->get_behaviour_name(), $questionState);
         
-        if($questionState != 'notyetanswered'){
+        /*if($questionState != 'notyetanswered'){
             $classes[] = 'card';
-        }
+        }*/
+        $classes[] = 'card';
 
         $classes = implode(' ', $classes);
 
@@ -167,7 +168,7 @@ class theme_recit_core_question_renderer extends core_question_renderer {
 
         return html_writer::tag('div', html_writer::link(
                 $editurl, $this->pix_icon('t/edit', get_string('edit'), '', array('class' => 'iconsmall')) .
-                get_string('editquestion', 'question'), array('style' => 'color: #FFF;')));
+                get_string('editquestion', 'question')));
     }
 
     /**
@@ -199,7 +200,7 @@ class theme_recit_core_question_renderer extends core_question_renderer {
 
         $output = '';
         $output .= html_writer::nonempty_tag('div',
-                $qtoutput->feedback($qa, $options), array('class' => "alert $alertVariant"));
+                $qtoutput->feedback($qa, $options), array('class' => "mt-2 alert $alertVariant"));
         $output .= html_writer::nonempty_tag('div',
                 $behaviouroutput->feedback($qa, $options), array('class' => 'im-feedback'));
         $output .= html_writer::nonempty_tag('div',

@@ -64,7 +64,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
         $quizint = $this->quiz_intro($quiz, $cm);
         //$output = "<div class='card'>";        
         $output = /*sprintf("<div class='card-header'>%s</div>",*/ $this->heading(format_string($quiz->name), 2)/*)*/;
-        $output .= sprintf("<div class='alert alert-primary' style='margin: 1rem'>%s</div>",$accmess);
+        $output .= sprintf("<div class='alert alert-primary'>%s</div>",$accmess);
         //$output .= $accmess;
         
         //$output .= sprintf("<div class='card-header'>%s</div>", $this->view_information($quiz, $cm, $context, $viewobj->infomessages));
@@ -237,52 +237,6 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
     }
 
     /**
-     * Display a quiz navigation button.
-     *
-     * @param quiz_nav_question_button $button
-     * @return string HTML fragment.
-     */
-    protected function render_quiz_nav_question_button(quiz_nav_question_button $button) {
-        $classes = array($button->stateclass, $button->navmethod, 'btn', 'btn-link');
-        $extrainfo = array();
-
-        if ($button->currentpage) {
-            $classes[] = 'thispage';
-            $extrainfo[] = get_string('onthispage', 'quiz');
-        }
-
-        // Flagged?
-        if ($button->flagged) {
-            $classes[] = 'flagged';
-            $flaglabel = get_string('flagged', 'question');
-        } else {
-            $flaglabel = '';
-        }
-        $extrainfo[] = html_writer::tag('span', $flaglabel, array('class' => 'flagstate'));
-
-        if (is_numeric($button->number)) {
-            $qnostring = 'questionnonav';
-        } else {
-            $qnostring = 'questionnonavinfo';
-        }
-
-        $a = new stdClass();
-        $a->number = $button->number;
-        $a->attributes = implode(' ', $extrainfo);
-        $tagcontents = html_writer::tag('span', '', array('class' => 'thispageholder')) .
-                        html_writer::tag('span', '', array('class' => 'trafficlight')) .
-                        get_string($qnostring, 'quiz', $a);
-        $tagattributes = array('class' => implode(' ', $classes), 'id' => $button->id,
-                                    'title' => $button->statestring, 'data-quiz-page' => $button->page);
-
-        if ($button->url) {
-            return html_writer::link($button->url, $tagcontents, $tagattributes);
-        } else {
-            return html_writer::tag('span', $tagcontents, $tagattributes);
-        }
-    }
-
-    /**
      * Ouputs the form for making an attempt
      *
      * @param quiz_attempt $attemptobj
@@ -300,7 +254,8 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
                 array('cmid' => $attemptobj->get_cmid())), 'method' => 'post',
                 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
                 'id' => 'responseform'));
-        $output .= html_writer::start_tag('div', array('class' => 'card'));
+       
+        //$output .= html_writer::start_tag('div', array('class' => 'card'));
 
         // Print all the questions.
         foreach ($slots as $slot) {
@@ -332,7 +287,8 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
                 'value' => implode(',', $attemptobj->get_active_slots($page))));
 
         // Finish the form.
-        $output .= html_writer::end_tag('div');
+        //$output .= html_writer::end_tag('div');
+
         $output .= html_writer::end_tag('form');
 
         $output .= $this->connection_warning();
@@ -351,7 +307,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
     protected function attempt_navigation_buttons($page, $lastpage, $navmethod = 'free') {
         $output = '';
 
-        $output .= html_writer::start_tag('div', array('class' => 'card-footer btn-group', 'style' => 'display: flex; justify-content: center;'));
+        $output .= html_writer::start_tag('div', array('class' => 'btn-group', 'style' => 'display: flex; justify-content: space-evenly; background-color: #00000008; padding: .75rem 1.25rem;'));
         if ($page > 0 && $navmethod == 'free') {
             $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'previous',
                     'value' => get_string('navigateprevious', 'quiz'), 'class' => 'mod_quiz-prev-nav btn btn-secondary'));
@@ -380,15 +336,13 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
     public function summary_page($attemptobj, $displayoptions) {
         
         $output = $this->header();
-        $output .= "<div class='card'>";
-        $output .= sprintf("<div class='card-header'>%s</div>", format_string($attemptobj->get_quiz_name()));
+        $output .= sprintf("<div class='h3 mb-4'>%s</div>", format_string($attemptobj->get_quiz_name()));
         $output .= "<div class='card-body'>";
-        $output .= sprintf('<h5 class="card-title">%s</h5>', get_string('summaryofattempt', 'quiz'));
+        $output .= sprintf("<h5 class='card-title'>%s</h5>", get_string('summaryofattempt', 'quiz'));
         $output .= $this->summary_table($attemptobj, $displayoptions);
         $output .= $this->summary_page_controls($attemptobj);
+        $output .= "</div>";
         $output .= $this->footer();
-        $output .= "</div>";
-        $output .= "</div>";
         return $output;
 
         //$output .= $this->heading(format_string($attemptobj->get_quiz_name()));
@@ -594,8 +548,6 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
         $bc->content = $content;
         return $bc;
     }
-
-    
 
     public function get_block_diagtagquestion(){
         if(BLOCK_DIAG_TAG_QUESTION_EXIST){

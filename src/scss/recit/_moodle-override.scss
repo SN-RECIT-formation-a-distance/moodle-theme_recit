@@ -42,10 +42,12 @@
     width: 100px;
 }
 
-//.path-mod-quiz #mod_quiz_navblock .qnbutton{color: #333;}
+// Navigation du test
+.path-mod-quiz #mod_quiz_navblock .qnbutton{color: #007bff;} // force the color because there is a conflit with btn-secondary
 //.path-mod-quiz #mod_quiz_navblock .qnbutton.thispage .thispageholder{border: 1px solid #666;}
 
 //input[type=text], input[type=password], textarea{width: 100%;}
+.moodle-dialogue-wrap{min-width: 350px;}
 
 @media (min-width: 576px){
     .form-inline .form-control {
