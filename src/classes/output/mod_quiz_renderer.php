@@ -307,7 +307,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
     protected function attempt_navigation_buttons($page, $lastpage, $navmethod = 'free') {
         $output = '';
 
-        $output .= html_writer::start_tag('div', array('class' => 'btn-group', 'style' => 'display: flex; justify-content: space-evenly; background-color: #00000008; padding: .75rem 1.25rem;'));
+        $output .= html_writer::start_tag('div', array('class' => 'btn-group', 'style' => 'display: flex; justify-content: center; background-color: #00000008; padding: .75rem 1.25rem;'));
         if ($page > 0 && $navmethod == 'free') {
             $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'previous',
                     'value' => get_string('navigateprevious', 'quiz'), 'class' => 'mod_quiz-prev-nav btn btn-secondary'));

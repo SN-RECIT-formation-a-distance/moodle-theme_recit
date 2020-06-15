@@ -49,14 +49,50 @@ class theme_recit_core_question_renderer extends core_question_renderer {
      */
     public function question(question_attempt $qa, qbehaviour_renderer $behaviouroutput,
             qtype_renderer $qtoutput, question_display_options $options, $number) {
-
-        $output = '';
+                $output = '';
+                $output .= html_writer::start_tag('div', array(
+                    'id' => $qa->get_outer_question_div_unique_id(),
+                    'class' => implode(' ', array(
+                        'que',
+                        $qa->get_question()->qtype->name(),
+                        $qa->get_behaviour_name(),
+                        $qa->get_state_class($options->correctness && $qa->has_marks()),
+                        'card'
+                    ))
+                ));
+        
+               /* $output .= html_writer::tag('div',
+                        $this->info($qa, $behaviouroutput, $qtoutput, $options, $number),
+                        array('class' => 'info'));*/
+                $title = sprintf("%s%s%s%s%s", $this->number($number), $this->status($qa, $behaviouroutput, $options), 
+                            $this->mark_summary($qa, $behaviouroutput, $options), $this->question_flag($qa, $options->flags), $this->edit_question_link($qa, $options));
+                $output .= html_writer::tag('div', $title, array('class' => 'card-header', 'style' => 'display: flex; justify-content: space-between; align-items: center;'));
+        
+                $output .= html_writer::start_tag('div', array('class' => 'card-body'));
+        
+                $output .= html_writer::tag('div',
+                        $this->add_part_heading($qtoutput->formulation_heading(),
+                            $this->formulation($qa, $behaviouroutput, $qtoutput, $options)),
+                        array('class' => 'formulation clearfix'));
+                $output .= html_writer::nonempty_tag('div',
+                        $this->add_part_heading(get_string('feedback', 'question'),
+                            $this->outcome($qa, $behaviouroutput, $qtoutput, $options)),
+                        array('class' => 'outcome clearfix'));
+                $output .= html_writer::nonempty_tag('div',
+                        $this->add_part_heading(get_string('comments', 'question'),
+                            $this->manual_comment($qa, $behaviouroutput, $qtoutput, $options)),
+                        array('class' => 'comment clearfix'));
+                $output .= html_writer::nonempty_tag('div',
+                        $this->response_history($qa, $behaviouroutput, $qtoutput, $options),
+                        array('class' => 'history clearfix'));
+        
+                $output .= html_writer::end_tag('div');
+                $output .= html_writer::end_tag('div');
+                return $output;
+        /*$output = '';
         $questionState = $qa->get_state_class($options->correctness && $qa->has_marks());
         $classes = array($qa->get_question()->qtype->name(), $qa->get_behaviour_name(), $questionState);
         
-        /*if($questionState != 'notyetanswered'){
-            $classes[] = 'card';
-        }*/
         $classes[] = 'card';
 
         $classes = implode(' ', $classes);
@@ -92,7 +128,7 @@ class theme_recit_core_question_renderer extends core_question_renderer {
 
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
-        return $output;
+        return $output;*/
     }
 
     /**
@@ -107,30 +143,6 @@ class theme_recit_core_question_renderer extends core_question_renderer {
     public function bypass_get_outer_question_div_unique_id(question_attempt $qa) {
         return 'q' . $qa->get_slot();
     }
-
-    /**
-     * Generate the information bit of the question display that contains the
-     * metadata like the question number, current state, and mark.
-     * @param question_attempt $qa the question attempt to display.
-     * @param qbehaviour_renderer $behaviouroutput the renderer to output the behaviour
-     *      specific parts.
-     * @param qtype_renderer $qtoutput the renderer to output the question type
-     *      specific parts.
-     * @param question_display_options $options controls what should and should not be displayed.
-     * @param string|null $number The question number to display. 'i' is a special
-     *      value that gets displayed as Information. Null means no number is displayed.
-     * @return HTML fragment.
-     */
-    /*protected function info(question_attempt $qa, qbehaviour_renderer $behaviouroutput,
-            qtype_renderer $qtoutput, question_display_options $options, $number) {
-        $output = '';
-        $output .= $this->number($number);
-        $output .= $this->status($qa, $behaviouroutput, $options);
-        $output .= $this->mark_summary($qa, $behaviouroutput, $options);
-        $output .= $this->question_flag($qa, $options->flags);
-        $output .= $this->edit_question_link($qa, $options);
-        return $output;
-    }*/
 
      /**
      * Generate the display of the question number.
