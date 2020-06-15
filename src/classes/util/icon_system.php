@@ -44,7 +44,7 @@ class icon_system extends icon_system_font {
      */
     private $map = [];
 
-    public static $iconMap = [
+    public static $iconmap = [
         'core:docs' => 'fa-info',
         'core:help' => 'fa-question text-info',
         'core:req' => 'fa-exclamation text-danger',
@@ -395,7 +395,7 @@ class icon_system extends icon_system_font {
      * @return array
      */
     public function get_core_icon_map() {
-        return self::$iconMap;
+        return self::$iconmap;
     }
 
     /**

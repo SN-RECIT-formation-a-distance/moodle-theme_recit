@@ -1,31 +1,78 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Common functions for the recit theme.
+ *
+ * @package   theme_recit
+ * @copyright RÉCITFAD 2019
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
 
 use theme_recit\util;
 
 require_once($CFG->dirroot . '/theme/recit/classes/util/icon_system.php');
 require_once($CFG->dirroot . '/user/lib.php');
-
+/**
+ * Define utils for Recit theme.
+ * @author RECITFAD
+ */
 class ThemeRecitUtils{
-    public static function isNavDrawerOpen(){
-        //return (get_user_preferences('drawer-open-nav', 'true') == 'true');
-        return false; // par default
+    /**
+     * Function for class ThemeRecitUtils.
+     * @return boolean
+     */
+    public static function is_nav_drawer_open() {
+        // return (get_user_preferences('drawer-open-nav', 'true') == 'true');
+        return false; // Par default.
     }
 
-    public static function isDrawerOpenRight(){
-        //return (get_user_preferences('sidepre-open', 'true') == 'true');
-        return false; // par default
+    /**
+     * Function for class ThemeRecitUtils.
+     * @return boolean
+     */
+    public static function is_drawer_open_right() {
+        // return (get_user_preferences('sidepre-open', 'true') == 'true');
+        return false; // Par default.
     }
 
-    public static function userIsEditing($page){
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param unknown $page
+     * @return unknown
+     */
+    public static function user_is_editing($page) {
         return $page->user_is_editing();
     }
 
-    public static function setUserPreferenceDrawer(){
+    /**
+     * Function for class ThemeRecitUtils.
+     */
+    public static function set_user_preference_drawer() {
         user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
         user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
     }
 
-    public static function getPurgeAllCachesNavItem(){
+    /**
+     * Function for class ThemeRecitUtils.
+     * @return stdClass
+     */
+    public static function get_purge_all_caches_nav_item() {
         global $CFG;
 
         $item = new stdClass();
@@ -35,7 +82,11 @@ class ThemeRecitUtils{
         return $item;
     }
 
-    public static function getPurgeThemeCacheNavItem(){
+    /**
+     * Function for class ThemeRecitUtils.
+     * @return stdClass
+     */
+    public static function get_purge_theme_cache_nav_item() {
         global $CFG;
 
         $item = new stdClass();
@@ -45,47 +96,62 @@ class ThemeRecitUtils{
         return $item;
     }
 
-    public static function getExtraMenu(){
+    /**
+     * Function for class ThemeRecitUtils.
+     * @return array
+     */
+    public static function get_extra_menu() {
         global $CFG;
 
         $result = array();
 
-        $result['purgeallcaches'] = self::getPurgeAllCachesNavItem();
-        $result['purgethemecache'] = self::getPurgeThemeCacheNavItem();       
+        $result['purgeallcaches'] = self::get_purge_all_caches_nav_item();
+        $result['purgethemecache'] = self::get_purge_theme_cache_nav_item();
 
-        if(file_exists("{$CFG->dirroot}/local/recitgestioncontenu/version.php")){
+        if (file_exists("{$CFG->dirroot}/local/recitgestioncontenu/version.php")) {
             $item = new stdClass();
             $item->url = sprintf("%s/local/recitgestioncontenu/view.php", $CFG->wwwroot);
             $item->pix = "fa";
             $item->title = get_string('pluginname', 'local_recitgestioncontenu');
             $result['contentmanagement'] = $item;
         }
-        
 
         return $result;
     }
 
-    public static function getTemplateContextCommon($output, $page, $user = null){
-        
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param string $output
+     * @param stdClass $page
+     * @param stdClass $user
+     * @return array
+     */
+    public static function get_template_context_common($output, $page, $user = null) {
+
         $result = [
             'output' => $output,
             'isloggedin' => isloggedin(),
-            'modeedition' => ThemeRecitUtils::userIsEditing($page),
+            'modeedition' => self::user_is_editing($page),
             'is_siteadmin' => is_siteadmin(),
         ];
 
-        $result['settingsmenu'] = self::getContextHeaderSettingsMenu($page);
-        $result['extra'] = self::getExtraMenu();
-        
-        if($user != null){
-            $result['usermenu'] = ThemeRecitUtils::getUserMenu($page, $user);
+        $result['settingsmenu'] = self::get_context_header_settings_menu($page);
+        $result['extra'] = self::get_extra_menu();
+
+        if ($user != null) {
+            $result['usermenu'] = self::get_user_menu($page, $user);
         }
 
         return $result;
     }
 
-    public static function getContextHeaderSettingsMenu($page){
-        global $DB, $CFG, $COURSE, $PAGE,$USER;
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param stdClass $page
+     * @return array
+     */
+    public static function get_context_header_settings_menu($page) {
+        global $DB, $CFG, $COURSE, $PAGE, $USER;
 
         $result = array();
 
@@ -93,23 +159,23 @@ class ThemeRecitUtils{
         $isteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleid]);
         $roleidt = $DB->get_field('role', 'id', ['shortname' => 'teacher']);
         $isnoneditteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleidt]);*/
-        
+
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
-        //$settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
-       // self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
-        self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
-        //self::addNavItemFromSettingsNav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
+        // $settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
+        // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
+        self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
+        // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
 
         /*if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
         }*/
-        
-        // if $result is empty then the user has not permission to access these shortcuts
-        if(!empty($result)){
+
+        // If $result is empty then the user has not permission to access these shortcuts.
+        if (!empty($result)) {
             $item = new stdClass();
             $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-cog';
-            $item->title =  get_string('courseadministration');
+            $item->title = get_string('courseadministration');
             $result['courseadmin'] = $item;
 
             $item = new stdClass();
@@ -117,21 +183,21 @@ class ThemeRecitUtils{
             $item->pix = 'fa-users';
             $item->title = get_string('participants');
             $result['users'] = $item;
-            
+
             /*$item = new stdClass();
             $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-users';
             $item->title = get_string('groups');
             $result['groups'] = $item;*/
 
-            if(!empty($PAGE->cm->id)){
+            if (!empty($PAGE->cm->id)) {
                 $item = new stdClass();
                 $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
                 $item->pix = 'fa-sliders-h';
                 $item->title = 'Paramètres activité';
                 $result['paramsact'] = $item;
             }
-            
+
             /*$item = new stdClass();
             $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-graduation-cap';
@@ -145,38 +211,47 @@ class ThemeRecitUtils{
             $item->pix = 'fas fa-user-graduate';
             $item->title =  get_string('grade', 'theme_recit');
             $result['gradeuser'] = $item;
-        } */  
+        } */
 
-        // le courseId = 1 est l'accueil du site donc on l'ignore ici
-        if($COURSE->id > 1){
+        // Le courseId = 1 est l'accueil du site donc on l'ignore ici.
+        if ($COURSE->id > 1) {
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-home';
-            $item->title =  get_string('coursehome', 'theme_recit');
+            $item->title = get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
         }
-        
-        
+
         /*echo "<pre>";
         print_r($result);
         die();*/
 
         return $result;
     }
-    
-    public static function setRecitDashboard(&$item){
+
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param unknown $item
+     */
+    public static function set_recit_dashboard(&$item) {
         global $CFG, $COURSE;
 
-        $pathRecitDashboard = '/local/recitdashboard/view.php';
-        if(file_exists($CFG->dirroot . $pathRecitDashboard)){
-            $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathRecitDashboard, $COURSE->id);
+        $pathrecitdashboard = '/local/recitdashboard/view.php';
+        if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
+            $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
         }
     }
 
-    public static function getUserMenu($page, $user){
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param stdClass $page
+     * @param stdClass $user
+     * @return array|stdClass[]
+     */
+    public static function get_user_menu($page, $user) {
         $result = array();
 
-        if($user->id == 0){
+        if ($user->id == 0) {
             return $result;
         }
 
@@ -186,8 +261,8 @@ class ThemeRecitUtils{
 
         /*$loginpage = $this->is_login_page();
         $loginurl = get_login_url();*/
-        
-       /* if (!isloggedin()) {
+
+        /* if (!isloggedin()) {
             $returnstr = '';
             if (!$loginpage) {
                 $returnstr .= "<a class='btn btn-login-top d-lg-none' href=\"$loginurl\">" . get_string('login') . '</a>';
@@ -220,57 +295,57 @@ class ThemeRecitUtils{
         }*/
 
         // Get some navigation opts.
-        $navOptions = user_get_user_navigation_info($user, $page);
+        $navoptions = user_get_user_navigation_info($user, $page);
 
         /*echo "<pre>";
-        print_r($navOptions);
+        print_r($navoptions);
         die();*/
 
-        $iconMap = \theme_recit\util\icon_system::$iconMap;
+        $iconmap = \theme_recit\util\icon_system::$iconmap;
 
-        foreach($navOptions->navitems as $navItem){
-            if($navItem->itemtype == "link"){
+        foreach ($navoptions->navitems as $navitem) {
+            if ($navitem->itemtype == "link") {
                 $item = new stdClass();
-                $item->url = $navItem->url->out(false);
-                
-                if(isset($iconMap["core:" . $navItem->pix])){
-                    $item->pix = $iconMap["core:" . $navItem->pix];
-                }
-                
-                $item->title = $navItem->title;
-                $navId = current(explode(",",$navItem->titleidentifier));
+                $item->url = $navitem->url->out(false);
 
-                if($navId == "mymoodle"){
-                    ThemeRecitUtils::setRecitDashboard($item);
+                if (isset($iconmap["core:" . $navitem->pix])) {
+                    $item->pix = $iconmap["core:" . $navitem->pix];
                 }
 
-                $result[$navId] = $item;
+                $item->title = $navitem->title;
+                $navid = current(explode(",", $navitem->titleidentifier));
+
+                if ($navid == "mymoodle") {
+                    self::set_recit_dashboard($item);
+                }
+
+                $result[$navid] = $item;
             }
         }
 
         $item = new stdClass();
-        $item->url = $navOptions->metadata['userprofileurl']->out();
-        $item->pix = $navOptions->metadata['useravatar'];
-        $item->title = $navOptions->metadata['userfullname'];
+        $item->url = $navoptions->metadata['userprofileurl']->out();
+        $item->pix = $navoptions->metadata['useravatar'];
+        $item->title = $navoptions->metadata['userfullname'];
         $item->extra = "";
 
-        if(isset($navOptions->metadata['rolename'])){
-            $item->role =  $navOptions->metadata['rolename'];
+        if (isset($navoptions->metadata['rolename'])) {
+            $item->role = $navoptions->metadata['rolename'];
         }
-        
+
         $result["user"] = $item;
 
-        self::addNavItemFromFlatNav($result, $page->flatnav, "home");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "participants");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "badgesview");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "competencies");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "calendar");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "privatefiles");
-        self::addNavItemFromFlatNav($result, $page->flatnav, "sitesettings");
-   
-        // number of unread messages
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "home");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "calendar");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "privatefiles");
+        self::add_nav_item_from_flat_nav($result, $page->flatnav, "sitesettings");
+
+        // Number of unread messages.
         $result["messages"]->extra = \core_message\api::count_unread_conversations($user);
-   
+
         $item = new stdClass();
         $item->url = new moodle_url('/message/output/popup/notifications.php');
         $item->pix = "fa-bell";
@@ -281,38 +356,51 @@ class ThemeRecitUtils{
         return $result;
     }
 
-    public static function addNavItemFromFlatNav(&$navItems, $flatnav, $key){
-        $flatNavItem = $flatnav->find($key);
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param unknown $navitems
+     * @param unknown $flatnav
+     * @param unknown $key
+     */
+    public static function add_nav_item_from_flat_nav(&$navitems, $flatnav, $key) {
+        $flatnavitem = $flatnav->find($key);
 
-        if(empty($flatNavItem) || empty($flatNavItem->action)){
+        if (empty($flatnavitem) || empty($flatnavitem->action)) {
             return;
         }
 
-        $iconMap = \theme_recit\util\icon_system::$iconMap;
+        $iconmap = \theme_recit\util\icon_system::$iconmap;
 
         $item = new stdClass();
-        $item->url = $flatNavItem->action->out();
-        $item->pix = $iconMap["core:" . $flatNavItem->icon->pix];
-        $item->title = $flatNavItem->text;
+        $item->url = $flatnavitem->action->out();
+        $item->pix = $iconmap["core:" . $flatnavitem->icon->pix];
+        $item->title = $flatnavitem->text;
 
-        $navItems[$key] = $item;
+        $navitems[$key] = $item;
     }
 
-    public static function addNavItemFromSettingsNav(&$navItems, $settingsnav, $nodeType, $key){
-        $settingsNavItem = $settingsnav->find($key, $nodeType);
+    /**
+     * Function for class ThemeRecitUtils.
+     * @param unknown $navitems
+     * @param unknown $settingsnav
+     * @param unknown $nodetype
+     * @param unknown $key
+     */
+    public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
+        $settingsnavitem = $settingsnav->find($key, $nodetype);
 
-        if(empty($settingsNavItem)){
+        if (empty($settingsnavitem)) {
             return;
         }
 
-        $iconMap = \theme_recit\util\icon_system::$iconMap;
+        $iconmap = \theme_recit\util\icon_system::$iconmap;
 
         $item = new stdClass();
-        $item->url = $settingsNavItem->action->out(false);
-        $item->pix = $iconMap["core:" . $settingsNavItem->icon->pix];
-        $item->title = $settingsNavItem->text;
+        $item->url = $settingsnavitem->action->out(false);
+        $item->pix = $iconmap["core:" . $settingsnavitem->icon->pix];
+        $item->title = $settingsnavitem->text;
 
-        $navItems[$key] = $item;
+        $navitems[$key] = $item;
     }
 }
 

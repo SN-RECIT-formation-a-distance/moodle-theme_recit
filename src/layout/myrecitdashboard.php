@@ -15,8 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Dashboard for Recit theme.
  * @package   theme_recit
- * @copyright RÉCIT 2019
+ * @copyright RÉCITFAD 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -25,14 +26,14 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::setUserPreferenceDrawer();
+ThemeRecitUtils::set_user_preference_drawer();
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 
-if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
+if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
@@ -46,8 +47,8 @@ $templatecontext = [
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
-    'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),
-    'draweropenright' => ThemeRecitUtils::isDrawerOpenRight(),
+    'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
+    'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
@@ -56,6 +57,6 @@ $themesettings = new \theme_recit\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 echo $OUTPUT->render_from_template('theme_recit/myrecitdashboard', $templatecontext);

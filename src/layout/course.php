@@ -18,7 +18,7 @@
  * A two column layout for the recit theme.
  *
  * @package   theme_recit
- * @copyright RÉCIT 2019
+ * @copyright RÉCITFAD 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::setUserPreferenceDrawer();
+ThemeRecitUtils::set_user_preference_drawer();
 
 /*if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
@@ -48,7 +48,7 @@ $extraclasses = [];
     $extraclasses[] = 'drawer-open-left';
 }*/
 
-if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
+if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
@@ -69,13 +69,13 @@ $templatecontext = [
     'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
-    'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),
-    'draweropenright' => ThemeRecitUtils::isDrawerOpenRight(),
+    'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
+    'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 $themesettings = new \theme_recit\util\theme_settings();
 

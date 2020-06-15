@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::setUserPreferenceDrawer();
+ThemeRecitUtils::set_user_preference_drawer();
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $topblockshtml = $OUTPUT->blocks('side-post');
@@ -36,15 +36,15 @@ $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 
-if (ThemeRecitUtils::isDrawerOpenRight() && $hasblocks) {
+if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
 $moduleswithnavinblocks = ['book', 'quiz'];
-//$moduleRecitQuestionnaire = ['questionnaire'];
+// $moduleRecitQuestionnaire = ['questionnaire'];
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
-   // $navdraweropen = false;
+    // $navdraweropen = false;
 
     $extraclasses = [];
 }
@@ -60,13 +60,13 @@ $templatecontext = [
     'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
-    'navdraweropen' => ThemeRecitUtils::isNavDrawerOpen(),
-    'draweropenright' => ThemeRecitUtils::isDrawerOpenRight(),
+    'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
+    'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::getTemplateContextCommon($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 $themesettings = new \theme_recit\util\theme_settings();
 
@@ -74,10 +74,9 @@ $templatecontext = array_merge($templatecontext, $themesettings->footer_items())
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     echo $OUTPUT->render_from_template('theme_recit/incourse', $templatecontext);
-}
-/*else if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleRecitQuestionnaire)) {
-    echo $OUTPUT->render_from_template('theme_recit/columns3', $templatecontext);
-}*/
-else {
+} else {
     echo $OUTPUT->render_from_template('theme_recit/columns2', $templatecontext);
 }
+/*else if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleRecitQuestionnaire)) {
+ echo $OUTPUT->render_from_template('theme_recit/columns3', $templatecontext);
+ }*/
