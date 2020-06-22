@@ -59,6 +59,13 @@
 body.drawer-open-right{margin-right: inherit;}
 @media (min-width:768px){body.drawer-open-right{margin-right: inherit;}}
 
+// Keep the table of contents of the module Book fixed on viewing but in editing mode in natural behavior
+body:not(.editing){
+    .block_book_toc{
+        position: fixed;
+        width: 315px;
+    }
+}
 
 #page-wrapper{margin-bottom: 0px}
 #page-wrapper::after{content:"";display:block;min-height:0px}
