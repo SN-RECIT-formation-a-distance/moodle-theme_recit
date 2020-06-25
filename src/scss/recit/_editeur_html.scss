@@ -76,14 +76,37 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     fill: $secondary !important;
     color: $secondary !important;
 }
+.svg_secondaryBold  {
+  fill: $secondaryBold !important;
+  color: $secondaryBold !important;
+}
+.svg_secondarypale  {
+  fill: $secondarypale !important;
+  color: $secondarypale !important;
+}
 .svg_primary  {
     fill: $primary !important;
     color: $primary !important;
-
+}
+.svg_primaryBold  {
+  fill: $primaryBold !important;
+  color: $primaryBold !important;
+}
+.svg_primary  {
+  fill: $primarypale !important;
+  color: $primarypale !important;
 }
 .svg_danger  {
     fill: $danger !important;
     color: $danger !important;
+}
+.svg_dangerpale  {
+  fill: $dangerpale !important;
+  color: $dangerpale !important;
+}
+.svg_successpale  {
+  fill: $successpale !important;
+  color: $successpale !important;
 }
 .svg_success  {
     fill: $success !important;
@@ -190,7 +213,7 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
       font-family: "fontello";
       font-style: normal;
       font-weight: normal;
-      speak: none;
+      //speak: none;
      
       display: block;
       text-decoration: inherit;
@@ -1179,7 +1202,7 @@ z-index: 1000!important;
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006391', endColorstr='$secondary',GradientType=1 );
   }
   .bg_dark {
-    background: $color2;
+    background: $dark;
   }
   .bg_black  {
       background: #000;
@@ -1192,6 +1215,18 @@ z-index: 1000!important;
         border-bottom: solid 8px $secondarycomplement;
     }*/
   }
+  .bg_secondarypale  {
+    background: $secondarypale;
+  }
+  .bg_secondaryBold  {
+    background: $secondaryBold;
+  }
+  .bg_tt-menu-color1  {
+    background: $tt-menu-color1;
+  }
+  .bg_tt-menu-color2  {
+    background: $tt-menu-color2;
+  }
   .bg_primary  {
       background: $primary;
     /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $primarypale;}
@@ -1199,6 +1234,12 @@ z-index: 1000!important;
         padding: 20px 20px 10px;
         border-bottom: solid 8px $primarycomplement;
     }*/
+  }
+  .bg_primarypale  {
+    background: $primarypale;
+  }
+  .bg_primaryBold {
+    background: $primaryBold;
   }
   .bg_danger  {
       background: $danger;

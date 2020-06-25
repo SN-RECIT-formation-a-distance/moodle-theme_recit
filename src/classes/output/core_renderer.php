@@ -145,7 +145,16 @@ class core_renderer extends \core_renderer {
      *
      */
     public function edit_button(moodle_url $url) {
-        return '';
+        $url->param('sesskey', sesskey());
+        if ($this->page->user_is_editing()) {
+            $url->param('edit', 'off');
+            $editstring = get_string('turneditingoff');
+        } else {
+            $url->param('edit', 'on');
+            $editstring = get_string('turneditingon');
+        }
+        $button = new \single_button($url, $editstring, 'post', ['class' => 'btn btn-primary']);
+        return $this->render_single_button($button);
     }
 
     /**
