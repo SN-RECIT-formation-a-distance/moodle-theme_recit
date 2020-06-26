@@ -47,6 +47,18 @@ class theme_recit_core_question_renderer extends core_question_renderer {
      *      value that gets displayed as Information. Null means no number is displayed.
      * @return string HTML representation of the question.
      */
+
+ /**
+     * When the question is rendered, this unique id is added to the
+     * outer div of the question. It can be used to uniquely reference
+     * the question from JavaScript.
+     *
+     * @return string id added to the outer <div class="que ..."> when the question is rendered.
+     */
+    public function get_outer_question_div_unique_id() {
+        return 'question-' . $this->usageid . '-' . $this->slot;
+    }
+
     public function question(question_attempt $qa, qbehaviour_renderer $behaviouroutput,
             qtype_renderer $qtoutput, question_display_options $options, $number) {
                 $output = '';
