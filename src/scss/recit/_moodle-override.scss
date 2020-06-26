@@ -64,6 +64,7 @@ body:not(.editing){
     .block_book_toc{
         position: fixed;
         width: 315px;
+        z-index: 3;
     }
 }
 
