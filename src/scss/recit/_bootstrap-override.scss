@@ -10,7 +10,7 @@
 	}
 }
 
-body.pagelayout-admin, body.pagelayout-login{
+body.pagelayout-admin, body.pagelayout-login, .editeur, section{
     .row{ background-color: unset !important;} // ça créé de conflit avec le popup du module assign
 }
 
