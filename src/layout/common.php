@@ -151,7 +151,7 @@ class ThemeRecitUtils{
      * @return array
      */
     public static function get_context_header_settings_menu($page) {
-        global $DB, $CFG, $COURSE, $PAGE, $USER;
+        global $DB, $CFG, $COURSE, $USER;
 
         $result = array();
 
@@ -163,15 +163,29 @@ class ThemeRecitUtils{
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
         // $settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
         // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
-        self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
+        //self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
         // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
 
         /*if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
         }*/
-
-        // If $result is empty then the user has not permission to access these shortcuts.
-        if (!empty($result)) {
+			
+        // the user has  permission to access these shortcuts
+        if ($page->user_allowed_editing()) {
+			// editing mode
+			$item = new stdClass();
+			$urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
+			if ($page->user_is_editing()) {
+				$item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
+				$item->title = get_string('turneditingoff');
+			} else {
+				$item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
+				$item->title = get_string('turneditingon');
+			}	
+			
+			$item->pix = 'fa-pencil-alt';
+			$result['turneditingonoff'] = $item;
+		
             $item = new stdClass();
             $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-cog';
@@ -386,9 +400,9 @@ class ThemeRecitUtils{
      * @param unknown $nodetype
      * @param unknown $key
      */
-    public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
+    /*public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
         $settingsnavitem = $settingsnav->find($key, $nodetype);
-
+		
         if (empty($settingsnavitem)) {
             return;
         }
@@ -401,6 +415,6 @@ class ThemeRecitUtils{
         $item->title = $settingsnavitem->text;
 
         $navitems[$key] = $item;
-    }
+    }*/
 }
 
