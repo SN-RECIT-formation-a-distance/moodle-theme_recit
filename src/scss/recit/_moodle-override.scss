@@ -63,9 +63,13 @@ body.drawer-open-right{margin-right: inherit;}
 body:not(.editing){
     .block_book_toc{
         position: fixed;
-        width: 315px;
+        width: 20vw;
+        max-width: 315px;
         z-index: 3;
     }
+}
+@media screen and (max-width: 1023px){
+    .block_book_toc{display: none};
 }
 
 #page-wrapper{margin-bottom: 0px}
