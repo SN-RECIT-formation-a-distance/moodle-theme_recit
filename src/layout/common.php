@@ -169,56 +169,7 @@ class ThemeRecitUtils{
         /*if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
         }*/
-			
-        // the user has  permission to access these shortcuts
-        if ($page->user_allowed_editing()) {
-			// editing mode
-			$item = new stdClass();
-			$urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
-			if ($page->user_is_editing()) {
-				$item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
-				$item->title = get_string('turneditingoff');
-			} else {
-				$item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
-				$item->title = get_string('turneditingon');
-			}	
-			
-			$item->pix = 'fa-pencil-alt';
-			$result['turneditingonoff'] = $item;
-		
-            $item = new stdClass();
-            $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-cog';
-            $item->title = get_string('courseadministration');
-            $result['courseadmin'] = $item;
-
-            $item = new stdClass();
-            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('participants');
-            $result['users'] = $item;
-
-            /*$item = new stdClass();
-            $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('groups');
-            $result['groups'] = $item;*/
-
-            if (!empty($PAGE->cm->id)) {
-                $item = new stdClass();
-                $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
-                $item->pix = 'fa-sliders-h';
-                $item->title = 'Paramètres activité';
-                $result['paramsact'] = $item;
-            }
-
-            /*$item = new stdClass();
-            $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-graduation-cap';
-            $item->title =  get_string('grade', 'theme_recit');
-            $result['grade'] = $item;*/
-        }
-
+			        
         /*if(($PAGE->cm->id) != "0"){
             $item = new stdClass();
             $item->url = sprintf("%s/course/user.php?mode=grade&id=%ld&user=%ld", $CFG->wwwroot, $COURSE->id, $USER->id);
@@ -234,6 +185,55 @@ class ThemeRecitUtils{
             $item->pix = 'fa-home';
             $item->title = get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
+
+            // the user has  permission to access these shortcuts
+            if ($page->user_allowed_editing()) {
+                // editing mode
+                $item = new stdClass();
+                $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
+                if ($page->user_is_editing()) {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
+                    $item->title = get_string('turneditingoff');
+                } else {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
+                    $item->title = get_string('turneditingon');
+                }	
+                
+                $item->pix = 'fa-pencil-alt';
+                $result['turneditingonoff'] = $item;
+            
+                $item = new stdClass();
+                $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-cog';
+                $item->title = get_string('courseadministration');
+                $result['courseadmin'] = $item;
+
+                $item = new stdClass();
+                $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-users';
+                $item->title = get_string('participants');
+                $result['users'] = $item;
+
+                /*$item = new stdClass();
+                $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-users';
+                $item->title = get_string('groups');
+                $result['groups'] = $item;*/
+
+                if (!empty($PAGE->cm->id)) {
+                    $item = new stdClass();
+                    $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
+                    $item->pix = 'fa-sliders-h';
+                    $item->title = 'Paramètres activité';
+                    $result['paramsact'] = $item;
+                }
+
+                /*$item = new stdClass();
+                $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-graduation-cap';
+                $item->title =  get_string('grade', 'theme_recit');
+                $result['grade'] = $item;*/
+            }
         }
 
         /*echo "<pre>";
