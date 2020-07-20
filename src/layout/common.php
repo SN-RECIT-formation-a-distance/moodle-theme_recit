@@ -151,7 +151,7 @@ class ThemeRecitUtils{
      * @return array
      */
     public static function get_context_header_settings_menu($page) {
-        global $DB, $CFG, $COURSE, $PAGE, $USER;
+        global $DB, $CFG, $COURSE, $USER;
 
         $result = array();
 
@@ -163,48 +163,13 @@ class ThemeRecitUtils{
         // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
         // $settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
         // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
-        self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
+        //self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
         // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
 
         /*if(isset($result['questions'])){
             $result['questions']->pix = "fa-database";
         }*/
-
-        // If $result is empty then the user has not permission to access these shortcuts.
-        if (!empty($result)) {
-            $item = new stdClass();
-            $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-cog';
-            $item->title = get_string('courseadministration');
-            $result['courseadmin'] = $item;
-
-            $item = new stdClass();
-            $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('participants');
-            $result['users'] = $item;
-
-            /*$item = new stdClass();
-            $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-users';
-            $item->title = get_string('groups');
-            $result['groups'] = $item;*/
-
-            if (!empty($PAGE->cm->id)) {
-                $item = new stdClass();
-                $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
-                $item->pix = 'fa-sliders-h';
-                $item->title = 'Paramètres activité';
-                $result['paramsact'] = $item;
-            }
-
-            /*$item = new stdClass();
-            $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-graduation-cap';
-            $item->title =  get_string('grade', 'theme_recit');
-            $result['grade'] = $item;*/
-        }
-
+			        
         /*if(($PAGE->cm->id) != "0"){
             $item = new stdClass();
             $item->url = sprintf("%s/course/user.php?mode=grade&id=%ld&user=%ld", $CFG->wwwroot, $COURSE->id, $USER->id);
@@ -220,6 +185,55 @@ class ThemeRecitUtils{
             $item->pix = 'fa-home';
             $item->title = get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
+
+            // the user has  permission to access these shortcuts
+            if ($page->user_allowed_editing()) {
+                // editing mode
+                $item = new stdClass();
+                $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
+                if ($page->user_is_editing()) {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
+                    $item->title = get_string('turneditingoff');
+                } else {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
+                    $item->title = get_string('turneditingon');
+                }	
+                
+                $item->pix = 'fa-pencil-alt';
+                $result['turneditingonoff'] = $item;
+            
+                $item = new stdClass();
+                $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-cog';
+                $item->title = get_string('courseadministration');
+                $result['courseadmin'] = $item;
+
+                $item = new stdClass();
+                $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-users';
+                $item->title = get_string('participants');
+                $result['users'] = $item;
+
+                /*$item = new stdClass();
+                $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-users';
+                $item->title = get_string('groups');
+                $result['groups'] = $item;*/
+
+                if (!empty($PAGE->cm->id)) {
+                    $item = new stdClass();
+                    $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
+                    $item->pix = 'fa-sliders-h';
+                    $item->title = 'Paramètres activité';
+                    $result['paramsact'] = $item;
+                }
+
+                /*$item = new stdClass();
+                $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-graduation-cap';
+                $item->title =  get_string('grade', 'theme_recit');
+                $result['grade'] = $item;*/
+            }
         }
 
         /*echo "<pre>";
@@ -386,9 +400,9 @@ class ThemeRecitUtils{
      * @param unknown $nodetype
      * @param unknown $key
      */
-    public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
+    /*public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
         $settingsnavitem = $settingsnav->find($key, $nodetype);
-
+		
         if (empty($settingsnavitem)) {
             return;
         }
@@ -401,6 +415,6 @@ class ThemeRecitUtils{
         $item->title = $settingsnavitem->text;
 
         $navitems[$key] = $item;
-    }
+    }*/
 }
 
