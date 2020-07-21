@@ -220,9 +220,9 @@ class ThemeRecitUtils{
                 $item->title = get_string('groups');
                 $result['groups'] = $item;*/
 
-                if (!empty($PAGE->cm->id)) {
+                if (!empty($page->cm->id)) {
                     $item = new stdClass();
-                    $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $PAGE->cm->id);
+                    $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $page->cm->id);
                     $item->pix = 'fa-sliders-h';
                     $item->title = 'Paramètres activité';
                     $result['paramsact'] = $item;
