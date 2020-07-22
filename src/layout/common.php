@@ -315,7 +315,7 @@ class ThemeRecitUtils{
         print_r($navoptions);
         die();*/
 
-        $iconmap = \theme_recit\util\icon_system::$iconmap;
+        $iconmap = \theme_recit\util\icon_system_fontawesome::$iconmap;
 
         foreach ($navoptions->navitems as $navitem) {
             if ($navitem->itemtype == "link") {
@@ -383,7 +383,7 @@ class ThemeRecitUtils{
             return;
         }
 
-        $iconmap = \theme_recit\util\icon_system::$iconmap;
+        $iconmap = \theme_recit\util\icon_system_fontawesome::$iconmap;
 
         $item = new stdClass();
         $item->url = $flatnavitem->action->out();

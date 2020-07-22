@@ -87,7 +87,7 @@ $THEME->extrascsscallback = 'theme_recit_get_extra_scss';
 $THEME->prescsscallback = 'theme_recit_get_pre_scss';
 
 // Add a custom icon system to the theme.
-$THEME->iconsystem = '\theme_recit\util\icon_system';
+$THEME->iconsystem = '\theme_recit\util\icon_system_fontawesome';
 
 //$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->layouts = [

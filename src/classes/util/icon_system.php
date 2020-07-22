@@ -24,7 +24,6 @@
 
 namespace theme_recit\util;
 
-use core\output\icon_system_font;
 use renderer_base;
 use pix_icon;
 
@@ -37,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class icon_system extends icon_system_font {
+class icon_system_fontawesome extends \core\output\icon_system_fontawesome {
 
     /**
      * @var array $map Cached map of moodle icon names to font awesome icon names.
@@ -90,7 +89,7 @@ class icon_system extends icon_system_font {
         'core:e/delete' => 'fa-minus',
         'core:e/delete_table' => 'fa-minus',
         'core:e/document_properties' => 'fa-info',
-        'core:e/emoticons' => 'fa-smile-o',
+        'core:e/emoticons' => 'fa-smile',
         'core:e/find_replace' => 'fa-search-plus',
         'core:e/forward' => 'fa-arrow-right',
         'core:e/fullpage' => 'fa-arrows-alt',
