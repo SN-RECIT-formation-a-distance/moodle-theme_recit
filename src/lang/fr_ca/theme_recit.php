@@ -260,3 +260,5 @@ $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty templ
 $string['coursesections'] = 'Sections de cours';
 //$string['region-side-top'] = 'En haut';
 $string['region-side-post'] = 'En haut';
+
+$string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';

@@ -71,6 +71,18 @@ class core_renderer extends \core_renderer {
     protected $language = null;
 
     /**
+     * Constructor
+     *
+     * @param moodle_page $page the page we are doing output for.
+     * @param string $target one of rendering target constants
+     */
+    public function __construct(\moodle_page $page, $target){
+        parent::__construct($page, $target);
+
+        $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit');
+    }
+
+    /**
      * Outputs the opening section of a box.
      *
      * @param string $classes A space-separated list of CSS classes

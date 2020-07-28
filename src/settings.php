@@ -724,5 +724,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $settingpage->add($setting);
 
-    $settings->add($settingpage);*/
+    $settings->add($settingpage);*/    
 }
