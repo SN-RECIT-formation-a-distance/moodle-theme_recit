@@ -12,6 +12,7 @@ M.recit.course.theme = M.recit.course.theme || {};
 M.recit.course.theme.ThemeRecit = class{
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
+        this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
 
         this.init();
     }
@@ -21,7 +22,7 @@ M.recit.course.theme.ThemeRecit = class{
 
         window.onclick = function(event){
             if(event.target.nodeName.toLowerCase() === "a"){
-                if(event.target.host !== window.location.host){
+                if((event.target.host.toString().length > 0) && (event.target.host !== window.location.host)){
                     if(!confirm(M.str.theme_recit.msgleavingmoodle)){
                         event.stopPropagation();
                         event.preventDefault();
@@ -54,7 +55,7 @@ M.recit.course.theme.ThemeRecit = class{
         }
     }
 
-    ctrlFullScreen(){
+    ctrlFullScreen(){        
         if (!document.fullscreenEnabled) { return; }
 
         if (document.fullscreenElement) {
