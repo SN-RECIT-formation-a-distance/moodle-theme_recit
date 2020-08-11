@@ -76,7 +76,7 @@ body.pagelayout-admin, body.pagelayout-frontpage, body.pagelayout-mydashboard,
 body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pagelayout-mypublic,
 body.pagelayout-myrecitdashboard {
     #page-content{
-        display: flex; flex-wrap: wrap;
+        display: flex; flex-wrap: wrap; overflow-x: auto;
         // padding-left: 15px; padding-right: 15px;
         #region-main-box{
             width: 100%;
