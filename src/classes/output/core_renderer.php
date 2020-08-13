@@ -1362,14 +1362,24 @@ class core_renderer extends \core_renderer {
     public  function act_name(){
         global $PAGE;
 
-        $Aname =strval("mod-".$PAGE->cm->modname."-name") ;
-        return get_string($Aname, 'theme_recit');
+        $Aname = strval("mod-".$PAGE->cm->modname."-name") ;
+        $result =  "Missing '$Aname' string definition";
+        if(get_string_manager()->string_exists($Aname, 'theme_recit')){
+            $result = get_string($Aname, 'theme_recit');
+        }
+
+        return $result;
     }
     public  function act_name_cons(){
         global $PAGE;
     
         $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
-        return get_string($Aname, 'theme_recit');
+        $result =  "Missing '$Aname' string definition";
+        if(get_string_manager()->string_exists($Aname, 'theme_recit')){
+            $result = get_string($Aname, 'theme_recit');
+        }
+        
+        return $result;
     }
 
     public function heading($text, $level = 2, $classes = null, $id = null) {
