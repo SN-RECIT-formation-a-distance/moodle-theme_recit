@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-use theme_recit\util;
+use theme_recit\output;
 
-require_once($CFG->dirroot . '/theme/recit/classes/util/icon_system.php');
+require_once($CFG->dirroot . '/theme/recit/classes/output/icon_system_fontawesome.php');
 require_once($CFG->dirroot . '/user/lib.php');
 /**
  * Define utils for Recit theme.
@@ -315,7 +315,7 @@ class ThemeRecitUtils{
         print_r($navoptions);
         die();*/
 
-        $iconmap = \theme_recit\util\icon_system_fontawesome::$iconmap;
+        $iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
 
         foreach ($navoptions->navitems as $navitem) {
             if ($navitem->itemtype == "link") {
@@ -383,7 +383,7 @@ class ThemeRecitUtils{
             return;
         }
 
-        $iconmap = \theme_recit\util\icon_system_fontawesome::$iconmap;
+        $iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
 
         $item = new stdClass();
         $item->url = $flatnavitem->action->out();

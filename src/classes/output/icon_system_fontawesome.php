@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\util;
+namespace theme_recit\output;
 
 use renderer_base;
 use pix_icon;
@@ -394,7 +394,9 @@ class icon_system_fontawesome extends \core\output\icon_system_fontawesome {
      * @return array
      */
     public function get_core_icon_map() {
-        return self::$iconmap;
+        $iconmap = parent::get_core_icon_map();
+
+        return array_merge($iconmap, self::$iconmap);
     }
 
     /**

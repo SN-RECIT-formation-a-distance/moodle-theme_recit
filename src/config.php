@@ -86,8 +86,10 @@ $THEME->extrascsscallback = 'theme_recit_get_extra_scss';
 // Process pre scss to our final stylesheet.
 $THEME->prescsscallback = 'theme_recit_get_pre_scss';
 
+//$THEME->usefallback = true;
+
 // Add a custom icon system to the theme.
-$THEME->iconsystem = '\theme_recit\util\icon_system_fontawesome';
+$THEME->iconsystem = '\\theme_recit\\output\\icon_system_fontawesome';
 
 //$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->layouts = [
