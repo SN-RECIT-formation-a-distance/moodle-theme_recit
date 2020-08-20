@@ -107,10 +107,13 @@ class core_renderer extends \core_renderer {
     public function full_header() {
         global $PAGE;
 
+        $theme = theme_config::load('recit');
+
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
         $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->enablebreadcrumb = (isset($theme->settings->enablebreadcrumb) ? $theme->settings->enablebreadcrumb : 0);
         $header->navbar = $this->navbar();
         $header->pageheadingbutton = $this->page_heading_button();
         $header->courseheader = $this->course_header();

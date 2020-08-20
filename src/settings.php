@@ -144,6 +144,13 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $page->add($setting);*/
 
+    $name = 'theme_recit/enablebreadcrumb';
+    $title = get_string('enablebreadcrumb', 'theme_recit');
+    $description = get_string('enablebreadcrumbdesc', 'theme_recit');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    //$setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 

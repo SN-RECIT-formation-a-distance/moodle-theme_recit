@@ -108,6 +108,8 @@ $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
 $string['courselistview'] = 'Enable course list view';
 $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
+$string['enablebreadcrumb'] = 'Enable breadcrumb navigation';
+$string['enablebreadcrumbdesc'] = '';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';

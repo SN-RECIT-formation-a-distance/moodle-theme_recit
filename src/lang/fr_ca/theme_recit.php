@@ -108,6 +108,8 @@ $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
 $string['courselistview'] = 'Enable course list view';
 $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
+$string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
+$string['enablebreadcrumbdesc'] = '';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'SCSS et Google Analytics';
