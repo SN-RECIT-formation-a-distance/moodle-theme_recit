@@ -58,6 +58,24 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
   font-weight: normal;
   font-style: normal;
 }
+// début classe iframe google slide
+.google-slides-container{
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    overflow: hidden;
+}
+
+.google-slides-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+// fin classe iframe google slide
+
+
 // début icones SVG
 
 .svg_white {
@@ -1539,6 +1557,7 @@ z-index: 1000!important;
     }
     .marg_m {
       margin: 0 1rem;
+
     }
     .marg_l {
       margin: 1.5rem 0;
