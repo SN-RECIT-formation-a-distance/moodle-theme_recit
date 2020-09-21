@@ -39,6 +39,7 @@ $THEME->name = 'recit';
 $THEME->sheets[] = "bootstrap";
 //$THEME->sheets[] = "fontawesome"; 
 $THEME->sheets[] = "moodle-base";
+$THEME->sheets[] = "moodle-base-3-9-2";
 //$THEME->sheets[] = "moodle-scss";
 $THEME->sheets[] = "recit";
 
