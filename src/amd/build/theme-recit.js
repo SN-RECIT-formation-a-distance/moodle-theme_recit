@@ -20,6 +20,8 @@ M.recit.course.theme.ThemeRecit = class{
     init(){
         document.onkeyup = this.ctrlShortcuts;
 
+        /*
+        // affiche un message à l'utilisateur pour l'avertir qu'il va laisser le site Moodle
         window.onclick = function(event){
             if(event.target.nodeName.toLowerCase() === "a"){
                 if((event.target.host.toString().length > 0) && (event.target.host !== window.location.host)){
@@ -29,7 +31,7 @@ M.recit.course.theme.ThemeRecit = class{
                     }
                 }
             }
-        }
+        }*/
     }
 
     ctrlShortcuts(e){
