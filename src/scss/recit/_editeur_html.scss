@@ -440,16 +440,15 @@ text-align: center;
 z-index: 6;
 }
 .etapes span {
-width: 40px;
-height:40px;
-font-size:20px;
-line-height : 40px;
-border-radius: 100%;
-display: block;
-text-align: center;
-margin: 0 auto 10px auto;
+	width: 40px;
+	height:40px;
+	font-size:20px;
+	line-height : 40px;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
 
-}
+	}
 .etapes:after {
 content: "";
 position: absolute;
@@ -464,6 +463,41 @@ background-color: #ddd;
 .border_grey {
   border-color: #ddd;
 }
+
+.etapes_v2	{
+	list-style: none;
+	display: inline-block;
+	width:100%;
+	position: relative;
+	text-align: center;
+	// cursor: pointer;
+	z-index: 6;
+	}
+.etapes_v2 span {
+	width: 140px;
+	height:40px;
+	font-size:20px;
+	line-height : 40px;
+	display: block;
+	text-align: center;
+	margin: 0 auto 10px auto;
+
+	}
+.etapes_v2:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	top: 15px;
+	left:0;
+	z-index : -1;
+	background-color: #ddd;
+	}
+	
+.border_grey {
+    border-color: #ddd;
+}
+
 /* fin item 604 */	
 
 
