@@ -289,88 +289,576 @@ font-size: 4em;
     font-style: normal;
   }*/
   /*Mod_tab*/
-.recit_tab_2 {
-      .nav-tabs {
+
+  .recit_tab_7:before{
+    content: "";
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background: #cf95c8;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    transform: translateY(-50%);
+}
+  .recit_tab_7{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+  a:hover,a:focus{
+    outline: none;
+    text-decoration: none;
+}
+
+
+.nav-tabs{
+    display: inline-block;
+    border: none;
+    margin-bottom: 15px;
+}
+.nav-tabs li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #cf95c8;
+    text-align: center;
+    padding: 0;
+    border: none;
+    margin-right: 40px;
+    position: relative;
+}
+.nav-tabs li:last-child a{
+    margin-right: 0;
+}
+.nav-tabs li.active a:hover,
+.nav-tabs li.active a:focus{
+    border: none;
+    background: #cf95c8;
+}
+.nav-tabs li a:before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s ease 0s;
+}
+.nav-tabs li a:hover:before,
+.nav-tabs li.active a:before{
+    background: #e748d1;
+}
+.nav-tabs li a span{
+    display: inline-block;
+    font-size: 14px;
+    color: #5d4835;
+    margin: 0 auto;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+}
+.tab-content{
+    padding: 30px;
+    background:  #939393;
+    text-align: left;
+}
+.tab-content h3{
+    font-size: 24px;
+    color: #fff;
+    margin-top: 0;
+}
+.tab-content p{
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+@media only screen and (max-width: 479px){
+    .nav-tabs li a{
+        margin-right: 30px;
+    }
+}
+}
+  .recit_tab_6{
+    font-family: 'Nunito', sans-serif; 
+   a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+
+.nav-tabs{
+    background-color: transparent;
+    border: none;
+}
+.nav-tabs li a{
+    color: #222;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px 15px 10px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.nav-tabs li:last-child a{ margin-right: 0; }
+.nav-tabs li a:hover,
+.nav-tabs li.active a{
+    color: #222;
+    background: #fff;
+    border: none;
+}
+.nav-tabs li a.active { color: $success; }
+.nav-tabs li a:before,
+.nav-tabs li a:after{
+    content: "";
+    background-color: #d1d1d1;
+    height: 7px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s ease 0s;
+}
+.nav-tabs li a:after{
+    background-color: $success;
+    height: 100%;
+    opacity: 0;
+}
+.nav-tabs li.active a:before,
+.nav-tabs li a:hover:before{
+    height: 100%;
+    opacity: 0;
+}
+.nav-tabs li.active a:after,
+.nav-tabs li a:hover:after{
+    height: 7px;
+    opacity: 1;
+}
+.tab-content{
+    color: #555;
+    background: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 23px;
+    padding: 20px;
+}
+.tab-content h3{
+    color: #222;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 7px 0;
+}
+@media only screen and (max-width: 479px){
+    .nav-tabs li{ width: 100%; }
+    .nav-tabs li a{ margin: 0 0 10px; }
+    .tab-content h3{ font-size: 18px; }
+}
+}
+.recit_tab_5 
+//https://bestjquery.com/tutorial/tab/demo54/
+  {
+    a:hover,a:focus{
+      outline: none;
+      text-decoration: none;
+  }
+  .nav-tabs{
+      padding-left: 15px;
+      border-bottom: 4px solid $secondary;
+  }
+  .nav-tabs a{
+      color: #fff;
+      padding: 10px 20px;
+      margin-right: 10px;
+      background: $secondary;
+      text-shadow: 1px 1px 2px #000;
+      border: none;
+      border-radius: 0;
+      opacity: 0.5;
+      position: relative;
+      transition: all 0.3s ease 0s;
+  }
+  .nav-tabs  a:hover{
+      background: $secondary;
+      opacity: 0.8;
+  }
+  .nav-tabs a.active {
+      opacity: 1;
+  }
+  .nav-tabs a.active ,
+  .nav-tabs .active a:hover,
+  .nav-tabs .active a:focus{
+      color: #fff;
+      background: $secondary;
+      border: none;
+      border-radius: 0;
+  }
+  .nav-tabs  a:before,
+  .nav-tabs  a:after{
+      content: "";
+      border-top: 42px solid transparent;
+      position: absolute;
+      top: -2px;
+  }
+  .nav-tabs a:before{
+      border-right: 15px solid $secondary;
+      left: -15px;
+  }
+  .nav-tabs a:after{
+      border-left: 15px solid $secondary;
+      right: -15px;
+  }
+  .nav-tabs a i,
+  .nav-tabs .active a i{
+      display: inline-block;
+      padding-right: 5px;
+      font-size: 15px;
+      text-shadow: none;
+  }
+  .nav-tabs a span{
+      display: inline-block;
+      font-size: 14px;
+      letter-spacing: -9px;
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+  }
+  .nav-tabs  a:hover span,
+  .nav-tabs .active a span{
+      letter-spacing: 1px;
+      opacity: 1;
+      transition: all 0.3s ease 0s;
+  }
+  .tab-content{
+      padding: 30px;
+      background: #fff;
+      font-size: 16px;
+      color: #6c6c6c;
+      line-height: 25px;
+  }
+  .tab-content h3{
+      font-size: 24px;
+      margin-top: 0;
+  }
+  @media only screen and (max-width: 479px){
+      .nav-tabs .tab-items{
+          width: 100%;
+          margin-bottom: 5px;
+          text-align: center;
+      }
+      nav-tabs a span{
+          letter-spacing: 1px;
+          opacity: 1;
+      }
+  }
+}
+
+.recit_tab_4 
+//https://bestjquery.com/tutorial/tab/demo81/
+  {
+ font-family: 'Sora', sans-serif; 
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+ .nav-tabs{
+    background-color: transparent;
+    border: none;
+}
+.nav-tabs  a{
+    color: #333;
+    background: #f5f5f5;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 11px 15px 10px;
+    margin: 0 10px 1px 0;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.nav-tabs:last-child a{ margin-right: 0; }
+.nav-tabs a:hover,
+ .nav-tabs  a.active {
+    color: #fff;
+    background: $secondary;
+    border: none;
+}
+.nav-tabs   .tab-item.a:before{
+    content: '';
+    background: $secondary;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease 0s,left 0.3s ease 0s,transform 0.4s ease 0.2s;
+}
+.nav-tabs .tab-item.active a:before,
+.nav-tabs .tab-item:hover:before{
+    opacity: 1;
+    transform: scale(1);
+    left: 0;
+}
+.tab-content{
+    color: #333;
+    background: linear-gradient(to right bottom,#f5f5f5 50%, transparent 50%);
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 25px;
+    padding: 20px;
+    border-top: 4px solid $secondary;
+    border-left: 4px solid $secondary;
+    position: relative;
+}
+.tab-content h3{
+    color: $secondary;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 7px 0;
+}
+@media only screen and (max-width: 479px){
+    .nav-tabs { width: 100%; }
+    .nav-tabs a{ margin: 0 0 10px; }
+    .tab-content h3{ font-size: 18px; }
+}}
+  .recit_tab_3 
+  {
+    .nav-tabs 
+    {
+        //overflow: auto;
+        //margin: 0px;
+       // padding: 0 !important;
+        //clear: none;
+        background-color: #d3e3ed;	
+        width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+    }
+        .nav-item
+    {
+        //position: relative;
+       // top: 0px!important;
+        //float: left !important;
+        display: flex!important;
+        align-items: center;
+        /*justify-content: center!important;*/
+        /*align-self: center!important;*/
+        //height: 50px !important;
+        width :auto;
+        max-width: 7em;
+        //min-width: 5%;
+       // text-align: center ;
+        padding: 0px 0px!important;
+        margin: 0px 0px 0px 0px !important;
+        font: bold 18px $subheadings-font-family !important;
+      /*  background-color: #d3e3ed !important;
+        list-style: none !important;
+        border-left: none !important;
+        border-bottom: none !important;
+        border-top: none!important;*/
+        border-right: solid 10px #fff !important;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        cursor: pointer;
+        @include vendor('border-top-right-radius', '0px !important');
+        @include vendor('border-top-left-radius', '0px !important');
+        color: #FFF!important;
+        outline: none !important;
+    }
+        .nav-tabs .nav-link.active 
+    {
+          color: #ffffff;
+          font-style: normal;
+          //border: 2px solid $secondary;
+          background: $primary;
+    }
+        
+        @media screen and (max-width: 768px) 
+      {
+        .nav-item{
+            width: 50%;
+        }
+        .nav-item:nth-child(even) {
+            border-right: none !important;
+        }
+      }
+  
+        @media screen and (max-width: 480px) {
+        .nav-item{
+            width: 100%;
+            border-right: none !important;
+        }
+      }
+      .nav-item::before 
+      {
+        display: flex!important;
+        align-items: center;
+        justify-content: center!important;
+        align-self: center!important;
+        /*background: url("icon.jpg") no-repeat;*/
+        width: 50px;
+        height: 50px;
+        background-color: #afcadb !important;
+        float: left;
+        margin: 0 10px 0 0 !important;
+      }
+        .nav-item:last-child 
+      {
+        border-right: none !important;
+      }
+        .nav-item:nth-child(odd)::before 
+      {
+              content:  "Q";
+       
+      }
+      .nav-item:nth-child(even)::before 
+      {
+        //counter-increment: arts-tab-counter;
+        content:  "R";
+       
+      }
+  
+      .nav-link.active::before {
+       // counter-increment: arts-tab-counter;
+        //content:  counter(arts-tab-counter, upper-latin) !important;
+        //display: block;
+          background-color: #005896 !important;
+        /*background: url("icon.jpg") no-repeat;
+          width: 50px;
+          height: 50px;
+          float: left;
+          margin: 0 10px 0 0 ;*/
+      }
+    
+  }  
+.recit_tab_2 
+{
+  .nav-tabs 
+  {
       //overflow: auto;
       //margin: 0px;
      // padding: 0 !important;
       //clear: none;
       background-color: #d3e3ed;	
-     // width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
-      }
-      .nav-item{
+      width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+      border-right: solid 10px #fff ;
+  }
+      .nav-item
+  {
       //position: relative;
      // top: 0px!important;
       //float: left !important;
-      display: flex!important;
+      display: flex;
       align-items: center;
       /*justify-content: center!important;*/
       /*align-self: center!important;*/
       //height: 50px !important;
-      width: 25%;
+      width :auto;
+      max-width: 25%;
+      min-width: 10%;
      // text-align: center ;
-     // padding: 0px 0px!important;
-      //margin: 0px 0px 0px 0px !important;
-      font: bold 18px $subheadings-font-family !important;
+      padding: 0px 0px;
+      margin: 0px 0px 0px 0px ;
+      font: bold 18px $subheadings-font-family ;
     /*  background-color: #d3e3ed !important;
       list-style: none !important;
       border-left: none !important;
       border-bottom: none !important;
       border-top: none!important;*/
-      border-right: solid 10px #fff !important;
+      border-right: solid 10px #fff ;
       -moz-user-select: none;
       -khtml-user-select: none;
       cursor: pointer;
       @include vendor('border-top-right-radius', '0px !important');
       @include vendor('border-top-left-radius', '0px !important');
-      color: #FFF!important;
-      outline: none !important;
-      }
-      .nav-tabs .nav-link.active {
+      color: #FFF;
+      outline: none ;
+  }
+      .nav-tabs .nav-link.active 
+  {
         color: #ffffff;
         font-style: normal;
         //border: 2px solid $secondary;
-        background: $secondary;
-      }
-      li:has(> a.active){
-        background-color: #006bb5 !important;
-        border-bottom: 1px solid #EEE;
-              color: #fff !important;
-            }
-      @media screen and (max-width: 768px) {
+        background: $primary;
+  }
+     
+      @media screen and (max-width: 768px) 
+    {
       .nav-item{
           width: 50%;
       }
       .nav-item:nth-child(even) {
-          border-right: none !important;
+          border-right: none ;
       }
-      }
+    }
 
       @media screen and (max-width: 480px) {
       .nav-item{
           width: 100%;
-          border-right: none !important;
+          border-right: none ;
       }
-}
+    }
 
-.nav-item:last-child {
-border-right: none !important;
-}
-.nav-item::before {
-counter-increment: arts-tab-counter;
-content:  counter(arts-tab-counter, upper-latin) !important;
-/*display: block;*/
-display: flex!important;
-align-items: center;
-justify-content: center!important;
-align-self: center!important;
-/*background: url("icon.jpg") no-repeat;*/
-width: 50px;
-height: 50px;
-background-color: #afcadb !important;
-float: left;
-margin: 0 10px 0 0 !important;
-}
+      .nav-item:last-child 
+    {
+      border-right: none ;
+    }
+      .nav-item::before 
+    {
+      counter-increment: arts-tab-counter;
+      content:  counter(arts-tab-counter, upper-latin) ;
+      /*display: block;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      /*background: url("icon.jpg") no-repeat;*/
+      width: 50px;
+      height: 50px;
+      background-color: #afcadb ;
+      float: left;
+      margin: 0 10px 0 0 ;
+    }
+
+    .nav-link.active::before {
+     /* counter-increment: arts-tab-counter;
+      content:  counter(arts-tab-counter, upper-latin) ;
+      display: block;*/
+        background-color: #005896 ;
+      /*background: url("icon.jpg") no-repeat;
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin: 0 10px 0 0 ;*/
+    }
+  
 }
 .I1009 {
 #app {
