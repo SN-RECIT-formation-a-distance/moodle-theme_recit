@@ -56,6 +56,8 @@ $string['mod-workshop-name'] = 'À propos de l\'atelier';
 $string['mod-workshop-name-consigne'] = "Pour en savoir plus";
 $string['mod-questionnaire-name'] = 'À propos du questionnaire';
 $string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
+$string['mod-tab-name'] = 'À propos des onglets';
+$string['mod-tab-name-consigne'] = 'Les permettenr à ton enseignant de présenter des contenus sous forme d\'onglets. Clique sur les onglets pour voir les contenus.';
 
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';

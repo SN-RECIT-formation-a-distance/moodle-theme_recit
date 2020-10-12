@@ -49,13 +49,16 @@ $string['mod-page-name-consigne'] = 'La page présente des informations multimé
 $string['mod-questionnaire-name'] = 'À propos du questionnaire';
 $string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
 $string['mod-quiz-name'] = 'À propos du test';
-$string['mod-quiz-name-consigne'] = 'Le  devoir permet à ton enseignant de te communiquer des tâches, de récolter tes travaux et de te fournir rétroactions et notes.';
+$string['mod-quiz-name-consigne'] = 'Le test permet à ton enseignant d\'évaluer la compréhension en te posant des questions.';
 $string['mod-recitcahiercanada-name'] = "À propos du cahier des traces";
 $string['mod-recitcahiercanada-name-consigne'] = 'Le cahier des traces permet à l\'élève de noter les renseignements présents à l\'intérieur d\'une activité ou d\'une ressource';
 $string['mod-workshop-name'] = 'À propos de l\'atelier';
 $string['mod-workshop-name-consigne'] = "Pour en savoir plus";
 $string['mod-questionnaire-name'] = 'À propos du questionnaire';
 $string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
+
+$string['mod-tab-name'] = 'À propos des onglets';
+$string['mod-tab-name-consigne'] = 'Les permettenr à ton enseignant de présenter des contenus sous forme d\'onglets. Clique sur les onglets pour voir les contenus.';
 
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Droit';
