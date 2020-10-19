@@ -18,8 +18,8 @@ define(['jquery'], function($) {
         var Default = {
             title: '',
             footer: '',
-            maxWidth: 9999,
-            maxHeight: 9999,
+            maxWidth: 1024,
+            maxHeight: 768,
             showArrows: true, //display the left / right arrows or not
             wrapping: true, //if true, gallery loops infinitely
             type: null, //force the lightbox into image / youtube mode. if null, or not image|youtube|vimeo; detect it
@@ -294,7 +294,7 @@ define(['jquery'], function($) {
                     var $toUse = this._containerToUse();
                     this._updateTitleAndFooter();
     
-                    var currentRemote = this._$element.attr('data-remote') || this._$element.attr('href');
+                    var currentRemote = this._$element.attr('data-remote') || this._$element.attr('href') || this._$element.attr('src');
                     var currentType = this._detectRemoteType(currentRemote, this._$element.attr('data-type') || false);
     
                     if (['image', 'youtube', 'vimeo', 'instagram', 'video', 'url'].indexOf(currentType) < 0) return this._error(this._config.strings.type);
