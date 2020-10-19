@@ -1,29 +1,51 @@
-body{
-	#page-header{
-		background-color: #fff;
-		#course-banner{
-            background-image:  url('[[pix:theme|banner-course]]'); background-size: cover; background-repeat: no-repeat; background-position: top center; height: 12vw; 
-            max-height: $header-hight; min-height: 75px; border: none; padding: 1.25rem; display: flex; align-items: center;
-			.page-header-headings{
-				h1{color: #FFF; font-family: $headings-font-family !important;    font-size: $headings-font-family-font-size; }
-			}
-		}	
-		.second-navbar{display: flex;  justify-content: space-between; padding: 0 0.8rem 0 0.8rem; align-items: center;}
-	}
+body {
+    #page-header {
+        background-color: #fff;
+
+        #course-banner {
+            background-image: url('[[pix:theme|banner-course]]');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
+            height: 12vw;
+            max-height: $header-hight;
+            min-height: 75px;
+            border: none;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+
+            .page-header-headings {
+                h1 {
+                    color: #FFF;
+                    font-family: $headings-font-family !important;
+                    font-size: $headings-font-family-font-size;
+                }
+            }
+        }
+
+        .second-navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.8rem 0 0.8rem;
+            align-items: center;
+        }
+    }
 }
 
 
-    .titre_actvity{
-        h2 {
-            font-size: 3em;
-        }
-		color: #000;
-		border: none;
-        //padding: 7px;
-       // border-color: $primary;
-        //border-bottom-style: ridge;
+.titre_actvity {
+    h2 {
+        font-size: 3em;
     }
-    
+
+    color: #000;
+    border: none;
+    //padding: 7px;
+    // border-color: $primary;
+    //border-bottom-style: ridge;
+}
+
 /*
 body.drawer-open-right{
 	margin-right: 260px;
@@ -33,15 +55,15 @@ body.drawer-open-right [data-region="blocks-column"]{
 	right: 0px;
 }*/
 
-.theme-bg-color{
+.theme-bg-color {
     background-color: $primary;
 }
 
-.tt-menu-color1{
+.tt-menu-color1 {
     background-color: $tt-menu-color1;
 }
 
-.tt-menu-color2{
+.tt-menu-color2 {
     background-color: $tt-menu-color2;
 }
 
@@ -56,27 +78,27 @@ body.drawer-open-right [data-region="blocks-column"]{
 z-index: 1000!important;
 }*/
 
-.recit-btn-primary{
+.recit-btn-primary {
     color: #FFF;
     background-color: $primary;
-    border-color:  $primary;
+    border-color: $primary;
     border-radius: $btn-radius;
 }
 
-.recit-btn-primary:hover{
+.recit-btn-primary:hover {
     color: #fff;
     background-color: $primaryBold;
     border-color: $primaryBold;
 }
 
-.recit-btn-secondary{
+.recit-btn-secondary {
     color: #FFF;
     background-color: $secondary;
-    border-color:  $secondary;
+    border-color: $secondary;
     border-radius: $btn-radius;
 }
 
-.recit-btn-secondary:hover{
+.recit-btn-secondary:hover {
     color: #fff;
     background-color: $secondaryBold;
     border-color: $secondaryBold;
@@ -84,167 +106,182 @@ z-index: 1000!important;
 
 
 
-#top-footer{
-	background-image: none!important;
-}
-#block-region-side-pre{
-	border-left: solid;
-	border-image: linear-gradient(white, #e3e3e3, white) 30 stretch;
-	padding: 15px;
-}
-#block-region-side-top{
-	border-left: solid;
-	border-image: linear-gradient(white, #e3e3e3, white) 30 stretch;
-	padding: 15px;
+#top-footer {
+    background-image: none !important;
 }
 
-#page-my-index .block_lw_courses .lw_courses_list{
-	display: grid;
-	grid-template-columns: auto auto auto;
-	width: 900px;
+#block-region-side-pre {
+    border-left: solid;
+    border-image: linear-gradient(white, #e3e3e3, white) 30 stretch;
+    padding: 15px;
 }
-#page-my-index .block_lw_courses .lw_courses_list .coursebox.list{
-	height: auto;
-	width: 280px;
-	padding: 0px!important;
-	margin-right: 16px;
-	overflow: hidden;
-	border-radius: 10px;
-	border: solid;
-	border-color: #ababab;
+
+#block-region-side-top {
+    border-left: solid;
+    border-image: linear-gradient(white, #e3e3e3, white) 30 stretch;
+    padding: 15px;
 }
-#page-my-index .block_lw_courses .lw_courses_list .coursebox.list .teacher_names, .block_lw_courses .lw_courses_list .coursebox.list .course_description, .block_lw_courses .lw_courses_list .coursebox.list .teacher_image_wrap{
-	display: none;
+
+#page-my-index .block_lw_courses .lw_courses_list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 900px;
 }
-#page-my-index .block_lw_courses .lw_courses_list .coursebox.list > div{
-	width: auto;
-	float: none;
-	overflow: hidden;
-	max-height: 300px;
-	position: relative;
+
+#page-my-index .block_lw_courses .lw_courses_list .coursebox.list {
+    height: auto;
+    width: 280px;
+    padding: 0px !important;
+    margin-right: 16px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: solid;
+    border-color: #ababab;
 }
-#page-my-index .block_lw_courses .coursebox.list .progress{
-	position: absolute;
-	top: 250px;
-	width: 100%!important;
-	background-color: #0069bf;
+
+#page-my-index .block_lw_courses .lw_courses_list .coursebox.list .teacher_names,
+.block_lw_courses .lw_courses_list .coursebox.list .course_description,
+.block_lw_courses .lw_courses_list .coursebox.list .teacher_image_wrap {
+    display: none;
 }
-#page-my-index .block_lw_courses .coursebox.list .image_wrap{
-	width: 100%;
-	max-width: 100%;
-	margin-right: 0px;
+
+#page-my-index .block_lw_courses .lw_courses_list .coursebox.list>div {
+    width: auto;
+    float: none;
+    overflow: hidden;
+    max-height: 300px;
+    position: relative;
 }
-#page-my-index .block_lw_courses .coursebox.list .image_wrap img{
-	height: auto;
+
+#page-my-index .block_lw_courses .coursebox.list .progress {
+    position: absolute;
+    top: 250px;
+    width: 100% !important;
+    background-color: #0069bf;
 }
-#page-my-index .block_lw_courses .coursebox.list .title{
-	font-size: large;
-	text-align: center;
-	border-bottom: none!important;
-	margin-top: 16px;
+
+#page-my-index .block_lw_courses .coursebox.list .image_wrap {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0px;
 }
-#page-my-index .block_lw_courses .coursebox.list .title:after{
-	content: ' ';
-	position: absolute;
-	display: block;
-	width: 20px;
-	margin: 8px 2%;
-	margin-bottom: 0px;
+
+#page-my-index .block_lw_courses .coursebox.list .image_wrap img {
+    height: auto;
+}
+
+#page-my-index .block_lw_courses .coursebox.list .title {
+    font-size: large;
+    text-align: center;
+    border-bottom: none !important;
+    margin-top: 16px;
+}
+
+#page-my-index .block_lw_courses .coursebox.list .title:after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    width: 20px;
+    margin: 8px 2%;
+    margin-bottom: 0px;
     border: 2px solid #0069bf;
     @include vendor('border-radius', '4px');
     @include vendor('box-shadow', 'inset 0 1px 1px rgba(0, 0, 0, .05)');
-	left: 50%;
-	transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 }
-#page-my-index .block_lw_courses .coursebox.list .categorypath{
-	text-align: center;
-	top: -16px;
+
+#page-my-index .block_lw_courses .coursebox.list .categorypath {
+    text-align: center;
+    top: -16px;
 }
-#page-my-index .block_lw_courses .coursebox.list .categorypath:after{
-	content: 'Accéder';
-	display: block;
-	background-color: #fba22a;
-	width: 50%;
-	transform: translateX(50%);
-	margin-top: 32px;
-	margin-bottom: 16px;
-	height: 48px;
-	line-height: 48px;
-	color: white;
-	font-weight: bold;
-	font-size: large;
-	border-radius: 10px;
+
+#page-my-index .block_lw_courses .coursebox.list .categorypath:after {
+    content: 'Accéder';
+    display: block;
+    background-color: #fba22a;
+    width: 50%;
+    transform: translateX(50%);
+    margin-top: 32px;
+    margin-bottom: 16px;
+    height: 48px;
+    line-height: 48px;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
 }
-#page-my-index .profilepicture{
-	border-style: solid;
-	border-radius: 50%;
-	border-color: #949492;
-	position: relative;
-	top: 120px;
-	left: 50px;
+
+#page-my-index .profilepicture {
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #949492;
+    position: relative;
+    top: 120px;
+    left: 50px;
 }
-#page-my-index .profilepicture img{
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
+
+#page-my-index .profilepicture img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
-#page-my-index .welcome_area{
-	background-color: black;
-	margin-bottom: 100px;
+
+#page-my-index .welcome_area {
+    background-color: black;
+    margin-bottom: 100px;
 }
-#page-my-index .welcome_message{
-	position: relative;
-	top: 280px;
-	left: 80px;
-	font-size: x-large;
+
+#page-my-index .welcome_message {
+    position: relative;
+    top: 280px;
+    left: 80px;
+    font-size: x-large;
 }
-#page-my-index .welcome_message h2{
-	color: black;
-	font-weight: bold;
-	font-size: x-large;
-	margin-bottom: 0px;
+
+#page-my-index .welcome_message h2 {
+    color: black;
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 0px;
 }
-								
-#page-site-index #loginbox
-{
+
+#page-site-index #loginbox {
     display: none;
-}						  
-
-
-
-.course-content .current::before
-{
-    border: none;		 
 }
 
-#top-footer .contact h3
- 
-					
-{
-							  
+
+
+.course-content .current::before {
+    border: none;
+}
+
+#top-footer .contact h3 {
+
     display: none;
-	 
+
 }
 
-#top-footer .social > a
-{
+#top-footer .social>a {
     display: none;
 }
 
 .TabbedPanelsTab {
     background-color: #000 !important;
 }
+
 body {
-  /* Set "my-sec-counter" to 0 */
-  counter-reset: arts-tab-counter;
+    /* Set "my-sec-counter" to 0 */
+    counter-reset: arts-tab-counter;
 }
 
-#tabcontent{
-	display: flex!important;
-	 /*align-items: center;*/
-	 justify-content: center!important;
-	 /*align-self: center!important;-ms-flex-pack:center!important;justify-content:center!important;*/
-	 } 
+#tabcontent {
+    display: flex !important;
+    /*align-items: center;*/
+    justify-content: center !important;
+    /*align-self: center!important;-ms-flex-pack:center!important;justify-content:center!important;*/
+}
+
 /* SpryTabbedPanels.css - version 0.6 - Spry Pre-Release 1.6.1 */
 
 /* Copyright (c) 2006. Adobe Systems Incorporated. All rights reserved. */
@@ -272,12 +309,13 @@ body {
  * want to style the TabbedPanels container.
  */
 .TabbedPanels {
-	overflow: auto;
-	margin: 0px;
-	padding: 0 !important;
-	clear: none;
-	background-color: #d3e3ed;	
-	width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+    overflow: auto;
+    margin: 0px;
+    padding: 0 !important;
+    clear: none;
+    background-color: #d3e3ed;
+    width: 100%;
+    /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
 }
 
 /* This is the selector for the TabGroup. The TabGroup container houses
@@ -290,9 +328,9 @@ body {
  * want to style the TabGroup container.
  */
 .TabbedPanelsTabGroup {
-	margin: 0px;
-	padding: 0px;
-		
+    margin: 0px;
+    padding: 0px;
+
 }
 
 /* This is the selector for the TabbedPanelsTab. This container houses
@@ -312,31 +350,31 @@ body {
  * to style this tab container.
  */
 .TabbedPanelsTab {
-	position: relative;
-	top: 0px!important;
-	float: left !important;
-	 display: flex!important;
-	 align-items: center;
-	 /*justify-content: center!important;*/
-	 /*align-self: center!important;*/
-	height: 50px !important;
-	width: 25%;
-	text-align: center ;
-	padding: 0px 0px!important;
-	margin: 0px 0px 0px 0px !important;
-	font: bold 18px $subheadings-font-family !important;
-	background-color: #d3e3ed !important;
-	list-style: none !important;
-	border-left: none !important;
-	border-bottom: none !important;
-	border-top: none!important;
+    position: relative;
+    top: 0px !important;
+    float: left !important;
+    display: flex !important;
+    align-items: center;
+    /*justify-content: center!important;*/
+    /*align-self: center!important;*/
+    height: 50px !important;
+    width: 25%;
+    text-align: center;
+    padding: 0px 0px !important;
+    margin: 0px 0px 0px 0px !important;
+    font: bold 18px $subheadings-font-family !important;
+    background-color: #d3e3ed !important;
+    list-style: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
     border-right: solid 10px #fff !important;
-	-moz-user-select: none;
-	-khtml-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
     cursor: pointer;
     @include vendor('border-top-right-radius', '0px !important');
     @include vendor('border-top-left-radius', '0px !important');
-    color: #FFF!important;
+    color: #FFF !important;
     outline: none !important;
 }
 
@@ -344,6 +382,7 @@ body {
     .TabbedPanelsTab {
         width: 50%;
     }
+
     .TabbedPanelsTab:nth-child(even) {
         border-right: none !important;
     }
@@ -359,22 +398,26 @@ body {
 .TabbedPanelsTab:last-child {
     border-right: none !important;
 }
+
 .TabbedPanelsTab::before {
-	counter-increment: arts-tab-counter;
-  content:  counter(arts-tab-counter, upper-latin) !important;
-  /*display: block;*/
-  display: flex!important;
-	 align-items: center;
-	 justify-content: center!important;
-	 align-self: center!important;
-	/*background: url("icon.jpg") no-repeat;*/
+    counter-increment: arts-tab-counter;
+    content: counter(arts-tab-counter, upper-latin) !important;
+    /*display: block;*/
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    align-self: center !important;
+    /*background: url("icon.jpg") no-repeat;*/
     width: 50px;
     height: 50px;
     background-color: #afcadb !important;
     float: left;
     margin: 0 10px 0 0 !important;
 }
-.dir-rtl .TabbedPanelsTab {float: right;}
+
+.dir-rtl .TabbedPanelsTab {
+    float: right;
+}
 
 /* This selector is an example of how to change the appearnce of a tab button
  * container as the mouse enters it. The class "TabbedPanelsTabHover" is
@@ -382,7 +425,7 @@ body {
  * and exits the container.
  */
 .TabbedPanelsTabHover {
-	background-color: #339900;
+    background-color: #339900;
 }
 
 /* This selector is an example of how to change the appearance of a tab button
@@ -397,16 +440,17 @@ body {
  * content panel so that it looks like the tab is part of the content panel.
  */
 .TabbedPanelsTabSelected {
-	background-color: #006bb5 !important;
-	border-bottom: 1px solid #EEE;
-        color: #fff !important;
+    background-color: #006bb5 !important;
+    border-bottom: 1px solid #EEE;
+    color: #fff !important;
 }
+
 .TabbedPanelsTabSelected::before {
-	counter-increment: arts-tab-counter;
-  content:  counter(arts-tab-counter, upper-latin) !important;
-  display: block;
+    counter-increment: arts-tab-counter;
+    content: counter(arts-tab-counter, upper-latin) !important;
+    display: block;
     background-color: #005896 !important;
-	/*background: url("icon.jpg") no-repeat;*/
+    /*background: url("icon.jpg") no-repeat;*/
     width: 50px;
     height: 50px;
     float: left;
@@ -419,8 +463,8 @@ body {
  * ring around it, instead of the focus ring around the entire tab.
  */
 .TabbedPanelsTab a {
-	color: black;
-	text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 /* This is the selector for the ContentGroup. The ContentGroup container houses
@@ -433,13 +477,13 @@ body {
  * want to style the ContentGroup container.
  */
 .TabbedPanelsContentGroup {
-	clear: both;
-	//max-width: 1200px;
-	border-left: solid 1px #CCC;
-	border-bottom: solid 1px #CCC;
-	border-top: solid 1px #999;
-	border-right: solid 1px #999;
-	background-color: #FFF;
+    clear: both;
+    //max-width: 1200px;
+    border-left: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
+    border-top: solid 1px #999;
+    border-right: solid 1px #999;
+    background-color: #FFF;
 }
 
 /* This is the selector for the Content panel. The Content panel holds the
@@ -452,8 +496,8 @@ body {
  * want to style the Content container.
  */
 .TabbedPanelsContent {
-	overflow: hidden;
-	padding: 4px;
+    overflow: hidden;
+    padding: 4px;
 }
 
 /* This selector is an example of how to change the appearnce of the currently
@@ -461,8 +505,6 @@ body {
  * programatically added and removed from the content element as the panel
  * is activated/deactivated.
  */
-.TabbedPanelsContentVisible {
-}
 
 /* Vertical Tabbed Panels
  *
@@ -477,8 +519,8 @@ body {
  */
 
 .VTabbedPanels {
-	overflow: hidden;
-	zoom: 1;
+    overflow: hidden;
+    zoom: 1;
 }
 
 /* This selector floats the TabGroup so that the tab buttons it contains
@@ -486,18 +528,21 @@ body {
  * the group container to make it look like a list container.
  */
 .VTabbedPanels .TabbedPanelsTabGroup {
-	float: left;
-	width: 10em;
-	height: 20em;
-	background-color: #003300;
-	position: relative;
-	border-top: solid 1px #999;
-	border-right: solid 1px #999;
-	border-left: solid 1px #CCC;
-	border-bottom: solid 1px #CCC;
+    float: left;
+    width: 10em;
+    height: 20em;
+    background-color: #003300;
+    position: relative;
+    border-top: solid 1px #999;
+    border-right: solid 1px #999;
+    border-left: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
     color: #FFF;
 }
-.dir-rtl .VTabbedPanels .TabbedPanelsTabGroup {float: right;}
+
+.dir-rtl .VTabbedPanels .TabbedPanelsTabGroup {
+    float: right;
+}
 
 /* This selector disables the float property that is placed on each tab button
  * by the default TabbedPanelsTab selector rule above. It also draws a bottom
@@ -505,11 +550,11 @@ body {
  * the TabGroup, and its top border from the TabGroup or tab button above it.
  */
 .VTabbedPanels .TabbedPanelsTab {
-	float: none;
-	margin: 0px;
-	border-top: none;
-	border-left: none;
-	border-right: none;
+    float: none;
+    margin: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 /* This selector disables the float property that is placed on each tab button
@@ -518,48 +563,52 @@ body {
  * the TabGroup, and its top border from the TabGroup or tab button above it.
  */
 .VTabbedPanels .TabbedPanelsTabSelected {
-	background-color: #003300;
-	border-bottom: solid 1px #999;
+    background-color: #003300;
+    border-bottom: solid 1px #999;
 }
 
 /* This selector floats the content panels for the widget so that they
  * render to the right of the tabbed buttons.
  */
 .VTabbedPanels .TabbedPanelsContentGroup {
-	clear: none;
-	float: left;
-	padding: 0px;
-	width: 30em;
-	height: 20em;
+    clear: none;
+    float: left;
+    padding: 0px;
+    width: 30em;
+    height: 20em;
 }
-.dir-rtl .VTabbedPanels .TabbedPanelsContentGroup {float:right;}
+
+.dir-rtl .VTabbedPanels .TabbedPanelsContentGroup {
+    float: right;
+}
 
 /* Styles for Printing */
 @media print {
     .TabbedPanels {
         overflow: visible !important;
     }
+
     .TabbedPanelsContentGroup {
         display: block !important;
         overflow: visible !important;
         height: auto !important;
     }
+
     .TabbedPanelsContent {
         overflow: visible !important;
         display: block !important;
-        clear:both !important;
+        clear: both !important;
     }
+
     .TabbedPanelsTab {
-         overflow: visible !important;
-         display: block !important;
-         clear:both !important;
+        overflow: visible !important;
+        display: block !important;
+        clear: both !important;
     }
 }
 
-.truncate-text{text-overflow: ellipsis; white-space: nowrap;    overflow: hidden;}
-
-@media (min-width: 1200px){
-    .modal-xl {
-        max-width: 1140px;
-    }
+.truncate-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

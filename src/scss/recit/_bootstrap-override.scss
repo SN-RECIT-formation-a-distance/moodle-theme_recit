@@ -35,3 +35,19 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
     border-radius: 50rem!important;
 }
 // Fin ajout classe bootstrap 4.4 
+
+
+// Début ajout classe modal xl bootstrap 4.5
+@media (min-width: 992px) {
+    .modal-lg,
+    .modal-xl {
+      max-width: 800px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .modal-xl {
+      max-width: 1140px;
+    }
+  }
+// Fin ajout classe modal xl bootstrap 4.5
