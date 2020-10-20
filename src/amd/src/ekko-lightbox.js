@@ -18,8 +18,8 @@ define(['jquery'], function($) {
         var Default = {
             title: '',
             footer: '',
-            maxWidth: 1024,
-            maxHeight: 768,
+            maxWidth: 9999,
+            maxHeight: 9999,
             showArrows: true, //display the left / right arrows or not
             wrapping: true, //if true, gallery loops infinitely
             type: null, //force the lightbox into image / youtube mode. if null, or not image|youtube|vimeo; detect it
