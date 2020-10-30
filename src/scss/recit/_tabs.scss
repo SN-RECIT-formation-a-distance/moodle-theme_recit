@@ -320,122 +320,68 @@
      }
  }
 
- .recit_tab_7:before {
-     content: "";
-     width: 100%;
-     height: 10px;
-     border-radius: 10px;
-     background: $primary;
-     position: absolute;
-     top: 15px;
-     left: 0;
-     transform: translateY(-50%);
- }
-
- .recit_tab_7 {
-     text-align: center;
-     position: relative;
-     margin-top: 20px;
-
-     .nav-link:hover,
-     .nav-link:focus {
-         outline: none;
-         text-decoration: none;
-     }
-
-
-
-     .nav-tabs {
-         display: inline-block;
-         border: none;
-         margin-bottom: 15px;
-     }
-
-     .nav-tabs .nav-item {
-         display: inline-block;
-         width: 30px;
-         height: 30px;
-         line-height: 30px;
-         border-radius: 50%;
-         background: $primary;
-         text-align: center;
-         padding: 0;
-         border: none;
-         margin-right: 40px;
-         position: relative;
-         /* align-items: stretch;
-   vertical-align: top;*/
-     }
-
-     .nav-tabs .nav-link {
-         width: 100px;
-         display: inline-block;
-     }
-
-     .nav-tabs .nav-item:last-child .nav-link {
-         margin-right: 0;
-     }
-
-     
-     .nav-tabs .nav-link:before {
-         content: "";
-         width: 10px;
-         height: 10px;
-         line-height: 10px;
-         border-radius: 50%;
-         background: $secondary;
-         margin: auto;
-         position: absolute;
-         top: 0;
-         left: 0;
-         bottom: 0;
-         right: 0;
-         transition: all 0.3s ease 0s;
-     }
-
-     .nav-tabs .nav-link.active {
-         background: none;
-     }
-
-     .nav-tabs .nav-link.active:before {
-         background: $success;
-     }
-
-     .nav-tabs .nav-link span {
-         display: inline-block;
-         font-size: 14px;
-         color: $primaryBold;
-         margin: 0 auto;
-         position: absolute;
-         top: -30px;
-         left: 0;
-         right: 0;
-
-
-     }
-
-     /*.tab-content{
-   padding: 30px;
-   //background:  #939393;
-   text-align: left;
+ // début recit tab 7 pour l'équipe FR
+ .recit_tab_7 .recit-section-text {
+    color: $dark;
 }
-.tab-content h3{
-   font-size: 24px;
-   /color: #fff;
-   margin-top: 0;
+
+.recit_tab_7 .recit-section-subtitle {
+    color: $dark;
 }
-.tab-content p{
-   font-size: 14px;
-   /color: #fff;
-   line-height: 24px;
-   margin-bottom: 0;
-}*/
-     @media only screen and (max-width: 479px) {
-         .nav-tabs li a {
-             margin-right: 30px;
-         }
-     }
- }
+
+.recit_tab_7 .tabcont {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.recit_tab_7 .recit-iconfont {
+    font-size: 48px;
+}
+
+.recit_tab_7 .card-img {
+    margin-bottom: 1.5rem;
+}
+
+.recit_tab_7 .tab-content-row {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
+.recit_tab_7 .nav-tabs {
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-bottom: none;
+}
+
+.recit_tab_7 .nav-tabs .nav-link {
+    box-sizing: border-box;
+    color: $dark;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 1rem 3rem;
+    margin: 0.4rem .8rem !important;
+    //transition: color .3s;
+    border: 2px solid $dark;
+}
+
+.recit_tab_7 .nav-tabs .nav-link:hover {
+    background: $secondary;
+    color: $white;
+    border-color: $secondary;
+}
+
+.recit_tab_7 .nav-tabs .nav-link.active {
+    color: #ffffff;
+    font-style: normal;
+    //border: 2px solid $secondary;
+    background: $secondary;
+    border-color: $secondary;
+}
+// fin recit tab 7
 
  .recit_tab_6 {
      font-family: 'Nunito', sans-serif;

@@ -13,8 +13,17 @@
     
 .editeur, body.theme-recit-francais{
     #top-1.engine{display: none;} // code dynamique intrusif du Mobirise 
-
-
+    
+    .figure {
+        background: none!important;
+    }
+    .figure_custom {
+        border: 1px solid!important;
+        border-color: $primary!important;
+    }
+    .figure-caption {
+        background: none!important;
+    }
     
     /*-------------------------------*\
         Custom rows styles
@@ -55,7 +64,7 @@
 }
 
 .editeur, body.theme-recit-anglais{
-    figure.figure {
+    figure.figure_custom {
         display: block !important;
         -webkit-border-radius: 16px !important;
         -moz-border-radius: 16px !important;
