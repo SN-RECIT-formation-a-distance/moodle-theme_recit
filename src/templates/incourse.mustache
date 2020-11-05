@@ -49,15 +49,7 @@
     }
 }}
 
-{{>theme_recit/head}}
-
-<body {{{ bodyattributes }}}>
-
-<div id="page-wrapper">
-
-    {{{ output.standard_top_of_body_html }}}
-
-    {{>theme_recit/navbar_top}}
+{{>theme_recit/inc_start}}
 
     <div id="page">
         {{{ output.full_header }}}
@@ -90,13 +82,4 @@
     </div>
 </div>
 
-{{> theme_recit/footer }}
-
-</body>
-</html>
-{{#js}}
-require(['theme_recit/loader']);
-require(['theme_recit/drawer'], function(mod) {
-    mod.init();
-});
-{{/js}}
+{{>theme_recit/inc_end}}
