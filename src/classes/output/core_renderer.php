@@ -505,7 +505,7 @@ class core_renderer extends \core_renderer {
         $context->logourl = $this->get_logo();
         $context->sitename = format_string($SITE->fullname, true, array('context' => \context_course::instance(SITEID)));
 
-        return $this->render_from_template('core/login', $context);
+        return $this->render_from_template('core/loginform', $context);
     }
 
     /**
