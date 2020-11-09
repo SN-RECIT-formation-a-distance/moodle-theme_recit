@@ -36,7 +36,16 @@
          "bodyattributes":""
     }
 }}
-{{>theme_recit/inc_start}}
+
+{{! Le template columns1.mustache est utilisé par le preview de questions (celui qui ouvre dans un pop-up)}}
+
+{{> theme_recit/head }}
+
+<body {{{ bodyattributes }}}>
+
+<div id="page-wrapper">
+
+    {{{ output.standard_top_of_body_html }}}
 
     <div id="page">
         <div id="page-content">
@@ -54,5 +63,13 @@
             </div>
         </div>
     </div>
-
-{{>theme_recit/inc_end}}
+</div>
+{{{ output.standard_end_of_body_html }}}
+</body>
+</html>
+{{#js}}
+M.util.js_pending('theme_recit/loader');
+require(['theme_recit/loader'], function() {
+  M.util.js_complete('theme_recit/loader');
+});
+{{/js}}

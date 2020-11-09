@@ -112,11 +112,11 @@
         <div class="row">
             <div class="col-md-7 instructions">
 
-            {{# logourl }}
+            {{#logourl}}
                 <div class="row justify-content-left logo m-2">
                     <img src="{{logourl}}" title="{{sitename}}" alt="{{sitename}}"/>
                 </div>
-            {{/ logourl }}
+            {{/logourl}}
 
                 <h2>{{sitename}}</h2>
                 <hr align="left" />
@@ -127,18 +127,17 @@
                     {{{cookieshelpiconformatted}}}
                 </div>
 
-
-                    {{#canloginasguest}}
-                        <div class="mt-2">
-                            <p><i class="fa fa-user-circle"></i> {{#str}}someallowguest{{/str}}</p>
-                            <form action="{{loginurl}}" method="post" id="guestlogin">
-                                <input type="hidden" name="logintoken" value="{{logintoken}}">
-                                <input type="hidden" name="username" value="guest" />
-                                <input type="hidden" name="password" value="guest" />
-                                <button class="btn btn-secondary " type="submit">{{#str}}loginguest{{/str}}</button>
-                            </form>
-                        </div>
-                    {{/canloginasguest}}
+                {{#canloginasguest}}
+                    <div class="mt-2">
+                        <p><i class="fa fa-user-circle"></i> {{#str}}someallowguest{{/str}}</p>
+                        <form action="{{loginurl}}" method="post" id="guestlogin">
+                            <input type="hidden" name="logintoken" value="{{logintoken}}">
+                            <input type="hidden" name="username" value="guest" />
+                            <input type="hidden" name="password" value="guest" />
+                            <button class="btn btn-secondary " type="submit">{{#str}}loginguest{{/str}}</button>
+                        </form>
+                    </div>
+                {{/canloginasguest}}
 
                 {{#hasidentityproviders}}
                     <h3 class="m-t-1">{{#str}} potentialidps, auth {{/str}}</h3>
