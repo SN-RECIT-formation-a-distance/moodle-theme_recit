@@ -11,6 +11,13 @@
 }*/
 #top-1.engine{display: none;} // code dynamique intrusif du Mobirise     
     
+body.theme-recit-francais{
+    .personal-note-embedded{
+        .title{
+            font-size: .9375rem;
+        }
+    }
+}
 .editeur, body.theme-recit-francais{
     #top-1.engine{display: none;} // code dynamique intrusif du Mobirise 
     
@@ -24,7 +31,7 @@
     .figure-caption {
         background: none!important;
     }
-    
+
     /*-------------------------------*\
         Custom rows styles
     \*-------------------------------*/
