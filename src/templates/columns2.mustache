@@ -56,10 +56,15 @@
 
         <div id="page-content">
             <div id="region-main-box" class="col-12">
+                {{#hasregionmainsettingsmenu}}
+                    <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                        <div> {{{ output.region_main_settings_menu }}} </div>
+                    </div>
+                {{/hasregionmainsettingsmenu}}
                 {{#hastopblocks}}
-                <section data-region="blocks-row" class="d-print-none hidden-print">
-                    {{{ sidetopblocks }}}
-                </section>
+                    <section data-region="blocks-row" class="d-print-none hidden-print">
+                        {{{ sidetopblocks }}}
+                    </section>
                 {{/hastopblocks}}
                 <section id="region-main">
                     <div class="card">
@@ -67,8 +72,6 @@
 							{{{ output.main_content }}}
                             {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}
-                            
-                            
                         </div>
                         <div class="card-body">
                             <div class="tool_usertours-resettourcontainer"></div>
