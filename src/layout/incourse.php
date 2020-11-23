@@ -50,7 +50,7 @@ if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinb
 }
 $extraclasses[] = theme_recit_get_course_theme();
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+//$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'page' => $PAGE,
@@ -62,8 +62,8 @@ $templatecontext = [
     'hasdrawertoggle' => true,
     'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
     'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
-    'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    //'regionmainsettingsmenu' => $regionmainsettingsmenu,
+    'hasregionmainsettingsmenu' => false
 ];
 
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
