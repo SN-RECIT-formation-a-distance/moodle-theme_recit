@@ -116,7 +116,9 @@ class core_renderer extends \core_renderer {
         $header->enablebreadcrumb = (isset($theme->settings->enablebreadcrumb) ? $theme->settings->enablebreadcrumb : 0);
         $header->navbar = $this->navbar();
         $header->pageheadingbutton = $this->page_heading_button();
+        $header->showpageheadingbutton = ($this->page->cm != null && in_array($this->page->cm->modname, array('wiki')));
         $header->courseheader = $this->course_header();
+
         return $this->render_from_template('theme_recit/header', $header);
     }
 
