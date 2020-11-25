@@ -1622,7 +1622,7 @@ border: 2px solid $secondary;
 	}
 
 	section[data-recit-block="1"],
-	.editeur {
+	.editeur { // ################################################################################################
 
 	    #vvveb-builder .component-properties .form-control,
 	    #vvveb-builder .component-properties .custom-select {
@@ -4893,9 +4893,15 @@ border: 2px solid $secondary;
 
 	    .svg-couleur {
 	        fill: rebeccapurple !important;
-	    }
+        }
+        
+        
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
 
-	}
+	}  // fin .editeur ################################################################################################
 
 	.bandedessnee {
 	    .comic {
@@ -5266,12 +5272,6 @@ border-color: #FF0000;
 	    }
 	}
 
-	@media screen and (max-width: 576px) {
-	    .row {
-	        margin-left: 0;
-	        margin-right: 0;
-	    }
-	}
 
 	/************************************
 * JARALLAX
