@@ -44,6 +44,10 @@ class icon_system_fontawesome extends \core\output\icon_system_fontawesome {
     private $map = [];
 
     public static $iconmap = [
+        
+    ];
+    
+   /* public static $iconmap = [
         'core:docs' => 'fa-info',
         'core:help' => 'fa-question text-info',
         'core:req' => 'fa-exclamation text-danger',
@@ -387,7 +391,7 @@ class icon_system_fontawesome extends \core\output\icon_system_fontawesome {
         'core:i/next' => 'fa-arrow-right',
         'core:t/downlong' => 'fa-chevron-down',
         'core:t/uplong' => 'fa-chevron-up'
-    ];
+    ];*/
 
     /**
      * Get the icon mapping

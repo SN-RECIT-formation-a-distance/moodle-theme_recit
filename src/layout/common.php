@@ -79,7 +79,7 @@ class ThemeRecitUtils{
 
         $item = new stdClass();
         $item->url = sprintf("%s/%s?sesskey=%s&confirm=1", $CFG->wwwroot, "admin/purgecaches.php", sesskey());
-        $item->pix = "fa-trash-alt";
+        $item->pix = "fa-trash";
         $item->title = get_string('purgecaches', 'admin');
         return $item;
     }
@@ -93,7 +93,7 @@ class ThemeRecitUtils{
 
         $item = new stdClass();
         $item->url = sprintf("%s/%s?sesskey=%s&reset=1", $CFG->wwwroot, "theme/index.php", sesskey());
-        $item->pix = "fa-trash-alt";
+        $item->pix = "fa-trash";
         $item->title = get_string('themeresetcaches', 'admin');
         return $item;
     }
@@ -204,7 +204,7 @@ class ThemeRecitUtils{
                     $item->title = get_string('turneditingon');
                 }	
                 
-                $item->pix = 'fa-pencil-alt';
+                $item->pix = 'fa-pencil';
                 $result['turneditingonoff'] = $item;
             
                 $item = new stdClass();
@@ -228,7 +228,7 @@ class ThemeRecitUtils{
                 if (!empty($page->cm->id)) {
                     $item = new stdClass();
                     $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $page->cm->id);
-                    $item->pix = 'fa-sliders-h';
+                    $item->pix = 'fa-sliders';
                     $item->title = 'Paramètres activité';
                     $result['paramsact'] = $item;
                 }
@@ -320,7 +320,10 @@ class ThemeRecitUtils{
         print_r($navoptions);
         die();*/
 
-        $iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
+        $theme = theme_config::load('recit');
+        $instance = \theme_recit\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $iconmap = $instance->get_icon_name_map();
+        //$iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
 
         foreach ($navoptions->navitems as $navitem) {
             if ($navitem->itemtype == "link") {
@@ -381,7 +384,9 @@ class ThemeRecitUtils{
             return;
         }
 
-        $iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
+        $theme = theme_config::load('recit');
+        $instance = \theme_recit\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $iconmap = $instance->get_icon_name_map();
 
         $item = new stdClass();
         $item->url = $flatnavitem->action->out();
