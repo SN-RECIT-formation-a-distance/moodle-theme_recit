@@ -1,0 +1,62 @@
+
+$right-drawer-width: 320px;
+
+$zindex-sticky:                     1020 !default;
+
+[data-region=right-hand-drawer] {
+    display: flex;
+    flex-direction: column;
+    @include transition(right .2s ease-in-out);
+
+    &.drawer {
+        z-index: $zindex-sticky;
+        position: fixed;
+        top: $top-navbar-height;
+        right: 0;
+        height: calc(100% - #{$top-navbar-height});
+        width: $right-drawer-width;
+        box-shadow: -2px 2px 4px rgba(0, 0, 0, .08);
+        padding: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .closewidget {
+        display: none;
+    }
+
+    &.hidden {
+        display: block;
+        right: $right-drawer-width * -1;
+        // Turn off visibility so that nothing in the drawer can receive focus when
+        // it is hidden.
+        visibility: hidden;
+        opacity: 0;
+        // Delay visibility changes until after the slide right animation has completed.
+        @include transition(right .2s ease-in-out, visibility 0s ease-in-out .2s, opacity 0s ease-in-out .2s);
+    }
+}
+/*
+@include media-breakpoint-down(sm) {
+    [data-region=right-hand-drawer] {
+        &.drawer {
+            top: 0;
+            height: 100%;
+            z-index: $zindex-fixed;
+        }
+        .closewidget {
+            display: block;
+            padding: 0 0.2rem;
+        }
+    }
+    body.drawer-open-left,
+    body.drawer-open-right {
+        overflow: hidden;
+    }
+}*/
+
+.dir-rtl {
+    [data-region=right-hand-drawer] {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, .08);
+    }
+}

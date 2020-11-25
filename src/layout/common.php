@@ -28,6 +28,8 @@ use theme_recit\output;
 
 require_once($CFG->dirroot . '/theme/recit/classes/output/icon_system_fontawesome.php');
 require_once($CFG->dirroot . '/user/lib.php');
+require_once($CFG->dirroot . '/message/output/popup/lib.php');
+
 /**
  * Define utils for Recit theme.
  * @author RECITFAD
@@ -141,6 +143,9 @@ class ThemeRecitUtils{
         if ($user != null) {
             $result['usermenu'] = self::get_user_menu($page, $user);
         }
+
+        $result['message_and_notification'] = message_popup_render_navbar_output($output);
+        $result['message_drawer'] = core_message_standard_after_main_region_html();
 
         return $result;
     }
@@ -332,6 +337,9 @@ class ThemeRecitUtils{
                 if ($navid == "mymoodle") {
                     self::set_recit_dashboard($item);
                 }
+                else if($navid == 'messages'){
+                    continue;
+                }
 
                 $result[$navid] = $item;
             }
@@ -356,16 +364,6 @@ class ThemeRecitUtils{
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "calendar");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "privatefiles");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "sitesettings");
-
-        // Number of unread messages.
-        $result["messages"]->extra = \core_message\api::count_unread_conversations($user);
-
-        $item = new stdClass();
-        $item->url = new moodle_url('/message/output/popup/notifications.php');
-        $item->pix = "fa-bell";
-        $item->extra = \message_popup\api::count_unread_popup_notifications($user->id);
-        $item->title = get_string("unreadnotification", "message", $item->extra);
-        $result["notifications"] = $item;
 
         return $result;
     }

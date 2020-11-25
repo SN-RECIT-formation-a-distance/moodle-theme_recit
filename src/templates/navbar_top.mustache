@@ -96,30 +96,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="show-onmobile"> {{usermenu.mymoodle.title}}</span></a>
                 </li>       
-                {{#usermenu.notifications.url}}
-                    <li class="nav-item">
-                        <a class="nav-link danger" href="{{usermenu.notifications.url}}" title="{{usermenu.notifications.title}}">
-                            {{#usermenu.notifications.extra}}
-                                <span style="font-size: 12px; font-weight: 500; background-color: #F00; color: #FFF; border-radius:3px; padding: 3px; margin-right: 1px;">{{usermenu.notifications.extra}}</span>
-                            {{/usermenu.notifications.extra}}
-                            
-                            <i class="fa {{usermenu.notifications.pix}}"></i>
-                            <span class="show-onmobile"> {{usermenu.notifications.title}}</span>
-                        </a>
-                    </li>
-                {{/usermenu.notifications.url}}
-                {{#usermenu.messages.url}}
-                    <li class="nav-item">
-                        <a class="nav-link danger" href="{{usermenu.messages.url}}" title="{{usermenu.messages.title}}">
-                            {{#usermenu.messages.extra}}
-                                <span style="font-size: 12px; font-weight: 500; background-color: #F00; color: #FFF; border-radius: 3px; padding: 3px; margin-right: 1px;">{{usermenu.messages.extra}}</span>
-                            {{/usermenu.messages.extra}}
-                            
-                            <i class="fa {{usermenu.messages.pix}}"></i>
-                            <span class="show-onmobile"> {{usermenu.messages.title}}</span>
-                        </a>
-                    </li>
-                {{/usermenu.messages.url}}      
+
+                {{#message_and_notification}}
+                    {{{message_and_notification}}}
+                {{/message_and_notification}}
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">

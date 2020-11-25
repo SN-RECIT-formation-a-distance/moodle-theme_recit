@@ -16,17 +16,20 @@
 
 {{> theme_recit/footer }}
 
+{{{message_drawer}}}
+
 </body>
 </html>
 {{#js}}
 M.util.js_pending('theme_recit/loader');
 require(['theme_recit/loader'], function() {
-  M.util.js_complete('theme_recit/loader');
+    M.util.js_complete('theme_recit/loader');
 });
+
 M.util.js_pending('theme_recit/drawer');
-require(['theme_recit/drawer'], function(mod) {
-    mod.init();
-  M.util.js_complete('theme_recit/drawer');
+require(['theme_recit/drawer'], function(drawer) {
+    drawer.init();
+    M.util.js_complete('theme_recit/drawer');
 });
 
 require(['theme_recit/metismenu', 'jquery'], function(metisMenu, $) {

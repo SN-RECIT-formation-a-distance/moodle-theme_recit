@@ -9,6 +9,7 @@
 @import "_bootstrap-override";
 @import "_moodle-override";
 @import "_vendor.scss";
+@import "transition";
 @import "animate.min";
 @import "../extras/transitions";
 @import "../extras/simple-line-icons";
@@ -25,6 +26,7 @@
 @import "ekko-lightbox";
 @import "editeur_html";
 @import "tabs";
+@import "drawer";
 @import "sous-theme";
 @import "responsive-mobile";
 @import "responsive-tablet";
