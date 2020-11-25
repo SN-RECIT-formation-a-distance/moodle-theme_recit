@@ -1,0 +1,33 @@
+// stylelint-disable property-blacklist
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-transitions:                          true !default;
+$enable-prefers-reduced-motion-media-query:   true !default;
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    $transition: $transition-base;
+  }
+
+  @if length($transition) > 1 {
+    @each $value in $transition {
+      @if $value == null or $value == none {
+        @warn "The keyword 'none' or 'null' must be used as a single argument.";
+      }
+    }
+  }
+
+  @if $enable-transitions {
+    @if nth($transition, 1) != null {
+      transition: $transition;
+    }
+
+    @if $enable-prefers-reduced-motion-media-query and nth($transition, 1) != null and nth($transition, 1) != none {
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+  }
+}

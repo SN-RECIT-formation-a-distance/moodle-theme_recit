@@ -4,7 +4,7 @@ $vendor-prefixes: (
 	'-moz-',
 	'-webkit-',
 	'-ms-',
-	''
+    '-o-'
 );
 
 /// Properties that should be vendorized.
@@ -13,7 +13,8 @@ $vendor-properties: (
 	'align-content',
 	'align-items',
 	'align-self',
-	'animation',
+    'animation',
+    'animation-iteration-count',
 	'appearance',
 	'box-sizing',
 	'filter',

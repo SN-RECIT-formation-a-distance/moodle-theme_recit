@@ -4,31 +4,16 @@
     margin: auto;
     padding-left: .5rem;
     padding-right: .5rem;
-    //padding-top: 0;
-    //padding-bottom: 0;
     .site-name {margin-left: .5rem;}
+   
     .navbar-nav{ 
         align-items: baseline;    
         
         .nav-link{
-         //   text-align: center; 
-           // i{margin-bottom: .2rem; display: block;}
            min-width: 50px;
         }
-        /*.nav-item-divider{color: #666; font-size: 25px; padding-left: 1rem; padding-right: 1rem; font-weight: 100;}*/
         .nav-item-divider{width: 90%; height: 25px; border-right: none; border-bottom: 1px solid #666; border-right: none; margin-right: 0; margin-bottom: 1rem; align-self: center;}        
     }
-
-    
-
-    /*.nav-item[data-pinned="1"]{
-        //width: 75px;
-        border-right: 1px solid #555;
-        .nav-link{ 
-            text-align: center; 
-            i{display: block; margin-bottom: .2rem; }
-        }
-    }*/
 
     .dropdown-menu{
         right: 0;
@@ -37,242 +22,48 @@
 
     .show-onmobile{display: inline;}
 
+    .nav-link{
+        i.fa {
+            font-size: 1.1rem;
+        }
+    }
+    
+    .popover-region-toggle {
+        width: inherit;
+        text-align: center;
+        color: $secondary;
+        padding-left: .8rem;
+        padding-right: .8rem;
+        font-size: 19px;
+
+        .count-container {
+            height: 18px;
+            width: 18px;
+            border-radius: 9px;
+            line-height: 15px;
+
+            &::before {
+                content: "";
+                top: -11px;
+                right: -11px;
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                z-index: 10;
+                border: 5px solid #fc4b6c;
+                border-radius: 20px;
+                @include vendor('animation', 'heartbit 1s ease-out');
+                @include vendor('animation-iteration-count', 'infinite');
+            }
+        }
+    }
+    
     @media screen and (min-width: 992px){
         .navbar-nav{ 
             .nav-item-divider{width: 2px; height: 25px; border-right: 1px solid #666; margin-bottom: 0rem; margin-right: 1rem; display: flex; align-self: center;}
         }
 
         .show-onmobile{display: none;}
-    }
-}
-
-nav.navbar {
-    max-height: inherit; // min-content does not work with firefox;
-    
-    .navbar-brand {
-        margin-right: 0;
-        padding: 0;
-
-        .logo img {
-            max-height: 40px;
-            //content: url([[pix:theme|recit-logo]]);
-        }
-    }
-
-    .drawer-toggle {
-        .nav-link {
-            color: $secondary;
-        }
-    }
-
-        .custom-menus {
-        li {
-            padding-left: .75rem;
-        }
-    }
-
-    ul.navbar-nav {
-        .popover-region {
-            margin-right: 0;
-
-            .popover-region-container {
-                @extend .scale-up;
-                top: 70px;
-
-                .popover-region-header-container {
-                    height: 50px;
-                    padding: 11px 20px 15px;
-                    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
-                }
-
-                .popover-region-content-container {
-                    height: calc(100% - 50px);
-
-                    .content-item-container {
-                        line-height: initial;
-                        background-color: #fff;
-                        padding: 15px;
-
-                        &:hover {
-                            background-color: $body-bg;
-                            color: inherit;
-
-                            .content-item-footer .timestamp {
-                                color: inherit;
-                            }
-                        }
-
-                        .content-item-body {
-                            font-weight: normal;
-                            width: calc(100% - 54px);
-
-                            h3,
-                            .notification-message {
-                                font-size: 1.2rem;
-                                margin-bottom: 5px;
-                                font-weight: normal;
-                            }
-
-                            p {
-                                line-height: initial;
-                            }
-
-                            .notification-message {
-                                font-size: 1rem;
-                            }
-                        }
-
-                        .view-more {
-                            font-size: .9rem;
-                        }
-
-                        .content-item-footer .timestamp {
-                            font-size: .9rem;
-                            line-height: inherit;
-                        }
-
-                        .unread-count-container {
-                            width: 24px;
-
-                            .badge {
-                                background-color: $secondary;
-                                width: 21px;
-                                height: 21px;
-                                border-radius: 11px;
-                                line-height: 17px;
-                            }
-                        }
-                    }
-                }
-
-                .popover-region-footer-container {
-                    height: 50px;
-                    padding: 15px 20px;
-                    border: 1px solid #ddd;
-                    margin: 0 -1px;
-
-                    .popover-region-seeall-text {
-                        line-height: initial;
-                    }
-                }
-            }
-
-            .popover-region-container[aria-hidden="false"] {
-                @extend .scale-up-show;
-            }
-
-            .popover-region-toggle {
-                width: inherit;
-                text-align: center;
-                color: $secondary;
-                padding-left: .8rem;
-                padding-right: .8rem;
-                font-size: 19px;
-                line-height: 70px;
-            }
-
-            .popover-region-toggle {
-                i.fa {
-                    font-size: 1.4rem;
-                }
-
-                .count-container {
-                    top: 13px;
-                    right: 0;
-                    position: absolute;
-                    height: 18px;
-                    width: 18px;
-                    border-radius: 9px;
-                    line-height: 15px;
-
-                    &::before {
-                        content: "";
-                        top: -11px;
-                        right: -11px;
-                        position: absolute;
-                        height: 40px;
-                        width: 40px;
-                        z-index: 10;
-                        border: 5px solid #fc4b6c;
-                        border-radius: 20px;
-                        -moz-animation: heartbit 1s ease-out;
-                        -moz-animation-iteration-count: infinite;
-                        -o-animation: heartbit 1s ease-out;
-                        -o-animation-iteration-count: infinite;
-                        -webkit-animation: heartbit 1s ease-out;
-                        -webkit-animation-iteration-count: infinite;
-                        animation-iteration-count: infinite;
-                    }
-                }
-            }
-        }
-
-        .lang-menu {
-            padding-left: .8rem;
-
-            .nav-item {
-                line-height: 70px;
-            }
-
-            .dropdown-menu {
-                @extend .scale-up-right;
-
-                right: 0;
-                left: inherit;
-
-                &.show {
-                    @extend .scale-up-right-show;
-                }
-            }
-
-            .dropdown-toggle::after {
-                border: none;
-            }
-
-            .nav-link {
-                padding-top: 0;
-                color: $secondary;
-
-                .icon-globe {
-                    font-size: 19px;
-                }
-            }
-
-            .dropdown-menu {
-                margin-top: 0;
-                padding: 0;
-
-                a.dropdown-item {
-                    line-height: 32px;
-                }
-            }
-        }
-
-        .usermenu {
-            line-height: 70px;
-            padding-left: .2rem;
-
-            .dropdown {
-                .dropdown-menu {
-                    @extend .scale-up;
-                    margin-top: 0;
-
-                    .dropdown-item {
-                        &.text-username {
-                            text-overflow: ellipsis;
-                            overflow: hidden;
-                            white-space: nowrap;
-                        }
-                    }
-                }
-
-                &.show {
-                    .dropdown-menu {
-                        @extend .scale-up-show;
-                    }
-                }
-            }
-        }
     }
 }
 

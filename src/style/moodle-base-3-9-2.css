@@ -371,3 +371,312 @@
       margin-right: 0; }
       #block-region-side-pre .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
         width: calc(100% - 0.5rem) !important; } }
+
+
+/* DRAWER MESSAGE-APP*/
+
+.drawer .message-app {
+    height: 100%; }
+    .drawer .message-app .icon-back-in-app {
+      display: none; }
+    .drawer .message-app .icon-back-in-drawer {
+      display: inherit; }
+  
+  .message-app {
+    display: flex;
+    flex-direction: column;
+    background-color: #eff1f3; }
+    .message-app .icon-back-in-drawer {
+      display: none; }
+    .message-app.main {
+      min-height: 400px; }
+    .message-app .header-container {
+      flex-shrink: 0; }
+    .message-app .overflow-y {
+      overflow-y: auto; }
+    @media (max-height: 320px) {
+      .message-app .header-container [data-region="view-overview"]:not(.hidden) {
+        display: flex;
+        align-items: center; }
+      .message-app .footer-container [data-region="view-overview"] {
+        display: none; }
+      .message-app .overflow-y {
+        overflow-y: unset; } }
+    .message-app .body-container {
+      flex: 1;
+      overflow: hidden; }
+      .message-app .body-container > * {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        overflow: auto; }
+    .message-app .footer-container {
+      flex-shrink: 0; }
+      .message-app .footer-container textarea {
+        direction: ltr; }
+    .message-app .contact-status {
+      position: absolute;
+      left: 39px;
+      top: 39px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%; }
+      .message-app .contact-status.online {
+        border: 1px solid #fff;
+        background-color: #398439; }
+    .message-app .message p {
+      margin: 0; }
+    .message-app .clickable {
+      cursor: pointer; }
+      .message-app .clickable:hover {
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3)); }
+    .message-app a,
+    .message-app .btn-link {
+      color: inherit; }
+    .message-app .btn-link:hover, .message-app .btn-link:focus {
+      background-color: rgba(0, 0, 0, 0.035);
+      text-decoration: none; }
+    .message-app .icon {
+      margin-right: 0; }
+    .message-app .overview-section-toggle .collapsed-icon-container {
+      display: none; }
+    .message-app .overview-section-toggle .expanded-icon-container {
+      display: inline-block; }
+    .message-app .overview-section-toggle.collapsed .collapsed-icon-container {
+      display: inline-block; }
+    .message-app .overview-section-toggle.collapsed .expanded-icon-container {
+      display: none; }
+    .message-app .btn.btn-link.btn-icon {
+      height: 16px;
+      width: 16px;
+      padding: 0;
+      border-radius: 50%;
+      flex-shrink: 0; }
+      .message-app .btn.btn-link.btn-icon:hover, .message-app .btn.btn-link.btn-icon:focus {
+        background-color: #e9ecef; }
+      .message-app .btn.btn-link.btn-icon.icon-size-0 {
+        height: 20px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 20px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-1 {
+        height: 24px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 24px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-2 {
+        height: 28px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 28px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-3 {
+        height: 36px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 36px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-4 {
+        height: 44px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 44px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-5 {
+        height: 52px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 52px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-6 {
+        height: 60px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 60px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+      .message-app .btn.btn-link.btn-icon.icon-size-7 {
+        height: 68px !important;
+        /* stylelint-disable-line declaration-no-important */
+        width: 68px !important;
+        /* stylelint-disable-line declaration-no-important */ }
+    .message-app .view-overview-body .section {
+      display: block; }
+      .message-app .view-overview-body .section.expanded {
+        display: flex; }
+    .message-app .view-conversation .content-message-container img {
+      max-width: 100%; }
+    .message-app .list-group .list-group-item {
+      border-left: 0;
+      border-right: 0; }
+      .message-app .list-group .list-group-item:first-child {
+        border-top: 0; }
+      .message-app .list-group .list-group-item:last-child {
+        border-bottom: 0; }
+    .message-app .last-message {
+      min-height: 1.5rem; }
+    .message-app .section .collapsing {
+      overflow: hidden; }
+    .message-app .message.send {
+      background-color: #dee2e6;
+      color: #212529; }
+      .message-app .message.send .time {
+        color: #212529; }
+      .message-app .message.send .tail {
+        right: 0;
+        margin-right: -0.5rem;
+        border-bottom-color: #dee2e6; }
+    .message-app .message.received {
+      background-color: #fff;
+      color: #212529; }
+      .message-app .message.received .time {
+        color: #646669; }
+      .message-app .message.received .tail {
+        left: 0;
+        margin-left: -0.5rem;
+        border-bottom-color: #fff; }
+    .message-app .message .tail {
+      content: '';
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border: 0.5rem solid transparent;
+      position: relative; }
+    .message-app .day {
+      color: #212529; }
+    .message-app .lazy-load-list {
+      overflow-y: auto; }
+    
+#page-message-index #page-header {
+    display: none; }
+  
+  #page-message-index #region-main {
+    height: 100%;
+    margin-top: 0; }
+    #page-message-index #region-main .conversationcontainer {
+      max-height: calc(100vh - 50px);
+      overflow: auto; }
+    #page-message-index #region-main div[role="main"] {
+      height: 100%; }
+      #page-message-index #region-main div[role="main"] #maincontent {
+        margin-top: -1px; }
+      #page-message-index #region-main div[role="main"] .message-app.main {
+        height: 100%; }
+  
+  .dir-rtl .message-drawer {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08); }
+  
+  .message-app .emoji-picker-container {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    transform: translateY(-100%); }
+    .message-app .emoji-picker-container .emoji-picker .picker-row .emoji-button {
+      height: 40px;
+      width: 40px; }
+    @media (max-width: 575.98px) {
+      .message-app .emoji-picker-container {
+        right: -0.5rem; } }
+  
+  @media (max-height: 495px) {
+    .message-app .emoji-picker-container {
+      position: fixed;
+      top: 0;
+      transform: none; } }
+  
+  .message-app .emoji-auto-complete-container {
+    overflow: auto;
+    max-height: 90px;
+    transition: max-height .15s ease-in-out;
+    visibility: visible; }
+    .message-app .emoji-auto-complete-container.hidden {
+      display: block;
+      max-height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: max-height .15s ease-in-out, visibility 0s linear .15s, overflow 0s linear .15s; }
+  
+/* MODAL DIALOG */
+
+.aabtn.focus, .aabtn:focus,
+.btn-link.focus,
+.btn-link:focus,
+.nav-link.focus,
+.nav-link:focus,
+.atto_link_button.focus,
+.atto_link_button:focus,
+[role="button"].focus,
+[role="button"]:focus,
+.list-group-item-action.focus,
+.list-group-item-action:focus,
+input[type="checkbox"].focus,
+input[type="checkbox"]:focus,
+input[type="radio"].focus,
+input[type="radio"]:focus,
+input[type="file"].focus,
+input[type="file"]:focus,
+input[type="image"].focus,
+input[type="image"]:focus,
+.sr-only-focusable.focus,
+.sr-only-focusable:focus,
+a.dropdown-item.focus,
+a.dropdown-item:focus,
+a.dropdown-toggle.focus,
+a.dropdown-toggle:focus,
+.modal-dialog[tabindex="0"].focus,
+.modal-dialog[tabindex="0"]:focus,
+.moodle-dialogue-base .closebutton.focus,
+.moodle-dialogue-base .closebutton:focus,
+button.close.focus,
+button.close:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(17, 119, 209, 0.75); }
+
+.aabtn:focus:hover,
+.btn-link:focus:hover,
+.nav-link:focus:hover,
+.atto_link_button:focus:hover,
+[role="button"]:focus:hover,
+.list-group-item-action:focus:hover,
+input[type="checkbox"]:focus:hover,
+input[type="radio"]:focus:hover,
+input[type="file"]:focus:hover,
+input[type="image"]:focus:hover,
+.sr-only-focusable:focus:hover,
+a.dropdown-item:focus:hover,
+a.dropdown-toggle:focus:hover,
+.modal-dialog[tabindex="0"]:focus:hover,
+.moodle-dialogue-base .closebutton:focus:hover,
+button.close:focus:hover {
+  text-decoration: none; }
+
+  
+.moodle-dialogue-base .closebutton {
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    background-image: none;
+    box-shadow: none;
+    opacity: 0.7; }
+    .moodle-dialogue-base .closebutton:hover, .moodle-dialogue-base .closebutton:active {
+      opacity: 1; }
+    .moodle-dialogue-base .closebutton::after {
+      content: "×"; }
+
+
+.moodle-dialogue-base .closebutton {
+padding: 1rem 1rem;
+margin: -1rem -1rem -1rem auto;
+position: relative;
+background-color: transparent;
+border: 0;
+background-image: none;
+box-shadow: none;
+opacity: 0.7; }
+.moodle-dialogue-base .closebutton:hover, .moodle-dialogue-base .closebutton:active {
+opacity: 1; }
+.moodle-dialogue-base .closebutton::after {
+content: "×"; }
+
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd {
+    display: flex;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6; }

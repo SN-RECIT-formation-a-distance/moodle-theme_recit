@@ -98,5 +98,7 @@ span.instancename{margin: .5rem;}
     .btn{
         white-space: normal!important;
     }
-
 }
+
+// ça affecte la taille des icônes dans la top-navbar
+nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: normal;}
