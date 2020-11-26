@@ -1,11 +1,12 @@
 #recitNavbarTop{
     max-width: $page-max-width;
     min-height:  $top-navbar-height;
+    max-height: inherit; // min-content does not work with firefox;
     margin: auto;
     padding-left: .5rem;
     padding-right: .5rem;
     .site-name {margin-left: .5rem;}
-   
+
     .navbar-nav{ 
         align-items: baseline;    
         
