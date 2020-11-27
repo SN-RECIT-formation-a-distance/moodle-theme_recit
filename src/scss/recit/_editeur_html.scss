@@ -1931,10 +1931,11 @@ border: 2px solid $secondary;
 	        background: linear-gradient(45deg, $secondary 0%, $secondaryBold 100%);
 	        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006391', endColorstr='$secondary', GradientType=1);
 	    }
-
+        /*
 	    .bg_dark {
 	        background: $dark;
-	    }
+        }
+        */
 
 	    .bg_black {
 	        background: #000;

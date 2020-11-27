@@ -3,47 +3,47 @@
 //sélecteur de couleur
 .tabs-color1 {
     .nav-tabs a:hover, .nav-tabs a.active {
-        background: $color1;
+        background: #0069bf;
     }
     .nav-tabs .nav-item.a:before {
         content: '';
-        background: $color1;
+        background: #0069bf;
     }
 }
 .tabs-color2 {
     .nav-tabs a:hover, .nav-tabs a.active {
-        background: $color2;
+        background: #494755;
     }
     .nav-tabs .nav-item.a:before {
         content: '';
-        background: $color2;
+        background: #494755;
     }
 }
 .tabs-color3 {
     .nav-tabs a:hover, .nav-tabs a.active {
-        background: $color3;
+        background: #384f5c;
     }
     .nav-tabs .nav-item.a:before {
         content: '';
-        background: $color3;
+        background: #384f5c;
     }
 }
 .tabs-color4 {
     .nav-tabs a:hover, .nav-tabs a.active {
-        background: $color4;
+        background: #49a7d5;
     }
     .nav-tabs .nav-item.a:before {
         content: '';
-        background: $color4;
+        background: #49a7d5;
     }
 }
 .tabs-color5 {
     .nav-tabs a:hover, .nav-tabs a.active {
-        background: $color5;
+        background: #EAC167;
     }
     .nav-tabs .nav-item.a:before {
         content: '';
-        background: $color5;
+        background: #EAC167;
     }
 }
 
