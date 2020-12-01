@@ -626,7 +626,7 @@ a.dropdown-toggle:focus,
 button.close.focus,
 button.close:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(17, 119, 209, 0.75); }
+  /*box-shadow: 0 0 0 0.2rem rgba(17, 119, 209, 0.75); */}
 
 .aabtn:focus:hover,
 .btn-link:focus:hover,
