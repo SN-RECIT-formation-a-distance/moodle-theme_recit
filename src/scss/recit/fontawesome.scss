@@ -15,4 +15,5 @@ $fa-version: "4.7.0" !default;
     font-style: normal;
 }
 
+@import "../fontawesome/font-awesome5-8-1.scss"; // le cours de français a besoin du font-awesome 5.8.1
 @import "../fontawesome/font-awesome";
