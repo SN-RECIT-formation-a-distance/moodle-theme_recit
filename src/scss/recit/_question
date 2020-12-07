@@ -1,0 +1,3 @@
+.que.opaque input[type="text"] {
+    height: 24px;
+}
