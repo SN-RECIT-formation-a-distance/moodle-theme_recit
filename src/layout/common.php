@@ -268,6 +268,8 @@ class ThemeRecitUtils{
      * @return array|stdClass[]
      */
     public static function get_user_menu($page, $user) {
+        global $COURSE;
+
         $result = array();
 
         if ($user->id == 0) {
@@ -361,12 +363,15 @@ class ThemeRecitUtils{
         $result["user"] = $item;
 
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "home");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "calendar");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "privatefiles");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "sitesettings");
+
+        if($COURSE->id > 1){
+            self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
+            self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
+            self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
+        }
 
         return $result;
     }
@@ -379,7 +384,7 @@ class ThemeRecitUtils{
      */
     public static function add_nav_item_from_flat_nav(&$navitems, $flatnav, $key) {
         $flatnavitem = $flatnav->find($key);
-
+        
         if (empty($flatnavitem) || empty($flatnavitem->action)) {
             return;
         }
