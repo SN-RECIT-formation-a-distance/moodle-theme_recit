@@ -96,7 +96,7 @@ class core_renderer extends \core_renderer {
         }
 
         $classes = "activity-content $classes";
-        return parent::box_start($classes . ' p-3', $id, $attributes);
+        return parent::box_start($classes . ' p-0 p-sm-3', $id, $attributes);
     }
 
     /**
