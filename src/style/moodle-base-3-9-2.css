@@ -1,3 +1,7 @@
+.cb-toolbar-container .dropdown-scrollable {
+  max-height: 190px;
+  overflow-y: auto;
+}
 .editor_atto_content_wrap {
     background-color: white;
     color: #333; }
