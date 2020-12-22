@@ -115,6 +115,12 @@ body.pagelayout-myrecitdashboard {
     #frontpage-available-course-list, #frontpage-category-names, #frontpage-category-combo, #site-news-forum{padding: 1rem;}
 }
 
+// this is necessary to make work for columns that freeze on the grader report
+body.pagelayout-report{
+    #page-content{
+        overflow-x: inherit!important;
+    }
+}
 // ceci est des #page-content des iframes (genre h5p) et le display doit être bloc pour rétablir la largeur pour l'affichage
 body.pagelayout-embedded{
     #page-content{
