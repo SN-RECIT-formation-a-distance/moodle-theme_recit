@@ -421,7 +421,23 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
     font-style: normal;
   }*/
 
-	/*accordion*/
+    /*accordion*/
+
+    // usage <h5 class="mb-0 chevron">
+    #accordion .chevron button::before {
+        font-family:Fontawesome;
+        content:'\f077';
+        float:left;
+        padding-right:1rem;
+        font-weight:300;
+    }
+    #accordion .chevron button.collapsed::before {
+        font-family:Fontawesome;
+        content:'\f078';
+    }
+
+
+
 
 	.accordion_3 {
 	    #accordion .card {
