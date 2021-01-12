@@ -253,11 +253,14 @@ class ThemeRecitUtils{
      * @param unknown $item
      */
     public static function set_recit_dashboard(&$item) {
-        global $CFG, $COURSE;
+        global $CFG, $COURSE, $USER;
 
         $pathrecitdashboard = '/local/recitdashboard/view.php';
         if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
-            $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
+            $roles = Utils::getUserRoles($COURSE->id, $USER->id);
+            if(Utils::isAdminRole($roles)){
+                $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
+            }
         }
     }
 
