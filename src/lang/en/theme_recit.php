@@ -266,3 +266,5 @@ $string['coursesections'] = 'Course sections';
 $string['region-side-post'] = 'To the top';
 
 $string['msgleavingmoodle'] = 'Are you sure you want to leave the Moodle - This link is taking you to a site outside of Moodle?';
+$string['showleavingsitewarning'] = 'Show warning when user clicks on external link';
+$string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if link is external';

@@ -130,6 +130,7 @@ class core_renderer extends \core_renderer {
      * @return string HTML fragment.
      */
     public function standard_head_html() {
+        global $PAGE, $CFG;
         $output = parent::standard_head_html();
 
         // Add google analytics code.
@@ -145,6 +146,16 @@ class core_renderer extends \core_renderer {
         if (!empty($theme->settings->googleanalytics)) {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
         }
+
+        
+        $showleavingsitewarning = false;
+        if (isset($theme->settings->showleavingsitewarning) && $theme->settings->showleavingsitewarning) $showleavingsitewarning = true;
+        $settings = array(
+            'showleavingsitewarning' => $showleavingsitewarning,
+        );
+        $PAGE->requires->js('/theme/' . $PAGE->theme->name . '/amd/build/theme-recit-init-vars.js');
+        $PAGE->requires->js_init_call('theme_recit_init_vars', array($settings));
+
 
         return $output;
     }
