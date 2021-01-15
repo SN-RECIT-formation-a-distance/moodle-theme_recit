@@ -684,3 +684,10 @@ content: "×"; }
     display: flex;
     padding: 1rem 1rem;
     border-bottom: 1px solid #dee2e6; }
+
+/* Puces non désirées dans le thème */
+.course-content ul.topics, .course-content ul.weeks {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}

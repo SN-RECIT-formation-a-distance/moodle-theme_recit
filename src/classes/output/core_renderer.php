@@ -153,7 +153,8 @@ class core_renderer extends \core_renderer {
         $settings = array(
             'showleavingsitewarning' => $showleavingsitewarning,
         );
-        $PAGE->requires->js('/theme/' . $PAGE->theme->name . '/amd/build/theme-recit-init-vars.js');
+        // force le chargement du fichier js du thème de base RÉCIT
+        $PAGE->requires->js('/theme/recit/amd/build/theme-recit-init-vars.js');
         $PAGE->requires->js_init_call('theme_recit_init_vars', array($settings));
 
 
