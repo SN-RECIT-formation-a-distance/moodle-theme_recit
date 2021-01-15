@@ -283,47 +283,8 @@ class ThemeRecitUtils{
             return $result;
         }
 
-        /*$loginpage = $this->is_login_page();
-        $loginurl = get_login_url();*/
-
-        /* if (!isloggedin()) {
-            $returnstr = '';
-            if (!$loginpage) {
-                $returnstr .= "<a class='btn btn-login-top d-lg-none' href=\"$loginurl\">" . get_string('login') . '</a>';
-            }
-
-            return html_writer::tag(
-                'li',
-                html_writer::span(
-                    $returnstr,
-                    'login'
-                ),
-                array('class' => $usermenuclasses)
-            );
-        }*/
-
-        /*if (isguestuser()) {
-            $returnstr = get_string('loggedinasguest');
-            if (!$loginpage && $withlinks) {
-                $returnstr .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
-            }
-
-            return html_writer::tag(
-                'li',
-                html_writer::span(
-                    $returnstr,
-                    'login'
-                ),
-                array('class' => $usermenuclasses)
-            );
-        }*/
-
         // Get some navigation opts.
         $navoptions = user_get_user_navigation_info($user, $page);
-
-        /*echo "<pre>";
-        print_r($navoptions);
-        die();*/
 
         $theme = theme_config::load('recit');
         $instance = \theme_recit\output\icon_system_fontawesome::instance($theme->get_icon_system());
@@ -374,6 +335,7 @@ class ThemeRecitUtils{
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
+            self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
         }
 
         return $result;

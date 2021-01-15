@@ -76,7 +76,13 @@
                         </li>                        
                     {{/modeedition}}
                 {{/settingsmenu.turneditingonoff}} 
-                
+
+                {{#usermenu.contentbank.url}}      
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{usermenu.contentbank.url}}" title="{{usermenu.contentbank.title}}"><i class="fa {{usermenu.contentbank.pix}}"></i><span class="show-onmobile"> {{usermenu.contentbank.title}}</span></a>
+                    </li>
+                {{/usermenu.contentbank.url}}
+
                 {{#settingsmenu.users}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="show-onmobile"> {{settingsmenu.users.title}}</span></a>
