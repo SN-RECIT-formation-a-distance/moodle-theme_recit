@@ -55,6 +55,43 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
   }
 // Fin ajout classe modal xl bootstrap 4.5
 
+// Début ajout classe bootstrap 5.0 
+.border-1 {
+    border-width: 1px !important;
+  }
+  
+  .border-2 {
+    border-width: 2px !important;
+  }
+  
+  .border-3 {
+    border-width: 3px !important;
+  }
+  
+  .border-4 {
+    border-width: 4px !important;
+  }
+  
+  .border-5 {
+    border-width: 5px !important;
+  }
+  .rounded-1 {
+    border-radius: 0.2rem !important;
+  }
+  
+  .rounded-2 {
+    border-radius: 0.25rem !important;
+  }
+  
+  .rounded-3 {
+    border-radius: 0.3rem !important;
+  }
+
+// Fin ajout classe bootstrap 5.0 
+
+
+
+
 /* .row existe aussi dans editeur_html
 @media screen and (max-width: 576px) {
     .row {
