@@ -1947,11 +1947,6 @@ border: 2px solid $secondary;
 	        background: linear-gradient(45deg, $secondary 0%, $secondaryBold 100%);
 	        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006391', endColorstr='$secondary', GradientType=1);
 	    }
-        /*
-	    .bg_dark {
-	        background: $dark;
-        }
-        */
 
 	    .bg_black {
 	        background: #000;
@@ -1959,11 +1954,6 @@ border: 2px solid $secondary;
 
 	    .bg_secondary {
 	        background: $secondary;
-	        /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $secondarypale;}      
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $secondarycomplement;
-  }*/
 	    }
 
 	    .bg_secondarypale {
@@ -1973,22 +1963,9 @@ border: 2px solid $secondary;
 	    .bg_secondaryBold {
 	        background: $secondaryBold;
 	    }
-
-	    .bg_tt-menu-color1 {
-	        background: $tt-menu-color1;
-	    }
-
-	    .bg_tt-menu-color2 {
-	        background: $tt-menu-color2;
-	    }
-
+	    
 	    .bg_primary {
 	        background: $primary;
-	        /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $primarypale;}
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $primarycomplement;
-  }*/
 	    }
 
 	    .bg_primarypale {
@@ -2000,39 +1977,19 @@ border: 2px solid $secondary;
 	    }
 
 	    .bg_danger {
-	        background: $danger;
-	        /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $dangerpale;}
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $dangercomplement;
-  }*/
+	        background: $danger;	        
 	    }
 
 	    .bg_success {
-	        background: $success;
-	        /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $successpale;}
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $successcomplement;
-  }*/
+	        background: $success;	       
 	    }
 
 	    .bg_info {
-	        background: $info;
-	        /*  &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $infopale;}
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $infocomplement;
-  }*/
+	        background: $info;	        
 	    }
 
 	    .bg_warning {
 	        background: $warning;
-	        /* &.bouton1:hover, &.bouton2:hover, &.bouton3:hover, &.bouton4:hover, &.bouton5:hover, &.bouton6:hover { background: $warningpale;}
-    .pad_ubeo_anecdote {
-      padding: 20px 20px 10px;
-      border-bottom: solid 8px $warningcomplement;
-  }*/
 	    }
 
 	    .bg_light {

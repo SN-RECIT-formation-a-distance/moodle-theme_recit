@@ -129,12 +129,15 @@ class ThemeRecitUtils{
      * @return array
      */
     public static function get_template_context_common($output, $page, $user = null) {
+        global $CFG, $SITE;
 
         $result = [
+            'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
             'output' => $output,
             'isloggedin' => isloggedin(),
             'modeedition' => self::user_is_editing($page),
             'is_siteadmin' => is_siteadmin(),
+            'wwwroot' => $CFG->wwwroot
         ];
 
         $result['settingsmenu'] = self::get_context_header_settings_menu($page);

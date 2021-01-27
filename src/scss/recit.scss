@@ -1,0 +1,5 @@
+// the variables.scss file is loaded dynamically in order to assign the custom variables coming from Moodle Theme interface
+//@import "../scss/recit/variables";
+// the import file is useful to resolve all the other files dependencies and include all of them here
+@import "./recit/import";
+

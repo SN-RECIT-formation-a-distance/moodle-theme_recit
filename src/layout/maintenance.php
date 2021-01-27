@@ -29,9 +29,9 @@ $bodyattributes = $OUTPUT->body_attributes();
 $templatecontext = [
     // We cannot pass the context to format_string, this layout can be used during
     // installation. At that stage database tables do not exist yet.
-    'sitename' => format_string($SITE->shortname, true, ["escape" => false]),
     'bodyattributes' => $bodyattributes,
-    'output' => $OUTPUT
 ];
+
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 echo $OUTPUT->render_from_template('theme_recit/maintenance', $templatecontext);

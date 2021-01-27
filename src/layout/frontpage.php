@@ -104,7 +104,6 @@ if (isloggedin()) {
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
     $templatecontext = [
-        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'bodyattributes' => $bodyattributes,
         'hasdrawertoggle' => false,
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),

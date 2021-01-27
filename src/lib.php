@@ -24,34 +24,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Post process the CSS tree.
- *
- * @param string $tree The CSS tree.
- * @param theme_config $theme The theme config object.
- */
-/*function theme_recit_css_tree_post_processor($tree, $theme) {
-    $prefixer = new theme_recit\autoprefixer($tree);
-    $prefixer->prefix();
-}*/
-
-/**
- * Inject additional SCSS.
- *
- * @param theme_config $theme The theme config object.
- * @return string
- */
-function theme_recit_get_extra_scss($theme) { 
-    $scss = $theme->settings->scss;
-
-    $scss .= theme_recit_set_headerimg($theme);
-    $scss .= theme_recit_set_topfooterimg($theme);
-    $scss .= theme_recit_set_loginbgimg($theme);
-    //$scss .= theme_recit_set_course_banner_img($theme);
-
-    return $scss;
-}
-
-/**
  * Adds the cover to CSS.
  *
  * @param theme_config $theme The theme config object.
@@ -112,26 +84,6 @@ function theme_recit_set_loginbgimg($theme) {
 }
 
 /**
- * Adds the course banner
- *
- * @param theme_config $theme The theme config object.
- * @return string
- */
-/*function theme_recit_set_course_banner_img($theme) {
-    global $OUTPUT;
-
-    $img = $theme->setting_file_url('coursebanner', 'coursebanner');
-
-    if (is_null($img)) {
-        $img = $OUTPUT->image_url('banner-course', 'theme');
-    }
-
-    $css = "#page-header .card{background-image: url('$img');}";
-
-    return $css;
-}*/
-
-/**
  * Returns the main SCSS content.
  *
  * @param theme_config $theme The theme config object.
@@ -141,39 +93,78 @@ function theme_recit_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
+    //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/bootstrap.css'); // loaded on head.mustache
+    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base.css'); // loaded here because of [[pix:]]
+  //  $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base-3-9-2.css'); // loaded on head.mustache
+    $scss .= theme_recit_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
+    //$scss .= file_get_contents($CFG->dirroot . "/theme/recit/style/recit.scss"); // scss from Theme RÉCIT
+    $scss .= file_get_contents($CFG->dirroot . "/theme/recit/scss/recit.scss"); // scss from Theme RÉCIT
 
     return $scss;
 }
 
+function theme_recit_get_scss_variables($theme){
+    global $CFG;
+
+    $scss_variables = [
+        'ttmenucolor1' => '$tt-menu-color1',
+        'ttmenucolor2' => '$tt-menu-color2',
+        'ttmenucolor3' => '$tt-menu-color3',
+        'ttmenucolor4' => '$tt-menu-color4',
+    ];
+
+    $varFileContent = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
+    
+    // in case this function is called by a subtheme
+    if(file_exists($CFG->dirroot . "/theme/{$theme->name}/scss/_variables.scss")){
+        $varFileContent .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/_variables.scss");
+    }
+    
+    $varFileContent = explode(";", $varFileContent);
+    $newVarFileContent = array();
+    
+    foreach($varFileContent as $item){
+        // value = [\$|\'|\#|\,|\-\w\d\s\!]*
+        // look for variables, for example: /$varname:/
+        if(preg_match('/\$[a-zA-z0-9-_]*\b:/', $item, $matches) == 0){
+            $newVarFileContent[] = $item;
+            continue;
+        }
+
+        $added = false;
+        foreach ($scss_variables as $propname => $varname) {
+            $value = isset($theme->settings->{$propname}) ? $theme->settings->{$propname} : null;
+            if (empty($value)) {
+                continue;
+            }
+
+            if($varname.":" == current($matches)){
+                $added = true;
+                $newVarFileContent[] = $varname . ": " . $value;
+            }
+        }
+
+        if(!$added){
+            $newVarFileContent[] = $item;
+        }
+    }
+
+    return implode(";", $newVarFileContent);
+}
+
 /**
- * Get SCSS to prepend.
+ * Inject additional SCSS.
  *
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_get_pre_scss($theme) {
-    $scss = '';
-    $configurable = [
-        // Config key => [variableName, ...].
-        'brandcolor' => ['brand-primary'],
-        'navbarheadercolor' => 'navbar-header-color'
-    ];
+function theme_recit_get_extra_scss($theme) { 
+    $scss = $theme->settings->scss;
 
-    // Prepend variables first.
-    foreach ($configurable as $configkey => $targets) {
-        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
-        if (empty($value)) {
-            continue;
-        }
-        array_map(function($target) use (&$scss, $value) {
-            $scss .= '$' . $target . ': ' . $value . ";\n";
-        }, (array) $targets);
-    }
-
-    // Prepend pre-scss.
-    if (!empty($theme->settings->scsspre)) {
-        $scss .= $theme->settings->scsspre;
-    }
+    $scss .= theme_recit_set_headerimg($theme);
+    $scss .= theme_recit_set_topfooterimg($theme);
+    $scss .= theme_recit_set_loginbgimg($theme);
+    //$scss .= theme_recit_set_course_banner_img($theme);
 
     return $scss;
 }

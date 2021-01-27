@@ -59,7 +59,6 @@ $extraclasses[] = theme_recit_get_course_theme();
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'page' => $PAGE,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,

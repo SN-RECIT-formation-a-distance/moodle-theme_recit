@@ -46,37 +46,9 @@ body {
     //border-bottom-style: ridge;
 }
 
-/*
-body.drawer-open-right{
-	margin-right: 260px;
-}
-
-body.drawer-open-right [data-region="blocks-column"]{
-	right: 0px;
-}*/
-
 .theme-bg-color {
     background-color: $primary;
 }
-
-.tt-menu-color1 {
-    background-color: $tt-menu-color1;
-}
-
-.tt-menu-color2 {
-    background-color: $tt-menu-color2;
-}
-
-/*
-.alert-info, #page-admin-index .releasenoteslink, #adminsettings .form-overridden, .que .formulation, .assignfeedback_editpdf_widget .label {
-    color: #373a3c ;
-    background-color: #f1f1f1 ;
-    border: solid 1px #ccc ;
-}*/
-/*
-.moodle-dialogue {
-z-index: 1000!important;
-}*/
 
 .recit-btn-primary {
     color: #FFF;

@@ -28,9 +28,9 @@ $extraclasses[] = 'recit-login';
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes
 ];
+
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 echo $OUTPUT->render_from_template('theme_recit/login', $templatecontext);

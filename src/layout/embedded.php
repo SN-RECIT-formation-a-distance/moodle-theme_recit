@@ -24,9 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT
-];
+$templatecontext = ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER);
 
 echo $OUTPUT->render_from_template('theme_recit/embedded', $templatecontext);

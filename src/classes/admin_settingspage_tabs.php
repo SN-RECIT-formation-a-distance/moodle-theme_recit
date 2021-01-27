@@ -32,6 +32,39 @@ class theme_recit_admin_settingspage_tabs extends admin_settingpage {
     /** @var The tabs */
     protected $tabs = array();
 
+    public function createCommonSettings($themeName){
+        $page = new admin_settingpage($themeName.'_treetopics', get_string('treetopicssettings', 'theme_recit'));
+
+        $name = $themeName.'/ttmenucolor1';
+        $title = get_string('ttmenucolorX', 'theme_recit', "1");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit', "1");
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/ttmenucolor2';
+        $title = get_string('ttmenucolorX', 'theme_recit', "2");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit', "2");
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/ttmenucolor3';
+        $title = get_string('ttmenucolorX', 'theme_recit', "3");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit', "3");
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/ttmenucolor4';
+        $title = get_string('ttmenucolorX', 'theme_recit', "4");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit', "4");
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $this->add($page);
+    }
     /**
      * Add a tab.
      *
@@ -95,6 +128,4 @@ class theme_recit_admin_settingspage_tabs extends admin_settingpage {
 
         return $OUTPUT->render_from_template('theme_recit/admin_setting_tabs', $context);
     }
-
 }
-

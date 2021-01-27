@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Recit';
-$string['configtitle'] = 'Recit';
+$string['pluginname'] = 'RÉCIT';
+$string['configtitle'] = 'RÉCIT';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 
 $string['mod-book-name'] = 'À propos du livre';
@@ -261,6 +261,13 @@ $string['forumhtmlemailfooter'] = 'Email footer';
 $string['forumhtmlemailfooterdesc'] = 'Configure the email footer for the forum messages.';
 $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
+
+// color palette
+$string['colorpalettesettings'] = 'Palette de couleurs';
+$string['treetopicssettings'] = 'Menu de l\'arborescence';
+$string['ttmenucolorX'] = 'Menu de l\'arborescence - couleur {$a}';
+$string['ttmenucolorX_desc'] = 'Menu de l\'arborescence - couleur {$a}';
+
 
 $string['coursesections'] = 'Sections de cours';
 //$string['region-side-top'] = 'En haut';
