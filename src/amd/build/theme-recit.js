@@ -73,12 +73,6 @@ M.recit.course.theme.EditorHTML = class{
     }
 
     init(){
-        // Youtube video background
-        $(".player").mb_YTPlayer({
-            showControls : false,
-            showYTLogo: false
-        });
-        
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
                 event.preventDefault();
                 $(this).ekkoLightbox();

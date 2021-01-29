@@ -58,8 +58,14 @@ require(['theme_recit/ekko-lightbox'], function(mod) {
 });
 
 M.util.js_pending('theme_recit/jquery.mb.YTPlayer');
-require(['theme_recit/jquery.mb.YTPlayer'], function(mod) {
+require(['theme_recit/jquery.mb.YTPlayer', 'jquery'], function(mod, $) {
     M.util.js_complete('theme_recit/jquery.mb.YTPlayer');
+    
+    // Youtube video background
+    $(".player").mb_YTPlayer({
+        showControls : false,
+        showYTLogo: false
+    });
 });
 
 M.util.js_pending('theme_recit/theme-recit');
