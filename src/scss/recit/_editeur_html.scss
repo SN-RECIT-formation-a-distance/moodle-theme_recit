@@ -77,8 +77,73 @@ Les tailles des items sont controlées avec col-md-4, col-md-6, col-md-12.*/
 	    width: 100%;
 	    height: 100%;
 	}
-
 	// fin classe iframe google slide
+
+
+    //début largeur et hauteur max
+    .mw-30{
+        max-width: 30px;
+    }
+    .mw-40{
+        max-width: 40px;
+    }
+    .mw-50{
+        max-width: 50px;
+    }
+    .mw-60{
+        max-width: 60px;
+    }
+    .mw-70{
+        max-width: 70px;
+    }
+    .mw-80{
+        max-width: 80px;
+    }
+    .mw-90{
+        max-width: 90px;
+    }
+    .mw-150{
+        max-width: 150px;
+    }
+    .mw-200{
+        max-width: 200px;
+    }
+    .mw-250{
+        max-width: 250px;
+    }
+
+    .mh-30{
+        max-height: 30px;
+    }
+    .mh-40{
+        max-height: 40px;
+    }
+    .mh-50{
+        max-height: 50px;
+    }
+    .mh-60{
+        max-height: 60px;
+    }
+    .mh-70{
+        max-height: 70px;
+    }
+    .mh-80{
+        max-height: 80px;
+    }
+    .mh-90{
+        max-height: 90px;
+    }
+    .mh-150{
+        max-height: 150px;
+    }
+    .mh-200{
+        max-height: 200px;
+    }
+    .mh-250{
+        max-height: 250px;
+    }
+    //fin largeur et hauteur max
+
 
     //début image cliquable
     .hovereffect {
