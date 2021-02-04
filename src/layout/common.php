@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 use theme_recit\output;
 
 require_once($CFG->dirroot . '/theme/recit/classes/output/icon_system_fontawesome.php');
+require_once($CFG->dirroot . '/theme/recit/classes/util/ThemeRecitUtils.php');
 require_once($CFG->dirroot . '/user/lib.php');
 require_once($CFG->dirroot . '/message/output/popup/lib.php');
 
@@ -194,6 +195,15 @@ class ThemeRecitUtils{
             $item->title = get_string('coursehome', 'theme_recit');
             $result['coursehome'] = $item;
 
+            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils::isAdminRole($roles)){
+                $item = new stdClass();
+                $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
+                $item->pix = 'fa-cog';
+                $item->title = get_string('courseadministration');
+                $result['courseadmin'] = $item;
+            }
+
             // the user has  permission to access these shortcuts
             if ($page->user_allowed_editing()) {
                 // editing mode
@@ -208,13 +218,7 @@ class ThemeRecitUtils{
                 }	
                 
                 $item->pix = 'fa-pencil';
-                $result['turneditingonoff'] = $item;
-            
-                $item = new stdClass();
-                $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
-                $item->pix = 'fa-cog';
-                $item->title = get_string('courseadministration');
-                $result['courseadmin'] = $item;
+                $result['turneditingonoff'] = $item;                            
 
                 $item = new stdClass();
                 $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
@@ -260,8 +264,8 @@ class ThemeRecitUtils{
 
         $pathrecitdashboard = '/local/recitdashboard/view.php';
         if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
-            $roles = Utils::getUserRoles($COURSE->id, $USER->id);
-            if(Utils::isAdminRole($roles)){
+            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils::isAdminRole($roles)){
                 $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
             }
         }
