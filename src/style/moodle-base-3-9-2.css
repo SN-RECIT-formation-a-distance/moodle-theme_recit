@@ -691,3 +691,12 @@ content: "×"; }
     margin: 0;
     list-style: none;
 }
+
+/* Patch pour ajouter ... (trois petits points) lorsque la description de la question est trop grande */
+#page-mod-quiz-edit ul.slots .activityinstance>a {
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    text-indent: 0;
+    padding-left: 0;
+}
