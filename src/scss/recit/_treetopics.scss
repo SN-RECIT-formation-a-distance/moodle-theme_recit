@@ -3,7 +3,8 @@
  ***************************************/
 //$primary:#0069bf;
 $menu-item-height:30px;
-$max-width-responsive: 1024px;
+$max-width-responsive-m1: 1024px;
+$max-width-responsive-m5: 992px;
 
 /***************************************
  * CLASSES TREE TOPICS
@@ -53,7 +54,7 @@ $max-width-responsive: 1024px;
 
         .navbar{align-items: baseline; align-content: baseline;}
 
-        @media (min-width: $max-width-responsive){
+        @media (min-width: $max-width-responsive-m5){
             .navbar-expand-lg{
                 .navbar-nav{
                     flex-direction: column;
@@ -240,7 +241,7 @@ $max-width-responsive: 1024px;
     }
 
     //------------------ Menu responsive ----------------/
-    @media screen and (max-width: $max-width-responsive){
+    @media screen and (max-width: $max-width-responsive-m1){
         .menuM1{ margin-bottom: 1rem;}
         //Closed responsive menuM1.
         .menuM1[data-status='closed']{ 
@@ -313,7 +314,9 @@ $max-width-responsive: 1024px;
                 }
             }
         }
+    }
 
+    @media screen and (max-width: $max-width-responsive-m5){
         .menuM5{
             ul.navbar-nav{
                 
