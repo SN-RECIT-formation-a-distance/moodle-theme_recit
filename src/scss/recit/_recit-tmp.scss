@@ -33,6 +33,10 @@ body {
     }
 }
 
+// patch pour prbl scrollbar verticale H5P
+.h5p-iframe-wrapper {
+    margin-top: -1px;
+    }
 
 .titre_actvity {
     h2 {
