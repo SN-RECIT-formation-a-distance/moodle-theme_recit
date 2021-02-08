@@ -95,7 +95,7 @@ function theme_recit_get_main_scss_content($theme) {
     $scss = '';
     //$scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/bootstrap.css'); // loaded on head.mustache
     $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base.css'); // loaded here because of [[pix:]]
-  //  $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base-3-9-2.css'); // loaded on head.mustache
+    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base-3-9.css'); // loaded on head.mustache
     $scss .= theme_recit_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
     //$scss .= file_get_contents($CFG->dirroot . "/theme/recit/style/recit.scss"); // scss from Theme RÉCIT
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit/scss/recit.scss"); // scss from Theme RÉCIT
