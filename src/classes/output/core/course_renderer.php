@@ -31,7 +31,7 @@ use html_writer;
 use coursecat;
 use coursecat_helper;
 use stdClass;
-use course_in_list;
+use core_course_list_element;
 
 /**
  * Renderers to align Recit's course elements to what is expect
@@ -224,8 +224,8 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new course_in_list($course);
+           // require_once($CFG->libdir. '/coursecatlib.php');
+            $course = new core_course_list_element($course);
         }
 
         $classes = trim('card');
@@ -264,7 +264,7 @@ class course_renderer extends \core_course_renderer {
 
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new course_in_list($course);
+            $course = new core_course_list_element($course);
         }
 
         // Course name.
