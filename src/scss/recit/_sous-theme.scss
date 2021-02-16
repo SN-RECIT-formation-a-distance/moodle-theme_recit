@@ -73,6 +73,15 @@ body.theme-recit-francais{
     h4 {font-family: 'vigaregular', sans-serif;} 
     h5 {font-family: 'vigaregular', sans-serif;}
     h6 {font-family: 'vigaregular', sans-serif;} 
+    .recit-btn-primary {
+        color: $darkF;
+    }
+    
+    .recit-btn-primary:hover {
+        color:$dark;
+    }
+
+
 }
 
 
