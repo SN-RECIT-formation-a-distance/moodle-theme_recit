@@ -188,38 +188,6 @@ class core_renderer extends \core_renderer {
     }
 
     /**
-     * Override to inject the logo.
-     *
-     * @param array $headerinfo The header info.
-     * @param int $headinglevel What level the 'h' tag will be.
-     * @return string HTML for the header bar.
-     */
-    public function context_header($headerinfo = null, $headinglevel = 1) {
-        global $COURSE, $CFG;
-        
-        if($COURSE->id == 1){
-            return "";
-        }
-        else{
-            //$template = '<div class="page-context-header"><div class="page-header-headings"><a href="%s/course/view.php?id=%ld"><h1><i class="fa fa-home" style="margin-right: 5px;"></i>%s</h1></a></div></div>';
-            $template = '<div class="page-context-header"><div class="page-header-headings"><h1>%s</h1></div></div>';
-            return sprintf($template, $COURSE->fullname);
-        }
-        
-        /*
-        global $SITE;
-
-        if ($this->should_display_main_logo($headinglevel)) {
-            $sitename = format_string($SITE->fullname, true, array('context' => context_course::instance(SITEID)));
-            return html_writer::div(html_writer::empty_tag('img', [
-                'src' => $this->get_logo_url(null, 150), 'alt' => $sitename, 'class' => 'img-fluid']), 'logo');
-        }
-        
-
-        return parent::context_header($headerinfo, $headinglevel);*/
-    }
-
-    /**
      * Get the compact logo URL.
      *
      * @return string

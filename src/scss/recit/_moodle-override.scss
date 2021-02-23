@@ -102,3 +102,12 @@ span.instancename{margin: .5rem;}
 
 // ça affecte la taille des icônes dans la top-navbar
 nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: normal;}
+
+#course-banner{
+    .page-context-header{
+        .header-button-group{
+            float:inherit;
+            #message-user-button{color: #FFF;}
+        }
+    }
+}
