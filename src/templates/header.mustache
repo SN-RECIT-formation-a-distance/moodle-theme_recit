@@ -31,6 +31,12 @@
         {{#enablebreadcrumb}}   
             {{{navbar}}}
         {{/enablebreadcrumb}}
+        
+        <div class="" data-region="header-actions-container" style="height: 40px;">
+            {{#headeractions}}
+                <div class="header-action ml-2">{{{.}}}</div>
+            {{/headeractions}}
+        </div>
 
         {{#showpageheadingbutton}}   
         <div class="m-1 p-1 d-flex justify-content-end">
