@@ -868,5 +868,8 @@ content: "×"; }
         .emoji-auto-complete .btn.btn-link.btn-icon.emoji-button.active {
         background-color: #e9ecef; }
 
+        
+.overflow-auto {
+    overflow: auto !important; }
 .overflow-hidden {
     overflow: hidden !important; }
