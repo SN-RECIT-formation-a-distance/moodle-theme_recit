@@ -74,10 +74,10 @@ M.recit.course.theme.EditorHTML = class{
 
     init(){
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            });
-        
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+
         $('.ubeo_btn_expand').click(function() {
                 $(this).parents('.math_content_expand').toggleClass('ubeo_zoom');
                 $(this).parents('.container').toggleClass('ubeo_zoom');
@@ -86,6 +86,21 @@ M.recit.course.theme.EditorHTML = class{
         });
 		
 		this.initBtnVideo();
+        this.initFlipCard();
+    }
+
+    initFlipCard(){
+        $(document).on('click', '.flipcard', function(event) {
+            if ($(this.parentElement).hasClass('hover')){
+                $(this.parentElement).removeClass('hover');
+            }else{
+                $(this.parentElement).addClass('hover')
+            }
+        });
+        
+        $(".flipcard").each(function(e) {
+            $(this.parentElement).addClass('manual-flip');
+        })
     }
 	
 	initBtnVideo(){
