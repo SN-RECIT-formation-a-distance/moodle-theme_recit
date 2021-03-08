@@ -3208,6 +3208,10 @@ border: 2px solid $secondary;
 	        perspective: 800px;
 	        margin-bottom: 30px;
 
+			.flipcard:hover {
+				cursor: pointer;
+			}
+
 	        .flipcard {
 	            /* flip speed goes here */
 	            -webkit-transition: -webkit-transform .5s;
