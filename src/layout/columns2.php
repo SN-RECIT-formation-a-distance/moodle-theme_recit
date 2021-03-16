@@ -44,6 +44,7 @@ $topblockshtml = $OUTPUT->blocks('side-post');
 
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
+$hasblocks |= $hastopblocks;
 
 $extraclasses = [];
 /*if ($navdraweropen) {

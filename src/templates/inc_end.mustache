@@ -10,6 +10,11 @@
 
         <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print {{^navdraweropen}}closed{{/navdraweropen}}">
             {{{ sidepreblocks }}}
+            {{#hastopblocks}}
+                <section data-region="blocks-row" class="d-print-none hidden-print">
+                    {{{ sidetopblocks }}}
+                </section>
+            {{/hastopblocks}}
         </section>
     {{/hasblocks}}
 </div><!-- Ends .page-wrapper -->
