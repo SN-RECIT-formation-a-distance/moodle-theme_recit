@@ -873,3 +873,11 @@ content: "×"; }
     overflow: auto !important; }
 .overflow-hidden {
     overflow: hidden !important; }
+
+
+/****************
+ * QUIZ
+ ******************/
+#page-mod-quiz-mod #id_reviewoptionshdr .review_option_item {
+    width: 90%;
+    height: 22px; }
