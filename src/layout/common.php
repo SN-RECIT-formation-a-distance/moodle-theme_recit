@@ -246,6 +246,23 @@ class ThemeRecitUtils{
                 $item->title =  get_string('grade', 'theme_recit');
                 $result['grade'] = $item;*/
             }
+        }else{
+            if ($page->user_allowed_editing() && $page->pagelayout == 'frontpage') {
+                // editing mode
+                $item = new stdClass();
+                $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
+                if ($page->user_is_editing()) {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
+                    $item->title = get_string('turneditingoff');
+                } else {
+                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
+                    $item->title = get_string('turneditingon');
+                }	
+                
+                $item->pix = 'fa-pencil';
+                $result['turneditingonoff'] = $item;
+                 
+            }
         }
 
         /*echo "<pre>";
