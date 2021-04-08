@@ -206,19 +206,8 @@ class ThemeRecitUtils{
 
             // the user has  permission to access these shortcuts
             if ($page->user_allowed_editing()) {
-                // editing mode
-                $item = new stdClass();
-                $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
-                if ($page->user_is_editing()) {
-                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
-                    $item->title = get_string('turneditingoff');
-                } else {
-                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
-                    $item->title = get_string('turneditingon');
-                }	
-                
-                $item->pix = 'fa-pencil';
-                $result['turneditingonoff'] = $item;                            
+
+                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
 
                 $item = new stdClass();
                 $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
@@ -249,27 +238,28 @@ class ThemeRecitUtils{
         }else{
             if ($page->user_allowed_editing() && $page->pagelayout == 'frontpage') {
                 // editing mode
-                $item = new stdClass();
-                $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
-                if ($page->user_is_editing()) {
-                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
-                    $item->title = get_string('turneditingoff');
-                } else {
-                    $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
-                    $item->title = get_string('turneditingon');
-                }	
-                
-                $item->pix = 'fa-pencil';
-                $result['turneditingonoff'] = $item;
+                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
                  
             }
         }
 
-        /*echo "<pre>";
-        print_r($result);
-        die();*/
-
         return $result;
+    }
+
+    public static function get_editing_mode_object($page){
+        global $CFG, $COURSE;
+        $item = new stdClass();
+        $urlEditingMode = "%s/course/view.php?id=%ld&sesskey=%s&edit=%s";
+        if ($page->user_is_editing()) {
+            $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'off');
+            $item->title = get_string('turneditingoff');
+        } else {
+            $item->url = sprintf($urlEditingMode, $CFG->wwwroot, $COURSE->id, sesskey(), 'on');
+            $item->title = get_string('turneditingon');
+        }	
+        
+        $item->pix = 'fa-pencil';
+        return $item;
     }
 
     /**
