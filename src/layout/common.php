@@ -202,18 +202,18 @@ class ThemeRecitUtils{
                 $item->pix = 'fa-cog';
                 $item->title = get_string('courseadministration');
                 $result['courseadmin'] = $item;
-            }
-
-            // the user has  permission to access these shortcuts
-            if ($page->user_allowed_editing()) {
-
-                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
 
                 $item = new stdClass();
                 $item->url = sprintf("%s/user/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
                 $item->pix = 'fa-users';
                 $item->title = get_string('participants');
                 $result['users'] = $item;
+            }
+
+            // the user has  permission to access these shortcuts
+            if ($page->user_allowed_editing()) {
+
+                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
 
                 /*$item = new stdClass();
                 $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
@@ -285,7 +285,7 @@ class ThemeRecitUtils{
      * @return array|stdClass[]
      */
     public static function get_user_menu($page, $user) {
-        global $COURSE;
+        global $COURSE, $USER;
 
         $result = array();
 
@@ -346,10 +346,15 @@ class ThemeRecitUtils{
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "sitesettings");
 
         if($COURSE->id > 1){
-            self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
+           
+            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils::isAdminRole($roles)){
+                self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
+                self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
+            }
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
-            self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
+            
         }
 
         return $result;
