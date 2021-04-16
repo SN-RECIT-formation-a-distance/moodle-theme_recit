@@ -3419,6 +3419,8 @@ border: 2px solid $secondary;
 
 		.card-container.hover {
 			opacity: 1;
+			background: initial;
+			border: none;		
 		}
 
 
