@@ -3417,6 +3417,10 @@ border: 2px solid $secondary;
 	        transform: rotateY(180deg);
 	    }
 
+		.card-container.hover {
+			opacity: 1;
+		}
+
 
 	    .card-container.static:hover .card,
 	    .card-container.static.hover .card {
