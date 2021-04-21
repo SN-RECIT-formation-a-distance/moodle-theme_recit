@@ -81,7 +81,11 @@ body.theme-recit-francais{
         color:$dark;
     }
 
-
+    .btn-primary, .btn-primary:not(:disabled):not(.disabled):active {
+        color: #FFF;
+        background-color: $dark;
+        border-color: $dark;
+    }
 }
 
 
