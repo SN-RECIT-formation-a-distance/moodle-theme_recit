@@ -39,7 +39,11 @@
 
     .recit-course-list{
         grid-template-columns: auto;
-    }  
+    }
+
+    .block-myoverview .btn {
+        font-size: 13px;
+    }
 
     #page-login-index.recit-login {
         #page-wrapper {
