@@ -34,12 +34,17 @@
         </span>
     </a>
 
-    <ul class="navbar-nav show-onmobile mr-auto ml-4">  
+    <ul class="navbar-nav show-onmobile ml-auto mr-2">
         {{#settingsmenu.coursehome}}      
             <li class="nav-item">
                 <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
-            </li></span>
+            </li>
         {{/settingsmenu.coursehome}}
+        {{#message_and_notification}}      
+            <li class="nav-item" style="display:flex">
+                {{{message_and_notification}}}
+            </li>
+        {{/message_and_notification}}
     </ul>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,10 +53,10 @@
 
     {{#isloggedin}}            
         <div class="collapse navbar-collapse" id="navbarMenuItems">
-            <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem; '>
+            <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem;'>
                 <span class="site-name d-md-inline">{{{ sitename }}}</span>
             </a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navleft">  
                 {{#settingsmenu.coursehome}}      
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="show-onmobile"> {{settingsmenu.coursehome.title}}</span></a>
@@ -89,7 +94,7 @@
                     </li>
                 {{/settingsmenu.users}}
                 {{#settingsmenu.paramsact}}
-                    <li class="nav-item-divider"></li>  
+                    <li class="nav-item-divider"></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="show-onmobile"> {{settingsmenu.paramsact.title}}</span></a>
                     </li>
@@ -103,9 +108,11 @@
                     <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="show-onmobile"> {{usermenu.mymoodle.title}}</span></a>
                 </li>       
 
-                {{#message_and_notification}}
-                    {{{message_and_notification}}}
-                {{/message_and_notification}}
+                <span class="hide-onmobile">
+                    {{#message_and_notification}}
+                        {{{message_and_notification}}}
+                    {{/message_and_notification}}
+                </span>
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
@@ -131,7 +138,7 @@
                         {{{usermenu.user.pix}}}
                         <span class="show-onmobile"> {{usermenu.user.title}}</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
+                    <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown">                    
                         {{#usermenu.profile.url}}
                             <a class="dropdown-item" href="{{usermenu.profile.url}}" title="{{usermenu.profile.title}}"><i class="fa {{usermenu.profile.pix}}"></i> {{usermenu.user.title}} ({{usermenu.profile.title}})</a>
                             {{#usermenu.user.role}}
