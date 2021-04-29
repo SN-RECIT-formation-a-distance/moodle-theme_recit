@@ -35,14 +35,14 @@
     </a>
 
     <ul class="navbar-nav show-onmobile ml-auto mr-2">
+        {{#settingsmenu.coursehome}}      
+            <li class="nav-item">
+                <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
+            </li>
+        {{/settingsmenu.coursehome}}
         {{#message_and_notification}}      
             <li class="nav-item" style="display:flex">
                 {{{message_and_notification}}}
-                {{#settingsmenu.coursehome}}      
-                    <div class="popover-region collapsed">
-                        <a class="nav-link nav-link d-inline-block popover-region-toggle position-relative" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
-                    </div>
-                {{/settingsmenu.coursehome}}
             </li>
         {{/message_and_notification}}
     </ul>
