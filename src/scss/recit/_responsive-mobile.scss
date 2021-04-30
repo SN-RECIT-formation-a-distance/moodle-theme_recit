@@ -71,4 +71,15 @@
     #page-enrol-index #region-main .generalbox {
         width: 100%;
     }
+
+    /* Hide this panel in mobile because of layout issues */
+    #page-my-index .page-context-header {
+        display: none;
+    }
+	
+	
+    /* Reduce font-size on this block due to layout issues...it exceeds the container*/
+    .block-myoverview .btn {
+        font-size: 13px;
+    }
 }
