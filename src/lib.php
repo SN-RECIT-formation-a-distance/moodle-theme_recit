@@ -22,6 +22,8 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+use \core_customfield\category_controller;
+use \core_customfield\field_controller;
 
 /**
  * Adds the cover to CSS.
@@ -283,6 +285,49 @@ function theme_recit_get_course_theme() {
             return 'theme-recit-ecoleg';
         default: 
             return "theme-recit";
+    }
+}
+
+
+function theme_recit_create_course_custom_fields(){
+    $category_name = "RÉCIT";
+    $field_to_add = array(
+        array(
+            'type' => 'checkbox',
+            'name' => "Bannière du cours",
+            'shortname' => 'img_course_as_banner',
+            'description' => "Utiliser l'image du cours comme bannière",
+            'descriptionformat' => FORMAT_HTML,
+            'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
+        )
+    );
+
+    $fields = array();
+    $category = null;
+
+    $handler = \core_customfield\handler::get_handler('core_course', 'course');
+    $curcat = $handler->get_categories_with_fields();
+    foreach($curcat as $cat){
+        if ($cat->get('name') == $category_name){
+            $category = $cat->get('id');
+            
+            foreach ($cat->get_fields() as $field) {
+                $fields[] = $field->get('shortname');
+            }
+        }
+    }
+
+    if (!$category){
+        $category = $handler->create_category($category_name);
+    }
+
+    $category = category_controller::create($category);
+    $handler = $category->get_handler();
+    foreach($field_to_add as $f){
+        if (!in_array($f['shortname'], $fields)){
+            $field = field_controller::create(0, (object)['type' => $f['type']], $category);
+            $handler->save_field_configuration($field, (object)$f);
+        }
     }
 }
 
