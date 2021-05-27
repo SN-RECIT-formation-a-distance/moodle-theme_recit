@@ -174,11 +174,38 @@ if ($ADMIN->fulltree) {
   //  $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Footer logo
+    $name = 'theme_recit/footerlogo';
+    $title = get_string('footerlogo', 'theme_recit');
+    $description = get_string('footerlogodesc', 'theme_recit');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'footerlogo', 0, $opts);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Website.
     $name = 'theme_recit/website';
     $title = get_string('website', 'theme_recit');
     $description = get_string('websitedesc', 'theme_recit');
     $default = 'https://recitfad.ca';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+ //   $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Terms of usage
+    $name = 'theme_recit/termsurl';
+    $title = get_string('termsurl', 'theme_recit');
+    $description = get_string('termsurldesc', 'theme_recit');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+ //   $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // policy privacy
+    $name = 'theme_recit/policyurl';
+    $title = get_string('policyurl', 'theme_recit');
+    $description = get_string('policyurldesc', 'theme_recit');
+    $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
  //   $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);

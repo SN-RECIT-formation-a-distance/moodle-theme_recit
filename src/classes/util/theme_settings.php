@@ -50,13 +50,24 @@ class theme_settings {
 
         $footersettings = [
             'facebook', 'twitter', 'googleplus', 'linkedin', 'youtube', 'instagram', 'getintouchcontent',
-            'website', 'mobile', 'mail'
+            'website', 'mobile', 'mail', 'policyurl', 'termsurl'
         ];
 
         foreach ($footersettings as $setting) {
             if (!empty($theme->settings->$setting)) {
                 $templatecontext[$setting] = $theme->settings->$setting;
             }
+        }
+
+        $footerfilesettings = [
+            'footerlogo'
+        ];
+
+        foreach ($footerfilesettings as $setting) {
+                $image = $theme->setting_file_url($setting, $setting);
+                if (!empty($image)) {
+                    $templatecontext[$setting] = $image;
+                }
         }
 
         $templatecontext['disablebottomfooter'] = false;

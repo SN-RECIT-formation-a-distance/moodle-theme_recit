@@ -30,13 +30,8 @@
                 {{#website}}<li><i class="icon-globe" style="padding-right: 10px"></i>{{{website}}}</li>{{/website}}
                 {{#mobile}}<li><i class="icon-phone" style="padding-right: 10px"></i>{{{mobile}}}</li>{{/mobile}}
                 {{#mail}}<li><i class="icon-envelope" style="padding-right: 10px"></i>{{{mail}}}</li>{{/mail}}
-            </ul>
-        <img src="https://recitfad.ca/depot/praesentia_w.png" alt="Environnement numérique d'apprentissage PRAESENTIA face" height="" width="">
-        <!--<img src="https://recitfad.ca/depot/snfad_w.png" alt="Logo RÉCIT SN FAD face" height="" width="">-->
-	      </div>
-
-        <div class="col-md-3 ">
-          <ul>
+        </ul>
+        <ul class="social">
             {{#email}}
                 <li>
                   <a href="{{{email}}}" target="_blank" class="email">
@@ -92,14 +87,31 @@
                   </a>
                 </li>
               {{/instagram}}
-          </ul>
+        </ul>
+        {{#footerlogo}}
+            <img src="{{footerlogo}}" alt="{{sitename}}" >            
+        {{/footerlogo}}
+        {{^footerlogo}}
+          <img src="https://recitfad.ca/depot/praesentia_w.png" alt="Environnement numérique d'apprentissage PRAESENTIA face">
+        {{/footerlogo}}
+	      </div>
 
-		 </div>
+        <div style="margin:auto;width:fit-content">
+
+              {{#termsurl}}
+                  <a href="{{{termsurl}}}" target="_blank" style="color:#fff;margin-right:10px" class="terms">
+                    {{#str}} termsurl, theme_recit {{/str}}
+                  </a>
+              {{/termsurl}}
+              {{#policyurl}}
+                  <a href="{{{policyurl}}}" target="_blank" style="color:#fff;" class="terms">
+                    {{#str}} policyurl, theme_recit {{/str}}
+                  </a>
+              {{/policyurl}}
+
+		   </div>
           
-        </div>
-        <div class="col-md-4 contact">
-		
-        </div>
+    </div>
   </div>
 </div>
 

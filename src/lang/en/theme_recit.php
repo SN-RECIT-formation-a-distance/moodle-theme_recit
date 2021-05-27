@@ -248,6 +248,12 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['topfooterimg'] = 'Footer image';
 $string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
+$string['footerlogo'] = 'Footer logo image';
+$string['footerlogodesc'] = 'Upload your custom footer logo image here if you want to replace the default image.';
+$string['termsurl'] = 'Terms of Usage';
+$string['termsurldesc'] = 'Enter the URL of your Terms of Usage';
+$string['policyurl'] = 'Privacy Policy';
+$string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
