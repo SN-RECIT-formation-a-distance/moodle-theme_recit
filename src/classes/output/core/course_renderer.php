@@ -263,7 +263,7 @@ class course_renderer extends \core_course_renderer {
         global $CFG, $DB;
 
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
+            if (file_exists($CFG->libdir. '/coursecatlib.php')) require_once($CFG->libdir. '/coursecatlib.php');
             $course = new core_course_list_element($course);
         }
 
