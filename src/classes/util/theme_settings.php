@@ -38,6 +38,8 @@ defined('MOODLE_INTERNAL') || die();
  */
 class theme_settings {
 
+    public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
+    
     /**
      * Get config theme footer itens
      *

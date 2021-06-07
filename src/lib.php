@@ -290,13 +290,13 @@ function theme_recit_get_course_theme() {
 
 
 function theme_recit_create_course_custom_fields(){
-    $category_name = "RÉCIT";
+    $category_name = \theme_recit\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION;
     $field_to_add = array(
         array(
             'type' => 'checkbox',
-            'name' => "Bannière du cours",
+            'name' => get_string('course-banner', 'theme_recit'),
             'shortname' => 'img_course_as_banner',
-            'description' => "Utiliser l'image du cours comme bannière",
+            'description' => get_string('course-banner-help', 'theme_recit'),
             'descriptionformat' => FORMAT_HTML,
             'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
         )

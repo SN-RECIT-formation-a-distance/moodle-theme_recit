@@ -129,7 +129,7 @@ class core_renderer extends \core_renderer {
 
         if($COURSE->id > 1){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);
-            $customFieldsRecit = $this->get_course_metadata($COURSE->id, 'RÉCIT');
+            $customFieldsRecit = $this->get_course_metadata($COURSE->id, \theme_recit\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
             if((property_exists($customFieldsRecit, 'img_course_as_banner')) && ($customFieldsRecit->img_course_as_banner === "1") && ($courseImage)){
                 return "background-image: url('$courseImage'); background-position: center;";
             }

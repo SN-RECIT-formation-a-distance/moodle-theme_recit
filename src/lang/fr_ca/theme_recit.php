@@ -282,3 +282,7 @@ $string['region-side-post'] = 'En haut';
 $string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';
 $string['showleavingsitewarning'] = 'Alerte si lien externe';
 $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter Moodle lorsqu\'un lien mène vers un site en dehors de Moodle';
+
+// Custom fields
+$string['course-banner'] = 'Bannière du cours';
+$string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
