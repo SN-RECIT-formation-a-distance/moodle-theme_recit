@@ -588,3 +588,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
+
+// Patch for help icons floating 
+#page-mod-quiz-mod #id_reviewoptionshdr .btn-link {
+    float: right;
+}
