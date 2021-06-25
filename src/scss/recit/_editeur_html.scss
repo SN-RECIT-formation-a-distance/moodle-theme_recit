@@ -5548,3 +5548,8 @@ color: #767676;
 	        // transform: scaleX(1);
 	    }
 	}
+
+	//Modal video
+	#bsModalVideo .modal-dialog {
+		max-width: unset !important;
+	}
