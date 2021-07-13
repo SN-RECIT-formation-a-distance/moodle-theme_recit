@@ -56,11 +56,29 @@
             }
         }
     }
-    
-    @media screen and (min-width: 992px){
-        .navbar-nav{ 
-            .nav-item-divider{width: 2px; height: 25px; border-right: 1px solid #666; margin-bottom: 0rem; margin-right: 1rem; display: flex; align-self: center;}
+
+    .rightnav {
+        color: #9a9da0;
+        position: absolute;
+        display: flex;
+        right: 184px;
+        top: 5px;
+        .popover-region {
+            margin-right: 0px;
         }
+    }
+    
+    @media screen and (max-width: 992px){
+        .rightnav {
+            position: unset;
+            .nav-item-divider {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px){
+        .nav-item-divider{width: 2px; height: 25px; border-right: 1px solid #666; margin-bottom: 0rem; margin-right: 1rem; display: flex; align-self: center;}
 
         .show-onmobile{display: none;}
     }

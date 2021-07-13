@@ -42,6 +42,12 @@
         {{/settingsmenu.coursehome}}
     </ul>
 
+    <div class="rightnav">
+        {{#message_and_notification}}
+            {{{message_and_notification}}}
+        {{/message_and_notification}}
+    </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -95,11 +101,11 @@
                     </li>
                 {{/settingsmenu.users}}
                 {{#settingsmenu.paramsact}}
-                    <li class="nav-item-divider"></li>  
+                    <li class="nav-item-divider"></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="show-onmobile"> {{settingsmenu.paramsact.title}}</span></a>
                     </li>
-                {{/settingsmenu.paramsact}}                
+                {{/settingsmenu.paramsact}}
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >    
                 <li class="nav-item" style='display: none;'>
@@ -107,11 +113,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="show-onmobile"> {{usermenu.mymoodle.title}}</span></a>
-                </li>       
-
-                {{#message_and_notification}}
-                    {{{message_and_notification}}}
-                {{/message_and_notification}}
+                </li>
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
@@ -193,6 +195,7 @@
                 </li>
             </ul>
         </div>
+
     {{/isloggedin}}
     {{^isloggedin}}
         <div class="collapse navbar-collapse" id="navbarMenuItems">
