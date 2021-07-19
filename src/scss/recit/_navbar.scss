@@ -75,6 +75,14 @@
                 display: none;
             }
         }
+
+        &.fixed-top{
+            .dropdown{
+                .dropdown-menu{
+                    max-height: calc(40vh);
+                }
+            } 
+        } 
     }
 
     @media screen and (min-width: 992px){
