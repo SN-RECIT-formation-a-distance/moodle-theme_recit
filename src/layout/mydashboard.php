@@ -17,7 +17,7 @@
 /**
  * A two column layout for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright RÉCIT 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,18 +27,18 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::set_user_preference_drawer();
+ThemeRecitUtils2::set_user_preference_drawer();
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
 
-if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
+if (ThemeRecitUtils2::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
-$extraclasses[] = theme_recit_get_course_theme();
+$extraclasses[] = theme_recit2_get_course_theme();
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -47,13 +47,13 @@ $templatecontext = [
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
-    'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
-    'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
+    'navdraweropen' => ThemeRecitUtils2::is_nav_drawer_open(),
+    'draweropenright' => ThemeRecitUtils2::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-$themesettings = new \theme_recit\util\theme_settings();
+$themesettings = new \theme_recit2\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
@@ -73,7 +73,7 @@ if (is_siteadmin()) {
     $onlineusers = $onlineusers->count_users();
 
     // Get the disk usage.
-    $cache = cache::make('theme_recit', 'admininfos');
+    $cache = cache::make('theme_recit2', 'admininfos');
     $totalusagereadable = $cache->get('totalusagereadable');
 
     if (!$totalusagereadable) {
@@ -97,7 +97,7 @@ if (is_siteadmin()) {
     $templatecontext['onlineusers'] = $onlineusers;
 }
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 
-echo $OUTPUT->render_from_template('theme_recit/mydashboard', $templatecontext);
+echo $OUTPUT->render_from_template('theme_recit2/mydashboard', $templatecontext);

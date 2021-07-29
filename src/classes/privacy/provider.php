@@ -17,12 +17,12 @@
 /**
  * Overriden course topics format renderer.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2018 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\privacy;
+namespace theme_recit2\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 

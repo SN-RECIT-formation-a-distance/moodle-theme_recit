@@ -27,20 +27,20 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
 
     window.jQuery = jQuery;
     window.Tether = Tether;
-    M.util.js_pending('theme_recit/loader:children');
+    M.util.js_pending('theme_recit2/loader:children');
 
-    require(['theme_recit/aria',
-            'theme_recit/util',
-            'theme_recit/alert',
-            'theme_recit/button',
-            'theme_recit/carousel',
-            'theme_recit/collapse',
-            'theme_recit/dropdown',
-            'theme_recit/modal',
-            'theme_recit/scrollspy',
-            'theme_recit/tab',
-            'theme_recit/tooltip',
-            'theme_recit/popover'],
+    require(['theme_recit2/aria',
+            'theme_recit2/util',
+            'theme_recit2/alert',
+            'theme_recit2/button',
+            'theme_recit2/carousel',
+            'theme_recit2/collapse',
+            'theme_recit2/dropdown',
+            'theme_recit2/modal',
+            'theme_recit2/scrollspy',
+            'theme_recit2/tab',
+            'theme_recit2/tooltip',
+            'theme_recit2/popover'],
             function(Aria) {
 
         // We do twice because: https://github.com/twbs/bootstrap/issues/10547
@@ -73,7 +73,7 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
         });
 
         Aria.init();
-        M.util.js_complete('theme_recit/loader:children');
+        M.util.js_complete('theme_recit2/loader:children');
     });
 
 

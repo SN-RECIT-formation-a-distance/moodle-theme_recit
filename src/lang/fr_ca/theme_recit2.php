@@ -17,16 +17,16 @@
 /**
  * Language file.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright 2017 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'RÉCIT';
+$string['pluginname'] = 'RÉCIT v2';
 $string['configtitle'] = 'RÉCIT';
-$string['choosereadme'] = 'Recit is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
+$string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 
 $string['mod-book-name'] = 'À propos du livre';
 $string['mod-book-name-consigne'] = "Un livre est un ensemble de pages regroupées àzz l'aide d'une table des matières. Tu peux naviguer d'une page à l'autre.";
@@ -49,100 +49,101 @@ $string['mod-page-name-consigne'] = 'La page présente des informations multimé
 $string['mod-questionnaire-name'] = 'À propos du questionnaire';
 $string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
 $string['mod-quiz-name'] = 'À propos du test';
-$string['mod-quiz-name-consigne'] = 'Le  devoir permet à ton enseignant de te communiquer des tâches, de récolter tes travaux et de te fournir rétroactions et notes.';
+$string['mod-quiz-name-consigne'] = 'Le test permet à ton enseignant d\'évaluer la compréhension en te posant des questions.';
 $string['mod-recitcahiercanada-name'] = "À propos du cahier des traces";
 $string['mod-recitcahiercanada-name-consigne'] = 'Le cahier des traces permet à l\'élève de noter les renseignements présents à l\'intérieur d\'une activité ou d\'une ressource';
 $string['mod-workshop-name'] = 'À propos de l\'atelier';
 $string['mod-workshop-name-consigne'] = "Pour en savoir plus";
 $string['mod-questionnaire-name'] = 'À propos du questionnaire';
 $string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
+
 $string['mod-tab-name'] = 'À propos des onglets';
 $string['mod-tab-name-consigne'] = 'Les permettenr à ton enseignant de présenter des contenus sous forme d\'onglets. Clique sur les onglets pour voir les contenus.';
 
 $string['currentinparentheses'] = '(current)';
-$string['region-side-pre'] = 'Right';
-$string['login'] = 'Already have an account?';
-$string['prev_section'] = 'Previous section';
-$string['next_section'] = 'Next section';
-$string['search_site'] = 'Search on site';
-$string['search_forums'] = 'Search on course forums';
-$string['platform_access'] = 'Access to the platform';
-$string['readmore'] = 'Read More';
-$string['stayintouch'] = 'Stay in touch';
-$string['madewitmoodle'] = 'Proudly made with';
-$string['madeby'] = 'Made with';
-$string['by'] = 'by';
-$string['discipline_progress'] = 'Discipline\'s progress';
-$string['access'] = 'Access';
-$string['cachedef_admininfos'] = 'Site administrator dashboard infos';
-$string['diskusage'] = 'Disk usage(moodledata)';
-$string['totalusers'] = 'Active / Suspended users';
-$string['totalcourses'] = 'Total courses';
-$string['onlineusers'] = 'Online users(last 5 minutes)';
-$string['showhideblocks'] = 'Show/hide blocks';
-$string['privacy:metadata'] = 'The Recit theme does not store any personal data about any user.';
-$string['coursehome'] = 'Course Home';
-$string['grade'] = 'Grade';
+$string['region-side-pre'] = 'Droit';
+$string['login'] = 'Vous avez déjà un compte?';
+$string['prev_section'] = 'Section précédente';
+$string['next_section'] = 'Section suivante';
+$string['search_site'] = 'Rechercher sur le site';
+$string['search_forums'] = 'Rechercher dans le forum du cours';
+$string['platform_access'] = 'Accéder à laplate-forme';
+$string['readmore'] = 'En lire plus';
+$string['stayintouch'] = 'Je suis RÉCIT';
+$string['madewitmoodle'] = 'Fierement réalisé';
+$string['madeby'] = 'Fait avec';
+$string['by'] = 'par';
+$string['discipline_progress'] = 'progrès';
+$string['access'] = 'Accéder';
+$string['cachedef_admininfos'] = 'Tableau de bord de l\'administrateur';
+$string['diskusage'] = 'Mmoodledata';
+$string['totalusers'] = 'Utilisateurs actifs / Suspendus';
+$string['totalcourses'] = 'Total';
+$string['onlineusers'] = 'Usagers en ligne lors de 5 dernières minutes)';
+$string['showhideblocks'] = 'montrer /cacher blocks';
+$string['privacy:metadata'] = 'Le thème  Recit ne conserve aucune données utilisateur.';
+$string['coursehome'] = 'Accueil du cours';
+$string['grade'] = 'Carnet des résultats';
 
 // General settings tab.
-$string['generalsettings'] = 'General';
+$string['generalsettings'] = 'Général';
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'The logo is displayed in the header.';
-$string['favicon'] = 'Custom favicon';
-$string['favicondesc'] = 'Upload your own favicon.  It should be an .ico file.';
+$string['logodesc'] = 'Le logo est affiché en entête.';
+$string['favicon'] = 'favicon pesonnalisé';
+$string['favicondesc'] = 'Téléverser votre favicon.  Ce doit être un ficher .ico.';
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
 $string['presetfiles'] = 'Additional theme preset files';
 $string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme.';
-$string['loginbgimg'] = 'Login page background';
-$string['loginbgimg_desc'] = 'Upload your custom background image for the login page.';
+$string['loginbgimg'] = 'Arrière-plan de la page de connexion';
+$string['loginbgimg_desc'] = 'Téléverser votre image d\'arrère-plan de page de connexion.';
 $string['brandcolor'] = 'Brand colour';
 $string['brandcolor_desc'] = 'The accent colour.';
 $string['navbarheadercolor'] = 'Navbar header color';
 $string['navbarheadercolor_desc'] = 'The top navbar header color';
-/*$string['coursetheme'] = 'Course Theme';
+/*$string['coursetheme'] = 'Thème du cours';
 $string['coursethemedesc'] = '';
-$string['themeFrancais'] = 'Theme RECIT French';
-$string['themeHistoire'] = 'Theme RECIT History';*/
+$string['themeFrancais'] = 'Thème RECIT Français';
+$string['themeHistoire'] = 'Thème RECIT Histoire';*/
 $string['coursepresentation'] = 'Course presentation';
 $string['coursepresentationdesc'] = '<b>Default presentation:</b> The default course appearence.<br><b>Cover image:</b> Will be showed a cover image on the top of the course page(the first image in course summary files will be used).';
 $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
 $string['courselistview'] = 'Enable course list view';
 $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
-$string['enablebreadcrumb'] = 'Enable breadcrumb navigation';
+$string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
 $string['enablebreadcrumbdesc'] = '';
 
 // Advanced settings tab.
-$string['advancedsettings'] = 'Advanced';
-$string['rawscsspre'] = 'Raw initial SCSS';
-$string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+$string['advancedsettings'] = 'SCSS et Google Analytics';
+$string['rawscsspre'] = 'SCSS initial Raw';
+$string['rawscsspre_desc'] = 'Dans ce champ, vous pouvez écrire du code SCSS. Il sera interprété avant tout autre chose. C\'est l\'endroit pour défénir des variabes.';
 $string['rawscss'] = 'Raw SCSS';
-$string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
-$string['googleanalytics'] = 'Google Analytics Code';
-$string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
+$string['rawscss_desc'] = 'Dans ce champ, vous pouvez écrire du code SCSS. Il sera interprété à la fin des feuilles de style.';
+$string['googleanalytics'] = 'Code Google Analytics';
+$string['googleanalyticsdesc'] = 'Veuillez saisir votre code Google Analytics pour activer les analyses sur votre site Web. Le format de code doit ressembler à [UA-XXXXX-Y]';
 
 // Frontpage settings tab.
-$string['frontpagesettings'] = 'Frontpage';
-$string['headerimg'] = 'Header image';
-$string['headerimgdesc'] = 'Upload your custom header-image here if you want to add it to the header.mage works best if (Image size should be 1500px x 700px)';
-$string['bannerheading'] = 'Banner Heading';
-$string['bannerheadingdesc'] = 'Enter Banner Heading Text';
-$string['bannercontent'] = 'Banner Content';
+$string['frontpagesettings'] = 'Page d\'accueil';
+$string['headerimg'] = 'Image d\'entête';
+$string['headerimgdesc'] = 'Téléchargez ici votre image d\'entête personnalisée si vous voulez l\'ajouter dans l\'entête. La taille de l\'image doit être de 1500px par 150px.';
+$string['bannerheading'] = 'Entête de la bannière';
+$string['bannerheadingdesc'] = 'Entrez le texte de l\'entête de la bannière';
+$string['bannercontent'] = 'Contenu de la bannière';
 $string['bannercontentdesc'] = 'Enter Banner Content Text';
-$string['displaymarketingbox'] = 'Display front page Marketingbox';
-$string['displaymarketingboxdesc'] = 'Show or Hide Front page Marketingbox';
-$string['marketing1icon'] = 'Marketing1 Icon';
-$string['marketing1icondesc'] = 'Upload Marketing1 Icon';
-$string['marketing1heading'] = 'Marketing1 Heading';
-$string['marketing1headingdesc'] = 'Enter Marketing1 Heading Text';
-$string['marketing1subheading'] = 'Marketing1 Subheading';
-$string['marketing1subheadingdesc'] = 'Enter Marketing1 Subheading Text';
-$string['marketing1content'] = 'Marketing1 Content';
-$string['marketing1contentdesc'] = 'Enter Marketing1 Content Text';
-$string['marketing1url'] = 'Marketing1 URL';
-$string['marketing1urldesc'] = 'Enter Marketing1 URL';
-$string['marketing2icon'] = 'Marketing2 Icon';
+$string['displaymarketingbox'] = 'Entrez le texte de contenu de la bannière';
+$string['displaymarketingboxdesc'] = 'Affiche ou masque les boîtes de promotion sur la première page';
+$string['marketing1icon'] = 'Icône de l\'annonce 1 ';
+$string['marketing1icondesc'] = 'Téléchargez l\'icône de l\'annonce 1';
+$string['marketing1heading'] = 'Entête de la promotion 1';
+$string['marketing1headingdesc'] = 'Entrer un text pour l\'entête de la promotion 1';
+$string['marketing1subheading'] = 'Sous titre de promotion';
+$string['marketing1subheadingdesc'] = 'Entrer un text pour le sous-titre de promotion';
+$string['marketing1content'] = 'Contenu de la promotion';
+$string['marketing1contentdesc'] = 'Entrer un text pour le contenu de la promotion';
+$string['marketing1url'] = 'URl de a pomotion 1';
+$string['marketing1urldesc'] = 'Entrer l\'URL de la promtion 1';
+$string['marketing2icon'] = 'Icône de l\'annonce 2';
 $string['marketing2icondesc'] = 'Upload Marketing2 Icon';
 $string['marketing2heading'] = 'Marketing2 Heading';
 $string['marketing2headingdesc'] = 'Enter Marketing2 Heading Text';
@@ -173,18 +174,18 @@ $string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
 $string['marketing4url'] = 'Marketing4 URL';
 $string['marketing4urldesc'] = 'Enter Marketing4 URL';
 
-$string['sliderenabled'] = 'Enable slider';
-$string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
-$string['sliderfrontpage'] = 'Show slideshow in frontpage';
-$string['sliderfrontpagedesc'] = 'If enabled, the slideshow will be showed in the frontpage page replacing the header image.';
-$string['slidercount'] = 'Slider count';
-$string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields.';
-$string['sliderimage'] = 'Slider picture';
-$string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1500px x 540px or higher.';
-$string['slidertitle'] = 'Slide title';
-$string['slidertitledesc'] = 'Add the slide\'s title.';
-$string['slidercaption'] = 'Slider caption';
-$string['slidercaptiondesc'] = 'Add a caption for your slide';
+$string['sliderenabled'] = 'Activer le diaporama';
+$string['sliderenableddesc'] = 'Activer un diaporama en haut de votre page d\'accueil';
+$string['sliderfrontpage'] = 'Afficher le diaporama sur la page d\'accueil';
+$string['sliderfrontpagedesc'] = 'Si cette option est activée, le diaporama sera affiché sur la page d\'accueil en remplacement de l\'image de l\'en-tête.';
+$string['slidercount'] = 'Nombre de diapositives';
+$string['slidercountdesc'] = 'Sélectionnez le nombre de diapositives que vous souhaitez ajouter et <strong>cliquez sur ENREGISTRER</strong> pour charger les champs de saisie.';
+$string['sliderimage'] = 'Image de la diapositive';
+$string['sliderimagedesc'] = 'Ajoutez une image pour votre diaporama. La taille recommandée est 1500 px x 500 px ou plus.';
+$string['slidertitle'] = 'Titre de la diapositive';
+$string['slidertitledesc'] = 'Ajouter un titre à la diapositive.';
+$string['slidercaption'] = 'Texte de la diapositive';
+$string['slidercaptiondesc'] = 'Ajouter un titre à votre diapositive';
 
 $string['numbersfrontpage'] = 'Show site numbers on frontpage';
 $string['numbersfrontpagedesc'] = 'If enabled, display the number of active users, courses and activities in the frontpage.';
@@ -225,9 +226,9 @@ $string['clientsurl'] = 'Client URL';
 $string['clientsurldesc'] = 'Enter the client\'s site URL';
 
 // Footer settings tab.
-$string['footersettings'] = 'Footer';
-$string['getintouchcontent'] = 'Get In Touch Content';
-$string['getintouchcontentdesc'] = 'Enter Get In Touch Content Text';
+$string['footersettings'] = 'Pied de page';
+$string['getintouchcontent'] = 'Briser les murs de l\'école';
+$string['getintouchcontentdesc'] = 'Texte rester en contact';
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Main company Website';
 $string['mobile'] = 'Mobile';
@@ -250,17 +251,17 @@ $string['topfooterimg'] = 'Footer image';
 $string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
 $string['footerlogo'] = 'Footer logo image';
 $string['footerlogodesc'] = 'Upload your custom footer logo image here if you want to replace the default image.';
-$string['termsurl'] = 'Terms of Usage';
+$string['termsurl'] = 'Politiques d\'utilisation';
 $string['termsurldesc'] = 'Enter the URL of your Terms of Usage';
-$string['policyurl'] = 'Privacy Policy';
+$string['policyurl'] = 'Politiques de confidentialité';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
 // Forum.
 $string['forumsettings'] = 'Forum';
-$string['forumsettingsdesc'] = 'Configure the general forum settings for the theme here.';
-$string['forumhtmlemailheader'] = 'Email header';
+$string['forumsettingsdesc'] = 'Configurer les paranètres generaux pour le forum général.';
+$string['forumhtmlemailheader'] = 'En-tête de courriel';
 $string['forumhtmlemailheaderdesc'] = 'Configure the email header for the forum messages.';
 $string['forumhtmlemailfooter'] = 'Email footer';
 $string['forumhtmlemailfooterdesc'] = 'Configure the email footer for the forum messages.';
@@ -268,20 +269,20 @@ $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
 
 // color palette
-$string['colorpalettesettings'] = 'Color Palette';
-$string['treetopicssettings'] = 'Tree Topics';
-$string['ttmenucolorX'] = 'Tree Topics menu - color {$a}';
-$string['ttmenucolorX_desc'] = 'Tree Topics menu - color {$a}';
+$string['colorpalettesettings'] = 'Palette de couleurs';
+$string['treetopicssettings'] = 'Menu de l\'arborescence';
+$string['ttmenucolorX'] = 'Menu de l\'arborescence - couleur {$a}';
+$string['ttmenucolorX_desc'] = 'Menu de l\'arborescence - couleur {$a}';
 
 
-$string['coursesections'] = 'Course sections';
+$string['coursesections'] = 'Sections de cours';
 //$string['region-side-top'] = 'En haut';
-$string['region-side-post'] = 'To the top';
+$string['region-side-post'] = 'En haut';
 
-$string['msgleavingmoodle'] = 'Are you sure you want to leave the Moodle - This link is taking you to a site outside of Moodle?';
-$string['showleavingsitewarning'] = 'Show warning when user clicks on external link';
-$string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if link is external';
+$string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';
+$string['showleavingsitewarning'] = 'Alerte si lien externe';
+$string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter Moodle lorsqu\'un lien mène vers un site en dehors de Moodle';
 
 // Custom fields
-$string['course-banner'] = 'Course banner';
-$string['course-banner-help'] = "Use the course image as a banner";
+$string['course-banner'] = 'Bannière du cours';
+$string['course-banner-help'] = "Utiliser l'image du cours comme bannière";

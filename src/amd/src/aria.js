@@ -16,7 +16,7 @@
 /**
  * Enhancements to Bootstrap components for accessibility.
  *
- * @module     theme_recit/aria
+ * @module     theme_recit2/aria
  * @copyright  2018 Damyon Wiese <damyon@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

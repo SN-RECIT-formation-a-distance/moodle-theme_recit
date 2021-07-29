@@ -17,12 +17,10 @@
 /**
  * Custom recit icon system
  *
- * @package    theme_recit
- * @copyright  2017 Willian Mano - http://conecti.me
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme_recit2
  */
 
-namespace theme_recit\output;
+namespace theme_recit2\output;
 
 use renderer_base;
 use pix_icon;

@@ -17,7 +17,7 @@
 /**
  * A login page layout for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright 2017 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,6 +31,6 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
-echo $OUTPUT->render_from_template('theme_recit/login', $templatecontext);
+echo $OUTPUT->render_from_template('theme_recit2/login', $templatecontext);

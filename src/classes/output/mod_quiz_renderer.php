@@ -35,11 +35,11 @@ if(BLOCK_DIAG_TAG_QUESTION_EXIST){
 }
 
 /**
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  RÉCIT 2019
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
+class theme_recit2_mod_quiz_renderer extends mod_quiz_renderer {
     
     /*
      * View Page

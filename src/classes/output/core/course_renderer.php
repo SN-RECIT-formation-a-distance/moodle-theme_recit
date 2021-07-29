@@ -17,12 +17,12 @@
 /**
  * Course renderer.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2017 Willian Mano - conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\output\core;
+namespace theme_recit2\output\core;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -34,9 +34,9 @@ use stdClass;
 use core_course_list_element;
 
 /**
- * Renderers to align Recit's course elements to what is expect
+ * Renderers to align recit2's course elements to what is expect
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -79,7 +79,7 @@ class course_renderer extends \core_course_renderer {
             'value' => $value
         ];
 
-        return $this->render_from_template('theme_recit/course_search_form', $data);
+        return $this->render_from_template('theme_recit2/course_search_form', $data);
     }
 
     /**
@@ -101,7 +101,7 @@ class course_renderer extends \core_course_renderer {
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
         global $CFG;
 
-        $theme = \theme_config::load('recit');
+        $theme = \theme_config::load('recit2');
 
         if (!empty($theme->settings->courselistview)) {
             return parent::coursecat_courses($chelper, $courses, $totalcount);
@@ -211,7 +211,7 @@ class course_renderer extends \core_course_renderer {
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
 
-        $theme = \theme_config::load('recit');
+        $theme = \theme_config::load('recit2');
 
         if (!empty($theme->settings->courselistview)) {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses);
@@ -316,11 +316,11 @@ class course_renderer extends \core_course_renderer {
          
         //$content .= html_writer::start_tag('div', array('class' => 'pull-right'));
         //$content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-          //  get_string('access', 'theme_recit'), array('class' => 'card-link btn btn-primary'));
+          //  get_string('access', 'theme_recit2'), array('class' => 'card-link btn btn-primary'));
         
         $url = new moodle_url('/course/view.php', array('id' => $course->id));
         $content .= "<a href='{$url}' class='card-link btn btn-primary' data-toggle='tooltip' title='{$coursename}'>";
-        $content .= sprintf("%s %s", "<i class='fa fa-sign-in'></i>", get_string('access', 'theme_recit'));
+        $content .= sprintf("%s %s", "<i class='fa fa-sign-in'></i>", get_string('access', 'theme_recit2'));
         $content .= "</a>";
 
         //$content .= html_writer::end_tag('div'); // End pull-right.
@@ -367,7 +367,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         if (empty($contentimage)) {
-            $url = $CFG->wwwroot . "/theme/recit/pix/default_course.jpg";
+            $url = $CFG->wwwroot . "/theme/recit2/pix/default_course.jpg";
 
             $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
                 'src' => $url,

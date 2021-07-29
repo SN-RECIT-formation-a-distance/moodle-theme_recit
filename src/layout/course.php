@@ -17,7 +17,7 @@
 /**
  * A two column layout for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright RÉCITFAD 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::set_user_preference_drawer();
+ThemeRecitUtils2::set_user_preference_drawer();
 
 /*if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
@@ -48,16 +48,16 @@ $extraclasses = [];
     $extraclasses[] = 'drawer-open-left';
 }*/
 
-if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
+if (ThemeRecitUtils2::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
-$coursepresentation = theme_recit_get_setting('coursepresentation');
+$coursepresentation = theme_recit2_get_setting('coursepresentation');
 if ($coursepresentation == 2) {
     $extraclasses[] = 'coursepresentation-cover';
 }
 
-$extraclasses[] = theme_recit_get_course_theme();
+$extraclasses[] = theme_recit2_get_course_theme();
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 //$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
@@ -68,20 +68,20 @@ $templatecontext = [
     'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => true,
-    'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
-    'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
+    'navdraweropen' => ThemeRecitUtils2::is_nav_drawer_open(),
+    'draweropenright' => ThemeRecitUtils2::is_drawer_open_right(),
     //'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => false
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
-$themesettings = new \theme_recit\util\theme_settings();
+$themesettings = new \theme_recit2\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
 if (!$coursepresentation || $coursepresentation == 1) {
-    echo $OUTPUT->render_from_template('theme_recit/columns2', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/columns2', $templatecontext);
 } else if ($coursepresentation == 2) {
-    echo $OUTPUT->render_from_template('theme_recit/course_cover', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/course_cover', $templatecontext);
 }

@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_recit/maintenance
+    @template theme_recit2/maintenance
 
     Recit maintenance layout template.
 
@@ -32,7 +32,7 @@
          }
     }
 }}
-{{>theme_recit/head}}
+{{>theme_recit2/head}}
 
 <body {{{ bodyattributes }}}>
 
@@ -62,8 +62,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_recit/loader');
-require(['theme_recit/loader'], function() {
-  M.util.js_complete('theme_recit/loader');
+M.util.js_pending('theme_recit2/loader');
+require(['theme_recit2/loader'], function() {
+  M.util.js_complete('theme_recit2/loader');
 });
 {{/js}}

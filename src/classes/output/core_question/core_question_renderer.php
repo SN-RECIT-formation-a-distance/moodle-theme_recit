@@ -30,7 +30,7 @@ require_once($CFG->dirroot . "/question/engine/renderer.php");
  * @copyright  2019 RÉCIT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit_core_question_renderer extends core_question_renderer {
+class theme_recit2_core_question_renderer extends core_question_renderer {
      /**
      * Generate the display of a question in a particular state, and with certain
      * display options. Normally you do not call this method directly. Intsead

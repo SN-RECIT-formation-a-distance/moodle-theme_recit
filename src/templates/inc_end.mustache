@@ -5,7 +5,7 @@
             data-action="toggle-drawer"
             data-side="right"
             data-preference="sidepre-open"
-            title="{{#str}} showhideblocks, theme_recit {{/str}}">
+            title="{{#str}} showhideblocks, theme_recit2 {{/str}}">
         </i>
 
         <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print {{^navdraweropen}}closed{{/navdraweropen}}">
@@ -14,25 +14,25 @@
     {{/hasblocks}}
 </div><!-- Ends .page-wrapper -->
 
-{{> theme_recit/footer }}
+{{> theme_recit2/footer }}
 
 {{{message_drawer}}}
 
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_recit/loader');
-require(['theme_recit/loader'], function() {
-    M.util.js_complete('theme_recit/loader');
+M.util.js_pending('theme_recit2/loader');
+require(['theme_recit2/loader'], function() {
+    M.util.js_complete('theme_recit2/loader');
 });
 
-M.util.js_pending('theme_recit/drawer');
-require(['theme_recit/drawer'], function(drawer) {
+M.util.js_pending('theme_recit2/drawer');
+require(['theme_recit2/drawer'], function(drawer) {
     drawer.init();
-    M.util.js_complete('theme_recit/drawer');
+    M.util.js_complete('theme_recit2/drawer');
 });
 
-require(['theme_recit/metismenu', 'jquery'], function(metisMenu, $) {
+require(['theme_recit2/metismenu', 'jquery'], function(metisMenu, $) {
     $(".metismenu").metisMenu();
 });
 
@@ -52,14 +52,14 @@ require([], function() {
     }
 });
 
-M.util.js_pending('theme_recit/ekko-lightbox');
-require(['theme_recit/ekko-lightbox'], function(mod) {
-    M.util.js_complete('theme_recit/ekko-lightbox');
+M.util.js_pending('theme_recit2/ekko-lightbox');
+require(['theme_recit2/ekko-lightbox'], function(mod) {
+    M.util.js_complete('theme_recit2/ekko-lightbox');
 });
 
-M.util.js_pending('theme_recit/jquery.mb.YTPlayer');
-require(['theme_recit/jquery.mb.YTPlayer', 'jquery'], function(mod, $) {
-    M.util.js_complete('theme_recit/jquery.mb.YTPlayer');
+M.util.js_pending('theme_recit2/jquery.mb.YTPlayer');
+require(['theme_recit2/jquery.mb.YTPlayer', 'jquery'], function(mod, $) {
+    M.util.js_complete('theme_recit2/jquery.mb.YTPlayer');
     
     // Youtube video background
     $(".player").mb_YTPlayer({
@@ -68,9 +68,9 @@ require(['theme_recit/jquery.mb.YTPlayer', 'jquery'], function(mod, $) {
     });
 });
 
-M.util.js_pending('theme_recit/theme-recit');
-require(['theme_recit/theme-recit'], function(mod) {
-    M.util.js_complete('theme_recit/theme-recit');
+M.util.js_pending('theme_recit2/theme-recit2');
+require(['theme_recit2/theme-recit2'], function(mod) {
+    M.util.js_complete('theme_recit2/theme-recit2');
 });
 
 

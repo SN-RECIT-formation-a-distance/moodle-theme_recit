@@ -17,12 +17,12 @@
 /**
  * Overriden theme récit core renderer.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  RÉCIT 2019
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\output;
+namespace theme_recit2\output;
 require_once($CFG->dirroot . "/lib/outputrenderers.php");
 
 use html_writer;
@@ -48,11 +48,11 @@ use help_icon;
 use context_system;
 use renderer_base;
 use home_link;
-use ThemeRecitUtils;
+use ThemeRecitUtils2;
 use lang_string;
 
 defined('MOODLE_INTERNAL') || die;
-require_once($CFG->dirroot . '/theme/recit/layout/common.php');
+require_once($CFG->dirroot . '/theme/recit2/layout/common.php');
 require_once($CFG->libdir . '/behat/lib.php');
 //require_once('..lib_/outputrenderers.php');
 require_once('mod_quiz_renderer.php');
@@ -62,7 +62,7 @@ require_once('core_question/core_question_renderer.php');
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  RÉCIT 2019
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -79,7 +79,7 @@ class core_renderer extends \core_renderer {
     public function __construct(\moodle_page $page, $target){
         parent::__construct($page, $target);
 
-        $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit');
+        $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit2');
     }
 
     /**
@@ -107,7 +107,7 @@ class core_renderer extends \core_renderer {
     public function full_header() {
         global $PAGE;
 
-        $theme = theme_config::load('recit');
+        $theme = theme_config::load('recit2');
 
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
@@ -121,7 +121,7 @@ class core_renderer extends \core_renderer {
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
         
-        return $this->render_from_template('theme_recit/header', $header);
+        return $this->render_from_template('theme_recit2/header', $header);
     }
 
     function get_course_custom_banner(){
@@ -129,7 +129,7 @@ class core_renderer extends \core_renderer {
 
         if($COURSE->id > 1){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);
-            $customFieldsRecit = $this->get_course_metadata($COURSE->id, \theme_recit\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
+            $customFieldsRecit = $this->get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
             if((property_exists($customFieldsRecit, 'img_course_as_banner')) && ($customFieldsRecit->img_course_as_banner === "1") && ($courseImage)){
                 return "background-image: url('$courseImage'); background-position: center;";
             }
@@ -178,7 +178,7 @@ class core_renderer extends \core_renderer {
                                 </script>
                                 <script async src='https://www.google-analytics.com/analytics.js'></script>";
 
-        $theme = theme_config::load('recit');
+        $theme = theme_config::load('recit2');
 
         if (!empty($theme->settings->googleanalytics)) {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
@@ -191,8 +191,8 @@ class core_renderer extends \core_renderer {
             'showleavingsitewarning' => $showleavingsitewarning,
         );
         // force le chargement du fichier js du thème de base RÉCIT
-        $PAGE->requires->js('/theme/recit/amd/build/theme-recit-init-vars.js');
-        $PAGE->requires->js_init_call('theme_recit_init_vars', array($settings));
+        $PAGE->requires->js('/theme/recit2/amd/build/theme-recit2-init-vars.js');
+        $PAGE->requires->js_init_call('theme_recit2_init_vars', array($settings));
 
 
         return $output;
@@ -474,7 +474,7 @@ class core_renderer extends \core_renderer {
     public function render_help_icon(help_icon $helpicon) {
         $context = $helpicon->export_for_template($this);
         // Solving the issue - "Your progress" help tooltip in course home page displays in outside the screen display.
-        // Check issue https://github.com/willianmano/moodle-theme_recit/issues/5.
+        // Check issue https://github.com/willianmano/moodle-theme_recit2/issues/5.
         if ($helpicon->identifier === 'completionicons' && $helpicon->component === 'completion') {
             $context->ltr = right_to_left();
         }
@@ -801,7 +801,7 @@ class core_renderer extends \core_renderer {
             }
 
             if (isset($context)) {
-                return $this->render_from_template('theme_recit/lang_menu', $context);
+                return $this->render_from_template('theme_recit2/lang_menu', $context);
             }
         }
     }
@@ -862,7 +862,7 @@ class core_renderer extends \core_renderer {
     public function get_pix_image_url_base() {
         global $CFG;
 
-        return $CFG->wwwroot . "/theme/recit/pix";
+        return $CFG->wwwroot . "/theme/recit2/pix";
     }
 
     /**
@@ -884,7 +884,7 @@ class core_renderer extends \core_renderer {
     public function favicon() {
         global $OUTPUT;
 
-        $theme = theme_config::load('recit');
+        $theme = theme_config::load('recit2');
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
 
@@ -901,7 +901,7 @@ class core_renderer extends \core_renderer {
      * @return string
      */
     public function get_theme_logo_url() {
-        $theme = theme_config::load('recit');
+        $theme = theme_config::load('recit2');
 
         return $theme->setting_file_url('logo', 'logo');
     }
@@ -1348,7 +1348,7 @@ class core_renderer extends \core_renderer {
      */
     public function home_link() {
         global $CFG, $SITE;
-        $icon_retour = $CFG->wwwroot . '/theme/recit/pix/retour.svg';
+        $icon_retour = $CFG->wwwroot . '/theme/recit2/pix/retour.svg';
         if ($this->page->pagetype == 'site-index') {
             // Special case for site home page - please do not remove
             return '<div class="sitelink">' .
@@ -1386,8 +1386,8 @@ class core_renderer extends \core_renderer {
 
         $Aname = strval("mod-".$PAGE->cm->modname."-name") ;
         $result =  "Missing '$Aname' string definition";
-        if(get_string_manager()->string_exists($Aname, 'theme_recit')){
-            $result = get_string($Aname, 'theme_recit');
+        if(get_string_manager()->string_exists($Aname, 'theme_recit2')){
+            $result = get_string($Aname, 'theme_recit2');
         }
 
         return $result;
@@ -1397,8 +1397,8 @@ class core_renderer extends \core_renderer {
     
         $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
         $result =  "Missing '$Aname' string definition";
-        if(get_string_manager()->string_exists($Aname, 'theme_recit')){
-            $result = get_string($Aname, 'theme_recit');
+        if(get_string_manager()->string_exists($Aname, 'theme_recit2')){
+            $result = get_string($Aname, 'theme_recit2');
         }
         
         return $result;
@@ -1433,11 +1433,6 @@ class core_renderer extends \core_renderer {
             $output .= "</div>";
             $output .= "<hr/>";
             
-            /*$icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
-            $AnameS = $this->act_name();
-            $AnameC = $this->act_name_cons();
-            $output = "<div class='card'>";
-            $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));*/
         }
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));

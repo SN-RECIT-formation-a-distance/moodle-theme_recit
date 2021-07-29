@@ -22,7 +22,7 @@
  * @copyright  2009 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace theme_recit\output;
+namespace theme_recit2\output;
 
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . "/mod/page/view.php");

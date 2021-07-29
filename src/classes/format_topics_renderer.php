@@ -17,7 +17,7 @@
 /**
  * Overriden course topics format renderer.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,11 +29,11 @@ require_once($CFG->dirroot . '/course/format/topics/renderer.php');
 /**
  * Rewrite format topics renderer base class
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit_format_topics_renderer extends format_topics_renderer {
+class theme_recit2_format_topics_renderer extends format_topics_renderer {
 
     /**
      * Output the html for a single section page .
@@ -161,7 +161,7 @@ class theme_recit_format_topics_renderer extends format_topics_renderer {
                     $params = array('class' => 'dimmed_text');
                 }
                 $previouslink = html_writer::tag('span', '<i class="icon-arrow-'.$arrowleft.'"></i>', array('class' => 'larrow'));
-                $previouslink .= "<span class='text'><span class='nav_guide'>".get_string('prev_section', 'theme_recit')."</span>";
+                $previouslink .= "<span class='text'><span class='nav_guide'>".get_string('prev_section', 'theme_recit2')."</span>";
                 $previouslink .= "<br>" . get_section_name($course, $sections[$back])."</span>";
                 $links['previous'] = html_writer::link(course_get_url($course, $back), $previouslink, $params);
             }
@@ -176,7 +176,7 @@ class theme_recit_format_topics_renderer extends format_topics_renderer {
                 if (!$sections[$forward]->visible) {
                     $params = array('class' => 'dimmed_text');
                 }
-                $nextlink = "<span class='text'><span class='nav_guide'>".get_string('next_section', 'theme_recit')."</span><br>";
+                $nextlink = "<span class='text'><span class='nav_guide'>".get_string('next_section', 'theme_recit2')."</span><br>";
                 $nextlink .= get_section_name($course, $sections[$forward])."</span>";
                 $nextlink .= html_writer::tag('span', '<i class="icon-arrow-'.$arrowright.'"></i>', array('class' => 'rarrow'));
                 $links['next'] = html_writer::link(course_get_url($course, $forward), $nextlink, $params);
@@ -421,7 +421,7 @@ class theme_recit_format_topics_renderer extends format_topics_renderer {
             $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
             $output .= html_writer::tag(
                 'span',
-                get_string('discipline_progress', 'theme_recit'),
+                get_string('discipline_progress', 'theme_recit2'),
                 array('class' => 'activity-count')
             );
             $output .= "<div class='progress'>";

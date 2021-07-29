@@ -17,12 +17,12 @@
 /**
  * Overriden forum email template.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2018 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\output\mod_forum\email;
+namespace theme_recit2\output\mod_forum\email;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * Forum post renderable.
  *
  * @since      Moodle 3.0
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  2017 David Bogner <info@edulabs.org> and Gareth Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -52,13 +52,13 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
         $data = $post->export_for_template($this, false);
 
         // Add our new data.
-        $data['enabletemplate'] = theme_recit_get_setting('forumcustomtemplate');
-        $forumhtmlemailheader = theme_recit_get_setting('forumhtmlemailheader', 'format_html');
+        $data['enabletemplate'] = theme_recit2_get_setting('forumcustomtemplate');
+        $forumhtmlemailheader = theme_recit2_get_setting('forumhtmlemailheader', 'format_html');
         if ($forumhtmlemailheader) {
             $data['messageheader'] = $forumhtmlemailheader;
         }
 
-        $forumhtmlemailfooter = theme_recit_get_setting('forumhtmlemailfooter', 'format_html');
+        $forumhtmlemailfooter = theme_recit2_get_setting('forumhtmlemailfooter', 'format_html');
         if ($forumhtmlemailfooter) {
             $data['messagefooter'] = $forumhtmlemailfooter;
         }

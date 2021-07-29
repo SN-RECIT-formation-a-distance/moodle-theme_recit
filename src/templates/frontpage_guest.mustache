@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_recit/frontpage_guest
+    @template theme_recit2/frontpage_guest
 
     Guest frontpage template.
 
@@ -42,14 +42,14 @@
         "shoulddisplaymarketing": true
     }
 }}
-    {{>theme_recit/inc_start}}
+    {{>theme_recit2/inc_start}}
 
     <div id="page">
         <div id="page-header" class="frontpage-guest-header">
 
             {{#sliderenabled}}
                 {{#sliderfrontpage}}
-                    {{>theme_recit/slideshow}}
+                    {{>theme_recit2/slideshow}}
                 {{/sliderfrontpage}}
             {{/sliderenabled}}
 
@@ -64,7 +64,7 @@
                         {{/bannercontent}}
                     </div>
                     <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
-                        {{>theme_recit/frontpage_login}}
+                        {{>theme_recit2/frontpage_login}}
                     </div><!-- end of .card-body -->
                 </div> <!-- end of #boxForm -->
             {{/sliderenabled}}
@@ -79,7 +79,7 @@
                     <h2>{{{ marketing1heading }}}</h2>
                     <h3>{{{ marketing1subheading }}}</h3>
                     <p>{{{ marketing1content }}}</p>
-                    {{#marketing1url}}<a class="btn btn-primary" href="{{{ marketing1url }}}">{{#str}}readmore, theme_recit{{/str}}</a>{{/marketing1url}}
+                    {{#marketing1url}}<a class="btn btn-primary" href="{{{ marketing1url }}}">{{#str}}readmore, theme_recit2{{/str}}</a>{{/marketing1url}}
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                     <h2>{{{ marketing2heading }}}</h2>
                     <h3>{{{ marketing2subheading }}}</h3>
                     <p>{{{ marketing2content }}}</p>
-                    {{#marketing2url}}<a class="btn btn-primary" href="{{{ marketing2url }}}">{{#str}}readmore, theme_recit{{/str}}</a>{{/marketing2url}}
+                    {{#marketing2url}}<a class="btn btn-primary" href="{{{ marketing2url }}}">{{#str}}readmore, theme_recit2{{/str}}</a>{{/marketing2url}}
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@
                     <h2>{{{ marketing3heading }}}</h2>
                     <h3>{{{ marketing3subheading }}}</h3>
                     <p>{{{ marketing3content }}}</p>
-                    {{#marketing3url}}<a class="btn btn-primary" href="{{{ marketing3url }}}">{{#str}}readmore, theme_recit{{/str}}</a>{{/marketing3url}}
+                    {{#marketing3url}}<a class="btn btn-primary" href="{{{ marketing3url }}}">{{#str}}readmore, theme_recit2{{/str}}</a>{{/marketing3url}}
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@
                     <h2>{{{ marketing4heading }}}</h2>
                     <h3>{{{ marketing4subheading }}}</h3>
                     <p>{{{ marketing4content }}}</p>
-                    {{#marketing4url}}<a class="btn btn-primary" href="{{{ marketing4url }}}">{{#str}}readmore, theme_recit{{/str}}</a>{{/marketing4url}}
+                    {{#marketing4url}}<a class="btn btn-primary" href="{{{ marketing4url }}}">{{#str}}readmore, theme_recit2{{/str}}</a>{{/marketing4url}}
                   </div>
                 </div>
               </div>
@@ -128,9 +128,9 @@
           {{{ output.main_content }}}
         </div>
 
-        {{>theme_recit/frontpage_numbers}}
+        {{>theme_recit2/frontpage_numbers}}
 
-        {{>theme_recit/frontpage_sponsorsclients}}
+        {{>theme_recit2/frontpage_sponsorsclients}}
     </div>
 
-{{>theme_recit/inc_end}}
+{{>theme_recit2/inc_end}}

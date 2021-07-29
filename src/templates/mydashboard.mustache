@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_recit/columns2
+    @template theme_recit2/columns2
 
     Admin time setting template.
 
@@ -48,12 +48,12 @@
         "hasregionmainsettingsmenu": false
     }
 }}
-    {{>theme_recit/inc_start}}
+    {{>theme_recit2/inc_start}}
 
     <div id="page" >
 
         {{#is_siteadmin}}
-            {{>theme_recit/mydashboard_admin}}
+            {{>theme_recit2/mydashboard_admin}}
         {{/is_siteadmin}}
         {{^is_siteadmin}}
             {{{ output.full_header }}}
@@ -85,4 +85,4 @@
         </div>
     </div>
 
-    {{>theme_recit/inc_end}}
+    {{>theme_recit2/inc_end}}

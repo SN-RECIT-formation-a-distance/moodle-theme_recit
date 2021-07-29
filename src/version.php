@@ -17,7 +17,7 @@
 /**
  * Recit.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,10 +32,10 @@ $plugin->requires = 2018050800;
 
 // This is the component name of the plugin - it always starts with 'theme_'
 // for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_recit';
+$plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'R13-V1.13.4';
+$plugin->release = 'R13-V2.0.0';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_BETA;

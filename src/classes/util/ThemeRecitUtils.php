@@ -1,12 +1,12 @@
 <?php
 
-class ThemRecitUtils
+class ThemRecitUtils2
 {
     public static function getUserRoles($courseId, $userId){
         // get the course context (there are system context, module context, etc.)
         $context = context_course::instance($courseId);
 
-        return ThemRecitUtils::getUserRolesOnContext($context, $userId);
+        return ThemRecitUtils2::getUserRolesOnContext($context, $userId);
     }
 
     public static function getUserRolesOnContext($context, $userId){

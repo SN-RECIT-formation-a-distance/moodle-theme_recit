@@ -17,17 +17,17 @@
 /**
  * Common functions for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright RÉCITFAD 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-use theme_recit\output;
+use theme_recit2\output;
 
-require_once($CFG->dirroot . '/theme/recit/classes/output/icon_system_fontawesome.php');
-require_once($CFG->dirroot . '/theme/recit/classes/util/ThemeRecitUtils.php');
+require_once($CFG->dirroot . '/theme/recit2/classes/output/icon_system_fontawesome.php');
+require_once($CFG->dirroot . '/theme/recit2/classes/util/ThemeRecitUtils.php');
 require_once($CFG->dirroot . '/user/lib.php');
 require_once($CFG->dirroot . '/message/output/popup/lib.php');
 
@@ -35,9 +35,9 @@ require_once($CFG->dirroot . '/message/output/popup/lib.php');
  * Define utils for Recit theme.
  * @author RECITFAD
  */
-class ThemeRecitUtils{
+class ThemeRecitUtils2{
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @return boolean
      */
     public static function is_nav_drawer_open() {
@@ -46,7 +46,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @return boolean
      */
     public static function is_drawer_open_right() {
@@ -55,7 +55,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param unknown $page
      * @return unknown
      */
@@ -64,7 +64,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      */
     public static function set_user_preference_drawer() {
         user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
@@ -72,7 +72,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @return stdClass
      */
     public static function get_purge_all_caches_nav_item() {
@@ -86,7 +86,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @return stdClass
      */
     public static function get_purge_theme_cache_nav_item() {
@@ -100,7 +100,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @return array
      */
     public static function get_extra_menu() {
@@ -123,7 +123,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param string $output
      * @param stdClass $page
      * @param stdClass $user
@@ -155,7 +155,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param stdClass $page
      * @return array
      */
@@ -183,7 +183,7 @@ class ThemeRecitUtils{
             $item = new stdClass();
             $item->url = sprintf("%s/course/user.php?mode=grade&id=%ld&user=%ld", $CFG->wwwroot, $COURSE->id, $USER->id);
             $item->pix = 'fas fa-user-graduate';
-            $item->title =  get_string('grade', 'theme_recit');
+            $item->title =  get_string('grade', 'theme_recit2');
             $result['gradeuser'] = $item;
         } */
 
@@ -192,11 +192,11 @@ class ThemeRecitUtils{
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-home';
-            $item->title = get_string('coursehome', 'theme_recit');
+            $item->title = get_string('coursehome', 'theme_recit2');
             $result['coursehome'] = $item;
 
-            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils::isAdminRole($roles)){
+            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils2::isAdminRole($roles)){
                 $item = new stdClass();
                 $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
                 $item->pix = 'fa-cog';
@@ -213,7 +213,7 @@ class ThemeRecitUtils{
             // the user has  permission to access these shortcuts
             if ($page->user_allowed_editing()) {
 
-                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
+                $result['turneditingonoff'] = ThemeRecitUtils2::get_editing_mode_object($page);
 
                 /*$item = new stdClass();
                 $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
@@ -232,13 +232,13 @@ class ThemeRecitUtils{
                 /*$item = new stdClass();
                 $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
                 $item->pix = 'fa-graduation-cap';
-                $item->title =  get_string('grade', 'theme_recit');
+                $item->title =  get_string('grade', 'theme_recit2');
                 $result['grade'] = $item;*/
             }
         }else{
             if ($page->user_allowed_editing() && $page->pagelayout == 'frontpage') {
                 // editing mode
-                $result['turneditingonoff'] = ThemeRecitUtils::get_editing_mode_object($page);
+                $result['turneditingonoff'] = ThemeRecitUtils2::get_editing_mode_object($page);
                  
             }
         }
@@ -263,7 +263,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param unknown $item
      */
     public static function set_recit_dashboard(&$item) {
@@ -271,15 +271,15 @@ class ThemeRecitUtils{
 
         $pathrecitdashboard = '/local/recitdashboard/view.php';
         if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
-            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils::isAdminRole($roles)){
+            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils2::isAdminRole($roles)){
                 $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
             }
         }
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param stdClass $page
      * @param stdClass $user
      * @return array|stdClass[]
@@ -300,10 +300,10 @@ class ThemeRecitUtils{
         // Get some navigation opts.
         $navoptions = user_get_user_navigation_info($user, $page);
 
-        $theme = theme_config::load('recit');
-        $instance = \theme_recit\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $theme = theme_config::load('recit2');
+        $instance = \theme_recit2\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
-        //$iconmap = \theme_recit\output\icon_system_fontawesome::$iconmap;
+        //$iconmap = \theme_recit2\output\icon_system_fontawesome::$iconmap;
 
         foreach ($navoptions->navitems as $navitem) {
             if ($navitem->itemtype == "link") {
@@ -347,8 +347,8 @@ class ThemeRecitUtils{
 
         if($COURSE->id > 1){
            
-            $roles = ThemRecitUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils::isAdminRole($roles)){
+            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
+            if(ThemRecitUtils2::isAdminRole($roles)){
                 self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
                 self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
             }
@@ -361,7 +361,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param unknown $navitems
      * @param unknown $flatnav
      * @param unknown $key
@@ -373,8 +373,8 @@ class ThemeRecitUtils{
             return;
         }
 
-        $theme = theme_config::load('recit');
-        $instance = \theme_recit\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $theme = theme_config::load('recit2');
+        $instance = \theme_recit2\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
 
         $item = new stdClass();
@@ -386,7 +386,7 @@ class ThemeRecitUtils{
     }
 
     /**
-     * Function for class ThemeRecitUtils.
+     * Function for class ThemeRecitUtils2.
      * @param unknown $navitems
      * @param unknown $settingsnav
      * @param unknown $nodetype
@@ -399,7 +399,7 @@ class ThemeRecitUtils{
             return;
         }
 
-        $iconmap = \theme_recit\util\icon_system::$iconmap;
+        $iconmap = \theme_recit2\util\icon_system::$iconmap;
 
         $item = new stdClass();
         $item->url = $settingsnavitem->action->out(false);

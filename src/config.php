@@ -17,7 +17,7 @@
 /**
  * Recit config.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  *  2017 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . '/lib.php');
 
-$THEME->name = 'recit';
+$THEME->name = 'recit2';
 //$THEME->sheets[] = "bootstrap";
 //$THEME->sheets[] = "moodle-base";
 //$THEME->sheets[] = "moodle-base-3-9-2";
@@ -40,14 +40,14 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_DEFAULT;
 $THEME->scss = function($theme) {
-    return theme_recit_get_main_scss_content($theme);
+    return theme_recit2_get_main_scss_content($theme);
 };
-//$THEME->csstreepostprocessor = 'theme_recit_css_tree_post_processor';
-$THEME->extrascsscallback = 'theme_recit_get_extra_scss';
-//$THEME->prescsscallback = 'theme_recit_get_pre_scss';
+//$THEME->csstreepostprocessor = 'theme_recit2_css_tree_post_processor';
+$THEME->extrascsscallback = 'theme_recit2_get_extra_scss';
+//$THEME->prescsscallback = 'theme_recit2_get_pre_scss';
 //$THEME->usefallback = true;
 // Add a custom icon system to the theme.
-$THEME->iconsystem = '\\theme_recit\\output\\icon_system_fontawesome';
+$THEME->iconsystem = '\\theme_recit2\\output\\icon_system_fontawesome';
 //$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.

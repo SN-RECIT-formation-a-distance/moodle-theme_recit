@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright 2019 RECIT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -23,42 +23,42 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright 2019 RECIT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit_admin_settingspage_tabs extends admin_settingpage {
+class theme_recit2_admin_settingspage_tabs extends admin_settingpage {
 
     /** @var The tabs */
     protected $tabs = array();
 
     public function createCommonSettings($themeName){
-        $page = new admin_settingpage($themeName.'_treetopics', get_string('treetopicssettings', 'theme_recit'));
+        $page = new admin_settingpage($themeName.'_treetopics', get_string('treetopicssettings', 'theme_recit2'));
 
         $name = $themeName.'/ttmenucolor1';
-        $title = get_string('ttmenucolorX', 'theme_recit', "1");
-        $description = get_string('ttmenucolorX_desc', 'theme_recit', "1");
+        $title = get_string('ttmenucolorX', 'theme_recit2', "1");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit2', "1");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
         $name = $themeName.'/ttmenucolor2';
-        $title = get_string('ttmenucolorX', 'theme_recit', "2");
-        $description = get_string('ttmenucolorX_desc', 'theme_recit', "2");
+        $title = get_string('ttmenucolorX', 'theme_recit2', "2");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit2', "2");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
         $name = $themeName.'/ttmenucolor3';
-        $title = get_string('ttmenucolorX', 'theme_recit', "3");
-        $description = get_string('ttmenucolorX_desc', 'theme_recit', "3");
+        $title = get_string('ttmenucolorX', 'theme_recit2', "3");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit2', "3");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
         $name = $themeName.'/ttmenucolor4';
-        $title = get_string('ttmenucolorX', 'theme_recit', "4");
-        $description = get_string('ttmenucolorX_desc', 'theme_recit', "4");
+        $title = get_string('ttmenucolorX', 'theme_recit2', "4");
+        $description = get_string('ttmenucolorX_desc', 'theme_recit2', "4");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
@@ -126,6 +126,6 @@ class theme_recit_admin_settingspage_tabs extends admin_settingpage {
             return '';
         }
 
-        return $OUTPUT->render_from_template('theme_recit/admin_setting_tabs', $context);
+        return $OUTPUT->render_from_template('theme_recit2/admin_setting_tabs', $context);
     }
 }

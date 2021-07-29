@@ -17,7 +17,7 @@
 /**
  * Frontpage layout for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright RÉCITFAD 2019
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,21 +27,21 @@ defined('MOODLE_INTERNAL') || die();
 require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
 
-ThemeRecitUtils::set_user_preference_drawer();
+ThemeRecitUtils2::set_user_preference_drawer();
 
 $extraclasses = [];
 
-$themesettings = new \theme_recit\util\theme_settings();
+$themesettings = new \theme_recit2\util\theme_settings();
 
 if (isloggedin()) {
     $blockshtml = $OUTPUT->blocks('side-pre');
     $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 
-    if (ThemeRecitUtils::is_drawer_open_right() && $hasblocks) {
+    if (ThemeRecitUtils2::is_drawer_open_right() && $hasblocks) {
         $extraclasses[] = 'drawer-open-right';
     }
 
-    $extraclasses[] = theme_recit_get_course_theme();
+    $extraclasses[] = theme_recit2_get_course_theme();
 
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
@@ -51,52 +51,52 @@ if (isloggedin()) {
         'hasblocks' => $hasblocks,
         'bodyattributes' => $bodyattributes,
         'hasdrawertoggle' => true,
-        'navdraweropen' => ThemeRecitUtils::is_nav_drawer_open(),
-        'draweropenright' => ThemeRecitUtils::is_drawer_open_right(),
+        'navdraweropen' => ThemeRecitUtils2::is_nav_drawer_open(),
+        'draweropenright' => ThemeRecitUtils2::is_drawer_open_right(),
         'regionmainsettingsmenu' => $regionmainsettingsmenu,
         'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
     ];
 
-    $templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
+    $templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->slideshow());
 
-    echo $OUTPUT->render_from_template('theme_recit/frontpage', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/frontpage', $templatecontext);
 } else {
     $sliderfrontpage = false;
-    if ((theme_recit_get_setting('sliderenabled', true) == true) && (theme_recit_get_setting('sliderfrontpage', true) == true)) {
+    if ((theme_recit2_get_setting('sliderenabled', true) == true) && (theme_recit2_get_setting('sliderfrontpage', true) == true)) {
         $sliderfrontpage = true;
         $extraclasses[] = 'slideshow';
     }
 
     $numbersfrontpage = false;
-    /*if (theme_recit_get_setting('numbersfrontpage', true) == true) {
+    /*if (theme_recit2_get_setting('numbersfrontpage', true) == true) {
         $numbersfrontpage = true;
     }*/
 
     $sponsorsfrontpage = false;
-    /*if (theme_recit_get_setting('sponsorsfrontpage', true) == true) {
+    /*if (theme_recit2_get_setting('sponsorsfrontpage', true) == true) {
         $sponsorsfrontpage = true;
     }*/
 
     $clientsfrontpage = false;
-    /*if (theme_recit_get_setting('clientsfrontpage', true) == true) {
+    /*if (theme_recit2_get_setting('clientsfrontpage', true) == true) {
         $clientsfrontpage = true;
     }*/
 
     $bannerheading = '';
     if (!empty($PAGE->theme->settings->bannerheading)) {
-        $bannerheading = theme_recit_get_setting('bannerheading', true);
+        $bannerheading = theme_recit2_get_setting('bannerheading', true);
     }
 
     $bannercontent = '';
     if (!empty($PAGE->theme->settings->bannercontent)) {
-        $bannercontent = theme_recit_get_setting('bannercontent', true);
+        $bannercontent = theme_recit2_get_setting('bannercontent', true);
     }
 
     $shoulddisplaymarketing = false;
-    /*if (theme_recit_get_setting('displaymarketingbox', true) == true) {
+    /*if (theme_recit2_get_setting('displaymarketingbox', true) == true) {
         $shoulddisplaymarketing = true;
     }*/
 
@@ -117,7 +117,7 @@ if (isloggedin()) {
         'logintoken' => \core\session\manager::get_login_token()
     ];
 
-    $templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
+    $templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
 
@@ -137,5 +137,5 @@ if (isloggedin()) {
         $templatecontext = array_merge($templatecontext, $themesettings->clients());
     }
 
-    echo $OUTPUT->render_from_template('theme_recit/frontpage_guest', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/frontpage_guest', $templatecontext);
 }

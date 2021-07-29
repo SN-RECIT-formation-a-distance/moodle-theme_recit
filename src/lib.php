@@ -17,7 +17,7 @@
 /**
  * Theme functions.
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +31,7 @@ use \core_customfield\field_controller;
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_set_headerimg($theme) {
+function theme_recit2_set_headerimg($theme) {
     global $OUTPUT;
 
     $headerimg = $theme->setting_file_url('headerimg', 'headerimg');
@@ -51,7 +51,7 @@ function theme_recit_set_headerimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_set_topfooterimg($theme) {
+function theme_recit2_set_topfooterimg($theme) {
     global $OUTPUT;
 
     $topfooterimg = $theme->setting_file_url('topfooterimg', 'topfooterimg');
@@ -71,7 +71,7 @@ function theme_recit_set_topfooterimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_set_loginbgimg($theme) {
+function theme_recit2_set_loginbgimg($theme) {
     global $OUTPUT;
 
     $loginbgimg = $theme->setting_file_url('loginbgimg', 'loginbgimg');
@@ -91,21 +91,20 @@ function theme_recit_set_loginbgimg($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_get_main_scss_content($theme) {
+function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/bootstrap.css'); 
-    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base.css'); // loaded here because of [[pix:]]
-    $scss .= file_get_contents($CFG->dirroot . '/theme/recit/style/moodle-base-3-9.css'); 
-    $scss .= theme_recit_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
-    //$scss .= file_get_contents($CFG->dirroot . "/theme/recit/style/recit.scss"); // scss from Theme RÉCIT
-    $scss .= file_get_contents($CFG->dirroot . "/theme/recit/scss/recit.scss"); // scss from Theme RÉCIT
+    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/bootstrap.css"); 
+    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
+    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base-3-9.css"); 
+    $scss .= theme_recit2_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
+    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
 
     return $scss;
 }
 
-function theme_recit_get_scss_variables($theme){
+function theme_recit2_get_scss_variables($theme){
     global $CFG;
 
     $scss_variables = [
@@ -115,7 +114,7 @@ function theme_recit_get_scss_variables($theme){
         'ttmenucolor4' => '$tt-menu-color4',
     ];
 
-    $varFileContent = file_get_contents($CFG->dirroot . '/theme/recit/scss/recit/_variables.scss');
+    $varFileContent = file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss");
     
     // in case this function is called by a subtheme
     if(file_exists($CFG->dirroot . "/theme/{$theme->name}/scss/_variables.scss")){
@@ -160,13 +159,13 @@ function theme_recit_get_scss_variables($theme){
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit_get_extra_scss($theme) { 
+function theme_recit2_get_extra_scss($theme) { 
     $scss = $theme->settings->scss;
 
-    $scss .= theme_recit_set_headerimg($theme);
-    $scss .= theme_recit_set_topfooterimg($theme);
-    $scss .= theme_recit_set_loginbgimg($theme);
-    //$scss .= theme_recit_set_course_banner_img($theme);
+    $scss .= theme_recit2_set_headerimg($theme);
+    $scss .= theme_recit2_set_topfooterimg($theme);
+    $scss .= theme_recit2_set_loginbgimg($theme);
+    //$scss .= theme_recit2_set_course_banner_img($theme);
 
     return $scss;
 }
@@ -183,8 +182,8 @@ function theme_recit_get_extra_scss($theme) {
  * @param array $options
  * @return mixed
  */
-function theme_recit_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    $theme = theme_config::load('recit');
+function theme_recit2_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    $theme = theme_config::load('recit2');
 
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
         return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
@@ -222,8 +221,8 @@ function theme_recit_pluginfile($course, $cm, $context, $filearea, $args, $force
  * @param bool $format
  * @return string
  */
-function theme_recit_get_setting($setting, $format = false) {
-    $theme = theme_config::load('recit');
+function theme_recit2_get_setting($setting, $format = false) {
+    $theme = theme_config::load('recit2');
 
     if (empty($theme->settings->$setting)) {
         return false;
@@ -245,7 +244,7 @@ function theme_recit_get_setting($setting, $format = false) {
  * @param bool $format
  * @return string
  */
-function theme_recit_get_course_theme() {
+function theme_recit2_get_course_theme() {
     global $COURSE;
 
     switch($COURSE->theme){
@@ -289,14 +288,14 @@ function theme_recit_get_course_theme() {
 }
 
 
-function theme_recit_create_course_custom_fields(){
-    $category_name = \theme_recit\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION;
+function theme_recit2_create_course_custom_fields(){
+    $category_name = \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION;
     $field_to_add = array(
         array(
             'type' => 'checkbox',
-            'name' => get_string('course-banner', 'theme_recit'),
+            'name' => get_string('course-banner', 'theme_recit2'),
             'shortname' => 'img_course_as_banner',
-            'description' => get_string('course-banner-help', 'theme_recit'),
+            'description' => get_string('course-banner-help', 'theme_recit2'),
             'descriptionformat' => FORMAT_HTML,
             'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
         )
@@ -336,19 +335,19 @@ function theme_recit_create_course_custom_fields(){
  *
  * @param flat_navigation $flatnav
  */
-/*function theme_recit_extend_flat_navigation(\flat_navigation $flatnav) {
-    theme_recit_rebuildcoursesections($flatnav);
-    theme_recit_delete_menuitems($flatnav);
-    theme_recit_add_user_menu($flatnav);   
+/*function theme_recit2_extend_flat_navigation(\flat_navigation $flatnav) {
+    theme_recit2_rebuildcoursesections($flatnav);
+    theme_recit2_delete_menuitems($flatnav);
+    theme_recit2_add_user_menu($flatnav);   
 }*/
 
-/*function theme_recit_add_user_menu(\flat_navigation $flatnav) {
+/*function theme_recit2_add_user_menu(\flat_navigation $flatnav) {
     global $USER, $PAGE;
     $opts = user_get_user_navigation_info($USER, $PAGE);
     
     $options = [
-            'text' => get_string('usermenu', 'theme_recit'),
-            'shorttext' => get_string('usermenu', 'theme_recit'),
+            'text' => get_string('usermenu', 'theme_recit2'),
+            'shorttext' => get_string('usermenu', 'theme_recit2'),
             'icon' => new pix_icon('t/viewdetails', ''),
             'type' => \navigation_node::COURSE_CURRENT,
             'key' => 'user_menu',
@@ -365,7 +364,7 @@ function theme_recit_create_course_custom_fields(){
  *
  * @param flat_navigation $flatnav
  */
-/*function theme_recit_delete_menuitems(\flat_navigation $flatnav) {
+/*function theme_recit2_delete_menuitems(\flat_navigation $flatnav) {
 
     $itemstodelete = [
         'coursehome'
@@ -399,7 +398,7 @@ function theme_recit_create_course_custom_fields(){
  *
  * @param flat_navigation $flatnav
  */
-/*function theme_recit_rebuildcoursesections(\flat_navigation $flatnav) {
+/*function theme_recit2_rebuildcoursesections(\flat_navigation $flatnav) {
     global $PAGE;
 
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
@@ -410,8 +409,8 @@ function theme_recit_create_course_custom_fields(){
 
     if ($PAGE->course->format != 'singleactivity') {
         $coursesectionsoptions = [
-            'text' => get_string('coursesections', 'theme_recit'),
-            'shorttext' => get_string('coursesections', 'theme_recit'),
+            'text' => get_string('coursesections', 'theme_recit2'),
+            'shorttext' => get_string('coursesections', 'theme_recit2'),
             'icon' => new pix_icon('t/viewdetails', ''),
             'type' => \navigation_node::COURSE_CURRENT,
             'key' => 'course-sections',

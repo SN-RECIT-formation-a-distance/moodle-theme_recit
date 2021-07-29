@@ -17,12 +17,12 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright   2018 Bas Brands
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_recit\output\core_course\management;
+namespace theme_recit2\output\core_course\management;
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . "/course/classes/management_renderer.php");
@@ -40,7 +40,7 @@ use action_menu_link_secondary;
 /**
  * Main renderer for the course management pages.
  *
- * @package theme_recit
+ * @package theme_recit2
  * @copyright 2013 Sam Hemelryk
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

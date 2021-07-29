@@ -17,7 +17,7 @@
 /**
  * An embedded layout for the recit theme.
  *
- * @package   theme_recit
+ * @package   theme_recit2
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,4 +31,4 @@ $templatecontext = [
     'wwwroot' => $CFG->wwwroot
 ];
 
-echo $OUTPUT->render_from_template('theme_recit/embedded', $templatecontext);
+echo $OUTPUT->render_from_template('theme_recit2/embedded', $templatecontext);

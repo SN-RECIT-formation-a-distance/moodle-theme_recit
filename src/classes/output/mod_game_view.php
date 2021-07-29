@@ -29,11 +29,11 @@ require_once($CFG->dirroot . "/mod/game/view.php");
 
 
 /**
- * @package    theme_recit
+ * @package    theme_recit2
  * @copyright  RÉCIT 2019
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit_mod_game_renderer extends mod_game_view {
+class theme_recit2_mod_game_renderer extends mod_game_view {
     
     /*
      * View Page

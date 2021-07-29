@@ -1,5 +1,5 @@
 echo off
-set pluginPath=..\moodledev3\theme\recit
+set pluginPath=..\moodledev3\theme\recit2
 
 rem remove the current link
 ..\outils\junction -d src
