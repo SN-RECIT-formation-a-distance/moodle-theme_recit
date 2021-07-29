@@ -285,3 +285,6 @@ $string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if li
 // Custom fields
 $string['course-banner'] = 'Course banner';
 $string['course-banner-help'] = "Use the course image as a banner";
+
+//js
+$string['last_navigated'] = 'Last navigated pages';

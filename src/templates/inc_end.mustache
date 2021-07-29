@@ -32,7 +32,7 @@ require(['theme_recit2/drawer'], function(drawer) {
     M.util.js_complete('theme_recit2/drawer');
 });
 
-require(['theme_recit2/metismenu', 'jquery'], function(metisMenu, $) {
+require(['theme_recit2/recit/metismenu', 'jquery'], function(metisMenu, $) {
     $(".metismenu").metisMenu();
 });
 
@@ -52,25 +52,14 @@ require([], function() {
     }
 });
 
-M.util.js_pending('theme_recit2/ekko-lightbox');
-require(['theme_recit2/ekko-lightbox'], function(mod) {
-    M.util.js_complete('theme_recit2/ekko-lightbox');
+M.util.js_pending('theme_recit2/recit/ekko-lightbox');
+require(['theme_recit2/recit/ekko-lightbox'], function(mod) {
+    M.util.js_complete('theme_recit2/recit/ekko-lightbox');
 });
 
-M.util.js_pending('theme_recit2/jquery.mb.YTPlayer');
-require(['theme_recit2/jquery.mb.YTPlayer', 'jquery'], function(mod, $) {
-    M.util.js_complete('theme_recit2/jquery.mb.YTPlayer');
-    
-    // Youtube video background
-    $(".player").mb_YTPlayer({
-        showControls : false,
-        showYTLogo: false
-    });
-});
-
-M.util.js_pending('theme_recit2/theme-recit2');
-require(['theme_recit2/theme-recit2'], function(mod) {
-    M.util.js_complete('theme_recit2/theme-recit2');
+M.util.js_pending('theme_recit2/recit/theme-recit2');
+require(['theme_recit2/recit/theme-recit2'], function(mod) {
+    M.util.js_complete('theme_recit2/recit/theme-recit2');
 });
 
 

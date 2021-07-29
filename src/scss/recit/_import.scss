@@ -4,13 +4,11 @@
  */
  
 @import "../../fonts/Poppins-Regular.scss";
-@import "fontawesome.scss";
 @import "../extras/fontello";
 @import "_bootstrap-override";
 @import "_moodle-override";
 @import "_vendor.scss";
 @import "transition";
-@import "animate.min";
 @import "../extras/transitions";
 @import "../extras/simple-line-icons";
 @import "../extras/animate";
@@ -24,7 +22,6 @@
 @import "mydashboard";
 @import "recit-tmp";
 @import "ekko-lightbox";
-@import "editeur_html";
 @import "tabs";
 @import "drawer";
 @import "sous-theme";

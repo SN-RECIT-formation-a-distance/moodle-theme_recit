@@ -25,6 +25,29 @@ defined('MOODLE_INTERNAL') || die();
 use \core_customfield\category_controller;
 use \core_customfield\field_controller;
 
+
+/**
+ * Load the Jquery and migration files
+ * Load the our theme js file
+ *
+ * @param  moodle_page $page [description]
+ */
+function theme_recit2_page_init(moodle_page $page) {
+    theme_recit2_strings_for_js();
+}
+
+ /**
+  * Initialise the strings required for JS.
+  *
+  * @return void
+  */
+ function theme_recit2_strings_for_js() {
+     global $PAGE;
+     // In order to prevent extra strings to be imported, comment/uncomment the characters
+     // which are enabled in the JavaScript part of this plugin.
+     $PAGE->requires->strings_for_js(array('last_navigated'), 'theme_recit2');
+}
+
 /**
  * Adds the cover to CSS.
  *
@@ -95,9 +118,7 @@ function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/bootstrap.css"); 
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
-    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base-3-9.css"); 
     $scss .= theme_recit2_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
 

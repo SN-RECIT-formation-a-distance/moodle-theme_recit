@@ -20,6 +20,13 @@
         left: auto;
     }
 
+    .history-menu {
+        max-width: 160px;
+        .dropdown-item {
+            white-space: normal;
+        }
+    }
+    
     .show-onmobile{display: inline;}
 
     .nav-link{

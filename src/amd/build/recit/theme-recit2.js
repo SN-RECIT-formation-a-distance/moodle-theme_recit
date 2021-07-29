@@ -10,18 +10,64 @@ M.recit.course = M.recit.course || {};
 M.recit.course.theme = M.recit.course.theme || {};
 
 M.recit.course.theme.ThemeRecit2 = class{
+    HISTORY_LIMIT_COUNT_TO_SAVE = 50;
+    HISTORY_LIMIT_COUNT_TO_SHOW = 50;
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
+        this.history = [];
 
         this.init();
     }
 
     init(){
         document.onkeyup = this.ctrlShortcuts;
-
-        
+        this.loadNavigationHistory();        
     }
+
+    loadNavigationHistory(){
+        let hist = window.localStorage.getItem('recit_navigation_history');
+        try {
+            let decoded = JSON.parse(hist);
+            if (decoded && decoded.length > 0){
+                this.history = decoded;
+                let count = 0;
+                let exists = {};
+                $('.navleft').append('<li class="nav-item-divider"></li><li class="nav-item dropdown">\
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'+window.M.str.theme_recit2.last_navigated+'">\
+                <i class="fas fa-history"></i>\
+                    <span class="show-onmobile"> '+window.M.str.theme_recit2.last_navigated+'</span>\
+                </a>\
+                <div class="dropdown-menu history-menu" aria-labelledby="navbarDropdown"></div>\
+            </li>')
+                $('.history-menu').append('<span style="font-weight:bold;text-align:center;width: 100%;display: block;">'+window.M.str.theme_recit2.last_navigated+'</span><div class="dropdown-divider"></div>');
+                for (let el of this.history){
+                    if (!exists[el.title]){
+                        $('.history-menu').append('<a class="dropdown-item" href="'+el.url+'" title="'+el.title+'">'+el.title+'</a>');
+                        count++;
+                        exists[el.title] = true;
+                    }
+                    if (count == this.HISTORY_LIMIT_COUNT_TO_SHOW) break;
+                }
+            }
+            this.saveNavigationHistory();
+        }catch(e){
+            this.saveNavigationHistory();
+        }
+    }
+    saveNavigationHistory(){
+        if (!this.history) this.history = [];
+        let title = document.title;
+        let url = document.location.href;
+        if (!this.history[0] || this.history[0].title != title){
+            this.history.push({title:title,url:url});
+        }
+        if (this.history.length > this.HISTORY_LIMIT_COUNT_TO_SAVE){
+            this.history.shift();
+        }
+        window.localStorage.setItem('recit_navigation_history', JSON.stringify(this.history));
+    }
+
 
     ctrlShortcuts(e){
         /*if (e.which == 77) {

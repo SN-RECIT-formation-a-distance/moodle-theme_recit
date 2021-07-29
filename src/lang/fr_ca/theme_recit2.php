@@ -286,3 +286,6 @@ $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
 $string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
+
+//js
+$string['last_navigated'] = 'Pages récemments accedés';
