@@ -1,44 +1,23 @@
 /**************************************
  * FONTS
  *************************************/
-$font-family-sans-serif: 'Ubuntu', sans-serif !default;
-$subheadings-font-family:'Viga', sans-serif;
+$font-family-text: 'Ubuntu', sans-serif !default;
+$font-family-text-size: .937rem !default;
 $headings-font-family:'Viga', sans-serif;
-$figuretexte: 'Times New Roman', serif;
 
 /**************************************
  * COLORS
  *************************************/
-$enable-gradients: true;
 $primary:#0069bf;
 $primaryBold: #022f53;
-$danger:#d0181e;
-$success:#B7D233;
-$info:#FBB040;
-$primarypale:#BFD9EF;
-$primarycomplement:$danger;
-$warning:#384f5c;
 $secondary:#e69321;
 $secondaryBold: #8a5205;
-$secondarypale:#FEF3E4;
-$secondarycomplement:$warning;
 
 $tt-menu-color1: #EAC167;
 $tt-menu-color2: #606972;
 $tt-menu-color3: #ffffff;
 $tt-menu-color4: #0069bf;
 
-$successpale:#EDF4CC;
-$successcomplement:$primary;
-$dangerpale:#F9E2E3;
-$dangercomplement:$secondary;
-$atext-white: $primarypale;
-$atext-dark: $primary;
-
-$infopale:#FEF5E7;
-$infocomplement:$success;
-$warningpale:#CDD3D6;
-$warningcomplement:$info;
 $light:#f4f4f6;
 $dark:#373a3c;
 $white:#ffffff;
@@ -46,18 +25,10 @@ $black:#000;
 
 $color1:#434343;
 $color2:#b7b7b7;
-$color3:#595a5a;
-$color4:#45818e;
-$color5:#76a5af;
 
-$brand-primary: $primary;
 $body-color: #373a3c;
 
-$theme_color1:#007a76;
-$theme_color2:#f6b100;
-$theme_color3:#ef783b;
-$theme_color4:#68b459;
-$theme_color5:#494755;
+$nav-color: #343a40;
 
 /**************************************
  * GENERAL
@@ -66,30 +37,22 @@ $btn-radius: 30px;
 
 $navbar-header-color: #fff !default;
 
-$headings-font-family: $font-family-sans-serif !default;
 $headings-font-weight: 400 !default;
 $headings-color: $primary !default;
 $headings-font-family-font-size: 2.34375rem;
-$header-hight: 150px;
+$header-height: 150px;
 
 $body-bg: #eef5f9 !default;
 
 $card-border-radius: 0 !default;
 $card-border-color: #d7dfe3 !default;
 
-//$navbar-height: 50px !default;
 $navbar-bg: $primary !default;
 $navbar-bg-hover: $secondary !default;
 $navbar-separator: $secondary !default;
 
 $page-max-width: 1500px;
 $top-navbar-height: 67px;
-
-$calendarEventCategoryColor: #fc4b6c !default;
-$calendarEventCourseColor: #7460ee !default;
-$calendarEventGlobalColor: #1e88e5 !default;
-$calendarEventGroupColor: #ffb22b !default;
-$calendarEventUserColor: #26c6da !default;
 
 $m-login-padding: 10px;
 $m-login-boxheight: 350px;
@@ -101,34 +64,3 @@ $m-youtube-color: #cc181e !default;
 $m-googleplus-color: #d34836 !default;
 $m-linkedin-color: #007bb5 !default;
 $m-instagram-color: #8a3ab9 !default;
-
-$carousel-control-color: $secondary !default;
-$carousel-control-prev-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z\'/%3E%3C/svg%3E" !default;
-$carousel-control-next-icon-bg: "data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'$secondary\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z\'/%3E%3C/svg%3E" !default;
-
-// 6. Collapsible
-// ==========================================================================
-
-$collapsible-height: 3rem !default;
-$collapsible-line-height: $collapsible-height !default;
-$collapsible-header-color: #fff !default;
-$collapsible-border-color: #ddd !default;
-
-// 12. Grid
-// ==========================================================================
-
-$num-cols: 12 !default;
-$gutter-width: 1.5rem !default;
-$element-top-margin: $gutter-width/3 !default;
-$element-bottom-margin: ($gutter-width*2)/3 !default;
-
-// 14. Side Navigation
-// ==========================================================================
-
-$sidenav-width: 300px !default;
-$sidenav-font-size: 14px !default;
-$sidenav-font-color: rgba(0,0,0,.87) !default;
-$sidenav-bg-color: #fff !default;
-$sidenav-padding: 16px !default;
-$sidenav-item-height: 48px !default;
-$sidenav-line-height: $sidenav-item-height !default;

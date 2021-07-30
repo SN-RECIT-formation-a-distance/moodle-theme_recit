@@ -22,11 +22,11 @@
     }
 
     .bg-3 {
-        background-color: $warning;
+        background-color: $color1;
     }
 
     .bg-4 {
-        background-color: $danger;
+        background-color: $color2;
 		color:black;
     }
 
@@ -67,7 +67,7 @@
     }
 
     .progress-chart-container .no-progress {
-        background-color: $brand-primary;
+        background-color: $primary;
 
         .fa {
             color: #fff;

@@ -64,7 +64,7 @@
         li {
             width: 30px;
             height: 10px;
-            border: 1px solid $brand-primary;
+            border: 1px solid $primary;
         }
     }
 
@@ -107,8 +107,8 @@
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
-        color: $brand-primary;
-        border: 1px solid $brand-primary;
+        color: $primary;
+        border: 1px solid $primary;
     }
 
     #page-header {
@@ -214,7 +214,7 @@
                     margin-top: 14px;
                     a {
                         text-decoration: none;
-                        color: $brand-primary;
+                        color: $primary;
                         font-size: 1.2rem;
                     }
                 }
@@ -265,7 +265,7 @@
         margin: 3em auto;
 
         h2 {
-            color: $brand-primary;
+            color: $primary;
             margin-bottom: 2rem;
             font-size: 2rem;
         }
@@ -288,7 +288,7 @@
                 font-size: 1.2rem;
 
                 &:before {
-                    color: $brand-primary;
+                    color: $primary;
                     content: "\f068";
                     display: inline-block;
                     font: normal normal normal 14px/1 FontAwesome;

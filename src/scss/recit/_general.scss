@@ -6,11 +6,8 @@ html{
 }
 
 body{
-	/*margin-left: 0px;
-	margin-right: 32px;
-	padding: 0px 0px 0px 0px !important;*/
-    font-family: $font-family-sans-serif; 
-    font-size: .9375rem;
+    font-family: $font-family-text; 
+    font-size: $font-family-text-size;
     background-color: #e0e3e4;
 	color: $body-color;
     counter-reset: arts-tab-counter;

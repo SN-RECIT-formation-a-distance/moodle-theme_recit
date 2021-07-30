@@ -121,30 +121,37 @@ function theme_recit2_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
     $scss .= theme_recit2_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
+    $scss .= theme_recit2_get_subthemes_scss();
 
     return $scss;
 }
 
-function theme_recit2_get_scss_variables($theme){
+function theme_recit2_get_scss_variables($theme, $key = ''){
     global $CFG;
 
     $scss_variables = [
+        'color1' => '$color1',
+        'color2' => '$color2',
         'ttmenucolor1' => '$tt-menu-color1',
         'ttmenucolor2' => '$tt-menu-color2',
         'ttmenucolor3' => '$tt-menu-color3',
         'ttmenucolor4' => '$tt-menu-color4',
+        'navcolor' => '$nav-color',
+        'primarycolor' => '$primary',
+        'primaryboldcolor' => '$primaryBold',
+        'secondarycolor' => '$secondary',
+        'fontfamily' => '$font-family-text',
+        'fontsize' => '$font-family-text-size',
+        'headingsfontfamily' => '$headings-font-family',
+        'btnradius' => '$btn-radius'
     ];
 
     $varFileContent = file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss");
     
-    // in case this function is called by a subtheme
-    if(file_exists($CFG->dirroot . "/theme/{$theme->name}/scss/_variables.scss")){
-        $varFileContent .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/_variables.scss");
-    }
-    
     $varFileContent = explode(";", $varFileContent);
     $newVarFileContent = array();
-    
+    $modified = false;
+
     foreach($varFileContent as $item){
         // value = [\$|\'|\#|\,|\-\w\d\s\!]*
         // look for variables, for example: /$varname:/
@@ -154,7 +161,8 @@ function theme_recit2_get_scss_variables($theme){
         }
 
         $added = false;
-        foreach ($scss_variables as $propname => $varname) {
+        foreach ($scss_variables as $k => $varname) {
+            $propname = $k.$key;
             $value = isset($theme->settings->{$propname}) ? $theme->settings->{$propname} : null;
             if (empty($value)) {
                 continue;
@@ -162,16 +170,36 @@ function theme_recit2_get_scss_variables($theme){
 
             if($varname.":" == current($matches)){
                 $added = true;
+                $modified = true;
                 $newVarFileContent[] = $varname . ": " . $value;
             }
         }
 
         if(!$added){
+            $modified = true;
             $newVarFileContent[] = $item;
         }
     }
 
+    if (!empty($key) && !$modified) return false; //Subtheme doesn't have any var set so return nothing
     return implode(";", $newVarFileContent);
+}
+
+function theme_recit2_get_subthemes_scss(){
+    global $CFG;
+    $scss = "";
+    foreach (theme_recit2_get_subthemes() as $sub){
+        $vars = theme_recit2_get_scss_variables(theme_config::load('recit2'), $sub['key']);
+        if ($vars){
+            $scss .= ".".$sub['cssclass']." {";
+            $scss .= $vars;
+            $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_sous-theme-vars.scss");
+            $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_treetopics.scss");
+            $scss .= "}";
+        }
+    }
+    
+    return $scss;
 }
 
 /**
@@ -268,7 +296,7 @@ function theme_recit2_get_setting($setting, $format = false) {
 function theme_recit2_get_course_theme() {
     global $COURSE;
 
-    switch($COURSE->theme){
+    /*switch($COURSE->theme){
         case 'recit_art':
             return 'theme-recit-art';
 		case 'recit_ecr':
@@ -305,21 +333,71 @@ function theme_recit2_get_course_theme() {
             return 'theme-recit-ecoleg';
         default: 
             return "theme-recit";
+    }*/
+    
+    $theme = 'theme-recit';
+
+    if($COURSE->id > 1){
+        $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
+        if(property_exists($customFieldsRecit, 'subtheme')){
+            $sub = customfield_select\field_controller::get_options_array($customFieldsRecit->subtheme->get_field())[$customFieldsRecit->subtheme->get_value()];
+            if (!empty($sub)){
+                $theme = $sub;
+            }
+        }
     }
+
+    $subtheme = theme_recit2_get_subthemes($theme);
+    if ($subtheme) $theme = $subtheme['cssclass'];
+    return $theme;
 }
 
 
+function theme_recit2_get_course_metadata($courseid, $cat) {
+    $handler = \core_customfield\handler::get_handler('core_course', 'course');
+    // This is equivalent to the line above.
+    //$handler = \core_course\customfield\course_handler::create();
+    $datas = $handler->get_instance_data($courseid);
+    
+    $result = new stdClass();
+    foreach ($datas as $data) {
+        if (empty($data->get_value())) {
+            continue;
+        }
+        if($data->get_field()->get_category()->get('name') != $cat){
+            continue;
+        }
+
+        $attr = $data->get_field()->get('shortname');
+        $result->$attr = $data;
+    }
+    return $result;
+}
+
 function theme_recit2_create_course_custom_fields(){
     $category_name = \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION;
-    $field_to_add = array(
-        array(
+    $field_to_add = array();
+    $field_to_add[] = array(
             'type' => 'checkbox',
             'name' => get_string('course-banner', 'theme_recit2'),
             'shortname' => 'img_course_as_banner',
             'description' => get_string('course-banner-help', 'theme_recit2'),
             'descriptionformat' => FORMAT_HTML,
             'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
-        )
+    );
+
+
+    $options = '';
+    foreach (theme_recit2_get_subthemes() as $sub){
+        $options .= "\r\n".$sub['key'];
+    }
+    $field_to_add[] = array(
+            'type' => 'select',
+            'name' => get_string('course-subtheme', 'theme_recit2'),
+            'shortname' => 'subtheme',
+            'description' => get_string('course-subtheme-help', 'theme_recit2'),
+            'descriptionformat' => FORMAT_HTML,
+            'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => $options, "defaultvalue" => "")
     );
 
     $fields = array();
@@ -351,117 +429,21 @@ function theme_recit2_create_course_custom_fields(){
     }
 }
 
-/**
- * Extend the Recit navigation
- *
- * @param flat_navigation $flatnav
- */
-/*function theme_recit2_extend_flat_navigation(\flat_navigation $flatnav) {
-    theme_recit2_rebuildcoursesections($flatnav);
-    theme_recit2_delete_menuitems($flatnav);
-    theme_recit2_add_user_menu($flatnav);   
-}*/
+function theme_recit2_get_subthemes($key = ''){
+    $subthemes = array(
+        array('name' => get_string('course-math', 'theme_recit2'), 'cssclass' => 'theme-recit-math', 'key' => 'math'),
+        array('name' => get_string('course-english', 'theme_recit2'), 'cssclass' => 'theme-recit-anglais', 'key' => 'anglais'),
+        array('name' => get_string('course-ecr', 'theme_recit2'), 'cssclass' => 'theme-recit-ecr', 'key' => 'ecr'),
+        array('name' => get_string('course-art', 'theme_recit2'), 'cssclass' => 'theme-recit-art', 'key' => 'art'),
+        array('name' => get_string('course-history', 'theme_recit2'), 'cssclass' => 'theme-recit-histoire', 'key' => 'histoire'),
+    );
 
-/*function theme_recit2_add_user_menu(\flat_navigation $flatnav) {
-    global $USER, $PAGE;
-    $opts = user_get_user_navigation_info($USER, $PAGE);
-    
-    $options = [
-            'text' => get_string('usermenu', 'theme_recit2'),
-            'shorttext' => get_string('usermenu', 'theme_recit2'),
-            'icon' => new pix_icon('t/viewdetails', ''),
-            'type' => \navigation_node::COURSE_CURRENT,
-            'key' => 'user_menu',
-            'parent' => null
-        ];
-        
-   $nav_node = new \flat_navigation_node($options, $flatnav);
-        
-   $flatnav->add($nav_node, null);
-}*/
-
-/**
- * Remove items from navigation
- *
- * @param flat_navigation $flatnav
- */
-/*function theme_recit2_delete_menuitems(\flat_navigation $flatnav) {
-
-    $itemstodelete = [
-        'coursehome'
-    ];
-
-    foreach ($flatnav as $item) {
-        if (in_array($item->key, $itemstodelete)) {
-            $flatnav->remove($item->key);
-
-            continue;
+    if (!empty($key)){
+        foreach ($subthemes as $sub){
+            if ($sub['key'] == $key) return $sub;
         }
-
-        if (isset($item->parent->key) && $item->parent->key == 'mycourses' &&
-            isset($item->type) && $item->type == \navigation_node::TYPE_COURSE) {
-
-            $flatnav->remove($item->key);
-
-            continue;
-        }
-        
-        if(isset($item->key) && ($item->key == 'mycourses' || $item->key == "course-sections"))
-        {
-            $flatnav->remove($item->key);
-            continue;
-        }
-    }
-}*/
-
-/**
- * Improve flat navigation menu
- *
- * @param flat_navigation $flatnav
- */
-/*function theme_recit2_rebuildcoursesections(\flat_navigation $flatnav) {
-    global $PAGE;
-
-    $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
-
-    if (!$participantsitem) {
-        return;
+        return false;
     }
 
-    if ($PAGE->course->format != 'singleactivity') {
-        $coursesectionsoptions = [
-            'text' => get_string('coursesections', 'theme_recit2'),
-            'shorttext' => get_string('coursesections', 'theme_recit2'),
-            'icon' => new pix_icon('t/viewdetails', ''),
-            'type' => \navigation_node::COURSE_CURRENT,
-            'key' => 'course-sections',
-            'parent' => $participantsitem->parent
-        ];
-
-        $coursesections = new \flat_navigation_node($coursesectionsoptions, 0);
-
-        foreach ($flatnav as $item) {
-            if ($item->type == \navigation_node::TYPE_SECTION) {
-                $coursesections->add_node(new \navigation_node([
-                    'text' => $item->text,
-                    'shorttext' => $item->shorttext,
-                    'icon' => $item->icon,
-                    'type' => $item->type,
-                    'key' => $item->key,
-                    'parent' => $coursesections,
-                    'action' => $item->action
-                ]));
-            }
-        }
-
-        $flatnav->add($coursesections, $participantsitem->key);
-    }
-
-    $mycourses = $flatnav->find('mycourses', \navigation_node::NODETYPE_LEAF);
-
-    if ($mycourses) {
-        $flatnav->remove($mycourses->key);
-
-        $flatnav->add($mycourses, 'privatefiles');
-    }
-}*/
+    return $subthemes;
+}

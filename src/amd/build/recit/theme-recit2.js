@@ -35,7 +35,7 @@ M.recit.course.theme.ThemeRecit2 = class{
                 let exists = {};
                 $('.navleft').append('<li class="nav-item-divider"></li><li class="nav-item dropdown">\
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'+window.M.str.theme_recit2.last_navigated+'">\
-                <i class="fas fa-history"></i>\
+                <i class="fa fa-history"></i>\
                     <span class="show-onmobile"> '+window.M.str.theme_recit2.last_navigated+'</span>\
                 </a>\
                 <div class="dropdown-menu history-menu" aria-labelledby="navbarDropdown"></div>\

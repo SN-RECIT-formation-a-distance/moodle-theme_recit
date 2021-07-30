@@ -271,6 +271,27 @@ $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty templ
 // color palette
 $string['colorpalettesettings'] = 'Palette de couleurs';
 $string['treetopicssettings'] = 'Menu de l\'arborescence';
+$string['variablessettings'] = 'Variables';
+$string['navcolor'] = 'Couleur de bas et haut de page';
+$string['navcolor_desc'] = 'Couleur de bas et haut de page';
+$string['primarycolor'] = 'Couleur primaire';
+$string['primarycolor_desc'] = 'Couleur primaire';
+$string['color1'] = 'Couleur 1';
+$string['color1_desc'] = 'Couleur 1';
+$string['color2'] = 'Couleur 2';
+$string['color2_desc'] = 'Couleur 2';
+$string['btnradius'] = 'Circonference du bouton';
+$string['btnradius_desc'] = 'Circonference du bouton';
+$string['fontsize'] = 'Grosseur de police';
+$string['fontsize_desc'] = '';
+$string['fontfamily'] = 'Police';
+$string['fontfamily_desc'] = '';
+$string['headingsfontfamily'] = 'Police des titres';
+$string['headingsfontfamily_desc'] = '';
+$string['primaryboldcolor'] = 'Couleur primaire hover';
+$string['primaryboldcolor_desc'] = 'Couleur primaire hover';
+$string['secondarycolor'] = 'Couleur secondaire';
+$string['secondarycolor_desc'] = 'Couleur secondaire';
 $string['ttmenucolorX'] = 'Menu de l\'arborescence - couleur {$a}';
 $string['ttmenucolorX_desc'] = 'Menu de l\'arborescence - couleur {$a}';
 
@@ -286,6 +307,13 @@ $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
 $string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
+$string['course-subtheme'] = 'Sous-thème du cours';
+$string['course-subtheme-help'] = "Utiliser un sous-thème";
+$string['course-math'] = 'Mathématiques';
+$string['course-english'] = 'Anglais';
+$string['course-ecr'] = 'ECR';
+$string['course-art'] = 'Art';
+$string['course-history'] = 'Histoire';
 
 //js
 $string['last_navigated'] = 'Pages récemments accedés';

@@ -11,7 +11,7 @@
     hr{border-color: #FFF;}
 
     h3 {
-        color: $brand-primary;
+        color: $primary;
     }
 
     ul {
@@ -63,7 +63,7 @@
                 }
 
                 &:hover {
-                    color: $brand-primary;
+                    color: $primary;
                 }
             }
         }

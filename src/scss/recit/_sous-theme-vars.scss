@@ -1,0 +1,83 @@
+/* Cette feuille de style est dédoublé pour chaque sous-theme */
+#top-footer1, #recitNavbarTop {
+    background-color: $nav-color !important;
+}
+
+.theme-bg-color {
+    background-color: $primary;
+}
+
+.recit-btn-primary {
+    color: #FFF;
+    background-color: $primary;
+    border-color: $primary;
+    border-radius: $btn-radius;
+}
+
+.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+}
+
+.recit-btn-primary:hover {
+    color: #fff;
+    background-color: $primaryBold;
+    border-color: $primaryBold;
+}
+
+.recit-btn-secondary {
+    color: #FFF;
+    background-color: $secondary;
+    border-color: $secondary;
+    border-radius: $btn-radius;
+}
+
+.btn-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+}
+
+.recit-btn-secondary:hover {
+    color: #fff;
+    background-color: $secondaryBold;
+    border-color: $secondaryBold;
+}
+
+
+#jump-to-activity{background: $primary url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -1 4 7'%3E%3Cpath fill='white' d='M2 0L0 0h4zm0 4L0 2h4z'/%3E%3C/svg%3E") no-repeat right .75rem center; color: #FFF;}
+
+
+h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
+body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
+.card-header {
+    font-family: $headings-font-family;
+}
+
+
+.list_num.list_num_color li::before {
+    background: $color1;
+}
+
+.page-header-headings h1 {
+    color: $color2 !important;
+}
+
+.btn-round {
+    -webkit-border-radius: $btn-radius;
+    -moz-border-radius: $btn-radius;
+    border-radius: $btn-radius;      
+}
+
+.figure_custom {
+    border: 1px solid!important;
+    border-color: $primary!important;
+}
+
+
+.page-header-headings {
+    h1 {
+        color: #FFF;
+        font-family: $headings-font-family !important;
+        font-size: $headings-font-family-font-size;
+    }
+}

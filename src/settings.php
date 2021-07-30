@@ -25,6 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ ."/classes/admin_settingspage_tabs.php");
+require_once(__DIR__ ."/lib.php");
 
 // This is used for performance, we don't need to know about these settings on every page in Moodle, only when
 // we are looking at the admin settings pages.
@@ -298,4 +299,12 @@ if ($ADMIN->fulltree) {
     * -----------------------
     */
     $settings->createCommonSettings('theme_recit2');
+
+
+
+    //Subthemes
+    
+    foreach (theme_recit2_get_subthemes() as $sub){
+      $settings->createCommonSettings('theme_recit2', $sub['key'], $sub['name']);
+    }
 }

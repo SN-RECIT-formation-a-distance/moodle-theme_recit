@@ -270,6 +270,27 @@ $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty templ
 // color palette
 $string['colorpalettesettings'] = 'Color Palette';
 $string['treetopicssettings'] = 'Tree Topics';
+$string['variablessettings'] = 'Variables';
+$string['navcolor'] = 'Nav & footer Color';
+$string['navcolor_desc'] = 'Nav & footer Color';
+$string['color1'] = 'Color 1';
+$string['color1_desc'] = 'Color 1';
+$string['color2'] = 'Color 2';
+$string['color2_desc'] = '';
+$string['btnradius'] = 'Button Radius';
+$string['btnradius_desc'] = '';
+$string['fontsize'] = 'Font Size';
+$string['fontsize_desc'] = '';
+$string['fontfamily'] = 'Font Family';
+$string['fontfamily_desc'] = '';
+$string['headingsfontfamily'] = 'Heading font family';
+$string['headingsfontfamily_desc'] = '';
+$string['primarycolor'] = 'Primary Color';
+$string['primarycolor_desc'] = 'Primary Color';
+$string['primaryboldcolor'] = 'Primary Hover Color';
+$string['primaryboldcolor_desc'] = 'Primary Hover Color';
+$string['secondarycolor'] = 'Secondary Color';
+$string['secondarycolor_desc'] = 'Secondary Color';
 $string['ttmenucolorX'] = 'Tree Topics menu - color {$a}';
 $string['ttmenucolorX_desc'] = 'Tree Topics menu - color {$a}';
 
@@ -285,6 +306,13 @@ $string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if li
 // Custom fields
 $string['course-banner'] = 'Course banner';
 $string['course-banner-help'] = "Use the course image as a banner";
+$string['course-subtheme'] = 'Course subthemes';
+$string['course-subtheme-help'] = "Use sub-thème";
+$string['course-math'] = 'Mathématiques';
+$string['course-english'] = 'Anglais';
+$string['course-ecr'] = 'ECR';
+$string['course-art'] = 'Art';
+$string['course-history'] = 'Histoire';
 
 //js
 $string['last_navigated'] = 'Last navigated pages';

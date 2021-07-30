@@ -164,28 +164,6 @@ class ThemeRecitUtils2{
 
         $result = array();
 
-        /*$roleid = $DB->get_field('role', 'id', ['shortname' => 'editingteacher']);
-        $isteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleid]);
-        $roleidt = $DB->get_field('role', 'id', ['shortname' => 'teacher']);
-        $isnoneditteacheranywhere = $DB->record_exists('role_assignments', ['userid' => $USER->id, 'roleid' => $roleidt]);*/
-
-        // frontpageloaded, currentcourse, currentcoursenotes, user2, useraccount, changepassword, preferredlanguage, coursepreferences, editsettings, turneditingonoff
-        // $settingsnode = $page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
-        // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "editsettings");
-        //self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "turneditingonoff");
-        // self::add_nav_item_from_settings_nav($result, $page->settingsnav, navigation_node::TYPE_SETTING, "questions");
-
-        /*if(isset($result['questions'])){
-            $result['questions']->pix = "fa-database";
-        }*/
-			        
-        /*if(($PAGE->cm->id) != "0"){
-            $item = new stdClass();
-            $item->url = sprintf("%s/course/user.php?mode=grade&id=%ld&user=%ld", $CFG->wwwroot, $COURSE->id, $USER->id);
-            $item->pix = 'fas fa-user-graduate';
-            $item->title =  get_string('grade', 'theme_recit2');
-            $result['gradeuser'] = $item;
-        } */
 
         // Le courseId = 1 est l'accueil du site donc on l'ignore ici.
         if ($COURSE->id > 1) {

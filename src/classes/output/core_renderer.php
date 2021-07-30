@@ -129,34 +129,13 @@ class core_renderer extends \core_renderer {
 
         if($COURSE->id > 1){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);
-            $customFieldsRecit = $this->get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
-            if((property_exists($customFieldsRecit, 'img_course_as_banner')) && ($customFieldsRecit->img_course_as_banner === "1") && ($courseImage)){
+            $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
+            if((property_exists($customFieldsRecit, 'img_course_as_banner')) && ($customFieldsRecit->img_course_as_banner->get_value() === "1") && ($courseImage)){
                 return "background-image: url('$courseImage'); background-position: center;";
             }
         }
 
         return "";
-    }
-
-    function get_course_metadata($courseid, $cat) {
-        $handler = \core_customfield\handler::get_handler('core_course', 'course');
-        // This is equivalent to the line above.
-        //$handler = \core_course\customfield\course_handler::create();
-        $datas = $handler->get_instance_data($courseid);
-        
-        $result = new stdClass();
-        foreach ($datas as $data) {
-            if (empty($data->get_value())) {
-                continue;
-            }
-            if($data->get_field()->get_category()->get('name') != $cat){
-                continue;
-            }
-
-            $attr = $data->get_field()->get('shortname');
-            $result->$attr = $data->get_value();
-        }
-        return $result;
     }
 
      /**

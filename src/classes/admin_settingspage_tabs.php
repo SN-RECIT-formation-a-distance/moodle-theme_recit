@@ -31,35 +31,112 @@ class theme_recit2_admin_settingspage_tabs extends admin_settingpage {
 
     /** @var The tabs */
     protected $tabs = array();
+    protected $fontfamily = array(
+        "" => "",
+        "'Viga', sans-serif" => "Viga",
+        "'Times New Roman', sans-serif" => "Times new roman"
+    );
 
-    public function createCommonSettings($themeName){
-        $page = new admin_settingpage($themeName.'_treetopics', get_string('treetopicssettings', 'theme_recit2'));
+    public function createCommonSettings($themeName, $key = '', $tabName = ''){
+        $name = get_string('variablessettings', 'theme_recit2');
+        if (!empty($tabName)) $name = $tabName;
+        $page = new admin_settingpage($themeName.'_colors'.$key, $name);
 
-        $name = $themeName.'/ttmenucolor1';
+        $name = $themeName.'/ttmenucolor1'.$key;
         $title = get_string('ttmenucolorX', 'theme_recit2', "1");
         $description = get_string('ttmenucolorX_desc', 'theme_recit2', "1");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
-        $name = $themeName.'/ttmenucolor2';
+        $name = $themeName.'/ttmenucolor2'.$key;
         $title = get_string('ttmenucolorX', 'theme_recit2', "2");
         $description = get_string('ttmenucolorX_desc', 'theme_recit2', "2");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
-        $name = $themeName.'/ttmenucolor3';
+        $name = $themeName.'/ttmenucolor3'.$key;
         $title = get_string('ttmenucolorX', 'theme_recit2', "3");
         $description = get_string('ttmenucolorX_desc', 'theme_recit2', "3");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
-        $name = $themeName.'/ttmenucolor4';
+        $name = $themeName.'/ttmenucolor4'.$key;
         $title = get_string('ttmenucolorX', 'theme_recit2', "4");
         $description = get_string('ttmenucolorX_desc', 'theme_recit2', "4");
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/primarycolor'.$key;
+        $title = get_string('primarycolor', 'theme_recit2');
+        $description = get_string('primarycolor_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/primaryboldcolor'.$key;
+        $title = get_string('primaryboldcolor', 'theme_recit2');
+        $description = get_string('primaryboldcolor_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/secondarycolor'.$key;
+        $title = get_string('secondarycolor', 'theme_recit2');
+        $description = get_string('secondarycolor_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/navcolor'.$key;
+        $title = get_string('navcolor', 'theme_recit2');
+        $description = get_string('navcolor_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/color1'.$key;
+        $title = get_string('color1', 'theme_recit2');
+        $description = get_string('color1_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/color2'.$key;
+        $title = get_string('color2', 'theme_recit2');
+        $description = get_string('color2_desc', 'theme_recit2');
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/btnradius'.$key;
+        $title = get_string('btnradius', 'theme_recit2');
+        $description = get_string('btnradius_desc', 'theme_recit2');
+        $setting = new admin_setting_configtext($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/fontsize'.$key;
+        $title = get_string('fontsize', 'theme_recit2');
+        $description = get_string('fontsize_desc', 'theme_recit2');
+        $setting = new admin_setting_configtext($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/fontfamily'.$key;
+        $title = get_string('fontfamily', 'theme_recit2');
+        $description = get_string('fontfamily_desc', 'theme_recit2');
+        $setting = new admin_setting_configselect($name, $title, $description, '', $this->fontfamily);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = $themeName.'/headingsfontfamily'.$key;
+        $title = get_string('headingsfontfamily', 'theme_recit2');
+        $description = get_string('headingsfontfamily_desc', 'theme_recit2');
+        $setting = new admin_setting_configselect($name, $title, $description, '', $this->fontfamily);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
