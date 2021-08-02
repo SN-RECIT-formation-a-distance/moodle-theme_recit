@@ -125,17 +125,28 @@ class core_renderer extends \core_renderer {
     }
 
     function get_course_custom_banner(){
-        global $COURSE;
-
+        global $PAGE, $CFG, $COURSE;
+        $bannerheading = $CFG->wwwroot . "/theme/{$PAGE->theme->name}/pix/banner/banner-course.jpg";
+        $subtheme = theme_recit2_get_course_theme(true);
+    
+        if ($subtheme){
+            $subheading = "/theme/{$PAGE->theme->name}/pix/banner/banner-{$subtheme['key']}.jpg";
+    
+            if (file_exists($CFG->dirroot . $subheading)){
+                $bannerheading = $CFG->wwwroot . $subheading;
+            }
+        }
+    
+    
         if($COURSE->id > 1){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);
             $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
             if((property_exists($customFieldsRecit, 'img_course_as_banner')) && ($customFieldsRecit->img_course_as_banner->get_value() === "1") && ($courseImage)){
-                return "background-image: url('$courseImage'); background-position: center;";
+                $bannerheading = $courseImage;
             }
         }
-
-        return "";
+    
+        return "background-image: url('$bannerheading'); background-position: center;";
     }
 
      /**

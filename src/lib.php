@@ -143,7 +143,8 @@ function theme_recit2_get_scss_variables($theme, $key = ''){
         'fontfamily' => '$font-family-text',
         'fontsize' => '$font-family-text-size',
         'headingsfontfamily' => '$headings-font-family',
-        'btnradius' => '$btn-radius'
+        'btnradius' => '$btn-radius',
+        'headerheight' => '$header-height',
     ];
 
     $varFileContent = file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss");
@@ -293,47 +294,8 @@ function theme_recit2_get_setting($setting, $format = false) {
  * @param bool $format
  * @return string
  */
-function theme_recit2_get_course_theme() {
+function theme_recit2_get_course_theme($data = false) {
     global $COURSE;
-
-    /*switch($COURSE->theme){
-        case 'recit_art':
-            return 'theme-recit-art';
-		case 'recit_ecr':
-            return 'theme-recit-ecr';
-		case 'recit_mathematique':
-            return 'theme-recit-mathematique';
-		case 'recit_science':
-            return 'theme-recit-science';
-		case 'recit_campus':
-            return 'theme-recit-campus';
-        case 'recit_ena':
-            return 'theme-recit-ena';
-		case 'recit_fga':
-            return 'theme-recit-fga';
-		case 'recit_anglais':
-            return 'theme-recit-anglais';
-		case 'recit_francais':
-            return 'theme-recit-francais';
-        case 'recit_histoire':
-            return 'theme-recit-histoire';
-        case 'recit_ecolea':
-            return 'theme-recit-ecolea';
-        case 'recit_ecoleb':
-            return 'theme-recit-ecoleb';
-        case 'recit_ecolec':
-            return 'theme-recit-ecolec';
-        case 'recit_ecoled':
-            return 'theme-recit-ecoled';
-        case 'recit_ecolee':
-            return 'theme-recit-ecolee';
-        case 'recit_ecolef':
-            return 'theme-recit-ecolef';
-        case 'recit_ecoleg':
-            return 'theme-recit-ecoleg';
-        default: 
-            return "theme-recit";
-    }*/
     
     $theme = 'theme-recit';
 
@@ -349,6 +311,7 @@ function theme_recit2_get_course_theme() {
 
     $subtheme = theme_recit2_get_subthemes($theme);
     if ($subtheme) $theme = $subtheme['cssclass'];
+    if ($data) return $subtheme;
     return $theme;
 }
 
@@ -431,6 +394,7 @@ function theme_recit2_create_course_custom_fields(){
 
 function theme_recit2_get_subthemes($key = ''){
     $subthemes = array(
+        array('name' => get_string('course-french', 'theme_recit2'), 'cssclass' => 'theme-recit-francais', 'key' => 'francais'),
         array('name' => get_string('course-math', 'theme_recit2'), 'cssclass' => 'theme-recit-math', 'key' => 'math'),
         array('name' => get_string('course-english', 'theme_recit2'), 'cssclass' => 'theme-recit-anglais', 'key' => 'anglais'),
         array('name' => get_string('course-ecr', 'theme_recit2'), 'cssclass' => 'theme-recit-ecr', 'key' => 'ecr'),

@@ -281,6 +281,8 @@ $string['btnradius'] = 'Button Radius';
 $string['btnradius_desc'] = '';
 $string['fontsize'] = 'Font Size';
 $string['fontsize_desc'] = '';
+$string['headerheight'] = 'Header Height';
+$string['headerheight_desc'] = '';
 $string['fontfamily'] = 'Font Family';
 $string['fontfamily_desc'] = '';
 $string['headingsfontfamily'] = 'Heading font family';
@@ -308,11 +310,12 @@ $string['course-banner'] = 'Course banner';
 $string['course-banner-help'] = "Use the course image as a banner";
 $string['course-subtheme'] = 'Course subthemes';
 $string['course-subtheme-help'] = "Use sub-thème";
-$string['course-math'] = 'Mathématiques';
-$string['course-english'] = 'Anglais';
+$string['course-math'] = 'Maths';
+$string['course-english'] = 'English';
+$string['course-french'] = 'French';
 $string['course-ecr'] = 'ECR';
 $string['course-art'] = 'Art';
-$string['course-history'] = 'Histoire';
+$string['course-history'] = 'History';
 
 //js
 $string['last_navigated'] = 'Last navigated pages';

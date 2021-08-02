@@ -81,3 +81,18 @@ body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
         font-size: $headings-font-family-font-size;
     }
 }
+
+
+#course-banner {
+    background-image: url('[[pix:theme|banner-course]]');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 12vw;
+    max-height: $header-height;
+    min-height: 75px;
+    border: none;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+}

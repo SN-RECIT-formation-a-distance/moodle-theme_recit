@@ -126,6 +126,13 @@ class theme_recit2_admin_settingspage_tabs extends admin_settingpage {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
+        $name = $themeName.'/headerheight'.$key;
+        $title = get_string('headerheight', 'theme_recit2');
+        $description = get_string('headerheight_desc', 'theme_recit2');
+        $setting = new admin_setting_configtext($name, $title, $description, '');
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
         $name = $themeName.'/fontfamily'.$key;
         $title = get_string('fontfamily', 'theme_recit2');
         $description = get_string('fontfamily_desc', 'theme_recit2');
