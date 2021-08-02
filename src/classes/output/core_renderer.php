@@ -54,10 +54,6 @@ use lang_string;
 defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot . '/theme/recit2/layout/common.php');
 require_once($CFG->libdir . '/behat/lib.php');
-//require_once('..lib_/outputrenderers.php');
-require_once('mod_quiz_renderer.php');
-require_once('core_question/core_question_renderer.php');
-//js_reset_all_caches();
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap

@@ -47,8 +47,8 @@ $THEME->extrascsscallback = 'theme_recit2_get_extra_scss';
 //$THEME->prescsscallback = 'theme_recit2_get_pre_scss';
 //$THEME->usefallback = true;
 // Add a custom icon system to the theme.
-$THEME->iconsystem = '\\theme_recit2\\output\\icon_system_fontawesome';
-//$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
+//$THEME->iconsystem = '\\theme_recit2\\output\\icon_system_fontawesome';
+$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(

@@ -26,7 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 use theme_recit2\output;
 
-require_once($CFG->dirroot . '/theme/recit2/classes/output/icon_system_fontawesome.php');
 require_once($CFG->dirroot . '/theme/recit2/classes/util/ThemeRecitUtils.php');
 require_once($CFG->dirroot . '/user/lib.php');
 require_once($CFG->dirroot . '/message/output/popup/lib.php');
@@ -279,9 +278,8 @@ class ThemeRecitUtils2{
         $navoptions = user_get_user_navigation_info($user, $page);
 
         $theme = theme_config::load('recit2');
-        $instance = \theme_recit2\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $instance = \core\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
-        //$iconmap = \theme_recit2\output\icon_system_fontawesome::$iconmap;
 
         foreach ($navoptions->navitems as $navitem) {
             if ($navitem->itemtype == "link") {
@@ -352,7 +350,7 @@ class ThemeRecitUtils2{
         }
 
         $theme = theme_config::load('recit2');
-        $instance = \theme_recit2\output\icon_system_fontawesome::instance($theme->get_icon_system());
+        $instance = \core\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
 
         $item = new stdClass();
