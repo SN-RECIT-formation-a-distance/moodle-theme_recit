@@ -81,6 +81,13 @@ if ($ADMIN->fulltree) {
     //$setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    $name = 'theme_recit2/courselistview';
+    $title = get_string('courselistview', 'theme_recit2');
+    $description = get_string('courselistviewdesc', 'theme_recit2');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    //$setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Must add the page after defining all the settings!
     $settings->add($page);
 

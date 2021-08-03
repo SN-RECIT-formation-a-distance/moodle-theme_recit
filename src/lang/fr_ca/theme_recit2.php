@@ -255,8 +255,10 @@ $string['termsurl'] = 'Politiques d\'utilisation';
 $string['termsurldesc'] = 'Enter the URL of your Terms of Usage';
 $string['policyurl'] = 'Politiques de confidentialité';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
-$string['disablebottomfooter'] = 'Disable bottom footer';
+$string['disablebottomfooter'] = 'Enlever le pied de page';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
+$string['courselistview'] = 'Changer la vue de liste de cours par une liste';
+$string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
 
 // Forum.
 $string['forumsettings'] = 'Forum';
