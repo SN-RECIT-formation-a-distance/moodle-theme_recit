@@ -35,8 +35,8 @@ $plugin->requires = 2020061500.00;
 $plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'R14-V2.0.0';
+$plugin->release = 'R14-V2.14.0';
 
 // This is a stable release.
-$plugin->maturity = MATURITY_BETA;
+$plugin->maturity = MATURITY_ALPHA;
 
