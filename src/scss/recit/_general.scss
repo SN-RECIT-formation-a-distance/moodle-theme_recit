@@ -34,6 +34,12 @@ body{
     }
 }
 
+@media (min-width: 576px){
+    #region-main {
+        border: none;
+    }
+}
+
 .pagelayout-popup {
     margin-left: 0;
 }
