@@ -27,7 +27,7 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
 }
 
 .treetopics{
-    display: grid; margin: -1rem; // the tree topics navbar has no padding  
+    display: grid; margin: -2.125rem; // the tree topics navbar has no padding  
     
     &.horizontal{
         grid-template-columns: auto;

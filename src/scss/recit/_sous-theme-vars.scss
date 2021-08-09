@@ -58,10 +58,6 @@ body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
     background: $color1;
 }
 
-.page-header-headings h1 {
-    color: $color2 !important;
-}
-
 .btn-round {
     -webkit-border-radius: $btn-radius;
     -moz-border-radius: $btn-radius;
@@ -76,7 +72,7 @@ body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
 
 .page-header-headings {
     h1 {
-        color: #FFF;
+        color: $color2;
         font-family: $headings-font-family !important;
         font-size: $headings-font-family-font-size;
     }
