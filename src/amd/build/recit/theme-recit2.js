@@ -22,7 +22,7 @@ M.recit.course.theme.ThemeRecit2 = class{
 
     init(){
         document.onkeyup = this.ctrlShortcuts;
-        this.loadNavigationHistory();        
+        this.loadNavigationHistory();
     }
 
     loadNavigationHistory(){
@@ -59,7 +59,7 @@ M.recit.course.theme.ThemeRecit2 = class{
         if (!this.history) this.history = [];
         let title = document.title;
         let url = document.location.href;
-        if (!this.history[0] || this.history[0].title != title){
+        if (this.history.length == 0 || this.history[this.history.length - 1].title != title){
             this.history.push({title:title,url:url});
         }
         if (this.history.length > this.HISTORY_LIMIT_COUNT_TO_SAVE){
