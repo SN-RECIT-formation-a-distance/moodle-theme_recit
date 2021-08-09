@@ -256,7 +256,11 @@ $string['policyurl'] = 'Privacy Policy';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
-$string['courselistview'] = 'Changer la vue de liste de cours par une liste';
+
+
+$string['list'] = 'List';
+$string['tile'] = 'Tile';
+$string['courselistview'] = 'Change course list view';
 $string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
 
 // Forum.

@@ -11,7 +11,7 @@ M.recit.course.theme = M.recit.course.theme || {};
 
 M.recit.course.theme.ThemeRecit2 = class{
     HISTORY_LIMIT_COUNT_TO_SAVE = 50;
-    HISTORY_LIMIT_COUNT_TO_SHOW = 50;
+    HISTORY_LIMIT_COUNT_TO_SHOW = 7;
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);

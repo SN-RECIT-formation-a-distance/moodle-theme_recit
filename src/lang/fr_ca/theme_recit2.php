@@ -190,10 +190,15 @@ $string['slidercaptiondesc'] = 'Ajouter un titre à votre diapositive';
 $string['numbersfrontpage'] = 'Show site numbers on frontpage';
 $string['numbersfrontpagedesc'] = 'If enabled, display the number of active users, courses and activities in the frontpage.';
 $string['frontpagenumbersome'] = 'Some';
-$string['frontpagenumbernumbers'] = 'Numbers';
+$string['frontpagenumbernumbers'] = 'Nombre';
 $string['frontpagenumberusers'] = 'Users';
-$string['frontpagenumbercourses'] = 'Courses';
-$string['frontpagenumberactivities'] = 'Activities';
+$string['frontpagenumbercourses'] = 'Cours';
+$string['frontpagenumberactivities'] = 'Activités';
+
+$string['list'] = 'Liste';
+$string['tile'] = 'Tuile';
+$string['courselistview'] = 'Changer la vue de liste de cours';
+$string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
 
 $string['sponsorstitledefault'] = 'Sponsors';
 $string['sponsorssubtitledefault'] = 'Companies and institutions that believe in us';
@@ -257,8 +262,6 @@ $string['policyurl'] = 'Politiques de confidentialité';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Enlever le pied de page';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
-$string['courselistview'] = 'Changer la vue de liste de cours par une liste';
-$string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
 
 // Forum.
 $string['forumsettings'] = 'Forum';

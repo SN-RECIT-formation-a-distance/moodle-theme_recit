@@ -55,6 +55,10 @@ class course_renderer extends \core_course_renderer {
         if ((++$count) > 1) {
             $formid .= $count;
         }
+        
+        $view = optional_param('view', null, PARAM_ALPHA);
+        $isTileView = false;
+        if (!$view || $view == 'tile') $isTileView = true;
 
         switch ($format) {
             case 'navbar' :
@@ -76,7 +80,8 @@ class course_renderer extends \core_course_renderer {
             'id' => $formid,
             'inputid' => $inputid,
             'inputsize' => $inputsize,
-            'value' => $value
+            'value' => $value,
+            'isTileView' => $isTileView
         ];
 
         return $this->render_from_template('theme_recit2/course_search_form', $data);
@@ -102,8 +107,10 @@ class course_renderer extends \core_course_renderer {
         global $CFG;
 
         $theme = \theme_config::load('recit2');
+        $view = optional_param('view', null, PARAM_ALPHA);
 
-        if (!empty($theme->settings->courselistview)) {
+        //if (!empty($theme->settings->courselistview)) {
+        if ($view == 'list'){
             return parent::coursecat_courses($chelper, $courses, $totalcount);
         }
 
@@ -212,8 +219,10 @@ class course_renderer extends \core_course_renderer {
         global $CFG;
 
         $theme = \theme_config::load('recit2');
+        $view = optional_param('view', null, PARAM_ALPHA);
 
-        if (!empty($theme->settings->courselistview)) {
+        //if (!empty($theme->settings->courselistview)) {
+        if ($view == 'list'){
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses);
         }
 
