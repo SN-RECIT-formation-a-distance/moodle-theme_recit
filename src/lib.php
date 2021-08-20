@@ -80,7 +80,7 @@ function theme_recit_set_loginbgimg($theme) {
         $loginbgimg = $OUTPUT->image_url('login_bg', 'theme');
     }
 
-    $headercss = "#page-login-index.recit-login #page-wrapper #page {background-image: url('$loginbgimg');}";
+    $headercss = "#page-login-index.recit-login #page-wrapper #page, #page-login-signup #page-wrapper #page {background-image: url('$loginbgimg');}";
 
     return $headercss;
 }
