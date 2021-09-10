@@ -433,7 +433,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
      * @param array $summarydata contains all table data
      * @return $output containing html data.
      */
-    public function review_page(quiz_attempt $attemptobj, $slots, $page, $showall,
+    /*public function review_page(quiz_attempt $attemptobj, $slots, $page, $showall,
                                 $lastpage, mod_quiz_display_options $displayoptions,
                                 $summarydata) {
 
@@ -459,7 +459,7 @@ class theme_recit_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->review_next_navigation($attemptobj, $page, $lastpage, $showall);
         $output .= $this->footer();
         return $output;
-    }
+    }*/
 
     /**
      * Outputs the table containing data from summary data array
