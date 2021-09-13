@@ -103,7 +103,7 @@ class course_renderer extends \core_course_renderer {
 
         $theme = \theme_config::load('recit');
 
-        if (!empty($theme->settings->courselistview)) {
+        if (!empty($theme->settings->courselistview) || $CFG->courseswithsummarieslimit == 0) {
             return parent::coursecat_courses($chelper, $courses, $totalcount);
         }
 
@@ -213,7 +213,8 @@ class course_renderer extends \core_course_renderer {
 
         $theme = \theme_config::load('recit');
 
-        if (!empty($theme->settings->courselistview)) {
+        
+        if ($CFG->courseswithsummarieslimit == 0 || !empty($theme->settings->courselistview)) {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses);
         }
 
