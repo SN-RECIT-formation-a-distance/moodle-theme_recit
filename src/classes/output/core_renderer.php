@@ -1409,11 +1409,11 @@ class core_renderer extends \core_renderer {
             $output .= sprintf("<h2 class='activity-title'>%s</h2>", $PAGE->cm->name); // $text);
             $output .= "</div>";           
             $output .= "<div class='activity-controls'>"; 
-            $output .= "<div class='btn-group' style='margin-right: 1rem;'>";
+            /*$output .= "<div class='btn-group' style='margin-right: 1rem;'>";
             $output .= sprintf("<button  class='btn btn-primary' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
                         $this->act_name(), $this->act_name_cons());
             $output .= sprintf("<button class='btn btn-outline-secondary' disabled>%s</button>", $this->act_name());
-            $output .= "</div>";
+            $output .= "</div>";*/
             $output .= $OUTPUT->region_main_settings_menu();
             $output .= "</div>";
             $output .= "</div>";
