@@ -21,13 +21,3 @@
         <button class="btn btn-secondary" type="submit">{{#str}}go{{/str}}</button>
     </fieldset>
 </form>
-
-<form method="get" class="form-inline" style="margin-top:10px">
-    <fieldset class="coursesearchbox invisiblefieldset">
-        <label for="viewsel">{{#str}}courselistview, theme_recit2{{/str}}</label>
-        <select name="view" id="viewsel" onchange="this.form.submit()" class="custom-select singleselect">
-            <option value="list">{{#str}}list, theme_recit2{{/str}}</option>
-            <option value="tile" {{#isTileView}} selected {{/isTileView}}>{{#str}}tile, theme_recit2{{/str}}</option>
-        </select>
-    </fieldset>
-</form>

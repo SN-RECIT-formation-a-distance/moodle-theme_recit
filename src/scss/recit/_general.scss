@@ -140,31 +140,22 @@ body.pagelayout-embedded{
     bottom: -8px;
 }
 
-/**
- * MOODLE CLASSES
- */ 
-/*.chooserdialoguebody, .choosertitle {
-    display: none;
-}
-
-.course-content .hidden {
-    display: none;
-}*/
-
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 }
 
 .course_category_tree .courses {
     display: grid;
-}
-
-.course_category_tree .courses .coursebox {
-    display: inline-flex;
-    img.recit-card-img-top {
+    
+    .coursebox {
+        display: inline-flex;
+    }
+    
+    .recit-card-img-top {
         max-height: 60px;
         width: auto;
     }
+    
     .card-body {
         display: inline-flex;
     }
