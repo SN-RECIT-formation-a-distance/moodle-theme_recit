@@ -1423,21 +1423,16 @@ class core_renderer extends \core_renderer {
             $output .= sprintf("<h2 class='activity-title'>%s</h2>", $PAGE->cm->name); // $text);
             $output .= "</div>";           
             $output .= "<div class='activity-controls'>"; 
-            $output .= "<div class='btn-group' style='margin-right: 1rem;'>";
+            /*$output .= "<div class='btn-group' style='margin-right: 1rem;'>";
             $output .= sprintf("<button  class='btn btn-primary' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
                         $this->act_name(), $this->act_name_cons());
             $output .= sprintf("<button class='btn btn-outline-secondary' disabled>%s</button>", $this->act_name());
-            $output .= "</div>";
+            $output .= "</div>";*/
             $output .= $OUTPUT->region_main_settings_menu();
             $output .= "</div>";
             $output .= "</div>";
             $output .= "<hr/>";
-            
-            /*$icon_assign = $CFG->wwwroot . '/theme/recit/pix_plugins/mod/'. $PAGE->cm->modname.'/icon.svg';
-            $AnameS = $this->act_name();
-            $AnameC = $this->act_name_cons();
-            $output = "<div class='card'>";
-            $output .= sprintf(" <div class='card-header titre_actvity'><div class='row h-100'><div class='col-sm-1 my-auto'>$homelink <div class=\"recit_icon_titre\"><a href=\"#\"  data-placement=\"bottom\" class=\"\" data-toggle=\"popover\" title=\"". $AnameS . "\" data-html=\"true\" tabindex=\"0\" data-trigger=\"\" data-content=\"".$AnameC."\"><img src=\"". $icon_assign . "\" alt=\"Smiley face\" height=\"30\" width=\"30\"></a></div></div><div class='col-md-11'>  %s</div></div></div>", html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => 'recit_titre'. renderer_base::prepare_classes($classes))));*/
+        
         }
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));
