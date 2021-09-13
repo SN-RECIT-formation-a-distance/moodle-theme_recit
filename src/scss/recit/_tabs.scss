@@ -1038,6 +1038,7 @@
     @media screen and (max-width: 768px) {
         .nav-item {
             width: 50%;
+            max-width: 50%;
         }
 
         .nav-item:nth-child(even) {
@@ -1048,6 +1049,7 @@
     @media screen and (max-width: 480px) {
         .nav-item {
             width: 100%;
+            max-width: 100%;
             border-right: none;
         }
     }
