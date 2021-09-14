@@ -70,9 +70,9 @@ Example context (json):
     
     {{#prevlink}}
         <div class='prevlink btn-group'>
-            <button class="btn btn-sm btn-secondary" disabled>
+            <a class="btn btn-sm btn-secondary" href="{{url}}" style="line-height:36px">
                 <i class='fa fa-arrow-left'></i>
-            </button>
+            </a>
             <button class="btn btn-sm btn-link truncate-text">
                 {{> core/action_link }}
             </button>
@@ -88,9 +88,9 @@ Example context (json):
             <button class="btn btn-sm btn-link truncate-text">
                 {{> core/action_link }}
             </button>
-            <button class="btn btn-sm btn-secondary" disabled>
+            <a class="btn btn-sm btn-secondary" href="{{url}}" style="line-height:36px">
                 <i class='fa fa-arrow-right'></i>
-            </button>
+            </a>
         </div>
     {{/nextlink}}
 </div>
