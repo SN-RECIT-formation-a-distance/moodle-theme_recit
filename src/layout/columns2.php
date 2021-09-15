@@ -69,7 +69,7 @@ $templatecontext = [
     'navdraweropen' => ThemeRecitUtils2::is_nav_drawer_open(),
     'draweropenright' => ThemeRecitUtils2::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    //'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
