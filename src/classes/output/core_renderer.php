@@ -1367,7 +1367,7 @@ class core_renderer extends \core_renderer {
      * @param string $id An optional ID
      * @return string the HTML to output.
      */
-    public  function act_name(){
+    /*public function act_name(){
         global $PAGE;
 
         $Aname = strval("mod-".$PAGE->cm->modname."-name") ;
@@ -1378,7 +1378,7 @@ class core_renderer extends \core_renderer {
 
         return $result;
     }
-    public  function act_name_cons(){
+    public function act_name_cons(){
         global $PAGE;
     
         $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
@@ -1388,7 +1388,7 @@ class core_renderer extends \core_renderer {
         }
         
         return $result;
-    }
+    }*/
 
     public function heading($text, $level = 2, $classes = null, $id = null) {
        // global $OUTPUT, $PAGE, $USER, $CFG;

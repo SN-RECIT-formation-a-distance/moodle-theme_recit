@@ -42,6 +42,7 @@ use core_course_list_element;
  */
 class course_renderer extends \core_course_renderer {
 
+    private $listview = false;
  /**
      * Renders html to display a course search form.
      *
@@ -103,18 +104,21 @@ class course_renderer extends \core_course_renderer {
      *     defaulted to count($courses)
      * @return string
      */
-    protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
+    protected function coursecat_courses(coursecat_helper $chelper, $courses, $_totalcount = null) {
         global $CFG;
 
-        $theme = \theme_config::load('recit2');
 
-        if (!empty($theme->settings->courselistview) || $CFG->courseswithsummarieslimit == 0){
-            return parent::coursecat_courses($chelper, $courses, $totalcount);
-        }
-
-        if ($totalcount === null) {
+        if ($_totalcount === null) {
             $totalcount = count($courses);
+        }else{
+            $totalcount = $_totalcount;
         }
+
+        if ($CFG->courseswithsummarieslimit < $totalcount){
+            $this->listview = true;
+            return parent::coursecat_courses($chelper, $courses, $_totalcount);
+        }
+        
 
         if (!$totalcount) {
             // Courses count is cached during courses retrieval.
@@ -216,9 +220,7 @@ class course_renderer extends \core_course_renderer {
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
 
-        $theme = \theme_config::load('recit2');
-
-        if ($CFG->courseswithsummarieslimit == 0 || !empty($theme->settings->courselistview)) {
+        if ($this->listview) {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses);
         }
 
@@ -266,6 +268,11 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG, $DB;
+
+        if ($this->listview) {
+            return parent::coursecat_coursebox_content($chelper, $course);
+        }
+        
 
         if ($course instanceof stdClass) {
             if (file_exists($CFG->libdir. '/coursecatlib.php')) require_once($CFG->libdir. '/coursecatlib.php');
@@ -357,6 +364,9 @@ class course_renderer extends \core_course_renderer {
         global $CFG;
 
         $contentimage = '';
+
+        if ($this->listview) return $contentimage;
+
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
             $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
@@ -402,6 +412,6 @@ class course_renderer extends \core_course_renderer {
 
         $userimg->size = $imgsize;
 
-        return  $userimg->get_url($PAGE);
+        return $userimg->get_url($PAGE);
     }
 }
