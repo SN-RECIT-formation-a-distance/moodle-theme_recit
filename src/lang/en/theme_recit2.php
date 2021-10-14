@@ -314,14 +314,3 @@ $string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if li
 // Custom fields
 $string['course-banner'] = 'Course banner';
 $string['course-banner-help'] = "Use the course image as a banner";
-$string['course-subtheme'] = 'Course subthemes';
-$string['course-subtheme-help'] = "Use sub-thème";
-$string['course-math'] = 'Maths';
-$string['course-english'] = 'English';
-$string['course-french'] = 'French';
-$string['course-ecr'] = 'ECR';
-$string['course-art'] = 'Art';
-$string['course-history'] = 'History';
-
-//js
-$string['last_navigated'] = 'Last navigated pages';

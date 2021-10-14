@@ -129,7 +129,7 @@ class ThemeRecitUtils2{
      * @return array
      */
     public static function get_template_context_common($output, $page, $user = null) {
-        global $CFG, $SITE;
+        global $CFG, $SITE, $COURSE;
 
         $result = [
             'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -149,6 +149,14 @@ class ThemeRecitUtils2{
 
         $result['message_and_notification'] = message_popup_render_navbar_output($output);
         $result['message_drawer'] = core_message_standard_after_main_region_html();
+
+        $result['css_custom'] = "";
+        if($COURSE->id > 1){
+            $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
+            if(property_exists($customFieldsRecit, 'css_custom')){
+                $result['css_custom'] = strip_tags($customFieldsRecit->css_custom->get_value());
+            }
+        }
 
         return $result;
     }

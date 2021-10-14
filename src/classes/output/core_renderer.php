@@ -123,16 +123,6 @@ class core_renderer extends \core_renderer {
     function get_course_custom_banner(){
         global $PAGE, $CFG, $COURSE;
         $bannerheading = $CFG->wwwroot . "/theme/{$PAGE->theme->name}/pix/banner/banner-course.jpg";
-        $subtheme = theme_recit2_get_course_theme(true);
-    
-        if ($subtheme){
-            $subheading = "/theme/{$PAGE->theme->name}/pix/banner/banner-{$subtheme['key']}.jpg";
-    
-            if (file_exists($CFG->dirroot . $subheading)){
-                $bannerheading = $CFG->wwwroot . $subheading;
-            }
-        }
-    
     
         if($COURSE->id > 1){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);

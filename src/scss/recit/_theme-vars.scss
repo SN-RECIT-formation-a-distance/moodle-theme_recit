@@ -12,16 +12,11 @@
     background-color: $primary;
     border-color: $primary;
     border-radius: $btn-radius;
-}
-
-.btn-primary {
-    background-color: $primary;
-    border-color: $primary;
-}
+} 
 
 .recit-btn-primary:hover {
     color: #fff;
-    background-color: $primaryBold;
+    background-color: $primaryBold; 
     border-color: $primaryBold;
 }
 
@@ -30,11 +25,6 @@
     background-color: $secondary;
     border-color: $secondary;
     border-radius: $btn-radius;
-}
-
-.btn-secondary {
-    background-color: $secondary;
-    border-color: $secondary;
 }
 
 .recit-btn-secondary:hover {

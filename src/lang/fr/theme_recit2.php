@@ -314,14 +314,4 @@ $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
 $string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
-$string['course-subtheme'] = 'Sous-thème du cours';
-$string['course-subtheme-help'] = "Utiliser un sous-thème";
-$string['course-math'] = 'Mathématiques';
-$string['course-english'] = 'Anglais';
-$string['course-french'] = 'Français';
-$string['course-ecr'] = 'ECR';
-$string['course-art'] = 'Art';
-$string['course-history'] = 'Histoire';
 
-//js
-$string['last_navigated'] = 'Pages récemments accedés';

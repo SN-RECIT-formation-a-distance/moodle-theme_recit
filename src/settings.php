@@ -191,6 +191,13 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    $name = 'theme_recit2/navcolor';
+    $title = get_string('navcolor', 'theme_recit2');
+    $description = get_string('navcolor_desc', 'theme_recit2');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Website.
     $name = 'theme_recit2/website';
     $title = get_string('website', 'theme_recit2');
@@ -299,19 +306,4 @@ if ($ADMIN->fulltree) {
    // $setting->set_updatedcallback('theme_reset_all_caches');
 
     $settings->add($page);
-
-    /*
-    * -----------------------
-    * Tree Topics
-    * -----------------------
-    */
-    $settings->createCommonSettings('theme_recit2');
-
-
-
-    //Subthemes
-    
-    foreach (theme_recit2_get_subthemes() as $sub){
-      $settings->createCommonSettings('theme_recit2', $sub['key'], $sub['name']);
-    }
 }

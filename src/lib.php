@@ -45,7 +45,7 @@ function theme_recit2_page_init(moodle_page $page) {
      global $PAGE;
      // In order to prevent extra strings to be imported, comment/uncomment the characters
      // which are enabled in the JavaScript part of this plugin.
-     $PAGE->requires->strings_for_js(array('last_navigated'), 'theme_recit2');
+     
 }
 
 /**
@@ -121,7 +121,6 @@ function theme_recit2_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
     $scss .= theme_recit2_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
-    $scss .= theme_recit2_get_subthemes_scss();
 
     return $scss;
 }
@@ -130,21 +129,7 @@ function theme_recit2_get_scss_variables($theme, $key = ''){
     global $CFG;
 
     $scss_variables = [
-        'color1' => '$color1',
-        'color2' => '$color2',
-        'ttmenucolor1' => '$tt-menu-color1',
-        'ttmenucolor2' => '$tt-menu-color2',
-        'ttmenucolor3' => '$tt-menu-color3',
-        'ttmenucolor4' => '$tt-menu-color4',
-        'navcolor' => '$nav-color',
-        'primarycolor' => '$primary',
-        'primaryboldcolor' => '$primaryBold',
-        'secondarycolor' => '$secondary',
-        'fontfamily' => '$font-family-text',
-        'fontsize' => '$font-family-text-size',
-        'headingsfontfamily' => '$headings-font-family',
-        'btnradius' => '$btn-radius',
-        'headerheight' => '$header-height',
+        'navcolor' => '$nav-color'
     ];
 
     $varFileContent = file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss");
@@ -184,23 +169,6 @@ function theme_recit2_get_scss_variables($theme, $key = ''){
 
     if (!empty($key) && !$modified) return false; //Subtheme doesn't have any var set so return nothing
     return implode(";", $newVarFileContent);
-}
-
-function theme_recit2_get_subthemes_scss(){
-    global $CFG;
-    $scss = "";
-    foreach (theme_recit2_get_subthemes() as $sub){
-        $vars = theme_recit2_get_scss_variables(theme_config::load('recit2'), $sub['key']);
-        if ($vars){
-            $scss .= ".".$sub['cssclass']." {";
-            $scss .= $vars;
-            $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_sous-theme-vars.scss");
-            $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_treetopics.scss");
-            $scss .= "}";
-        }
-    }
-    
-    return $scss;
 }
 
 /**
@@ -287,35 +255,6 @@ function theme_recit2_get_setting($setting, $format = false) {
     }
 }
 
-/**
- * Get course theme name
- *
- * @param string $setting
- * @param bool $format
- * @return string
- */
-function theme_recit2_get_course_theme($data = false) {
-    global $COURSE;
-    
-    $theme = 'theme-recit';
-
-    if($COURSE->id > 1){
-        $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
-        if(property_exists($customFieldsRecit, 'subtheme')){
-            $sub = customfield_select\field_controller::get_options_array($customFieldsRecit->subtheme->get_field())[$customFieldsRecit->subtheme->get_value()];
-            if (!empty($sub)){
-                $theme = $sub;
-            }
-        }
-    }
-
-    $subtheme = theme_recit2_get_subthemes($theme);
-    if ($subtheme) $theme = $subtheme['cssclass'];
-    if ($data) return $subtheme;
-    return $theme;
-}
-
-
 function theme_recit2_get_course_metadata($courseid, $cat) {
     $handler = \core_customfield\handler::get_handler('core_course', 'course');
     // This is equivalent to the line above.
@@ -349,18 +288,13 @@ function theme_recit2_create_course_custom_fields(){
             'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
     );
 
-
-    $options = '';
-    foreach (theme_recit2_get_subthemes() as $sub){
-        $options .= "\r\n".$sub['key'];
-    }
     $field_to_add[] = array(
-            'type' => 'select',
-            'name' => get_string('course-subtheme', 'theme_recit2'),
-            'shortname' => 'subtheme',
-            'description' => get_string('course-subtheme-help', 'theme_recit2'),
-            'descriptionformat' => FORMAT_HTML,
-            'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => $options, "defaultvalue" => "")
+        'type' => 'textarea',
+        'name' => 'CSS Custom',
+        'shortname' => 'css_custom',
+        'description' => 'CSS Custom',
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "defaultvalue" => "", "defaultvalueformat" => "1")
     );
 
     $fields = array();
@@ -390,24 +324,4 @@ function theme_recit2_create_course_custom_fields(){
             $handler->save_field_configuration($field, (object)$f);
         }
     }
-}
-
-function theme_recit2_get_subthemes($key = ''){
-    $subthemes = array(
-        array('name' => get_string('course-french', 'theme_recit2'), 'cssclass' => 'theme-recit-francais', 'key' => 'francais'),
-        array('name' => get_string('course-math', 'theme_recit2'), 'cssclass' => 'theme-recit-math', 'key' => 'math'),
-        array('name' => get_string('course-english', 'theme_recit2'), 'cssclass' => 'theme-recit-anglais', 'key' => 'anglais'),
-        array('name' => get_string('course-ecr', 'theme_recit2'), 'cssclass' => 'theme-recit-ecr', 'key' => 'ecr'),
-        array('name' => get_string('course-art', 'theme_recit2'), 'cssclass' => 'theme-recit-art', 'key' => 'art'),
-        array('name' => get_string('course-history', 'theme_recit2'), 'cssclass' => 'theme-recit-histoire', 'key' => 'histoire'),
-    );
-
-    if (!empty($key)){
-        foreach ($subthemes as $sub){
-            if ($sub['key'] == $key) return $sub;
-        }
-        return false;
-    }
-
-    return $subthemes;
 }

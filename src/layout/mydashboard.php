@@ -38,7 +38,6 @@ if (ThemeRecitUtils2::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
-$extraclasses[] = theme_recit2_get_course_theme();
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
