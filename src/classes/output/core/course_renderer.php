@@ -291,6 +291,8 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::start_tag('div', array('class' => 'course-contacts'));
 
             $instructors = $course->get_course_contacts();
+            $maxInstructors = 5;
+            $countInstructors = 0;
             foreach ($instructors as $key => $instructor) {
                 $name = $instructor['username'];
                 $url = $CFG->wwwroot.'/user/profile.php?id='.$key;
@@ -299,6 +301,13 @@ class course_renderer extends \core_course_renderer {
                 $content .= "<a href='{$url}' class='contact' data-toggle='tooltip' title='{$name}'>";
                 $content .= "<img src='{$picture}' class='rounded-circle' alt='{$name}'/>";
                 $content .= "</a>";
+
+                $countInstructors++;
+
+                if($countInstructors >= $maxInstructors){
+                    $content .= sprintf("<span class='badge badge-warning p-2'>+%d</span>", count($instructors)-$countInstructors);
+                    break;
+                }
             }
 
             $content .= html_writer::end_tag('div'); // Ends course-contacts.

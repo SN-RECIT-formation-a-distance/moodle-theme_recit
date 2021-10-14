@@ -46,8 +46,9 @@
 }
 
 .recit-card-img-top{
-    width: 100%;
-    max-width: 50vw;
+    width: 325px;
+    height: 210px;
+    object-fit: contain;
     margin-bottom: 10px;
     border-bottom: 1px solid #efefef;
 }
