@@ -69,6 +69,7 @@ require_once('core_question/core_question_renderer.php');
 class core_renderer extends \core_renderer {
     /** @var custom_menu_item language The language menu if created */
     protected $language = null;
+    protected $printedHeadingCount = 0;
 
     /**
      * Constructor
@@ -1420,7 +1421,7 @@ class core_renderer extends \core_renderer {
         elseif (isset($PAGE->cm->modname) && $level == 2) {
             $output = "<div class='activity-title-container'>";
             $output .= "<div>";            
-            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $PAGE->cm->name); // $text);
+            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $text);
             $output .= "</div>";           
             $output .= "<div class='activity-controls'>"; 
             /*$output .= "<div class='btn-group' style='margin-right: 1rem;'>";
@@ -1428,7 +1429,10 @@ class core_renderer extends \core_renderer {
                         $this->act_name(), $this->act_name_cons());
             $output .= sprintf("<button class='btn btn-outline-secondary' disabled>%s</button>", $this->act_name());
             $output .= "</div>";*/
-            $output .= $OUTPUT->region_main_settings_menu();
+            if ($this->printedHeadingCount == 0){
+                $output .= $OUTPUT->region_main_settings_menu();
+                $this->printedHeadingCount++;
+            }
             $output .= "</div>";
             $output .= "</div>";
             $output .= "<hr/>";
