@@ -114,7 +114,7 @@ class course_renderer extends \core_course_renderer {
             $totalcount = $_totalcount;
         }
 
-        if ($CFG->navcourselimit < $totalcount){
+        if ($CFG->courseswithsummarieslimit < $totalcount){
             $this->listview = true;
             return parent::coursecat_courses($chelper, $courses, $_totalcount);
         }
