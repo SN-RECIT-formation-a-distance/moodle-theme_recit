@@ -43,6 +43,7 @@ use core_course_list_element;
 class course_renderer extends \core_course_renderer {
 
     private $listview = false;
+    private $maxInstructors = 5;
  /**
      * Renders html to display a course search form.
      *
@@ -291,7 +292,6 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::start_tag('div', array('class' => 'course-contacts'));
 
             $instructors = $course->get_course_contacts();
-            $maxInstructors = 5;
             $countInstructors = 0;
             foreach ($instructors as $key => $instructor) {
                 $name = $instructor['username'];
@@ -304,7 +304,7 @@ class course_renderer extends \core_course_renderer {
 
                 $countInstructors++;
 
-                if($countInstructors >= $maxInstructors){
+                if($countInstructors >= $this->maxInstructors){
                     $content .= sprintf("<span class='badge badge-warning p-2'>+%d</span>", count($instructors)-$countInstructors);
                     break;
                 }
@@ -360,6 +360,40 @@ class course_renderer extends \core_course_renderer {
             }
         }
 
+        return $content;
+    }
+
+    
+    /**
+     * Returns HTML to display course contacts.
+     *
+     * @param core_course_list_element $course
+     * @return string
+     */
+    protected function course_contacts(core_course_list_element $course) {
+        $content = '';
+        if ($course->has_course_contacts()) {
+            $content .= html_writer::start_tag('ul', ['class' => 'teachers']);
+            $countInstructors = 0;
+            $instructors = $course->get_course_contacts();
+            foreach ($instructors as $coursecontact) {
+                $rolenames = array_map(function ($role) {
+                    return $role->displayname;
+                }, $coursecontact['roles']);
+                $name = implode(", ", $rolenames).': '.
+                    html_writer::link(new moodle_url('/user/view.php',
+                        ['id' => $coursecontact['user']->id, 'course' => SITEID]),
+                        $coursecontact['username']);
+                $content .= html_writer::tag('li', $name);
+                $countInstructors++;
+
+                if($countInstructors >= $this->maxInstructors){
+                    $content .= sprintf("<span class='badge badge-warning p-2'>+%d</span>", count($instructors)-$countInstructors);
+                    break;
+                }
+            }
+            $content .= html_writer::end_tag('ul');
+        }
         return $content;
     }
 
