@@ -183,8 +183,7 @@ function theme_recit2_get_extra_scss($theme) {
     $scss .= theme_recit2_set_headerimg($theme);
     $scss .= theme_recit2_set_topfooterimg($theme);
     $scss .= theme_recit2_set_loginbgimg($theme);
-    //$scss .= theme_recit2_set_course_banner_img($theme);
-
+    
     return $scss;
 }
 

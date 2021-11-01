@@ -109,3 +109,20 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
         }
     }
 }
+
+// fix the minimum height of a module
+.pagelayout-incourse{
+    #region-main{
+        .card{overflow-x:auto;overflow-y:visible;min-height:45rem}
+    }
+}
+
+// DÉBUT PATCH H5P
+#fitem_id_h5peditor {
+    .form-control-static {
+        width: 100% !important;
+    }
+}
+// FIN PATCH H5P
+
+#top-1.engine{display: none;} // code dynamique intrusif du Mobirise   

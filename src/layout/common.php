@@ -24,8 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-use theme_recit2\output;
-
 require_once($CFG->dirroot . '/theme/recit2/classes/util/ThemeRecitUtils.php');
 require_once($CFG->dirroot . '/user/lib.php');
 require_once($CFG->dirroot . '/message/output/popup/lib.php');
@@ -150,12 +148,11 @@ class ThemeRecitUtils2{
         $result['message_and_notification'] = message_popup_render_navbar_output($output);
         $result['message_drawer'] = core_message_standard_after_main_region_html();
 
-        $result['css_custom'] = "";
-        if($COURSE->id > 1){
-            $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION);
-            if(property_exists($customFieldsRecit, 'css_custom')){
-                $result['css_custom'] = strip_tags($customFieldsRecit->css_custom->get_value());
-            }
+        $result['css_custom'] = null;
+        
+        $cssCustom = theme_recit2\util\theme_settings::get_custom_field('css_custom');
+        if(!empty($cssCustom)){
+            $result['css_custom'] = strip_tags($cssCustom);
         }
 
         return $result;
