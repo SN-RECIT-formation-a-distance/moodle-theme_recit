@@ -39,7 +39,20 @@ defined('MOODLE_INTERNAL') || die();
 class theme_settings {
 
     public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
-    
+        
+    public static function get_custom_field($name) {
+        global $COURSE;
+
+        if($COURSE->id > 1){
+            $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, self::COURSE_CUSTOM_FIELDS_SECTION);
+            if(property_exists($customFieldsRecit, $name)){
+                return $customFieldsRecit->$name->get_value();
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Get config theme footer itens
      *
