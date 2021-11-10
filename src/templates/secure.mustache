@@ -17,7 +17,7 @@
 {{!
     @template theme_recit/secure
 
-    Récit secure layout template.
+    Boost secure layout template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -37,6 +37,7 @@
 {{> theme_recit/head }}
 
 <body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
 
 <div id="page-wrapper">
 
@@ -59,35 +60,36 @@
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-12">
-                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
-                    <div class="card card-block">
+                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
+
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
                     {{{ output.course_content_footer }}}
-                    </div>
+
                 </section>
                 {{#hasblocks}}
-                <section data-region="blocks-column">
+                <section data-region="blocks-column" aria-label="{{#str}}blocks{{/str}}">
                     {{{ sidepreblocks }}}
                 </section>
                 {{/hasblocks}}
             </div>
         </div>
     </div>
-</div>
-<footer id="page-footer" class="py-3 bg-dark text-light">
-    <div class="container">
-        <div id="course-footer">{{{ output.course_footer }}}</div>
+    <footer id="page-footer" class="py-3 bg-dark text-light">
+        <div class="container">
+            <div id="course-footer">{{{ output.course_footer }}}</div>
 
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-</footer>
+            {{{ output.standard_end_of_body_html }}}
+        </div>
+    </footer>
+</div>
+
 
 </body>
 </html>
 {{#js}}
 M.util.js_pending('theme_recit/loader');
 require(['theme_recit/loader'], function() {
-  M.util.js_complete('theme_recit/loader');
+    M.util.js_complete('theme_recit/loader');
 });
 {{/js}}
