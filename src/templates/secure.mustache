@@ -39,13 +39,13 @@
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper">
+<div id="page-wrapper" class="d-flex flex-column">
 
     {{{ output.standard_top_of_body_html }}}
 
     {{>theme_recit/navbar-secure}}
 
-    <div id="page" class="container-fluid">
+    <div id="page" class="container-fluid p-3">
         {{! Secured full header }}
 
         <div id="page-header" class="row">
@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-    <footer id="page-footer" class="py-3 bg-dark text-light">
+    <footer id="page-footer" class="py-3" style="background-color: transparent;">
         <div class="container">
             <div id="course-footer">{{{ output.course_footer }}}</div>
 
