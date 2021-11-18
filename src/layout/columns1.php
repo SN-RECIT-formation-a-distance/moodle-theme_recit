@@ -36,7 +36,7 @@ $templatecontext = [
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 if($PAGE->__get('pagelayout') == 'popup'){
-    $PAGE->setTitle($PAGE->cm->modname);
+    $PAGE->set_title($PAGE->cm->name);
     echo $OUTPUT->render_from_template('theme_recit/popup', $templatecontext);
 }
 else{
