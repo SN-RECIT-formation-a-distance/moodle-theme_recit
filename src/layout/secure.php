@@ -29,6 +29,7 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $bodyattributes = $OUTPUT->body_attributes();
 
 $templatecontext = [
+    'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
     'sidepreblocks' => $blockshtml,
 ];
