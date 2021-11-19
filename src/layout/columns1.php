@@ -35,5 +35,10 @@ $templatecontext = [
 
 $templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
 
-echo $OUTPUT->render_from_template('theme_recit2/columns1', $templatecontext);
-
+if($PAGE->__get('pagelayout') == 'popup'){
+    $PAGE->set_title($PAGE->cm->name);
+    echo $OUTPUT->render_from_template('theme_recit2/popup', $templatecontext);
+}
+else{
+    echo $OUTPUT->render_from_template('theme_recit2/columns1', $templatecontext);
+}
