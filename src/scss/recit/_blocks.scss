@@ -54,7 +54,7 @@ body:not(.pagelayout-secure){
         }
     }
     
-    body.drawer-open-right #sidepreopen-control{
+    &.drawer-open-right #sidepreopen-control{
         //width: 260px;
         right: 25vw;
     }
