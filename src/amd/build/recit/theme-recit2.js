@@ -1,30 +1,21 @@
 
 define(['jquery'], function($) {
     'use strict';
-    M.recit.course.theme.ThemeRecit2.createInstance();
-    M.recit.course.theme.EditorHTML2.createInstance();
+    M.recit.theme.ThemeRecit2.createInstance();
 });
 
 M.recit = M.recit || {};
-M.recit.course = M.recit.course || {};
-M.recit.course.theme = M.recit.course.theme || {};
+M.recit.theme = M.recit.theme || {};
 
-M.recit.course.theme.ThemeRecit2 = class{
+M.recit.theme.ThemeRecit2 = class{
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
+
+        this.navSections = new M.recit.theme.NavSections();
     }
 
     ctrlShortcuts(e){
-        /*if (e.which == 77) {
-            alert("M key was pressed");
-        } else if (e.ctrlKey && e.which == 66) {
-            alert("Ctrl + B shortcut combination was pressed");
-        } else if (e.ctrlKey && e.altKey && e.which == 89) {
-            alert("Ctrl + Alt + Y shortcut combination was pressed");
-        } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
-            alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
-        }*/
         // 69 = e
         if (e.ctrlKey && e.altKey && e.which == 69){
             this.ctrlModeEdition(); 
@@ -48,104 +39,163 @@ M.recit.course.theme.ThemeRecit2 = class{
         }
     }
 }
-// definition static attributes and methods to work with Firefox
-M.recit.course.theme.ThemeRecit2.instance = null;
 
-M.recit.course.theme.ThemeRecit2.createInstance = function(){
-    if(M.recit.course.theme.ThemeRecit2.instance === null){
-        M.recit.course.theme.ThemeRecit2.instance = new M.recit.course.theme.ThemeRecit2();
+// definition static attributes and methods to work with Firefox
+M.recit.theme.ThemeRecit2.instance = null;
+
+M.recit.theme.ThemeRecit2.createInstance = function(){
+    if(M.recit.theme.ThemeRecit2.instance === null){
+        M.recit.theme.ThemeRecit2.instance = new M.recit.theme.ThemeRecit2();
     }
 }
 
-M.recit.course.theme.EditorHTML2 = class{
+M.recit.theme.NavSections = class{
     constructor(){
-        this.init = this.init.bind(this);
+        window.onscroll = this.onScroll.bind(this);
+
+        this.ctrlMenu = this.ctrlMenu.bind(this);
+
+        this.menu = null;
 
         this.init();
     }
 
-    init(){
-        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-            event.preventDefault();
-            $(this).ekkoLightbox();
-        });
+    init(){       
+        this.menu = document.getElementById("nav-sections");
 
-        $('.ubeo_btn_expand').click(function() {
-                $(this).parents('.math_content_expand').toggleClass('ubeo_zoom');
-                $(this).parents('.container').toggleClass('ubeo_zoom');
-                $(this).toggleClass('ubeo_zoom');
-                $('html, body').toggleClass('ubeo_zoom');
-        });
-		
-		this.initBtnVideo();
-        this.initFlipCard();
-    }
+        if(this.menu){
+            let sections = this.menu.querySelectorAll('a[data-section]');
 
-    initFlipCard(){
-        $(document).on('click', '.flipcard', function(event) {
-            if ($(this.parentElement).hasClass('hover')){
-                $(this.parentElement).removeClass('hover');
-            }else{
-                $(this.parentElement).addClass('hover')
+            for(let section of sections){
+                section.addEventListener('click', this.ctrlMenu);
             }
-        });
-        
-        $(".flipcard").each(function(e) {
-            $(this.parentElement).addClass('manual-flip');
-        })
+        }
     }
-	
-	initBtnVideo(){
-        let bsModalVideo = document.createElement('template');
-        bsModalVideo.innerHTML = '\
-        <div class="modal fade" id="bsModalVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\
-            <div class="modal-dialog modal-dialog-centered" role="document">\
-                <div class="modal-content">\
-                    <!--<div class="modal-header">\
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">\
-                            <span aria-hidden="true">&times;</span>\
-                        </button>\
-                    </div>-->\
-                    <div class="modal-body" style="padding: 0;">\
-                        <div class="embed-responsive embed-responsive-16by9">\
-                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay" allowfullscreen></iframe>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>';
-        bsModalVideo = bsModalVideo.content.childNodes[1];
 
-		 // Gets the video src from the data-src on each button
-        $('.video-btn').click(function(event) {
-            let idVideo = $(event.target).data( "src" );
+    onScroll(event){
+        if(this.menu === null){ return; }
 
-            document.body.appendChild(bsModalVideo);
-            // when the modal is opened autoplay it
-            $(bsModalVideo).on('shown.bs.modal', function (e) {
-                let iFrame = $('#video').get(0);
-                
-                // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-                $(iFrame).attr('src',`https://www.youtube.com/embed/${idVideo}?autoplay=1&amp;modestbranding=1&amp;showinfo=0`);
-                // move to the end of the body to fix Bootstrap modal appearing under background
-                $(bsModalVideo).modal('show');
-                //$(iFrame).trigger('focus');
-            })
-            // stop playing the youtube video when I close the modal
-            $(bsModalVideo).on('hide.bs.modal', function (e) {
-                //document.body.removeChild(bsModalVideo);
-                let iFrame = $('#video').get(0);
-                // stop video
-                $(iFrame).attr('src',"");
-            })
-        });
-	}
-}
+        let verticalMenu = this.menu.querySelector("[id='navbarTogglerCourse']");
+        
+        if((verticalMenu) && (this.menu.parentElement.classList.contains("vertical")) && (window.scrollY < 0)){
+            verticalMenu.style.marginTop = `${window.scrollY}px`;
+        }
+    }
 
-M.recit.course.theme.EditorHTML2.instance = null;
+    ctrlMenu(event){
+        let menuItem, menuItemDesc;
 
-M.recit.course.theme.EditorHTML2.createInstance = function(){
-    if(M.recit.course.theme.EditorHTML2.instance === null){
-        M.recit.course.theme.EditorHTML2.instance = new M.recit.course.theme.EditorHTML2();
+        if(this.menu === null){ return;}
+
+        if(!this.menu.classList.contains('menuM1') && !this.menu.classList.contains('menuM3')){ return;}
+
+        let sectionId = event.target.getAttribute('data-section');
+        menuItemDesc = this.menu.querySelector(`[data-section=${sectionId}]`);
+
+        if(menuItemDesc === null){ return; }
+        
+        menuItem = menuItemDesc.parentElement.parentElement;
+
+        // Reset menu level 1 selection.
+        this.resetMenuSelection();
+
+        menuItem.setAttribute("data-selected", "1");
+
+        // If the menu level1 item has a branch then it also select it.
+        let branch = this.menu.querySelector(`[data-parent-section=${sectionId}]`);
+        if(branch !== null){
+            branch.setAttribute("data-selected", "1");
+        }
+         
+        // Select menu level2 item.
+        if((menuItem.parentElement.getAttribute("id") === "level2")){
+            menuItem.parentElement.setAttribute("data-selected", "1");
+            menuItem.parentElement.parentElement.setAttribute("data-selected", "1");
+        }
+
+        this.ctrlMenuResponsive(this.menu, menuItem, menuItemDesc, branch);
+    }
+
+    ctrlMenuResponsive(menu, menuItem, menuItemDesc, branch){
+        let itemMenuResponsive = menu.querySelector('.btn-menu-responsive');
+        let sectionTitle = itemMenuResponsive.children[1];
+        let sectionSubtitle = itemMenuResponsive.children[2];
+
+        if (sectionTitle){
+            //Make appear the title of the section in the responsive menu
+            sectionTitle.innerHTML = menuItemDesc.textContent;
+
+            if(branch !== null){
+                //Make appear the title of the sous section in the responsive menu
+                let sections = branch.getElementsByClassName('menu-item');
+                for(let sec of sections){
+                    if(sec.getAttribute('data-selected') === "1"){
+                        let subsection = sec.getElementsByClassName('menu-item-desc');
+                        sectionSubtitle.innerHTML = subsection.textContent;
+                        break;
+                    }
+                }
+            }
+        }
+        this.ctrlOpeningMenuResponsive(null);
+    }
+
+    //Open and close the menu responsive
+    ctrlOpeningMenuResponsive(event){
+        event = event || null;
+        if(this.menu === null){ return; }
+
+        let status = (event ? event.currentTarget.getAttribute('data-btn') : 'close');
+        
+        this.menu.setAttribute('data-status', status);
+    }
+
+    //Open and close the submenu responsive
+    ctrlOpeningSubMenuResponsive(event, sectionId){
+        if(this.menu === null){ return; }
+
+        let branch = this.menu.querySelector(`[data-parent-section=${sectionId}]`);
+        if(branch !== null){
+            if(branch.getAttribute("data-status") === "open"){
+                branch.setAttribute("data-status", "close");
+                event.currentTarget.firstChild.classList.add("fa-plus");
+                event.currentTarget.firstChild.classList.remove("fa-minus");
+            }
+            else{
+                branch.setAttribute("data-status", "open");
+                event.currentTarget.firstChild.classList.add("fa-minus");
+                event.currentTarget.firstChild.classList.remove("fa-plus");
+            }
+        }
+    }
+
+    resetMenuSelection(){
+        if(this.menu === null){ return;}
+
+        let menu = this.menu;
+
+        // Reset menu level 1 selection.
+        let elems = menu.getElementsByClassName('menu-item');
+        for(let el of elems){
+            el.setAttribute("data-selected", "0");
+
+            //set the negative(-) sign to plus(+) sign
+            let levelSection = el.getElementsByClassName('menu-item-desc level-section active');
+            if(levelSection.length >= 1){
+                for(let item of levelSection){
+                    let sectionIcon = el.getElementsByClassName('fas fa-minus');
+                    for(let sec of sectionIcon){
+                        item.classList.toggle("active");
+                        sec.className = 'fas fa-plus';
+                    }
+                }
+            }
+        }
+
+        // Reset menu level 2 selection.
+        elems = menu.querySelectorAll('[data-parent-section]');
+        for(let el of elems){
+            el.setAttribute("data-selected", "0");
+        }
     }
 }

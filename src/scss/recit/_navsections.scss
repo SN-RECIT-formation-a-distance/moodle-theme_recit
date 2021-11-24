@@ -1,34 +1,12 @@
 /***************************************
- * VARIABLES TREE TOPICS
+ * VARIABLES NAV SECTIONS
  ***************************************/
 $menu-item-height:30px;
 $max-width-responsive-m1: 1024px;
 $max-width-responsive-m5: 992px;
 
-/***************************************
- * CLASSES TREE TOPICS
- ***************************************/
-.inline-form-editing-mode{margin-right:1rem; margin-left: 1rem; font-size: 14px; display: grid; min-width: 100px;}
-
-.course-content{
-    .editing-mode-menu{
-        li.section{list-style: none; margin-bottom: 1rem;}
-        li.section[data-section-level="2"]{padding-left: 3.3rem;}
-        li.section[data-section-level="3"]{padding-left: 6.3rem;}
-    }
-}
-
-h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
-    margin-top:-47px;
-}
-
-.tt-contract{
-    width: 80%; margin: auto;
-}
-
-.treetopics{
-    display: grid; margin: -2.25rem; // the tree topics navbar has no padding  (#region-main + card-body)
-    
+.navsections{
+    display: grid; 
     &.horizontal{
         grid-template-columns: auto;
         grid-template-rows: auto auto;
@@ -100,7 +78,7 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
     }
 
     .menuM1{
-        position: relative; margin-bottom: 60px; 
+        position: relative;
 
         .background-menu-mobile{display: none;}
 
@@ -224,20 +202,7 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
             }
         }
     }
-
-    .tt-section{
-        padding: 1rem;
-    }
-
-    .tt-imagebuttons{
-        margin: 1rem;
-        .tt-grid-element{
-            cursor: pointer; filter: grayscale(100%);
-            .tt-section-title{ margin: 1rem; font-size: 1.2em;}
-        }
-        .tt-grid-element:hover{ cursor: pointer; filter: grayscale(0%);}        
-    }
-    
+   
     .menu-map{
         .root{font-size: 20px; line-height: 3rem; padding-left: 4rem;}
         .activity-list{line-height: 20px; font-size: 16px;}
@@ -247,7 +212,7 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
     @media screen and (max-width: $max-width-responsive-m1){
         .menuM1{ margin-bottom: 1rem;}
         //Closed responsive menuM1.
-        .menuM1[data-status='closed']{ 
+        .menuM1[data-status='close']{ 
             width: 100%;       position: relative;      display: block;    transition: 0.5s;
             
             .background-menu-mobile{display: none;}
@@ -306,7 +271,7 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
                         position: relative; margin: 1rem; top: 0; background-color: transparent; height: auto;
                         li[data-selected="1"]{ background-color: $tt-menu-color1;}     
                         &[data-status='open']{display: block;}
-                        &[data-status='closed']{display: none;}
+                        &[data-status='close']{display: none;}
                         .btn-expand-sub-menu{display: none!important;}
         
                         .menu-item-title{
@@ -344,42 +309,6 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions{
             .menuM5{
                 position: absolute; top: 0; right: 0; width: 100%; justify-content: flex-end; z-index: 100;
             }
-        }
-    }
-
-	@media only screen and (max-width: 600px) {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6 {
-            display: grid; grid-template-columns: 100%;
-            .tt-imagebuttons{ 
-                margin: 0;
-                .tt-section-image{width: 375px;height: auto;}
-            }
-        }
-    }
-	
-    /* Medium devices (landscape tablets, 768px and up) */
-    @media only screen and (min-width: 768px) {
-        .grid1{display: grid;grid-template-columns: 100%;
-            .tt-section-image{width: 100%; height: auto;}
-        }
-        .grid2, .grid3, .grid4, .grid5, .grid6 {display: grid; grid-template-columns: 50% 50%;
-            .tt-section-image{ width: 335px; height: auto;}
-        }
-    }
-    
-    /* Large devices (laptops/desktops, 992px and up) */
-    @media only screen and (min-width: 992px) {
-        .grid1{ display: grid; grid-template-columns: 100%;
-            .tt-section-image{ width: 100%; height: auto; }
-        }
-        .grid2{display: grid; grid-template-columns: 50% 50%;
-            .tt-section-image{ width: 100%; height: auto; }
-        }
-        .grid3{display: grid; grid-template-columns: 33% 33% 34%;
-            .tt-section-image{ width: 100%; height: auto; }
-        }
-        .grid4, .grid5, .grid6{ display: grid; grid-template-columns: 25% 25% 25% 25%;
-            .tt-section-image{ width: 100%; height: auto; }
         }
     }
 }
