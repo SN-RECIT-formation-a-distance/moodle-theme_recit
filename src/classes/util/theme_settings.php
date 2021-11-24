@@ -29,17 +29,16 @@ use stdClass;
 
 defined('MOODLE_INTERNAL') || die();
 
-class NavSection{
+class SectionNav{
     public $sections = array();
 
-    public function addSection($submenu = 0,  $sectionId = 0, $sectionName = "", $title = "", $desc = "", $url = ""){
+    public function addSection($submenu = 0,  $sectionId = 0, $sectionName = "", $title = "", $desc = ""){
         $obj = new stdClass();
         $obj->submenu = $submenu;
         $obj->sectionId = $sectionId;
         $obj->sectionName = $sectionName;
         $obj->title = $title;
         $obj->desc = $desc;
-        $obj->url = $url;
         $this->sections[] = $obj;
     }
 }

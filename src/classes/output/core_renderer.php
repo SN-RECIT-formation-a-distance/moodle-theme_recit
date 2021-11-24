@@ -117,8 +117,8 @@ class core_renderer extends \core_renderer {
         $header->courseheader = $this->course_header();
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
-        $header->navsection = $this->get_course_nav_sections();
-        
+        $header->sectionnav = $this->get_course_nav_sections();
+        js_reset_all_caches();
         return $this->render_from_template('theme_recit2/header', $header);
     }
 
@@ -136,7 +136,7 @@ class core_renderer extends \core_renderer {
             return null;
         }
 
-        $result = new \theme_recit2\util\NavSection();
+        $result = new \theme_recit2\util\SectionNav();
         
         $result->addSection(0, "map", "Menu", "Menu", "<i class='fa fa-map'></i>");
 
@@ -146,7 +146,7 @@ class core_renderer extends \core_renderer {
             $desc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             
             $subSection = (isset($section->ttsectiondisplay) ? $section->ttsectiondisplay - 1 : 0);
-            $result->addSection($subSection, $section->section, "section-$section->section", "$desc", "$desc", "{$CFG->wwwroot}/course/view.php?id=$COURSE->id#section-$section->section");
+            $result->addSection($subSection, $section->section, "section-$section->section", "$desc", "$desc");
         }
 
         return $result;

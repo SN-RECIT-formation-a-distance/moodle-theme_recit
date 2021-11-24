@@ -1,0 +1,35 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#section_bottom_nav.enable}}   
+        <nav id='sectionPagination' aria-label='Pagination de sections' style='margin-top: 3rem; border-top: 1px solid #efefef; padding-top: 1rem;'>
+            <ul class="pagination justify-content-center ">
+                <li class="page-item">
+                    <a class='page-link' href='#' tabindex='-1'>
+                        <i class='fa fa-arrow-left'></i> 
+                        {{section_bottom_nav.prev_section}}   
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class='page-link' href='#' tabindex='-1'>
+                        {{section_bottom_nav.next_section}}
+                        <i class='fa fa-arrow-right'></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+{{/section_bottom_nav.enable}}

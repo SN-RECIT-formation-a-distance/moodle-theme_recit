@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-{{#navsection}}   
+{{#sectionnav}}   
     <div class="navsections">
         <nav class='menuM1' id='nav-sections' data-status='close'>                    
             <div class='background-menu-mobile'></div>
@@ -35,7 +35,7 @@
                     <li class='menu-item' data-submenu='{{submenu}}'>
                         <div class='menu-item-title'>
                             <div class='arrow'></div>
-                            <a class='menu-item-desc' href='{{url}}' data-section='{{sectionName}}' title='{{title}}' {{attributes}}>{{{desc}}}</a>
+                            <a class='menu-item-desc' href='#{{sectionName}}' title='{{title}}' {{attributes}}>{{{desc}}}</a>
                             <button class='btn btn-sm btn-outline-light btn-expand-sub-menu' onclick='M.recit.theme.ThemeRecit2.instance.navSections.ctrlOpeningSubMenuResponsive(event, \"{{sectionId}}\")'><i class='fa fa-plus'></i></button>
                         </div>
                     </li>
@@ -44,4 +44,4 @@
             </ul>
         </nav>
     </div>
-{{/navsection}}
+{{/sectionnav}}

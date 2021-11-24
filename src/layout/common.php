@@ -155,6 +155,11 @@ class ThemeRecitUtils2{
             $result['css_custom'] = strip_tags($cssCustom);
         }
 
+        $result['section_bottom_nav'] = new stdClass();
+        $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
+        $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');
+        $result['section_bottom_nav']->enable = true;
+
         return $result;
     }
 
