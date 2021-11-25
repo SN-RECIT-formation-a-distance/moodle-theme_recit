@@ -126,3 +126,9 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
 // FIN PATCH H5P
 
 #top-1.engine{display: none;} // code dynamique intrusif du Mobirise   
+
+@media (max-width: 767.98px){
+    .breadcrumb:not(:empty) {
+        border: 0;
+    }
+}

@@ -117,15 +117,16 @@ class core_renderer extends \core_renderer {
         $header->courseheader = $this->course_header();
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
-        $header->sectionnav = $this->get_course_nav_sections();
+        $header->section_top_nav = $this->get_course_nav_sections();
         js_reset_all_caches();
         return $this->render_from_template('theme_recit2/header', $header);
     }
 
     public function get_course_nav_sections(){
-        global $COURSE, $CFG, $PAGE;
+        global $COURSE, $PAGE;
 
-        if(($COURSE->id <= 1) || ($PAGE->user_is_editing())){
+        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
+        if(($COURSE->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
             return null;
         }
 
@@ -138,15 +139,19 @@ class core_renderer extends \core_renderer {
 
         $result = new \theme_recit2\util\SectionNav();
         
-        $result->addSection(0, "map", "Menu", "Menu", "<i class='fa fa-map'></i>");
+       // $result->addSection(0, "map", "map", "Menu", "<i class='fa fa-map'></i>");
 
         foreach($sectionslist as $section){
             if( !$section->visible ){ continue; }
 
-            $desc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
+            $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             
-            $subSection = (isset($section->ttsectiondisplay) ? $section->ttsectiondisplay - 1 : 0);
-            $result->addSection($subSection, $section->section, "section-$section->section", "$desc", "$desc");
+            $sectionlevel = 1;
+            if(isset($section->sectionlevel)){
+                $sectionlevel = $section->sectionlevel;
+            }
+
+            $result->addSection($sectionlevel, "#section-$section->section", $sectionDesc);
         }
 
         return $result;

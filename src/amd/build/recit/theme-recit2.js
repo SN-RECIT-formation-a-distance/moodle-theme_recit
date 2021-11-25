@@ -185,7 +185,7 @@ M.recit.theme.recit2.NavSections = class{
         }
          
         // Select menu level2 item.
-        if((menuItem.parentElement.getAttribute("id") === "level2")){
+        if((menuItem.parentElement.classList.contains("menu-level2"))){
             menuItem.parentElement.setAttribute("data-selected", "1");
             menuItem.parentElement.parentElement.setAttribute("data-selected", "1");
         }
@@ -233,7 +233,7 @@ M.recit.theme.recit2.NavSections = class{
     ctrlOpeningSubMenuResponsive(event, sectionId){
         if(this.menu === null){ return; }
 
-        let branch = this.menu.querySelector(`[data-parent-section=${sectionId}]`);
+        let branch = this.menu.querySelector(`[data-parent-section='${sectionId}']`);
         if(branch !== null){
             if(branch.getAttribute("data-status") === "open"){
                 branch.setAttribute("data-status", "close");
