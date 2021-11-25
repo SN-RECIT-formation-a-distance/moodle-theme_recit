@@ -63,7 +63,7 @@ $THEME->layouts = [
     ),
     // Course page.
     'course' => array(
-        'file' => 'course.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
@@ -75,14 +75,14 @@ $THEME->layouts = [
     ),
     // Internal course modules page.
     'incourse' => array(
-        'file' => 'incourse.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'frontpage.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => true),
@@ -96,7 +96,7 @@ $THEME->layouts = [
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'mydashboard.php',
+        'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),

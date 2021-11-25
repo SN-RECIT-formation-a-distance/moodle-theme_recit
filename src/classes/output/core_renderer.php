@@ -123,7 +123,7 @@ class core_renderer extends \core_renderer {
     }
 
     public function get_course_nav_sections(){
-        global $COURSE, $PAGE;
+        global $COURSE, $PAGE, $CFG;
 
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
         if(($COURSE->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
@@ -151,7 +151,11 @@ class core_renderer extends \core_renderer {
                 $sectionlevel = $section->sectionlevel;
             }
 
-            $result->addSection($sectionlevel, "#section-$section->section", $sectionDesc);
+            $href = "#section-$section->section";
+            if($PAGE->cm != null){
+                $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$href";
+            }
+            $result->addSection($sectionlevel, $href, $sectionDesc);
         }
 
         return $result;
