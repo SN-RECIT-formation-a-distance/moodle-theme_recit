@@ -129,7 +129,10 @@ M.recit.theme.recit2.NavSections = class{
                 section.addEventListener('click', this.ctrlMenu);
 
                 if(section.getAttribute('href') === sectionId){
-                    section.click();
+                    // if the user is the course page then it load automatically the section content
+                    if(M.course){
+                        section.click();
+                    }
                 }
             }
         }
