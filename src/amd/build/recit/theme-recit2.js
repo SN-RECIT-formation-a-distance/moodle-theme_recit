@@ -85,8 +85,23 @@ M.recit.theme.recit2.Utils = class{
         document.cookie = cookie;
     };
 
-    static setCurrentSection(sectionId){
-        M.recit.theme.recit2.Utils.setCookie('cursection', sectionId, 1440, M.cfg.wwwroot.replace(window.location.origin, '')+`/course/`);
+    static getCookieCurSection(){
+        let courseId = window.document.body.className.match(/course-\d+/);
+        let result = "";
+
+        if(courseId){
+            result = M.recit.theme.recit2.Utils.getCookie(`${courseId}-cursection`);
+        }
+
+        return result;
+    }
+
+    static setCookieCurSection(sectionId){
+        let courseId = window.document.body.className.match(/course-\d+/);
+
+        if(courseId){
+            M.recit.theme.recit2.Utils.setCookie(`${courseId}-cursection`, sectionId, 1440, `/`);
+        }
     }
 
     static getUrlVars(){
@@ -130,7 +145,7 @@ M.recit.theme.recit2.NavSections = class{
     }
 
     init(){       
-        let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookie('cursection') || '#section-0';
+        let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
 
         this.menu = document.getElementById("nav-sections");
 
@@ -188,7 +203,7 @@ M.recit.theme.recit2.NavSections = class{
         let sectionId = event.target.hash;
         let sectionUrl = event.target.getAttribute("href");
         
-        M.recit.theme.recit2.Utils.setCurrentSection(sectionId);
+        M.recit.theme.recit2.Utils.setCookieCurSection(sectionId);
 
         menuItemDesc = this.menu.querySelector(`[href='${sectionUrl}']`);
 
@@ -305,7 +320,7 @@ M.recit.theme.recit2.NavSections = class{
     ctrlPagination(){
         if(this.pagination.placeholder === null){ return; }
       
-        let currentSection = M.recit.theme.recit2.Utils.getCookie('cursection');
+        let currentSection = M.recit.theme.recit2.Utils.getCookieCurSection();
         
         let iSection = 0;
         for(iSection = 0; iSection < this.sectionList.length; iSection++){
