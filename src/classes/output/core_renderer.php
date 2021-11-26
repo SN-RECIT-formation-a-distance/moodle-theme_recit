@@ -151,11 +151,9 @@ class core_renderer extends \core_renderer {
                 $sectionlevel = $section->sectionlevel;
             }
 
-            $href = "#section-$section->section";
-            if($PAGE->cm != null){
-                $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$href";
-            }
-            $result->addSection($sectionlevel, $href, $sectionDesc);
+            $sectionId = "#section-{$section->section}";
+            $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$sectionId";
+            $result->addSection($sectionlevel, $sectionId, $href, $sectionDesc);
         }
 
         return $result;

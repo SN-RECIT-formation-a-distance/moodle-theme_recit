@@ -68,13 +68,26 @@ M.recit.theme.recit2.Utils = class{
         return "";
     }
 
-    static setCookie(id, value, minutesExpire) {
+    static setCookie(id, value, minutesExpire, path) {
         minutesExpire = minutesExpire || 1440;
+        path = path || null;
+
         let d = new Date();
         d.setTime(d.getTime() + (minutesExpire * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
-        document.cookie = id + "=" + value + ";SameSite=Lax;" + expires;
+        
+        let cookie = `${id}=${value};SameSite=Lax;${expires};`;
+
+        if(path){
+            cookie += `path=${path};`;
+        }
+        
+        document.cookie = cookie;
     };
+
+    static setCurrentSection(sectionId){
+        M.recit.theme.recit2.Utils.setCookie('cursection', sectionId, 1440, M.cfg.wwwroot.replace(window.location.origin, ''));
+    }
 
     static getUrlVars(){
         let uri;
@@ -117,8 +130,7 @@ M.recit.theme.recit2.NavSections = class{
     }
 
     init(){       
-        let params = M.recit.theme.recit2.Utils.getUrlVars();
-        let sectionId = params.sectionId || window.location.hash || M.recit.theme.recit2.Utils.getCookie('section') || '#section-0';
+        let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookie('cursection') || '#section-0';
 
         this.menu = document.getElementById("nav-sections");
 
@@ -128,10 +140,17 @@ M.recit.theme.recit2.NavSections = class{
             for(let section of this.sectionList){
                 section.addEventListener('click', this.ctrlMenu);
 
-                if(section.getAttribute('href') === sectionId){
-                    // if the user is the course page then it load automatically the section content
+                // if the user is the course page then it load automatically the section content. More than one listener could exist.
+                if(section.hash === sectionId){
+                    // If the user is on the course page then it dispatch the link click (with all listeners)
                     if(M.course){
-                        section.click();
+                        section.click(); 
+                    }
+                    else{
+                        // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
+                        let tmp = document.createElement('a');
+                        tmp.setAttribute('href', section.getAttribute('href'));
+                        this.ctrlMenu({target: tmp});
                     }
                 }
             }
@@ -161,21 +180,23 @@ M.recit.theme.recit2.NavSections = class{
 
     ctrlMenu(event){
         let menuItem, menuItemDesc;
-
+        
         if(this.menu === null){ return;}
 
-        if(!this.menu.classList.contains('menuM1') && !this.menu.classList.contains('menuM3')){ return;}
+        if(!this.menu.classList.contains('menuM1') && !this.menu.classList.contains('menuM3')){ return;} 
 
-        let sectionId = event.target.getAttribute('href');
+        let sectionId = event.target.hash;
+        let sectionUrl = event.target.getAttribute("href");
         
-        M.recit.theme.recit2.Utils.setCookie('section', sectionId);
+        M.recit.theme.recit2.Utils.setCurrentSection(sectionId);
 
-        menuItemDesc = this.menu.querySelector(`[href='${sectionId}']`);
+        menuItemDesc = this.menu.querySelector(`[href='${sectionUrl}']`);
 
         if(menuItemDesc === null){ return; }
         
         menuItem = menuItemDesc.parentElement.parentElement;
 
+        
         // Reset menu level 1 selection.
         this.resetMenuSelection();
 
@@ -284,11 +305,11 @@ M.recit.theme.recit2.NavSections = class{
     ctrlPagination(){
         if(this.pagination.placeholder === null){ return; }
       
-        let currentSection = M.recit.theme.recit2.Utils.getCookie('section');
+        let currentSection = M.recit.theme.recit2.Utils.getCookie('cursection');
         
         let iSection = 0;
         for(iSection = 0; iSection < this.sectionList.length; iSection++){
-            if(this.sectionList[iSection].getAttribute('href') === currentSection){
+            if(this.sectionList[iSection].hash === currentSection){
                 break;
             }
         }

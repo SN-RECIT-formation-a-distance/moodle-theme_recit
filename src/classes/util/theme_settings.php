@@ -32,11 +32,12 @@ defined('MOODLE_INTERNAL') || die();
 class SectionNav{
     public $sections = array();
 
-    public function addSection($level = 1,  $sectionId = '', $sectionDesc = ""){
+    public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = ""){
         $maxNbChars = 25;
         
         $obj = new stdClass();
         $obj->sectionId = $sectionId;
+        $obj->url = $url;
         $obj->title = $sectionDesc;
         $obj->desc = mb_strimwidth($sectionDesc, 0, $maxNbChars, "...");
         $obj->subSections = array();
