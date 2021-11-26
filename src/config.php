@@ -54,6 +54,7 @@ $THEME->layouts = [
     'base' => array(
         'file' => 'columns2.php',
         'regions' => array(),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true),
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
@@ -66,57 +67,58 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'sectionbottomnav' => true),
     ),
     'coursecategory' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
+        'options' => array('showCourseBanner' => false, 'showBreadcrumb' => true),
     ),
     // Internal course modules page.
     'incourse' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => false, 'langmenu' => true),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'sectionbottomnav' => true),
     ),
     // The site home page.
     'frontpage' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => true),
+        'options' => array('showCourseBanner' => false),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-		'options' => array('nofooter' => true),
+		'options' => array('showBreadcrumb' => true),
     ),
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('nofooter' => true, 'nonavbar' => true, 'langmenu' => true),
+        'options' => array('showCourseBanner' => false),
     ),
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu' => true),
+        'options' => array(),
     ),
 	// Pages that appear in pop-up windows - no navigation, no blocks, no header.
     'popup' => array(
         'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter' => true, 'nonavbar' => true),
+        'options' => array(),
     ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
         'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter' => true, 'nocoursefooter' => true),
+        'options' => array(),
     ),
 	 // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
     'embedded' => array(
@@ -134,7 +136,7 @@ $THEME->layouts = [
     'print' => array(
         'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter' => true, 'nonavbar' => false),
+        'options' => array(),
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(

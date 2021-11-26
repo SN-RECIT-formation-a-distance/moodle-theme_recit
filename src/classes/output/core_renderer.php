@@ -102,23 +102,22 @@ class core_renderer extends \core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $PAGE;
+        global $COURSE, $PAGE;
 
         $theme = theme_config::load('recit2');
 
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
-        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
-        $header->enablebreadcrumb = (isset($theme->settings->enablebreadcrumb) ? $theme->settings->enablebreadcrumb : 0);
-        $header->navbar = $this->navbar();
+        $header->breadcrumb = (isset($theme->settings->enablebreadcrumb) && $theme->settings->enablebreadcrumb == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
         $header->pageheadingbutton = $this->page_heading_button();
         $header->showpageheadingbutton = ($this->page->cm != null && in_array($this->page->cm->modname, array('wiki')));
-        $header->courseheader = $this->course_header();
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
         $header->section_top_nav = $this->get_course_nav_sections();
-        js_reset_all_caches();
+        $header->layoutOptions = (object) $PAGE->layout_options;
+        
+        //js_reset_all_caches();
         return $this->render_from_template('theme_recit2/header', $header);
     }
 
@@ -212,14 +211,6 @@ class core_renderer extends \core_renderer {
 
 
         return $output;
-    }
-
-    /*
-     * This renders the navbar.
-     * Uses bootstrap compatible html.
-     */
-    public function navbar() {
-        return $this->render_from_template('core/navbar', $this->page->navbar);
     }
 
     /**

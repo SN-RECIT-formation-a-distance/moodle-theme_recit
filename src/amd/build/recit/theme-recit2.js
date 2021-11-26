@@ -86,7 +86,7 @@ M.recit.theme.recit2.Utils = class{
     };
 
     static setCurrentSection(sectionId){
-        M.recit.theme.recit2.Utils.setCookie('cursection', sectionId, 1440, M.cfg.wwwroot.replace(window.location.origin, ''));
+        M.recit.theme.recit2.Utils.setCookie('cursection', sectionId, 1440, M.cfg.wwwroot.replace(window.location.origin, '')+`/course/`);
     }
 
     static getUrlVars(){

@@ -127,7 +127,7 @@ class ThemeRecitUtils2{
      * @return array
      */
     public static function get_template_context_common($output, $page, $user = null) {
-        global $CFG, $SITE, $COURSE;
+        global $CFG, $SITE, $COURSE, $PAGE;
 
         $result = [
             'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -135,7 +135,8 @@ class ThemeRecitUtils2{
             'isloggedin' => isloggedin(),
             'modeedition' => self::user_is_editing($page),
             'is_siteadmin' => is_siteadmin(),
-            'wwwroot' => $CFG->wwwroot
+            'wwwroot' => $CFG->wwwroot,
+            'layoutOptions' => (object) $PAGE->layout_options
         ];
 
         $result['settingsmenu'] = self::get_context_header_settings_menu($page);
@@ -155,11 +156,12 @@ class ThemeRecitUtils2{
             $result['css_custom'] = strip_tags($cssCustom);
         }
 
-        if($COURSE->id > 1){
+        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
+        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin)){
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');
-            $result['section_bottom_nav']->enable = true;
+            $result['section_bottom_nav']->enable = true;    
         }
         
         return $result;

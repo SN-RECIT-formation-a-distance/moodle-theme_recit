@@ -80,7 +80,9 @@
                 </section>
             </div>
         </div>
-        {{> theme_recit2/recit/section-bottom-nav }}
+        {{#layoutOptions.sectionbottomnav}}
+            {{> theme_recit2/recit/section-bottom-nav }}
+        {{/layoutOptions.sectionbottomnav}}
     </div>
 
     {{>theme_recit2/inc_end}}

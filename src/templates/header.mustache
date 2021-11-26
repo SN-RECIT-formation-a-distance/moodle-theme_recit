@@ -19,33 +19,38 @@
 }}
 <header id="page-header" >
     <div>
-        <div id="course-banner" style="{{{coursebanner}}}">
-            <div>
-                <div class="d-flex">
-                    <div class="mr-auto">
-                        {{{contextheader}}}
+        {{#layoutOptions.showCourseBanner}}
+            <div id="course-banner" style="{{{coursebanner}}}">
+                <div>
+                    <div class="d-flex">
+                        <div class="mr-auto">
+                            {{{contextheader}}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>     
-        {{#enablebreadcrumb}}   
-            {{{navbar}}}
-        {{/enablebreadcrumb}}
-        
-        
-        {{> theme_recit2/recit/section-top-nav }}
-        
+            </div>     
+        {{/layoutOptions.showCourseBanner}}
 
-        {{#headeractions}}
-            <div class="" data-region="header-actions-container" style="height: 40px;">
-                <div class="header-action ml-2">{{{.}}}</div>
-            </div>
-        {{/headeractions}}
+        {{#layoutOptions.showBreadcrumb}}
+            {{#breadcrumb}}   
+                {{{breadcrumb}}}
+            {{/breadcrumb}}
+        {{/layoutOptions.showBreadcrumb}}
 
-        {{#showpageheadingbutton}}   
-        <div class="m-1 p-1 d-flex justify-content-end">
-            {{{pageheadingbutton}}}
-        </div>
-        {{/showpageheadingbutton}}   
+        {{#layoutOptions.showCourseBanner}}
+            {{> theme_recit2/recit/section-top-nav }}        
+
+            {{#headeractions}}
+                <div class="" data-region="header-actions-container" style="height: 40px;">
+                    <div class="header-action ml-2">{{{.}}}</div>
+                </div>
+            {{/headeractions}}
+
+            {{#showpageheadingbutton}}   
+                <div class="m-1 p-1 d-flex justify-content-end">
+                    {{{pageheadingbutton}}}
+                </div>
+            {{/showpageheadingbutton}}   
+        {{/layoutOptions.showCourseBanner}}
     </div>
 </header>
