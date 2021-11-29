@@ -73,7 +73,7 @@ class core_renderer_maintenance extends core_renderer {
      * @param string $tag
      * @return string
      */
-    public function blocks($region, $classes = array(), $tag = 'aside') {
+    public function blocks($region, $classes = array(), $tag = 'aside', $fakeblocksonly = false) {
         return '';
     }
 
@@ -83,7 +83,7 @@ class core_renderer_maintenance extends core_renderer {
      * @param string $region
      * @return string
      */
-    public function blocks_for_region($region) {
+    public function blocks_for_region($region, $fakeblocksonly = false) {
         return '';
     }
 
