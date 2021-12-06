@@ -54,54 +54,55 @@ $THEME->layouts = [
     'base' => array(
         'file' => 'columns2.php',
         'regions' => array(),
-        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionTopNav' => false),
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
+        'options' => array('showSectionTopNav' => false),
     ),
     // Course page.
     'course' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'sectionbottomnav' => true),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true),
     ),
     'coursecategory' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => false, 'showBreadcrumb' => true),
+        'options' => array('showCourseBanner' => false, 'showBreadcrumb' => true, 'showSectionTopNav' => true),
     ),
     // Internal course modules page.
     'incourse' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'sectionbottomnav' => true),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true),
     ),
     // The site home page.
     'frontpage' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => false),
+        'options' => array('showCourseBanner' => false, 'showSectionTopNav' => false),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-		'options' => array('showBreadcrumb' => true),
+		'options' => array('showBreadcrumb' => true, 'showSectionTopNav' => false),
     ),
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => false),
+        'options' => array('showCourseBanner' => false, 'showSectionTopNav' => false),
     ),
     'login' => array(
         'file' => 'login.php',

@@ -76,4 +76,4 @@ $themesettings = new \theme_recit2\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-echo $OUTPUT->render_from_template('theme_recit2/columns2', $templatecontext);
+echo $OUTPUT->render_from_template('theme_recit2/recit/columns2', $templatecontext);

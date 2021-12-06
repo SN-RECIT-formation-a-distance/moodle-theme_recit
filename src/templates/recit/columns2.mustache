@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_recit2/columns2
+    @template theme_recit2/recit/columns2
 
     Admin time setting template.
 
@@ -54,28 +54,39 @@
     <div id="page">
         {{{ output.full_header }}}
 
-        <div id="page-content">
-            <div id="region-main-box" class="col-12">
-                {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="d-print-none">
-                        <div> {{{ output.region_main_settings_menu }}} </div>
-                    </div>
-                {{/hasregionmainsettingsmenu}}
-                <section id="region-main">
-                    <div class="card">Colonne 3
-                        <div class="card-body">
-                            {{#hasregionmainsettingsmenu}}
-                                <div class="region_main_settings_menu_proxy"></div>
-                            {{/hasregionmainsettingsmenu}}
-                            {{{ output.course_content_header }}}
-                            {{{ output.main_content }}}
-                            {{{ output.activity_navigation }}}
-                            {{{ output.course_content_footer }}}
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+        {{#layoutOptions.showSectionTopNav}}
+            {{#section_top_nav.isMenuM1}}
+                {{> theme_recit2/recit/section-top-nav }}
+                 {{> theme_recit2/recit/page-content }}
+            {{/section_top_nav.isMenuM1}}
+
+            {{#section_top_nav.isMenuM2}}
+                <div style="display: grid; grid-template-columns: 80% 20%;">
+                    {{> theme_recit2/recit/page-content }}
+                    {{> theme_recit2/recit/section-top-nav }}
+                </div>
+            {{/section_top_nav.isMenuM2}}
+
+            {{#section_top_nav.isMenuM3}}
+                <div style="display: grid; grid-template-columns: 20% 80%;">
+                    {{> theme_recit2/recit/section-top-nav }}
+                    {{> theme_recit2/recit/page-content }}
+                </div>
+            {{/section_top_nav.isMenuM3}}
+
+            {{#section_top_nav.isMenuM4}}
+                {{> theme_recit2/recit/section-top-nav }}
+                {{> theme_recit2/recit/page-content }}
+            {{/section_top_nav.isMenuM4}}
+        {{/layoutOptions.showSectionTopNav}}
+        
+        {{^layoutOptions.showSectionTopNav}}
+            {{> theme_recit2/recit/page-content }}
+        {{/layoutOptions.showSectionTopNav}}
+
+        {{#layoutOptions.showSectionBottomNav}}
+            {{> theme_recit2/recit/section-bottom-nav }}
+        {{/layoutOptions.showSectionBottomNav}}
     </div>
 
     {{>theme_recit2/inc_end}}

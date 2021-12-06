@@ -127,9 +127,7 @@ M.recit.theme.recit2.Utils = class{
 }
 
 M.recit.theme.recit2.SectionsNav = class{
-    constructor(){
-        window.onscroll = this.onScroll.bind(this);
-
+    constructor(){        
         this.onSectionNav = this.onSectionNav.bind(this);
         this.curSection = null;
         this.observers = [];
@@ -152,7 +150,10 @@ M.recit.theme.recit2.SectionsNav = class{
 
         if(placeholder.classList.contains('menuM1')){ 
             this.menu = new M.recit.theme.recit2.MenuM1(placeholder);
-        } 
+        }
+        else if(placeholder.classList.contains('menuM5')){
+            this.menu = new M.recit.theme.recit2.MenuM5(placeholder);
+        }
 
         let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
         for(let section of sectionList){
@@ -192,15 +193,7 @@ M.recit.theme.recit2.SectionsNav = class{
         }
 
         return true;
-    }
-
-    onScroll(event){
-       /* let verticalMenu = this.menu.querySelector("[id='navbarTogglerCourse']");
-        
-        if((verticalMenu) && (this.menu.parentElement.classList.contains("vertical")) && (window.scrollY < 0)){
-            verticalMenu.style.marginTop = `${window.scrollY}px`;
-        }*/
-    }
+    }    
 
     onSectionNav(event){                
         this.curSection = event.target;
@@ -208,7 +201,7 @@ M.recit.theme.recit2.SectionsNav = class{
         M.recit.theme.recit2.Utils.setCookieCurSection(this.curSection.hash);
        
         if(this.menu){
-            this.menu.ctrl(this.curSection.hash, this.curSection.getAttribute("href"));
+            this.menu.ctrl(event);
         }
 
         for(let o of this.observers){
@@ -286,11 +279,10 @@ M.recit.theme.recit2.MenuM1 = class{
         this.btnMenuResponsive = this.placeholder.querySelector('.btn-menu-responsive');
     }
 
-
-    ctrl(sectionId, sectionUrl){
+    ctrl(event){
         let menuItem, menuItemDesc;
 
-        menuItemDesc = this.placeholder.querySelector(`[href='${sectionUrl}']`);
+        menuItemDesc = this.placeholder.querySelector(`[href='${event.target.getAttribute("href")}']`);
 
         if(menuItemDesc === null){ return; }
         
@@ -302,7 +294,7 @@ M.recit.theme.recit2.MenuM1 = class{
         menuItem.setAttribute("data-selected", "1");
 
         // If the menu level1 item has a branch then it also select it.
-        let branch = this.placeholder.querySelector(`[data-parent-section='${sectionId}']`);
+        let branch = this.placeholder.querySelector(`[data-parent-section='${event.target.hash}']`);
         if(branch !== null){
             branch.setAttribute("data-selected", "1");
         }
@@ -395,6 +387,34 @@ M.recit.theme.recit2.MenuM1 = class{
         elems = this.placeholder.querySelectorAll('[data-parent-section]');
         for(let el of elems){
             el.setAttribute("data-selected", "0");
+        }
+    }
+}
+
+M.recit.theme.recit2.MenuM5 = class{
+    constructor(placeholder){
+        //window.onscroll = this.onScroll.bind(this);
+
+        this.placeholder = placeholder;
+    }
+
+    /*onScroll(event){
+         let verticalMenu = this.placeholder.querySelector("[id='navbarTogglerCourse']");
+         
+         if((verticalMenu) && (this.menu.parentElement.classList.contains("vertical")) && (window.scrollY < 0)){
+             verticalMenu.style.marginTop = `${window.scrollY}px`;
+         }
+     }*/
+
+    ctrl(event){
+        let elems = this.placeholder.getElementsByClassName('menu-item');
+        for(let el of elems){
+            if(event.target.hash === el.firstElementChild.hash){
+                el.setAttribute('data-selected', '1');
+            }
+            else{
+                el.setAttribute("data-selected", "0");
+            }
         }
     }
 }

@@ -102,7 +102,7 @@ class core_renderer extends \core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $COURSE, $PAGE;
+        global $PAGE;
 
         $theme = theme_config::load('recit2');
 
@@ -114,56 +114,12 @@ class core_renderer extends \core_renderer {
         $header->showpageheadingbutton = ($this->page->cm != null && in_array($this->page->cm->modname, array('wiki')));
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
-        $header->section_top_nav = $this->get_course_nav_sections();
         $header->layoutOptions = (object) $PAGE->layout_options;
         
-        //js_reset_all_caches();
+        js_reset_all_caches();
         return $this->render_from_template('theme_recit2/header', $header);
     }
 
-    public function get_course_nav_sections(){
-        global $COURSE, $PAGE, $CFG;
-
-        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
-        if(($COURSE->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
-            return null;
-        }
-
-        $modinfo = get_fast_modinfo($COURSE);
-        $sectionslist = $modinfo->get_section_info_all();
-
-        if(count($sectionslist) == 0){
-            return null;
-        }
-
-        $result = new \theme_recit2\util\SectionNav();
-        $menuModalIndex = \theme_recit2\util\theme_settings::get_custom_field('menumodel') - 1;
-        if($menuModalIndex >= 0){
-            $result->isMenuM1 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
-            $result->isMenuM5 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
-        }
-        
-        
-       // $result->addSection(0, "map", "map", "Menu", "<i class='fa fa-map'></i>");
-
-        foreach($sectionslist as $section){
-            if( !$section->visible ){ continue; }
-
-            $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
-            
-            $sectionlevel = 1;
-            if(isset($section->sectionlevel)){
-                $sectionlevel = $section->sectionlevel;
-            }
-
-            $sectionId = "#section-{$section->section}";
-            $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$sectionId";
-            $result->addSection($sectionlevel, $sectionId, $href, $sectionDesc);
-        }
-
-        return $result;
-    }
-    
     public function get_course_custom_banner(){
         global $COURSE;
 

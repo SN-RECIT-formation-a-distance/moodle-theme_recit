@@ -32,6 +32,9 @@ defined('MOODLE_INTERNAL') || die();
 class SectionNav{
     public $sections = array();
     public $isMenuM1 = false;
+    public $isMenuM2 = false;
+    public $isMenuM3 = false;
+    public $isMenuM4 = false;
     public $isMenuM5 = false;
 
     public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = ""){

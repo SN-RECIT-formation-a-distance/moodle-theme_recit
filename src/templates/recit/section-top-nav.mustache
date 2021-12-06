@@ -16,7 +16,8 @@
 }}
 
 {{#section_top_nav}}   
-    <div class="navsections">
+    <div class="navsections {{#section_top_nav.isMenuM5}}horizontal{{/section_top_nav.isMenuM5}} {{#section_top_nav.isMenuM2}}vertical{{/section_top_nav.isMenuM2}} 
+                    {{#section_top_nav.isMenuM3}}vertical{{/section_top_nav.isMenuM3}}">
         {{#section_top_nav.isMenuM1}}
             <nav class='menuM1' id='nav-sections' data-status='close'>                    
                 <div class='background-menu-mobile'></div>

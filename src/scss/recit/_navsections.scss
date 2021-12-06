@@ -5,6 +5,7 @@ $menu-item-height:30px;
 $max-width-responsive-m1: 1024px;
 $max-width-responsive-m5: 992px;
 
+
 .navsections{
     display: grid; 
     &.horizontal{
@@ -63,19 +64,6 @@ $max-width-responsive-m5: 992px;
             }
         }
     }   
-
-    &.vertical-right{
-        @extend .vertical;
-
-        grid-template-columns: 80% 20%;
-    }
-
-    &.vertical-left{
-        @extend .vertical;
-
-        grid-template-columns: 20% 80%;
-        
-    }
 
     .menuM1{
         position: relative;  margin-bottom: 60px; 

@@ -164,8 +164,60 @@ class ThemeRecitUtils2{
         
             $showSectionBottomNav = theme_recit2\util\theme_settings::get_custom_field('show_section_bottom_nav');
             $result['section_bottom_nav']->enable = ($showSectionBottomNav == 1);
+
+            $result['section_top_nav'] = self::get_course_nav_sections();
+        }
+        else{
+            $result['layoutOptions']->showSectionTopNav = false;
+            $result['layoutOptions']->showSectionBottomNav = false;
         }
         
+        return $result;
+    }
+
+    public static function get_course_nav_sections(){
+        global $COURSE, $PAGE, $CFG;
+
+        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
+        if(($COURSE->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
+            return null;
+        }
+
+        $modinfo = get_fast_modinfo($COURSE);
+        $sectionslist = $modinfo->get_section_info_all();
+
+        if(count($sectionslist) == 0){
+            return null;
+        }
+
+        $result = new \theme_recit2\util\SectionNav();
+        $menuModalIndex = \theme_recit2\util\theme_settings::get_custom_field('menumodel') - 1;
+        if($menuModalIndex >= 0){
+            $result->isMenuM1 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
+            $result->isMenuM2 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m2");
+            $result->isMenuM3 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m3");
+            $result->isMenuM4 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
+            $result->isMenuM5 = (in_array(\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex], array("m2", "m3", "m5")));
+        }
+        
+        
+       // $result->addSection(0, "map", "map", "Menu", "<i class='fa fa-map'></i>");
+
+        foreach($sectionslist as $section){
+            if( !$section->visible ){ continue; }
+
+            $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
+            
+            $sectionlevel = 1;
+            if(isset($section->sectionlevel)){
+                $sectionlevel = $section->sectionlevel;
+            }
+
+            $sectionId = "#section-{$section->section}";
+            $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$sectionId";
+            $result->addSection($sectionlevel, $sectionId, $href, $sectionDesc);
+        }
+
         return $result;
     }
 
