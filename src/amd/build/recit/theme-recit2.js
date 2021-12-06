@@ -185,9 +185,11 @@ M.recit.theme.recit2.SectionsNav = class{
 
         this.observers.push(callback);
         
-        let tmp = document.createElement('a');
-        tmp.setAttribute('href', this.curSection.getAttribute('href'));
-        callback.call(this, {target: tmp, preventDefault: ()=>{}});
+        if(this.curSection){
+            let tmp = document.createElement('a');
+            tmp.setAttribute('href', this.curSection.getAttribute('href'));
+            callback.call(this, {target: tmp, preventDefault: ()=>{}});
+        }
 
         return true;
     }
