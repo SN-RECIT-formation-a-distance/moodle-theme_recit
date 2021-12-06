@@ -31,6 +31,8 @@ defined('MOODLE_INTERNAL') || die();
 
 class SectionNav{
     public $sections = array();
+    public $isMenuM1 = false;
+    public $isMenuM5 = false;
 
     public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = ""){
         $maxNbChars = 25;
@@ -63,7 +65,11 @@ class SectionNav{
 class theme_settings {
 
     public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
-        
+    
+    public const MENU_MODEL_LIST = array('m1', 'm2', 'm3', 'm5');
+
+    public const SUBTHEME_LIST = array('theme-recit-anglais', 'theme-recit-art', 'theme-recit-ecr', 'theme-recit-francais',  'theme-recit-histoire', 'theme-recit-math', 'theme-recit-science');
+
     public static function get_custom_field($name) {
         global $COURSE;
 

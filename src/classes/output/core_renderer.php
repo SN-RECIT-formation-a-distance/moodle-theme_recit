@@ -137,6 +137,12 @@ class core_renderer extends \core_renderer {
         }
 
         $result = new \theme_recit2\util\SectionNav();
+        $menuModalIndex = \theme_recit2\util\theme_settings::get_custom_field('menumodel') - 1;
+        if($menuModalIndex >= 0){
+            $result->isMenuM1 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
+            $result->isMenuM5 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
+        }
+        
         
        // $result->addSection(0, "map", "map", "Menu", "<i class='fa fa-map'></i>");
 

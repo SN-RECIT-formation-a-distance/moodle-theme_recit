@@ -13,7 +13,7 @@ M.recit.theme.recit2.Ctrl = class{
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
 
-        this.navSections = new M.recit.theme.recit2.NavSections();
+        this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
     }
 
     ctrlShortcuts(e){
@@ -126,99 +126,181 @@ M.recit.theme.recit2.Utils = class{
     }
 }
 
-M.recit.theme.recit2.NavSections = class{
+M.recit.theme.recit2.SectionsNav = class{
     constructor(){
         window.onscroll = this.onScroll.bind(this);
 
-        this.ctrlMenu = this.ctrlMenu.bind(this);
-        this.ctrlPagination = this.ctrlPagination.bind(this);
-
-        this.sectionList = [];
+        this.onSectionNav = this.onSectionNav.bind(this);
+        this.curSection = null;
+        this.observers = [];
         this.menu = null;
-        this.pagination = {
-            placeholder: null,
-            btnPrevious: null,
-            btnNext: null
-        };
-
+        this.pagination = null;
+        
         this.init();
     }
 
     init(){       
+        let placeholder = document.getElementById("nav-sections");
+
+        if(placeholder === null){
+            return;
+        }
+        
+        let sectionList = placeholder.querySelectorAll('a');
+
+        this.pagination = new M.recit.theme.recit2.SectionPagination(sectionList, this.onSectionNav);
+
+        if(placeholder.classList.contains('menuM1')){ 
+            this.menu = new M.recit.theme.recit2.MenuM1(placeholder);
+        } 
+
         let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
+        for(let section of sectionList){
+            section.addEventListener('click', this.onSectionNav);
 
-        this.menu = document.getElementById("nav-sections");
+            // if the user is the course page then it load automatically the section content. More than one listener could exist.
+            if(section.hash === sectionId){
+                this.curSection = section;
 
-        if(this.menu){
-            this.sectionList = this.menu.querySelectorAll('a');
-
-            for(let section of this.sectionList){
-                section.addEventListener('click', this.ctrlMenu);
-
-                // if the user is the course page then it load automatically the section content. More than one listener could exist.
-                if(section.hash === sectionId){
-                    // If the user is on the course page then it dispatch the link click (with all listeners)
-                    if(M.course){
-                        section.click(); 
-                    }
-                    else{
-                        // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
-                        let tmp = document.createElement('a');
-                        tmp.setAttribute('href', section.getAttribute('href'));
-                        this.ctrlMenu({target: tmp});
-                    }
+                // If the user is on the course page then it dispatch the link click (with all listeners)
+                if(M.course){
+                    section.click(); 
+                }
+                else{
+                    // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
+                    let tmp = document.createElement('a');
+                    tmp.setAttribute('href', section.getAttribute('href'));
+                    this.onSectionNav({target: tmp});
                 }
             }
         }
+    }
 
-        this.pagination.placeholder = document.getElementById('sectionPagination');
-
-        if(this.pagination.placeholder){
-            let buttons = this.pagination.placeholder.querySelectorAll('a');
-            this.pagination.btnPrevious = buttons[0];
-            this.pagination.btnNext = buttons[1];
-            this.pagination.btnPrevious.addEventListener('click', this.ctrlMenu);
-            this.pagination.btnNext.addEventListener('click', this.ctrlMenu);
-            this.ctrlPagination();
+    addOnSectionNavListener(callback){
+        for(let o of this.observers){
+            if(o === callback){
+                return false;
+            }
         }
+
+        this.observers.push(callback);
+        
+        let tmp = document.createElement('a');
+        tmp.setAttribute('href', this.curSection.getAttribute('href'));
+        callback.call(this, {target: tmp, preventDefault: ()=>{}});
+
+        return true;
     }
 
     onScroll(event){
-        if(this.menu === null){ return; }
-
-        let verticalMenu = this.menu.querySelector("[id='navbarTogglerCourse']");
+       /* let verticalMenu = this.menu.querySelector("[id='navbarTogglerCourse']");
         
         if((verticalMenu) && (this.menu.parentElement.classList.contains("vertical")) && (window.scrollY < 0)){
             verticalMenu.style.marginTop = `${window.scrollY}px`;
+        }*/
+    }
+
+    onSectionNav(event){                
+        this.curSection = event.target;
+
+        M.recit.theme.recit2.Utils.setCookieCurSection(this.curSection.hash);
+       
+        if(this.menu){
+            this.menu.ctrl(this.curSection.hash, this.curSection.getAttribute("href"));
+        }
+
+        for(let o of this.observers){
+            o.call(this, event);
+        }
+        
+        this.pagination.ctrl(this.curSection.hash);
+    }
+}
+
+M.recit.theme.recit2.SectionPagination = class{
+    constructor(sectionList, onSectionNav){
+        this.placeholder = null;
+        this.sectionList = sectionList;
+        this.btnPrevious = null;
+        this.btnNext = null;
+        this.onSectionNav = onSectionNav;
+
+        this.init();
+    }
+
+    init(){
+        this.placeholder = document.getElementById('sectionPagination');
+
+        if(this.placeholder){
+            let buttons = this.placeholder.querySelectorAll('a');
+            this.btnPrevious = buttons[0];
+            this.btnNext = buttons[1];
+            this.btnPrevious.addEventListener('click', this.onSectionNav);
+            this.btnNext.addEventListener('click', this.onSectionNav);
         }
     }
 
-    ctrlMenu(event){
+    ctrl(sectionId){
+        if(this.placeholder === null){ return; }
+      
+        let iSection = 0;
+        for(iSection = 0; iSection < this.sectionList.length; iSection++){
+            if(this.sectionList[iSection].hash === sectionId){
+                break;
+            }
+        }
+
+        if(!this.sectionList[iSection]){ return; }
+        
+        if(iSection <= 0){
+            this.btnPrevious.classList.add("disabled");
+            this.btnPrevious.setAttribute('href', '#');
+        }
+        else{
+            this.btnPrevious.classList.remove("disabled");
+            this.btnPrevious.setAttribute('href', this.sectionList[iSection-1].getAttribute('href'));
+        }
+        if(iSection >= this.sectionList.length - 1){
+            this.btnNext.classList.add("disabled");
+            this.btnNext.setAttribute('href', '#');
+        }
+        else{
+            this.btnNext.classList.remove("disabled");
+            this.btnNext.setAttribute('href', this.sectionList[iSection+1].getAttribute('href'));
+        }
+    }
+}
+
+M.recit.theme.recit2.MenuM1 = class{
+    constructor(placeholder){
+        this.placeholder = placeholder;
+
+        this.btnMenuResponsive = null;
+
+        this.init();
+    }
+
+    init(){
+        this.btnMenuResponsive = this.placeholder.querySelector('.btn-menu-responsive');
+    }
+
+
+    ctrl(sectionId, sectionUrl){
         let menuItem, menuItemDesc;
-        
-        if(this.menu === null){ return;}
 
-        if(!this.menu.classList.contains('menuM1') && !this.menu.classList.contains('menuM3')){ return;} 
-
-        let sectionId = event.target.hash;
-        let sectionUrl = event.target.getAttribute("href");
-        
-        M.recit.theme.recit2.Utils.setCookieCurSection(sectionId);
-
-        menuItemDesc = this.menu.querySelector(`[href='${sectionUrl}']`);
+        menuItemDesc = this.placeholder.querySelector(`[href='${sectionUrl}']`);
 
         if(menuItemDesc === null){ return; }
         
         menuItem = menuItemDesc.parentElement.parentElement;
-
         
         // Reset menu level 1 selection.
-        this.resetMenuSelection();
+        this.resetSelection();
 
         menuItem.setAttribute("data-selected", "1");
 
         // If the menu level1 item has a branch then it also select it.
-        let branch = this.menu.querySelector(`[data-parent-section='${sectionId}']`);
+        let branch = this.placeholder.querySelector(`[data-parent-section='${sectionId}']`);
         if(branch !== null){
             branch.setAttribute("data-selected", "1");
         }
@@ -229,15 +311,14 @@ M.recit.theme.recit2.NavSections = class{
             menuItem.parentElement.parentElement.setAttribute("data-selected", "1");
         }
 
-        this.ctrlMenuResponsive(this.menu, menuItem, menuItemDesc, branch);
-
-        this.ctrlPagination();
+        this.ctrlResponsive(menuItemDesc, branch);
     }
 
-    ctrlMenuResponsive(menu, menuItem, menuItemDesc, branch){
-        let itemMenuResponsive = menu.querySelector('.btn-menu-responsive');
-        let sectionTitle = itemMenuResponsive.children[1];
-        let sectionSubtitle = itemMenuResponsive.children[2];
+    ctrlResponsive(menuItemDesc, branch){
+        if(this.btnMenuResponsive === null){ return;}
+
+        let sectionTitle = this.btnMenuResponsive.children[1];
+        let sectionSubtitle = this.btnMenuResponsive.children[2];
 
         if (sectionTitle){
             //Make appear the title of the section in the responsive menu
@@ -255,24 +336,24 @@ M.recit.theme.recit2.NavSections = class{
                 }
             }
         }
-        this.ctrlOpeningMenuResponsive(null);
+        this.ctrlOpeningResponsive(null);
     }
 
     //Open and close the menu responsive
-    ctrlOpeningMenuResponsive(event){
+    ctrlOpeningResponsive(event){
         event = event || null;
-        if(this.menu === null){ return; }
+        if(this.placeholder === null){ return; }
 
         let status = (event ? event.currentTarget.getAttribute('data-btn') : 'close');
         
-        this.menu.setAttribute('data-status', status);
+        this.placeholder.setAttribute('data-status', status);
     }
 
     //Open and close the submenu responsive
     ctrlOpeningSubMenuResponsive(event, sectionId){
-        if(this.menu === null){ return; }
+        if(this.placeholder === null){ return; }
 
-        let branch = this.menu.querySelector(`[data-parent-section='${sectionId}']`);
+        let branch = this.placeholder.querySelector(`[data-parent-section='${sectionId}']`);
         if(branch !== null){
             if(branch.getAttribute("data-status") === "open"){
                 branch.setAttribute("data-status", "close");
@@ -287,13 +368,11 @@ M.recit.theme.recit2.NavSections = class{
         }
     }
 
-    resetMenuSelection(){
-        if(this.menu === null){ return;}
-
-        let menu = this.menu;
+    resetSelection(){
+        if(this.placeholder === null){ return;}
 
         // Reset menu level 1 selection.
-        let elems = menu.getElementsByClassName('menu-item');
+        let elems = this.placeholder.getElementsByClassName('menu-item');
         for(let el of elems){
             el.setAttribute("data-selected", "0");
 
@@ -311,39 +390,9 @@ M.recit.theme.recit2.NavSections = class{
         }
 
         // Reset menu level 2 selection.
-        elems = menu.querySelectorAll('[data-parent-section]');
+        elems = this.placeholder.querySelectorAll('[data-parent-section]');
         for(let el of elems){
             el.setAttribute("data-selected", "0");
-        }
-    }
-
-    ctrlPagination(){
-        if(this.pagination.placeholder === null){ return; }
-      
-        let currentSection = M.recit.theme.recit2.Utils.getCookieCurSection();
-        
-        let iSection = 0;
-        for(iSection = 0; iSection < this.sectionList.length; iSection++){
-            if(this.sectionList[iSection].hash === currentSection){
-                break;
-            }
-        }
-
-        if(!this.sectionList[iSection]){ return; }
-        
-        if(iSection <= 0){
-            this.pagination.btnPrevious.classList.add("disabled");
-        }
-        else{
-            this.pagination.btnPrevious.classList.remove("disabled");
-            this.pagination.btnPrevious.setAttribute('href', this.sectionList[iSection-1].getAttribute('href'));
-        }
-        if(iSection >= this.sectionList.length - 1){
-            this.pagination.btnNext.classList.add("disabled");
-        }
-        else{
-            this.pagination.btnNext.classList.remove("disabled");
-            this.pagination.btnNext.setAttribute('href', this.sectionList[iSection+1].getAttribute('href'));
         }
     }
 }

@@ -314,4 +314,13 @@ $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
 $string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
-
+$string['show-section-bottom-nav'] = 'Afficher la navigation par section';
+$string['show-section-bottom-nav-help'] = 'Afficher la navigation par section';
+$string['course-subtheme'] = 'Sous-thème du cours';
+$string['course-subtheme-help'] = "Utiliser un sous-thème";
+$string['menu-model'] = 'Modèle de menu';
+$string['menu-model-help'] = 'Le menu peut avoir un visuel différent. Vous pouvez choisir le modèle qui vous convient';
+$string['menu-m1'] = 'Horizontal 2 niveaux';
+$string['menu-m2'] = 'Vertical à droite';
+$string['menu-m3'] = 'Vertical à gauche';
+$string['menu-m5'] = 'Horizontal 1 niveau';

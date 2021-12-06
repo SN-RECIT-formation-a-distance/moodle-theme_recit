@@ -314,3 +314,13 @@ $string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if li
 // Custom fields
 $string['course-banner'] = 'Course banner';
 $string['course-banner-help'] = "Use the course image as a banner";
+$string['show-section-bottom-nav'] = 'Show navigation by section';
+$string['show-section-bottom-nav-help'] = 'Show navigation by section';
+$string['course-subtheme'] = 'Course subthemes';
+$string['course-subtheme-help'] = "Use sub-thème";
+$string['menu-model'] = 'Menu Model';
+$string['menu-model-help'] = 'The menu may have a different visual. You can choose the model that suits you';
+$string['menu-m1'] = 'Horizontal 2 Levels';
+$string['menu-m2'] = 'Vertical Right';
+$string['menu-m3'] = 'Vertical Left';
+$string['menu-m5'] = 'Horizontal 1 Level';

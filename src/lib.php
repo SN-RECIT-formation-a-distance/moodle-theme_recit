@@ -296,6 +296,38 @@ function theme_recit2_create_course_custom_fields(){
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "defaultvalue" => "", "defaultvalueformat" => "1")
     );
 
+    $field_to_add[] = array(
+        'type' => 'checkbox',
+        'name' => get_string('show-section-bottom-nav', 'theme_recit2'),
+        'shortname' => 'show_section_bottom_nav',
+        'description' => get_string('show-section-bottom-nav-help', 'theme_recit2'),
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
+    );
+
+    $options = array();
+    foreach(\theme_recit2\util\theme_settings::MENU_MODEL_LIST as $item){
+        $options[] = get_string("menu-$item", 'theme_recit2');
+    }
+    
+    $field_to_add[] = array(
+        'type' => 'select',
+        'name' => get_string('menu-model', 'theme_recit2'),
+        'shortname' => 'menumodel',
+        'description' => get_string('menu-model-help', 'theme_recit2'),
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "options" => implode("\r\n", $options), "defaultvalue" => get_string("menu-m1", 'theme_recit2'))
+    );
+
+    $field_to_add[] = array(
+        'type' => 'select',
+        'name' => get_string('course-subtheme', 'theme_recit2'),
+        'shortname' => 'subtheme',
+        'description' => get_string('course-subtheme-help', 'theme_recit2'),
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => implode("\r\n", \theme_recit2\util\theme_settings::SUBTHEME_LIST), "defaultvalue" => "")
+    );
+
     $fields = array();
     $category = null;
 
