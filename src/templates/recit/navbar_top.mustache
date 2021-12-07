@@ -22,7 +22,7 @@
     Example context (json): {}
 }}
 
-<nav id="recitNavbarTop" class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg moodle-has-zindex"> 
+<nav id="mainTopNav" class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg moodle-has-zindex"> 
     <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}" title="{{usermenu.home.title}}">
         <span class="logo d-sm-inline">
         {{#output.get_logo}}
@@ -34,19 +34,7 @@
         </span>
     </a>
 
-    <ul class="navbar-nav show-onmobile mr-auto ml-4">  
-        {{#settingsmenu.coursehome}}      
-            <li class="nav-item">
-                <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
-            </li></span>
-        {{/settingsmenu.coursehome}}
-    </ul>
-
-    <div class="rightnav">
-        {{#message_and_notification}}
-            {{{message_and_notification}}}
-        {{/message_and_notification}}
-    </div>
+    <ul id="menu-mobile" class="navbar-nav mr-auto ml-4" style="flex-direction: row;"></ul>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,10 +45,10 @@
             <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem; '>
                 <span class="site-name d-md-inline">{{{ sitename }}}</span>
             </a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navleft">
+            <ul id="menu-course" class="navbar-nav mr-auto mt-2 mt-lg-0 navleft">
                 {{#settingsmenu.coursehome}}      
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i><span class="show-onmobile"> {{settingsmenu.coursehome.title}}</span></a>
+                    <li class="nav-item" data-button='coursehome'>
+                        <a class="nav-link" href="{{settingsmenu.coursehome.url}}" title="{{settingsmenu.coursehome.title}}"><span style="color: #faa22a;"><i class="fa {{settingsmenu.coursehome.pix}}"></i></a>
                     </li></span>
                 {{/settingsmenu.coursehome}}
 
@@ -72,54 +60,69 @@
                
                 {{#settingsmenu.courseadmin}}      
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span class="show-onmobile"> {{settingsmenu.courseadmin.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.courseadmin.url}}" title="{{settingsmenu.courseadmin.title}}"><i class="fa {{settingsmenu.courseadmin.pix}}"></i><span  data-title> {{settingsmenu.courseadmin.title}}</span></a>
                     </li>
                 {{/settingsmenu.courseadmin}}
 
                 {{#settingsmenu.turneditingonoff}}
                     {{#modeedition}}
                         <li class="nav-item">
-                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="show-onmobile"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"  style='color:#d9534f'><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span  data-title> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>
                     {{/modeedition}}
                     {{^modeedition}}
                         <li class="nav-item">
-                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span class="show-onmobile"> {{settingsmenu.turneditingonoff.title}}</span></a>
+                            <a id="btnEditionMode" class="nav-link" href="{{settingsmenu.turneditingonoff.url}}" title="{{settingsmenu.turneditingonoff.title}}"><i class="fa {{settingsmenu.turneditingonoff.pix}}"></i><span  data-title> {{settingsmenu.turneditingonoff.title}}</span></a>
                         </li>                        
                     {{/modeedition}}
                 {{/settingsmenu.turneditingonoff}} 
 
                 {{#usermenu.contentbank.url}}      
                     <li class="nav-item">
-                        <a class="nav-link" href="{{usermenu.contentbank.url}}" title="{{usermenu.contentbank.title}}"><i class="fa {{usermenu.contentbank.pix}}"></i><span class="show-onmobile"> {{usermenu.contentbank.title}}</span></a>
+                        <a class="nav-link" href="{{usermenu.contentbank.url}}" title="{{usermenu.contentbank.title}}"><i class="fa {{usermenu.contentbank.pix}}"></i><span  data-title> {{usermenu.contentbank.title}}</span></a>
                     </li>
                 {{/usermenu.contentbank.url}}
 
                 {{#settingsmenu.users}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span class="show-onmobile"> {{settingsmenu.users.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.users.url}}" title="{{settingsmenu.users.title}}"><i class="fa {{settingsmenu.users.pix}}"></i><span  data-title> {{settingsmenu.users.title}}</span></a>
                     </li>
                 {{/settingsmenu.users}}
                 {{#settingsmenu.paramsact}}
                     <li class="nav-item-divider"></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span class="show-onmobile"> {{settingsmenu.paramsact.title}}</span></a>
+                        <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span  data-title> {{settingsmenu.paramsact.title}}</span></a>
                     </li>
                 {{/settingsmenu.paramsact}}
             </ul>
-            <ul class="navbar-nav my-2 my-lg-0" >    
-                <li class="nav-item" style='display: none;'>
-                    
-                </li>
+
+            <ul id="menu-platform" class="navbar-nav my-2 my-lg-0" >    
+                {{#message_and_notification}}
+                    {{{message_and_notification}}}
+                {{/message_and_notification}}
+
+                 {{#lang.show}}       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
+                            <span>{{lang.current}}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLang">
+                            {{#lang.options}}
+                                <a class="dropdown-item" href="{{url}}">{{text}}</a>
+                            {{/lang.options}}
+                        </div>
+                    </li>
+                {{/lang.show}}
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span class="show-onmobile"> {{usermenu.mymoodle.title}}</span></a>
-                </li>
+                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span  data-title> {{usermenu.mymoodle.title}}</span></a>
+                </li>                
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Administration">
                             <i class="fa fa-wrench"></i> 
-                            <span class="show-onmobile"> Administration</span>
+                            <span  data-title> Administration</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
                             <a class="dropdown-item" href="{{usermenu.sitesettings.url}}"><i class="fa {{usermenu.sitesettings.pix}}"></i> {{usermenu.sitesettings.title}}</a>
@@ -137,7 +140,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
                         {{{usermenu.user.pix}}}
-                        <span class="show-onmobile"> {{usermenu.user.title}}</span>
+                        <span  data-title> {{usermenu.user.title}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                    
                         {{#usermenu.profile.url}}
@@ -197,6 +200,7 @@
         </div>
 
     {{/isloggedin}}
+
     {{^isloggedin}}
         <div class="collapse navbar-collapse" id="navbarMenuItems">
             <a href="{{{ config.wwwroot }}}" class="navbar-brand" style='margin-right: 1rem;'>

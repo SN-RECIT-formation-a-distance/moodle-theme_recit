@@ -117,6 +117,7 @@ class core_renderer extends \core_renderer {
         $header->layoutOptions = (object) $PAGE->layout_options;
         
         js_reset_all_caches();
+
         return $this->render_from_template('theme_recit2/header', $header);
     }
 
@@ -134,7 +135,7 @@ class core_renderer extends \core_renderer {
         }
     
         return "";
-    }
+    }    
 
      /**
      * The standard tags (meta tags, links to stylesheets and JavaScript, etc.)
@@ -239,44 +240,11 @@ class core_renderer extends \core_renderer {
      */
     public function custom_menu($custommenuitems = '') {
         global $CFG;
-
         if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
             $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
         return $this->render_custom_menu($custommenu);
-    }
-
-    /**
-     * We want to show the custom menus as a list of links in the footer on small screens.
-     * Just return the menu object exported so we can render it differently.
-     */
-    public function custom_menu_flat() {
-        global $CFG;
-        $custommenuitems = '';
-
-        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
-            $custommenuitems = $CFG->custommenuitems;
-        }
-        $custommenu = new custom_menu($custommenuitems, current_language());
-        $langs = get_string_manager()->get_list_of_translations();
-        $haslangmenu = $this->lang_menu() != '';
-
-        if ($haslangmenu) {
-            $strlang = get_string('language');
-            $currentlang = current_language();
-            if (isset($langs[$currentlang])) {
-                $currentlang = $langs[$currentlang];
-            } else {
-                $currentlang = $strlang;
-            }
-            $this->language = $custommenu->add($currentlang, new moodle_url('#'), $strlang, 10000);
-            foreach ($langs as $langtype => $langname) {
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
-            }
-        }
-
-        return $custommenu->export_for_template($this);
     }
 
     /**
@@ -287,44 +255,17 @@ class core_renderer extends \core_renderer {
      */
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
-
         if (!$menu->has_children()) {
             return '';
         }
-
         $content = '';
         foreach ($menu->get_children() as $item) {
             $context = $item->export_for_template($this);
             $content .= $this->render_from_template('core/custom_menu_item', $context);
         }
-
         return $content;
     }
-
-    /**
-     * This code renders the navbar button to control the display of the custom menu
-     * on smaller screens.
-     *
-     * Do not display the button if the menu is empty.
-     *
-     * @return string HTML fragment
-     */
-    public function navbar_button() {
-        global $CFG;
-
-        if (empty($CFG->custommenuitems) && $this->lang_menu() == '') {
-            return '';
-        }
-
-        $iconbar = html_writer::tag('span', '', array('class' => 'icon-bar'));
-        $button = html_writer::tag('a', $iconbar . "\n" . $iconbar. "\n" . $iconbar, array(
-            'class'       => 'btn btn-navbar',
-            'data-toggle' => 'collapse',
-            'data-target' => '.nav-collapse'
-        ));
-        return $button;
-    }
-
+    
     /**
      * Renders tabtree
      *
@@ -740,39 +681,6 @@ class core_renderer extends \core_renderer {
      */
     public function secure_login_info() {
         return $this->login_info(false);
-    }
-
-    /**
-     * Renders the lang menu
-     *
-     * @return mixed
-     */
-    public function render_lang_menu() {
-        $langs = get_string_manager()->get_list_of_translations();
-        $haslangmenu = $this->lang_menu() != '';
-        $menu = new custom_menu;
-
-        if ($haslangmenu) {
-            $strlang = get_string('language');
-            $currentlang = current_language();
-            if (isset($langs[$currentlang])) {
-                $currentlang = $langs[$currentlang];
-            } else {
-                $currentlang = $strlang;
-            }
-            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
-            foreach ($langs as $langtype => $langname) {
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
-            }
-
-            foreach ($menu->get_children() as $item) {
-                $context = $item->export_for_template($this);
-            }
-
-            if (isset($context)) {
-                return $this->render_from_template('theme_recit2/lang_menu', $context);
-            }
-        }
     }
 
     /**

@@ -13,6 +13,7 @@ M.recit.theme.recit2.Ctrl = class{
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
 
+        this.mainTopNav = new M.recit.theme.recit2.MainTopNav();
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
     }
 
@@ -50,6 +51,73 @@ M.recit.theme.recit2.Ctrl.createInstance = function(){
     }
 }
 
+M.recit.theme.recit2.MainTopNav = class{
+    constructor(){        
+        this.ctrlResponsive = this.ctrlResponsive.bind(this);   
+
+        window.addEventListener('resize', this.ctrlResponsive);
+
+        this.mainTopNav = document.getElementById('mainTopNav');
+        this.menuMobile = mainTopNav.querySelector('[id=menu-mobile]');
+        this.menuCourse = mainTopNav.querySelector('[id=menu-course]');
+        this.menuPlatform = mainTopNav.querySelector('[id=menu-platform]');
+
+        this.elems = {
+            btnCourseHome: mainTopNav.querySelector('[data-button="coursehome"]'),
+            btnNotifications: mainTopNav.querySelector('[data-button="notifications"]'),
+            btnMessages: mainTopNav.querySelector('[data-button="messages"]'),
+            titles: mainTopNav.querySelectorAll('[data-title]')
+        }
+
+        this.ctrlResponsive();
+    }
+
+    ctrlResponsive(){
+        if(window.innerWidth > 992){
+            this.menuMobile.style.display = 'none';
+
+            if(this.elems.btnCourseHome){
+                this.menuCourse.insertBefore(this.elems.btnCourseHome, this.menuCourse.firstElementChild);
+            }
+            
+            if(this.menuPlatform){
+                if(this.elems.btnMessages){
+                    this.menuPlatform.insertBefore(this.elems.btnMessages, this.menuPlatform.firstElementChild);
+                }
+                
+                if(this.elems.btnNotifications){
+                    this.menuPlatform.insertBefore(this.elems.btnNotifications, this.menuPlatform.firstElementChild);
+                }
+            }
+
+            for(let item of this.elems.titles){
+                item.style.display = "none";
+            }
+        }
+        else{
+            this.menuMobile.style.display = 'inline-flex';
+
+            if(this.elems.btnCourseHome){
+                this.menuMobile.appendChild(this.elems.btnCourseHome);
+            }
+            
+            if(this.menuMobile){
+                if(this.elems.btnNotifications){
+                    this.menuMobile.appendChild(this.elems.btnNotifications);
+                }
+                
+                if(this.elems.btnMessages){
+                    this.menuMobile.appendChild(this.elems.btnMessages);
+                }
+            }
+            
+            
+            for(let item of this.elems.titles){
+                item.style.display = "inline-flex";
+            }
+        }
+    }
+}
 
 M.recit.theme.recit2.Utils = class{
     static getCookie(cname) {

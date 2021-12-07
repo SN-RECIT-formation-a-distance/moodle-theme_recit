@@ -149,6 +149,11 @@ class ThemeRecitUtils2{
         $result['message_and_notification'] = message_popup_render_navbar_output($output);
         $result['message_drawer'] = core_message_standard_after_main_region_html();
 
+        $result['lang'] = new stdClass();
+        $result['lang']->options = self::getLangMenu();
+        $result['lang']->show = ($result['lang']->options != null);
+        $result['lang']->current = strtoupper(current_language());
+
         $result['css_custom'] = null;
         
         $cssCustom = theme_recit2\util\theme_settings::get_custom_field('css_custom');
@@ -216,6 +221,37 @@ class ThemeRecitUtils2{
             $sectionId = "#section-{$section->section}";
             $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$sectionId";
             $result->addSection($sectionlevel, $sectionId, $href, $sectionDesc);
+        }
+
+        return $result;
+    }
+
+    public static function getLangMenu() {
+        global $PAGE, $CFG;
+
+        if (empty($CFG->langmenu)) {
+            return null;
+        }
+
+        if ($PAGE->course != SITEID and !empty($PAGE->course->lang)) {
+            // do not show lang menu if language forced
+            return null;
+        }
+       
+        $langs = get_string_manager()->get_list_of_translations();
+
+        if (count($langs) < 2) {
+            return null;
+        }
+
+        $result = array(); 
+        
+        foreach($langs as $index => $lang){
+            $item = new stdClass();
+            $item->data = $index;
+            $item->text = $lang;
+            $item->url =  new \moodle_url($PAGE->url, array('lang' => $item->data));
+            $result[] = $item;
         }
 
         return $result;
