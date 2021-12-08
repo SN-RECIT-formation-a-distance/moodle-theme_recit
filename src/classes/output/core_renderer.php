@@ -47,9 +47,7 @@ use core_text;
 use help_icon;
 use context_system;
 use renderer_base;
-use home_link;
-use ThemeRecitUtils2;
-use lang_string;
+use theme_recit2\local\ThemeSettings;
 
 defined('MOODLE_INTERNAL') || die;
 require_once($CFG->libdir . '/behat/lib.php');
@@ -123,7 +121,7 @@ class core_renderer extends \core_renderer {
     public function get_course_custom_banner(){
         global $COURSE;
 
-        $img_course_as_banner = \theme_recit2\util\theme_settings::get_custom_field('img_course_as_banner');
+        $img_course_as_banner = ThemeSettings::get_custom_field('img_course_as_banner');
 
         if($img_course_as_banner == "1"){
             $courseImage = \core_course\external\course_summary_exporter::get_course_image($COURSE);
