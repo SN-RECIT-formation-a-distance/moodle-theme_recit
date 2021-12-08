@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once("common.php");
+
 $extraclasses[] = 'recit-login';
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 

@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once("common.php");
+
 $bodyattributes = $OUTPUT->body_attributes();
 
 $templatecontext = [
