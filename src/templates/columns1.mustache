@@ -55,7 +55,9 @@
                         <div class="card-body">
                             {{{ output.course_content_header }}}
                             {{{ output.main_content }}}
-                            {{{ output.activity_navigation }}}
+                            {{#show_activity_nav}}
+                                {{{ output.activity_navigation }}}
+                            {{/show_activity_nav}}
                             {{{ output.course_content_footer }}}
                         </div>
                     </div>

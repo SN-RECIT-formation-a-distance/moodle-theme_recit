@@ -170,6 +170,9 @@ class CtrlLayout{
             $result['layoutOptions']->showSectionTopNav = false;
             $result['layoutOptions']->showSectionBottomNav = false;
         }
+
+        $showActivityNav = ThemeSettings::get_custom_field('show_activity_nav');
+        $result['show_activity_nav'] = ($showActivityNav == 1);
               
         return $result;
     }

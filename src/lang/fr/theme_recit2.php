@@ -324,3 +324,5 @@ $string['menu-m1'] = 'Horizontal 2 niveaux';
 $string['menu-m2'] = 'Vertical à droite';
 $string['menu-m3'] = 'Vertical à gauche';
 $string['menu-m5'] = 'Horizontal 1 niveau';
+$string['show-activity-nav'] = 'Afficher la navigation par activité';
+$string['show-activity-nav-help'] = "Afficher la navigation par activité";

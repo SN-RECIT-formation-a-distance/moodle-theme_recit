@@ -288,12 +288,12 @@ function theme_recit2_create_course_custom_fields(){
     );
 
     $field_to_add[] = array(
-        'type' => 'textarea',
-        'name' => 'CSS Custom',
-        'shortname' => 'css_custom',
-        'description' => 'CSS Custom',
+        'type' => 'checkbox',
+        'name' => get_string('show-activity-nav', 'theme_recit2'),
+        'shortname' => 'show_activity_nav',
+        'description' => get_string('show-activity-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "defaultvalue" => "", "defaultvalueformat" => "1")
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "checkbydefault" => 1)
     );
 
     $field_to_add[] = array(
@@ -303,7 +303,7 @@ function theme_recit2_create_course_custom_fields(){
         'description' => get_string('show-section-bottom-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
-    );
+    );    
 
     $options = array();
     foreach(ThemeSettings::MENU_MODEL_LIST as $item){
@@ -326,6 +326,15 @@ function theme_recit2_create_course_custom_fields(){
         'description' => get_string('course-subtheme-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => implode("\r\n", ThemeSettings::SUBTHEME_LIST), "defaultvalue" => "")
+    );
+
+    $field_to_add[] = array(
+        'type' => 'textarea',
+        'name' => 'CSS Custom',
+        'shortname' => 'css_custom',
+        'description' => 'CSS Custom',
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "defaultvalue" => "", "defaultvalueformat" => "1")
     );
 
     $fields = array();
