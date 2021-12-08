@@ -34,7 +34,6 @@ class SectionNav{
     public $isMenuM1 = false;
     public $isMenuM2 = false;
     public $isMenuM3 = false;
-    public $isMenuM4 = false;
     public $isMenuM5 = false;
 
     public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = ""){
@@ -78,8 +77,9 @@ class theme_settings {
 
         if($COURSE->id > 1){
             $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, self::COURSE_CUSTOM_FIELDS_SECTION);
+
             if(property_exists($customFieldsRecit, $name)){
-                return $customFieldsRecit->$name->get_value();
+                return $customFieldsRecit->$name;
             }
         }
 

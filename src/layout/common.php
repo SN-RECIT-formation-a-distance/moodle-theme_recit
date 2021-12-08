@@ -176,15 +176,15 @@ class ThemeRecitUtils2{
             $result['layoutOptions']->showSectionTopNav = false;
             $result['layoutOptions']->showSectionBottomNav = false;
         }
-        
+              
         return $result;
     }
 
     public static function get_course_nav_sections(){
-        global $COURSE, $PAGE, $CFG;
+        global $COURSE, $PAGE, $CFG, $USER;
 
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
-        if(($COURSE->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
+        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
             return null;
         }
 
@@ -201,8 +201,10 @@ class ThemeRecitUtils2{
             $result->isMenuM1 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
             $result->isMenuM2 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m2");
             $result->isMenuM3 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m3");
-            $result->isMenuM4 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
-            $result->isMenuM5 = (in_array(\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex], array("m2", "m3", "m5")));
+            $result->isMenuM5 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
+        }
+        else{
+            return null;
         }
         
         

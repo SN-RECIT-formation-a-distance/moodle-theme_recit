@@ -16,20 +16,19 @@
 }}
 
 {{#section_top_nav}}   
-    <div class="navsections {{#section_top_nav.isMenuM5}}horizontal{{/section_top_nav.isMenuM5}} {{#section_top_nav.isMenuM2}}vertical{{/section_top_nav.isMenuM2}} 
-                    {{#section_top_nav.isMenuM3}}vertical{{/section_top_nav.isMenuM3}}">
-        {{#section_top_nav.isMenuM1}}
+    {{#section_top_nav.isMenuM1}}
+        <div class="navsections">
             <nav class='menuM1' id='nav-sections' data-status='close'>                    
                 <div class='background-menu-mobile'></div>
                 <ul class='menu-level1'>
                     <li class='btn-menu-responsive'>
                         <button class='btn btn-outline-light btn-sm' data-btn='open'
-                            onclick='M.recit.theme.recit2.Ctrl.instance.navSections.menu.ctrlOpeningResponsive(event)'><i class='fa fa-bars'></i>
+                            onclick='M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningResponsive(event)'><i class='fa fa-bars'></i>
                         </button>
                         <div class='section-title'></div>
                         <div class='sous-section-title'></div>
                         <button class='btn btn-outline-light btn-sm' data-btn='close'
-                            onclick='M.recit.theme.recit2.Ctrl.instance.navSections.menu.ctrlOpeningResponsive(event)'><i class='fa fa-times'></i>
+                            onclick='M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningResponsive(event)'><i class='fa fa-times'></i>
                         </button>
                     </li>
 
@@ -40,7 +39,7 @@
                                 <a class='menu-item-desc' href='{{url}}' title='{{title}}'>{{{desc}}}</a>
                                 {{#hasSubSections}}
                                     <button class='btn btn-sm btn-outline-light btn-expand-sub-menu' 
-                                        onclick="M.recit.theme.recit2.Ctrl.instance.navSections.menu.ctrlOpeningSubMenuResponsive(event, '{{sectionId}}')"><i class='fa fa-plus'></i></button>
+                                        onclick="M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningSubMenuResponsive(event, '{{sectionId}}')"><i class='fa fa-plus'></i></button>
                                 {{/hasSubSections}}
                             </div>
                             {{#hasSubSections}}
@@ -61,40 +60,24 @@
                     {{/section_top_nav.sections}}
                 </ul>
             </nav>
-        {{/section_top_nav.isMenuM1}}
+        </div>
+    {{/section_top_nav.isMenuM1}}
 
-        {{#section_top_nav.isMenuM5}}
-            <nav class='navbar navbar-dark navbar-expand-lg menuM5' id='nav-sections'>
-                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menuM5-collapse'
-                        aria-controls='menuM5-collapse' aria-expanded='false' aria-label='Toggle navigation'>
-                    <span class='navbar-toggler-icon'></span>
-                </button>
-                <div class='collapse navbar-collapse' id='menuM5-collapse'>
-                    <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
-                        {{#section_top_nav.sections}}
-                            {{^hasSubSections}}
-                                <li class='nav-item menu-item'>
-                                    <a class='nav-link' href='{{url}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
-                                </li>
-                            {{/hasSubSections}}
+    {{#section_top_nav.isMenuM2}}
+        <div class="navsections vertical">
+            {{>theme_recit2/recit/section-menu-m5}}
+        </div>
+    {{/section_top_nav.isMenuM2}}
 
-                            {{#hasSubSections}}
-                                <li class='nav-item dropdown menu-item'>
-                                    <a class='nav-link dropdown-toggle' data-toggle='dropdown' href='{{url}}' title='{{title}}' data-target='{{sectionId}}dropdownmenu'
-                                        aria-haspopup='true' aria-expanded='false' id='{{sectionId}}DropdownMenuLink'>{{{desc}}}</a>
-                                    <ul class='dropdown-menu' aria-labelledby='{{sectionId}}DropdownMenuLink' id='{{sectionId}}dropdownmenu'>
-                                        {{#subSections}}
-                                            <li>
-                                                <a class='dropdown-item' href='{{url}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
-                                            </li>
-                                        {{/subSections}}    
-                                    </ul>
-                                </li>
-                            {{/hasSubSections}}
-                        {{/section_top_nav.sections}}
-                    </ul>
-                </div>
-            </nav>
-        {{/section_top_nav.isMenuM5}}
-    </div>
+    {{#section_top_nav.isMenuM3}}
+        <div class="navsections vertical">
+            {{>theme_recit2/recit/section-menu-m5}}
+        </div>
+    {{/section_top_nav.isMenuM3}}
+
+    {{#section_top_nav.isMenuM5}}
+        <div class="navsections horizontal">
+            {{>theme_recit2/recit/section-menu-m5}}
+        </div>
+    {{/section_top_nav.isMenuM5}}
 {{/section_top_nav}}

@@ -258,9 +258,9 @@ function theme_recit2_get_course_metadata($courseid, $cat) {
     $handler = \core_customfield\handler::get_handler('core_course', 'course');
     // This is equivalent to the line above.
     //$handler = \core_course\customfield\course_handler::create();
-    $datas = $handler->get_instance_data($courseid);
+    $datas = $handler->get_instance_data($courseid, true);
     
-    $result = new stdClass();
+    $result = new stdClass();    
     foreach ($datas as $data) {
         if (empty($data->get_value())) {
             continue;
@@ -270,7 +270,7 @@ function theme_recit2_get_course_metadata($courseid, $cat) {
         }
 
         $attr = $data->get_field()->get('shortname');
-        $result->$attr = $data;
+        $result->$attr = $data->get_value();
     }
     return $result;
 }

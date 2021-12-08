@@ -55,29 +55,15 @@
         {{{ output.full_header }}}
 
         {{#layoutOptions.showSectionTopNav}}
-            {{#section_top_nav.isMenuM1}}
-                {{> theme_recit2/recit/section-top-nav }}
-                 {{> theme_recit2/recit/page-content }}
-            {{/section_top_nav.isMenuM1}}
-
-            {{#section_top_nav.isMenuM2}}
-                <div style="display: grid; grid-template-columns: 80% 20%;">
-                    {{> theme_recit2/recit/page-content }}
-                    {{> theme_recit2/recit/section-top-nav }}
-                </div>
-            {{/section_top_nav.isMenuM2}}
-
-            {{#section_top_nav.isMenuM3}}
-                <div style="display: grid; grid-template-columns: 20% 80%;">
+            {{#section_top_nav}}
+                <div class="page-content-wrapper {{#section_top_nav.isMenuM2}}vertical-left{{/section_top_nav.isMenuM2}} {{#section_top_nav.isMenuM3}}vertical-right{{/section_top_nav.isMenuM3}}">
                     {{> theme_recit2/recit/section-top-nav }}
                     {{> theme_recit2/recit/page-content }}
                 </div>
-            {{/section_top_nav.isMenuM3}}
-
-            {{#section_top_nav.isMenuM4}}
-                {{> theme_recit2/recit/section-top-nav }}
+            {{/section_top_nav}}
+            {{^section_top_nav}}
                 {{> theme_recit2/recit/page-content }}
-            {{/section_top_nav.isMenuM4}}
+            {{/section_top_nav}}
         {{/layoutOptions.showSectionTopNav}}
         {{^layoutOptions.showSectionTopNav}}
             {{> theme_recit2/recit/page-content }}
