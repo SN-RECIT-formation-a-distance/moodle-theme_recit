@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once("common.php");
+use theme_recit2\local\CtrlLayout;
 
 $extraclasses[] = 'recit-login';
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
@@ -33,6 +33,6 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 echo $OUTPUT->render_from_template('theme_recit2/login', $templatecontext);

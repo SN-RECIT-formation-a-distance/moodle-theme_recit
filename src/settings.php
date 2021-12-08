@@ -24,14 +24,16 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ ."/classes/admin_settingspage_tabs.php");
+use theme_recit2\local\AdminSettingsPageTabs;
+
+require_once(__DIR__ ."/classes/local/AdminSettingsPageTabs.php");
 require_once(__DIR__ ."/lib.php");
 
 // This is used for performance, we don't need to know about these settings on every page in Moodle, only when
 // we are looking at the admin settings pages.
 if ($ADMIN->fulltree) {
 
-    $settings = new theme_recit2_admin_settingspage_tabs('themesettingrecit2', get_string('configtitle', 'theme_recit2'));
+    $settings = new AdminSettingsPageTabs('themesettingrecit2', get_string('configtitle', 'theme_recit2'));
 
     /*
     * ----------------------

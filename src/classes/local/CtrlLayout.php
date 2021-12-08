@@ -14,25 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Common functions for the recit theme.
- *
- * @package   theme_recit2
- * @copyright RÉCITFAD 2019
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+namespace theme_recit2\local;
 
-defined('MOODLE_INTERNAL') || die();
+require_once("Utils.php");
 
-require_once($CFG->dirroot . '/theme/recit2/classes/util/ThemeRecitUtils.php');
-require_once($CFG->dirroot . '/user/lib.php');
-require_once($CFG->dirroot . '/message/output/popup/lib.php');
+use stdClass;
+use context_course;
+use theme_config;
 
 /**
  * Define utils for Recit theme.
  * @author RECITFAD
  */
-class ThemeRecitUtils2{
+class CtrlLayout{
     /**
      * Function for class ThemeRecitUtils2.
      * @return boolean
@@ -156,7 +150,7 @@ class ThemeRecitUtils2{
 
         $result['css_custom'] = null;
         
-        $cssCustom = theme_recit2\util\theme_settings::get_custom_field('css_custom');
+        $cssCustom = ThemeSettings::get_custom_field('css_custom');
         if(!empty($cssCustom)){
             $result['css_custom'] = strip_tags($cssCustom);
         }
@@ -167,7 +161,7 @@ class ThemeRecitUtils2{
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');
         
-            $showSectionBottomNav = theme_recit2\util\theme_settings::get_custom_field('show_section_bottom_nav');
+            $showSectionBottomNav = ThemeSettings::get_custom_field('show_section_bottom_nav');
             $result['section_bottom_nav']->enable = ($showSectionBottomNav == 1);
 
             $result['section_top_nav'] = self::get_course_nav_sections();
@@ -195,13 +189,13 @@ class ThemeRecitUtils2{
             return null;
         }
 
-        $result = new \theme_recit2\util\SectionNav();
-        $menuModalIndex = \theme_recit2\util\theme_settings::get_custom_field('menumodel') - 1;
+        $result = new CourseSectionNav();
+        $menuModalIndex = ThemeSettings::get_custom_field('menumodel') - 1;
         if($menuModalIndex >= 0){
-            $result->isMenuM1 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
-            $result->isMenuM2 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m2");
-            $result->isMenuM3 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m3");
-            $result->isMenuM5 = (\theme_recit2\util\theme_settings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
+            $result->isMenuM1 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
+            $result->isMenuM2 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m2");
+            $result->isMenuM3 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m3");
+            $result->isMenuM5 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m5");
         }
         else{
             return null;
@@ -278,8 +272,8 @@ class ThemeRecitUtils2{
             $item->title = get_string('coursehome', 'theme_recit2');
             $result['coursehome'] = $item;
 
-            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils2::isAdminRole($roles)){
+            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemeUtils::isAdminRole($roles)){
                 $item = new stdClass();
                 $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
                 $item->pix = 'fa-cog';
@@ -296,7 +290,7 @@ class ThemeRecitUtils2{
             // the user has  permission to access these shortcuts
             if ($page->user_allowed_editing()) {
 
-                $result['turneditingonoff'] = ThemeRecitUtils2::get_editing_mode_object($page);
+                $result['turneditingonoff'] = self::get_editing_mode_object($page);
 
                 /*$item = new stdClass();
                 $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
@@ -321,7 +315,7 @@ class ThemeRecitUtils2{
         }else{
             if ($page->user_allowed_editing() && $page->pagelayout == 'frontpage') {
                 // editing mode
-                $result['turneditingonoff'] = ThemeRecitUtils2::get_editing_mode_object($page);
+                $result['turneditingonoff'] = self::get_editing_mode_object($page);
                  
             }
         }
@@ -354,8 +348,8 @@ class ThemeRecitUtils2{
 
         $pathrecitdashboard = '/local/recitdashboard/view.php';
         if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
-            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils2::isAdminRole($roles)){
+            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemeUtils::isAdminRole($roles)){
                 $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
             }
         }
@@ -429,8 +423,8 @@ class ThemeRecitUtils2{
 
         if($COURSE->id > 1){
            
-            $roles = ThemRecitUtils2::getUserRoles($COURSE->id, $USER->id);
-            if(ThemRecitUtils2::isAdminRole($roles)){
+            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
+            if(ThemeUtils::isAdminRole($roles)){
                 self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
                 self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
             }
@@ -466,29 +460,4 @@ class ThemeRecitUtils2{
 
         $navitems[$key] = $item;
     }
-
-    /**
-     * Function for class ThemeRecitUtils2.
-     * @param unknown $navitems
-     * @param unknown $settingsnav
-     * @param unknown $nodetype
-     * @param unknown $key
-     */
-    /*public static function add_nav_item_from_settings_nav(&$navitems, $settingsnav, $nodetype, $key) {
-        $settingsnavitem = $settingsnav->find($key, $nodetype);
-		
-        if (empty($settingsnavitem)) {
-            return;
-        }
-
-        $iconmap = \theme_recit2\util\icon_system::$iconmap;
-
-        $item = new stdClass();
-        $item->url = $settingsnavitem->action->out(false);
-        $item->pix = $iconmap["core:" . $settingsnavitem->icon->pix];
-        $item->title = $settingsnavitem->text;
-
-        $navitems[$key] = $item;
-    }*/
 }
-

@@ -14,22 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Mustache helper to load a theme configuration.
- *
- * @package    theme_recit2
- * @copyright  2017 Willian Mano - http://conecti.me
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+namespace theme_recit2\local;
 
-namespace theme_recit2\util;
+require_once($CFG->dirroot . '/user/lib.php');
+require_once($CFG->dirroot . '/message/output/popup/lib.php');
 
 use theme_config;
 use stdClass;
 
 defined('MOODLE_INTERNAL') || die();
 
-class SectionNav{
+class CourseSectionNav{
     public $sections = array();
     public $isMenuM1 = false;
     public $isMenuM2 = false;
@@ -64,7 +59,7 @@ class SectionNav{
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_settings {
+class ThemeSettings {
 
     public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
     
@@ -289,5 +284,63 @@ class theme_settings {
         }
 
         return $templatecontext;
+    }
+}
+
+class ThemeUtils
+{
+    public static function getUserRoles($courseId, $userId){
+        // get the course context (there are system context, module context, etc.)
+        $context = \context_course::instance($courseId);
+
+        return self::getUserRolesOnContext($context, $userId);
+    }
+
+    public static function getUserRolesOnContext($context, $userId){
+        $userRoles1 = get_user_roles($context, $userId);
+
+        $userRoles2 = array();
+        foreach($userRoles1 as $item){
+            $userRoles2[] = $item->shortname;
+        }
+
+        $ret = self::moodleRoles2RecitRoles($userRoles2);
+
+        if(is_siteadmin($userId)){
+            $ret[] = 'ad';
+        }
+        
+        return $ret;
+    }
+    
+    public static function moodleRoles2RecitRoles($userRoles){
+        $ret = array();
+
+        foreach($userRoles as $name){
+            switch($name){
+                case 'manager': $ret[] = 'mg'; break;
+                case 'coursecreator': $ret[] = 'cc'; break;
+                case 'editingteacher': $ret[] = 'et'; break;
+                case 'teacher': $ret[] = 'tc'; break;
+                case 'student': $ret[] = 'sd'; break;
+                case 'guest': $ret[] = 'gu'; break;
+                case 'frontpage': $ret[] = 'fp'; break;
+            }
+        }
+
+        return $ret;
+    }
+    
+    public static function isAdminRole($roles){
+        $adminRoles = array('ad', 'mg', 'cc', 'et', 'tc');
+
+        if(empty($roles)){ return false;}
+
+        foreach($roles as $role){
+            if(in_array($role, $adminRoles)){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 use \core_customfield\category_controller;
 use \core_customfield\field_controller;
-
+use \theme_recit2\local\ThemeSettings;
 
 /**
  * Load the Jquery and migration files
@@ -276,7 +276,7 @@ function theme_recit2_get_course_metadata($courseid, $cat) {
 }
 
 function theme_recit2_create_course_custom_fields(){
-    $category_name = \theme_recit2\util\theme_settings::COURSE_CUSTOM_FIELDS_SECTION;
+    $category_name = ThemeSettings::COURSE_CUSTOM_FIELDS_SECTION;
     $field_to_add = array();
     $field_to_add[] = array(
             'type' => 'checkbox',
@@ -306,7 +306,7 @@ function theme_recit2_create_course_custom_fields(){
     );
 
     $options = array();
-    foreach(\theme_recit2\util\theme_settings::MENU_MODEL_LIST as $item){
+    foreach(ThemeSettings::MENU_MODEL_LIST as $item){
         $options[] = get_string("menu-$item", 'theme_recit2');
     }
     
@@ -325,7 +325,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'subtheme',
         'description' => get_string('course-subtheme-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => implode("\r\n", \theme_recit2\util\theme_settings::SUBTHEME_LIST), "defaultvalue" => "")
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => implode("\r\n", ThemeSettings::SUBTHEME_LIST), "defaultvalue" => "")
     );
 
     $fields = array();

@@ -20,14 +20,16 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace theme_recit2\local;
+
+ defined('MOODLE_INTERNAL') || die();
 
 /**
  * @package   theme_recit2
  * @copyright 2019 RECIT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_recit2_admin_settingspage_tabs extends admin_settingpage {
+class AdminSettingsPageTabs extends \admin_settingpage {
 
     /** @var The tabs */
     protected $tabs = array();
@@ -37,7 +39,7 @@ class theme_recit2_admin_settingspage_tabs extends admin_settingpage {
      *
      * @param admin_settingpage $tab A tab.
      */
-    public function add_tab(admin_settingpage $tab) {
+    public function add_tab(\admin_settingpage $tab) {
         foreach ($tab->settings as $setting) {
             $this->settings->{$setting->name} = $setting;
         }

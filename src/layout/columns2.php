@@ -24,10 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once("common.php");
 require_once($CFG->libdir . '/behat/lib.php');
+//require_once($CFG->dirroot . '/theme/recit2/classes/local/CtrlLayout.php');
 
-ThemeRecitUtils2::set_user_preference_drawer();
+use theme_recit2\local\CtrlLayout;
+use theme_recit2\local\ThemeSettings;
+
+CtrlLayout::set_user_preference_drawer();
 
 $hasdrawertoggle = false;
 // Code $navdraweropen = false;
@@ -50,7 +53,7 @@ $extraclasses = [];
     $extraclasses[] = 'drawer-open-left';
 }*/
 
-if (ThemeRecitUtils2::is_drawer_open_right() && $hasblocks) {
+if (CtrlLayout::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
@@ -64,15 +67,15 @@ $templatecontext = [
     'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
     'hasdrawertoggle' => $hasdrawertoggle,
-    'navdraweropen' => ThemeRecitUtils2::is_nav_drawer_open(),
-    'draweropenright' => ThemeRecitUtils2::is_drawer_open_right(),
+    'navdraweropen' => CtrlLayout::is_nav_drawer_open(),
+    'draweropenright' => CtrlLayout::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && isset($_GET['categoryid']),
 ];
 
-$templatecontext = array_merge($templatecontext, ThemeRecitUtils2::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
 
-$themesettings = new \theme_recit2\util\theme_settings();
+$themesettings = new ThemeSettings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 

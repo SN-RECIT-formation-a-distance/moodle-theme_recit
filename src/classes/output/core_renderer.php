@@ -52,7 +52,6 @@ use ThemeRecitUtils2;
 use lang_string;
 
 defined('MOODLE_INTERNAL') || die;
-require_once($CFG->dirroot . '/theme/recit2/layout/common.php');
 require_once($CFG->libdir . '/behat/lib.php');
 
 /**
