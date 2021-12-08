@@ -8,6 +8,10 @@ M.recit = M.recit || {};
 M.recit.theme = M.recit.theme || {};
 M.recit.theme.recit2 = M.recit.theme.recit2 || {};
 
+M.recit.theme.recit2.Options = {
+    maxWidth: 1500
+}
+
 M.recit.theme.recit2.Ctrl = class{
     constructor(){
         this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
@@ -336,6 +340,10 @@ M.recit.theme.recit2.SectionPagination = class{
 
 M.recit.theme.recit2.MenuM1 = class{
     constructor(placeholder){
+        this.ctrlResponsive2 = this.ctrlResponsive2.bind(this); 
+
+        window.addEventListener('resize', this.ctrlResponsive2);
+
         this.placeholder = placeholder;
 
         this.btnMenuResponsive = null;
@@ -345,6 +353,8 @@ M.recit.theme.recit2.MenuM1 = class{
 
     init(){
         this.btnMenuResponsive = this.placeholder.querySelector('.btn-menu-responsive');
+
+        this.ctrlResponsive2();
     }
 
     ctrl(event){
@@ -374,6 +384,16 @@ M.recit.theme.recit2.MenuM1 = class{
         }
 
         this.ctrlResponsive(menuItemDesc, branch);
+    }
+
+    
+    ctrlResponsive2(){
+        if((window.innerWidth > 1024) && (this.placeholder.offsetWidth <= M.recit.theme.recit2.Options.maxWidth)){
+            this.placeholder.classList.remove('responsive');
+        }
+        else{
+            this.placeholder.classList.add('responsive');
+        }
     }
 
     ctrlResponsive(menuItemDesc, branch){
