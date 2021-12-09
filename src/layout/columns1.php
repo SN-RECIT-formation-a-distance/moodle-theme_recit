@@ -37,8 +37,8 @@ $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_contex
 
 if($PAGE->__get('pagelayout') == 'popup'){
     $PAGE->set_title($PAGE->cm->name);
-    echo $OUTPUT->render_from_template('theme_recit2/popup', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/recit/popup', $templatecontext);
 }
 else{
-    echo $OUTPUT->render_from_template('theme_recit2/columns1', $templatecontext);
+    echo $OUTPUT->render_from_template('theme_recit2/recit/columns1', $templatecontext);
 }

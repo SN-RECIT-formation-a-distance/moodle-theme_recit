@@ -1142,7 +1142,11 @@ class core_renderer extends \core_renderer {
      * @return string HTML fragment.
      */
     public function standard_footer_html() {
-        global $CFG, $SCRIPT;
+        global $PAGE, $CFG, $SCRIPT;
+
+        if($PAGE->__get('pagelayout') == 'popup'){
+            return null;
+        }
 
         $output = '';
         if (during_initial_install()) {
@@ -1195,26 +1199,6 @@ class core_renderer extends \core_renderer {
         return $output;
     }
 
-    /**
-     * Returns the mobile app url
-     *
-     * @return string
-     *
-     * @throws \coding_exception
-     */
-    private function get_mobileappurl() {
-        global $CFG;
-        $output = '';
-        if (!empty($CFG->enablemobilewebservice) && $url = tool_mobile_create_app_download_url()) {
-            $url = html_writer::link($url,
-                                "<i class='icon-screen-smartphone'></i> ".get_string('getmoodleonyourmobile', 'tool_mobile'),
-                                     ['class' => 'btn btn-primary']);
-
-            $output .= html_writer::div($url, 'mobilefooter mb-2');
-        }
-
-        return $output;
-    }
  /**
      * Return the 'back' link that normally appears in the footer.
      *
@@ -1245,42 +1229,12 @@ class core_renderer extends \core_renderer {
         }
     }
   
-   
-    /**
-     * Outputs a heading
-     *
-     * @param string $text The text of the heading
-     * @param int $level The level of importance of the heading. Defaulting to 2
-     * @param string $classes A space-separated list of CSS classes. Defaulting to null
-     * @param string $id An optional ID
-     * @return string the HTML to output.
-     */
-    /*public function act_name(){
-        global $PAGE;
-
-        $Aname = strval("mod-".$PAGE->cm->modname."-name") ;
-        $result =  "Missing '$Aname' string definition";
-        if(get_string_manager()->string_exists($Aname, 'theme_recit2')){
-            $result = get_string($Aname, 'theme_recit2');
-        }
-
-        return $result;
-    }
-    public function act_name_cons(){
-        global $PAGE;
-    
-        $Aname = strval("mod-".$PAGE->cm->modname."-name-consigne") ;
-        $result =  "Missing '$Aname' string definition";
-        if(get_string_manager()->string_exists($Aname, 'theme_recit2')){
-            $result = get_string($Aname, 'theme_recit2');
-        }
-        
-        return $result;
-    }*/
-
     public function heading($text, $level = 2, $classes = null, $id = null) {
-       // global $OUTPUT, $PAGE, $USER, $CFG;
         global $PAGE, $OUTPUT;
+
+        if($PAGE->__get('pagelayout') == 'popup'){
+            return null;
+        }
 
         //$icon_assign = '';
         $level = (integer) $level;
@@ -1317,9 +1271,8 @@ class core_renderer extends \core_renderer {
 
         return $output;
     }
-    
-    
 }
+
 class core_renderer_cli extends core_renderer {
      /**
      * Returns a template fragment representing a Heading.
