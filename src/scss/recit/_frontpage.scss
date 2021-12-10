@@ -54,48 +54,6 @@
 }
 
 
-#page-site-index #recitslideshow {
-    margin: 1rem 0;
-
-    .carousel-item {
-        max-height: 540px;
-        overflow: hidden;
-    }
-
-    .carousel-indicators {
-        li {
-            width: 30px;
-            height: 10px;
-            border: 1px solid $primary;
-        }
-    }
-
-    .carousel-caption {
-        top: 0;
-        left: 40px;
-        bottom: inherit;
-        width: fit-content;
-        max-width: 50%;
-        text-align: inherit;
-        text-shadow: none;
-
-        .title,
-        .caption {
-            color: #fff;
-            background-color: rgba(0, 0, 0, .8);
-            margin-top: 40px;
-            padding: 20px;
-            max-width: max-content;
-            max-width: -moz-max-content;
-            max-width: -webkit-max-content
-        }
-
-        .title {
-            font-size: 2rem;
-        }
-    }
-}
-
 #page-site-index.notloggedin {
     margin-left: 0;
 

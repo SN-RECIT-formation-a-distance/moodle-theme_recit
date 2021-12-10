@@ -102,6 +102,10 @@ class core_renderer extends \core_renderer {
         $header->headeractions = $this->page->get_header_actions();
         $header->coursebanner = $this->get_course_custom_banner();
         $header->layoutOptions = (object) $PAGE->layout_options;
+        $header->isloggedin = isloggedin();
+
+        $themesettings = new ThemeSettings();
+        $header->slider = $themesettings->slideshow($theme);
         
         js_reset_all_caches();
 

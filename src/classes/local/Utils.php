@@ -176,14 +176,12 @@ class ThemeSettings {
      *
      * @return array
      */
-    public function slideshow() {
+    public function slideshow($theme) {
         global $OUTPUT;
 
-        $theme = theme_config::load('recit2');
+        $templatecontext['enabled'] = ($theme->settings->sliderenabled == 1);
 
-        $templatecontext['sliderenabled'] = $theme->settings->sliderenabled;
-
-        if (empty($templatecontext['sliderenabled'])) {
+        if (empty($templatecontext['enabled'])) {
             return $templatecontext;
         }
 

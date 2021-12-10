@@ -17,38 +17,67 @@
 {{!
     Page header.
 }}
-<header id="page-header" >
-    <div>
-        {{#layoutOptions.showCourseBanner}}
-            <div id="course-banner" style="{{{coursebanner}}}">
-                <div>
-                    <div class="d-flex">
-                        <div class="mr-auto">
-                            {{{contextheader}}}
+{{#isloggedin}} 
+    <header id="page-header" >
+        <div>
+            {{#layoutOptions.showCourseBanner}}
+                <div id="course-banner" style="{{{coursebanner}}}">
+                    <div>
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                {{{contextheader}}}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>     
-        {{/layoutOptions.showCourseBanner}}
+                </div>     
+            {{/layoutOptions.showCourseBanner}}
 
-        {{#layoutOptions.showBreadcrumb}}
-            {{#breadcrumb}}   
-                {{{breadcrumb}}}
-            {{/breadcrumb}}
-        {{/layoutOptions.showBreadcrumb}}
+            {{#layoutOptions.showBreadcrumb}}
+                {{#breadcrumb}}   
+                    {{{breadcrumb}}}
+                {{/breadcrumb}}
+            {{/layoutOptions.showBreadcrumb}}
 
-        {{#layoutOptions.showCourseBanner}}           
-            {{#headeractions}}
-                <div class="" data-region="header-actions-container" style="height: 40px;">
-                    <div class="header-action ml-2">{{{.}}}</div>
-                </div>
-            {{/headeractions}}
+            {{#layoutOptions.showCourseBanner}}           
+                {{#headeractions}}
+                    <div class="" data-region="header-actions-container" style="height: 40px;">
+                        <div class="header-action ml-2">{{{.}}}</div>
+                    </div>
+                {{/headeractions}}
 
-            {{#showpageheadingbutton}}   
-                <div class="m-1 p-1 d-flex justify-content-end">
-                    {{{pageheadingbutton}}}
-                </div>
-            {{/showpageheadingbutton}}   
-        {{/layoutOptions.showCourseBanner}}
-    </div>
-</header>
+                {{#showpageheadingbutton}}   
+                    <div class="m-1 p-1 d-flex justify-content-end">
+                        {{{pageheadingbutton}}}
+                    </div>
+                {{/showpageheadingbutton}}   
+            {{/layoutOptions.showCourseBanner}}
+        </div>
+    </header>
+{{/isloggedin}}
+{{^isloggedin}}
+    {{#slider.enabled}}
+        <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            <ol class="carousel-indicators">
+                {{#slider.slides}}
+                    <li data-target="#slideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+                {{/slider.slides}}
+            </ol>
+            <div class="carousel-inner">
+                {{#slider.slides}}
+                    <div class="carousel-item {{#active}}active{{/active}}">
+                        <img class="d-block w-100 animated fadeIn" src="{{{ image }}}" alt="{{{ slidercap }}}" style="height: 500px; object-fit: contain;">
+
+                        <div class="carousel-caption d-none d-md-block">
+                            {{#title}}<h5>{{{ title }}}</h5>{{/title}}
+
+                            {{#caption}}<p>{{{ caption }}}</p>{{/caption}}
+                        </div>
+                    </div>
+                {{/slider.slides}}
+            </div>
+        </div>
+    {{/slider.enabled}}
+    {{^slider.enabled}}
+        <header id="page-header" ></header>
+    {{/slider.enabled}}
+{{/isloggedin}}

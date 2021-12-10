@@ -104,8 +104,6 @@ $string['displaymarketingboxdesc'] = 'Show or Hide Front page Marketingbox';
 
 $string['sliderenabled'] = 'Enable slider';
 $string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
-$string['sliderfrontpage'] = 'Show slideshow in frontpage';
-$string['sliderfrontpagedesc'] = 'If enabled, the slideshow will be showed in the frontpage page replacing the header image.';
 $string['slidercount'] = 'Slider count';
 $string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields.';
 $string['sliderimage'] = 'Slider picture';

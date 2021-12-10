@@ -104,8 +104,6 @@ $string['displaymarketingboxdesc'] = 'Affiche ou masque les boîtes de promotion
 
 $string['sliderenabled'] = 'Activer le diaporama';
 $string['sliderenableddesc'] = 'Activer un diaporama en haut de votre page d\'accueil';
-$string['sliderfrontpage'] = 'Afficher le diaporama sur la page d\'accueil';
-$string['sliderfrontpagedesc'] = 'Si cette option est activée, le diaporama sera affiché sur la page d\'accueil en remplacement de l\'image de l\'en-tête.';
 $string['slidercount'] = 'Nombre de diapositives';
 $string['slidercountdesc'] = 'Sélectionnez le nombre de diapositives que vous souhaitez ajouter et <strong>cliquez sur ENREGISTRER</strong> pour charger les champs de saisie.';
 $string['sliderimage'] = 'Image de la diapositive';
