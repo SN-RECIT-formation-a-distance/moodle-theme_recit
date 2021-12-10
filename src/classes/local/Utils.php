@@ -87,13 +87,15 @@ class ThemeSettings {
      * @return array
      */
     public function footer_items() {
+        global $CFG, $PAGE;
+
         $theme = theme_config::load('recit2');
 
         $templatecontext = [];
 
         $footersettings = [
-            'facebook', 'twitter', 'googleplus', 'linkedin', 'youtube', 'instagram', 'getintouchcontent',
-            'website', 'mobile', 'mail', 'policyurl', 'termsurl'
+            'facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 
+            'website', 'mobile', 'mail', 'footnote', 'copyright_footer'
         ];
 
         foreach ($footersettings as $setting) {
@@ -102,23 +104,71 @@ class ThemeSettings {
             }
         }
 
-        $footerfilesettings = [
-            'footerlogo'
-        ];
-
+        $footerfilesettings = ['footerlogo'];
         foreach ($footerfilesettings as $setting) {
-                $image = $theme->setting_file_url($setting, $setting);
-                if (!empty($image)) {
-                    $templatecontext[$setting] = $image;
-                }
+            $image = $theme->setting_file_url($setting, $setting);
+            if (!empty($image)) {
+                $templatecontext[$setting] = $image;
+            }
         }
 
-        $templatecontext['disablebottomfooter'] = false;
-        if (!empty($theme->settings->disablebottomfooter)) {
-            $templatecontext['disablebottomfooter'] = true;
+        $templatecontext['infolink'] = $this->getInfolink( $theme->settings->infolink);
+
+        $templatecontext['s_sitepolicy'] = get_string('sitepolicy', 'core_admin');
+        $templatecontext['sitepolicy'] = $CFG->sitepolicy;
+        $templatecontext['s_sitepolicyguest'] = get_string('sitepolicyguest', 'core_admin');
+        $templatecontext['sitepolicyguest'] = $CFG->sitepolicyguest;
+
+        $templatecontext['s_page_doc_link'] = get_string('moodledocslink');
+
+        $path = page_get_doc_link_path($PAGE);
+        if($path){
+            $templatecontext['page_doc_link'] = get_docs_url($path);
         }
 
+        if($PAGE->pagetype != 'site-index'){
+            $templatecontext['s_sitehome'] = get_string('sitehome');
+            $templatecontext['sitehome'] = "{$CFG->wwwroot}/?redirect=0";
+        }
+
+        // A returned 0 means that the setting was set and disabled, false means that there is no value for the provided setting.
+        $showsummary = get_config('tool_dataprivacy', 'showdataretentionsummary');
+        // This means that no value is stored in db. We use the default value in this case.
+        $showsummary = ($showsummary === false ? true : $showsummary) ;
+
+        if ($showsummary) {
+            $templatecontext['s_showdataretentionsummary'] = get_string('dataretentionsummary', 'tool_dataprivacy');
+            $templatecontext['showdataretentionsummary'] = "{$CFG->wwwroot}/admin/tool/dataprivacy/summary.php";
+        }
+        
         return $templatecontext;
+    }
+
+    /**
+     * Get the infolinks from settings page and display on the footer.
+     * @return type|string
+     */
+    public function getInfolink($strInfoLink) {
+        $content = "";
+        $infosettings = explode("\n", $strInfoLink);
+        foreach ($infosettings as $key => $settingval) {
+            $expset = explode("|", $settingval);
+            if (isset($expset[0]) && isset($expset[1]) ) {
+                list($ltxt, $lurl) = $expset;
+            } else {
+                $ltxt = $expset[0];
+                $lurl = "#";
+            }
+            $ltxt = trim($ltxt);
+            $lurl = trim($lurl);
+
+            if (empty($ltxt)) {
+                continue;
+            }
+            $content .= '<li><a href="'.$lurl.'" target="_blank">'.$ltxt.'</a></li>';
+        }
+
+        return $content;
     }
 
     /**
@@ -164,54 +214,6 @@ class ThemeSettings {
     }
 
     /**
-     * Get config theme marketing itens
-     *
-     * @return array
-     */
-    public function marketing_items() {
-        global $OUTPUT;
-
-        $theme = theme_config::load('recit2');
-
-        $templatecontext = [];
-
-        for ($i = 1; $i < 5; $i++) {
-            $marketingicon = 'marketing' . $i . 'icon';
-            $marketingheading = 'marketing' . $i . 'heading';
-            $marketingsubheading = 'marketing' . $i . 'subheading';
-            $marketingcontent = 'marketing' . $i . 'content';
-            $marketingurl = 'marketing' . $i . 'url';
-
-            $templatecontext[$marketingicon] = $OUTPUT->image_url('icon_default', 'theme');
-            if (!empty($theme->settings->$marketingicon)) {
-                $templatecontext[$marketingicon] = $theme->setting_file_url($marketingicon, $marketingicon);
-            }
-
-            $templatecontext[$marketingheading] = '';
-            if (!empty($theme->settings->$marketingheading)) {
-                $templatecontext[$marketingheading] = theme_recit2_get_setting($marketingheading, true);
-            }
-
-            $templatecontext[$marketingsubheading] = '';
-            if (!empty($theme->settings->$marketingsubheading)) {
-                $templatecontext[$marketingsubheading] = theme_recit2_get_setting($marketingsubheading, true);
-            }
-
-            $templatecontext[$marketingcontent] = '';
-            if (!empty($theme->settings->$marketingcontent)) {
-                $templatecontext[$marketingcontent] = theme_recit2_get_setting($marketingcontent, true);
-            }
-
-            $templatecontext[$marketingurl] = '';
-            if (!empty($theme->settings->$marketingurl)) {
-                $templatecontext[$marketingurl] = $theme->settings->$marketingurl;
-            }
-        }
-
-        return $templatecontext;
-    }
-
-    /**
      * Get the frontpage numbers
      *
      * @return array
@@ -222,66 +224,6 @@ class ThemeSettings {
         $templatecontext['numberusers'] = $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
         $templatecontext['numbercourses'] = $DB->count_records('course', array('visible' => 1)) - 1;
         $templatecontext['numberactivities'] = $DB->count_records('course_modules');
-
-        return $templatecontext;
-    }
-
-    /**
-     * Get config theme sponsors logos and urls
-     *
-     * @return array
-     */
-    public function sponsors() {
-        $theme = theme_config::load('recit2');
-
-        $templatecontext['sponsorstitle'] = $theme->settings->sponsorstitle;
-        $templatecontext['sponsorssubtitle'] = $theme->settings->sponsorssubtitle;
-
-        $sponsorscount = $theme->settings->sponsorscount;
-
-        for ($i = 1, $j = 0; $i <= $sponsorscount; $i++, $j++) {
-            $sponsorsimage = "sponsorsimage{$i}";
-            $sponsorsurl = "sponsorsurl{$i}";
-
-            $image = $theme->setting_file_url($sponsorsimage, $sponsorsimage);
-            if (empty($image)) {
-                continue;
-            }
-
-            $templatecontext['sponsors'][$j]['image'] = $image;
-            $templatecontext['sponsors'][$j]['url'] = $theme->settings->$sponsorsurl;
-
-        }
-
-        return $templatecontext;
-    }
-
-    /**
-     * Get config theme clients logos and urls
-     *
-     * @return array
-     */
-    public function clients() {
-        $theme = theme_config::load('recit2');
-
-        $templatecontext['clientstitle'] = $theme->settings->clientstitle;
-        $templatecontext['clientssubtitle'] = $theme->settings->clientssubtitle;
-
-        $clientscount = $theme->settings->clientscount;
-
-        for ($i = 1, $j = 0; $i <= $clientscount; $i++, $j++) {
-            $clientsimage = "clientsimage{$i}";
-            $clientsurl = "clientsurl{$i}";
-
-            $image = $theme->setting_file_url($clientsimage, $clientsimage);
-            if (empty($image)) {
-                continue;
-            }
-
-            $templatecontext['clients'][$j]['image'] = $image;
-            $templatecontext['clients'][$j]['url'] = $theme->settings->$clientsurl;
-
-        }
 
         return $templatecontext;
     }

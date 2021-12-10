@@ -1,0 +1,134 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page footer.
+}}
+<div id="goto-top-link">
+    {{! go to top is sticky to footer so needs to be sibling }}
+    <a class="btn btn-light" role="button" href="#">
+        {{#pix}} i/up, core, {{#str}} totop, theme_boost {{/str}}{{/pix}}
+    </a>
+</div>
+<footer id="page-footer" class="p-3 text-light">
+    <div  class="row"> 
+        <div class="col-12 col-md-4 col-lg-2 d-flex p-2  align-items-center">
+            {{#footerlogo}}
+                <img class="img-fluid" src="{{footerlogo}}" alt="{{sitename}}" >            
+            {{/footerlogo}}
+            {{^footerlogo}}
+                <img src="https://recitfad.ca/depot/praesentia_w.png"  class="img-fluid" alt="Environnement numérique d'apprentissage PRAESENTIA face">
+            {{/footerlogo}}
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-3 d-flex p-2 align-items-center">
+            {{{footnote}}}
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-3">
+            <ul class="infolink-list">
+                {{#sitehome}}<li><a href="{{sitehome}}" target="_blank">{{s_sitehome}}</a></li>{{/sitehome}}
+
+                {{#sitepolicy}}<li><a href="{{sitepolicy}}" target="_blank">{{s_sitepolicy}}</a></li>{{/sitepolicy}}
+               
+                {{#page_doc_link}}
+                    <li><a href="{{page_doc_link}}" target="_blank">{{s_page_doc_link}}</a></li>
+                {{/page_doc_link}}
+
+                {{#showdataretentionsummary}}
+                    <li><a href="{{showdataretentionsummary}}" target="_blank">{{s_showdataretentionsummary}}</a></li>
+                {{/showdataretentionsummary}}
+            </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2 d-flex">
+            {{# infolink}}
+                <ul class="infolink-list">
+                    {{{infolink}}}
+                </ul>
+            {{/ infolink}}
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2 d-flex-column">
+            <div>
+                {{# mobile}}
+                    <p class="m-1"><i class="fa fa-phone-square"></i> {{mobile}}</p>
+                {{/ mobile}}
+                {{# mail}}
+                    <p class="m-1"><i class="fa fa-envelope"></i> <a class="mail-link" href="mailto:{{mail}}">{{mail}}</a></p>
+                {{/ mail}}
+                {{# website}}
+                    <p class="m-1"><i class="fa fa-globe"></i> <a href='{{website}}' target='_blank'>{{website}}</a></p>
+                {{/ website}}
+            </div>
+            <ul class='social-media-list'>
+                {{# facebook}}
+                    <li class='social-media-item'>
+                        <a href="{{facebook}}" target="_blank" title="Facebook">
+                            <i class="fa fa-facebook-f "></i>
+                        </a>
+                    </li>
+                {{/ facebook}}
+                {{# twitter}}
+                    <li class='social-media-item'>
+                        <a href="{{twitter}}" target="_blank" title="Twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                {{/ twitter}}
+                {{# linkedin}}
+                    <li class='social-media-item'>
+                        <a href="{{linkedin}}" target="_blank" title="Linkedin">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                {{/ linkedin}}
+                {{# youtube}}
+                    <li class='social-media-item'>
+                        <a href="{{youtube}}" target="_blank" title="Youtube">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </li>
+                {{/ youtube}}
+                {{# instagram}}
+                    <li class='social-media-item'>
+                        <a href="{{instagram}}" target="_blank" title="Instagram">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                {{/ instagram}}
+            </ul>
+        </div>
+    </div>
+
+    {{#copyright_footer}}
+        <div class="row mt-2 p-3 "> 
+            {{{copyright_footer}}}
+        </div>
+    {{/copyright_footer}}
+
+    {{#output.course_footer }}
+        <hr class="border-light"/>
+        <div id="course-footer">{{{ output.course_footer }}}</div>    
+    {{/output.course_footer}}
+
+    {{#output.standard_footer_html}}
+        <hr class="border-light"/>
+        {{{ output.standard_footer_html }}}
+    {{/output.standard_footer_html}}
+
+    {{{ output.standard_end_of_body_html }}}
+</footer>

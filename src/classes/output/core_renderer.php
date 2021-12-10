@@ -103,9 +103,9 @@ class core_renderer extends \core_renderer {
         $header->coursebanner = $this->get_course_custom_banner();
         $header->layoutOptions = (object) $PAGE->layout_options;
         
-        //js_reset_all_caches();
+        js_reset_all_caches();
 
-        return $this->render_from_template('theme_recit2/header', $header);
+        return $this->render_from_template('theme_recit2/recit/header', $header);
     }
 
     public function get_course_custom_banner(){
@@ -567,7 +567,11 @@ class core_renderer extends \core_renderer {
             return null;
         }
 
-        $output = parent::standard_footer_html();
+        $output = null;
+
+        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', \context_system::instance())) {  // Only in developer mode
+            $output = parent::standard_footer_html();
+        }
 
         return $output;
     }

@@ -48,7 +48,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('logodesc', 'theme_recit2');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Favicon setting.
@@ -57,7 +56,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('favicondesc', 'theme_recit2');
     $opts = array('accepted_types' => array('.ico'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Login page background image.
@@ -73,22 +71,13 @@ if ($ADMIN->fulltree) {
     $title = get_string('enablebreadcrumb', 'theme_recit2');
     $description = get_string('enablebreadcrumbdesc', 'theme_recit2');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    //$setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     $name = 'theme_recit2/showleavingsitewarning';
     $title = get_string('showleavingsitewarning', 'theme_recit2');
     $description = get_string('showleavingsitewarningdesc', 'theme_recit2');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    //$setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-
-    /*$name = 'theme_recit2/courselistview';
-    $title = get_string('courselistview', 'theme_recit2');
-    $description = get_string('courselistviewdesc', 'theme_recit2');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    //$setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);*/
 
     // Must add the page after defining all the settings!
     $settings->add($page);
@@ -114,14 +103,6 @@ if ($ADMIN->fulltree) {
     $title = get_string('sliderenabled', 'theme_recit2');
     $description = get_string('sliderenableddesc', 'theme_recit2');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $page->add($setting);
-
-    // Enable slideshow on frontpage guest page.
-    $name = 'theme_recit2/sliderfrontpage';
-    $title = get_string('sliderfrontpage', 'theme_recit2');
-    $description = get_string('sliderfrontpagedesc', 'theme_recit2');
-    $default = 0;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $page->add($setting);
 
     $name = 'theme_recit2/slidercount';
@@ -176,21 +157,36 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_recit2_footer', get_string('footersettings', 'theme_recit2'));
 
-    $name = 'theme_recit2/getintouchcontent';
-    $title = get_string('getintouchcontent', 'theme_recit2');
-    $description = get_string('getintouchcontentdesc', 'theme_recit2');
-    $default = 'RecitFad';
-    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
-  //  $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
     // Footer logo
     $name = 'theme_recit2/footerlogo';
     $title = get_string('footerlogo', 'theme_recit2');
     $description = get_string('footerlogodesc', 'theme_recit2');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'footerlogo', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    /* Footer Content */
+    $name = 'theme_recit2/footnote';
+    $title = get_string('footnote', 'theme_recit2');
+    $description = get_string('footnotedesc', 'theme_recit2');
+    $default = "";
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $page->add($setting);
+
+     // INFO Link.
+     $name = 'theme_recit2/infolink';
+     $title = get_string('infolink', 'theme_recit2');
+     $description = get_string('infolink_desc', 'theme_recit2');
+     $default = get_string('infolinkdefault', 'theme_recit2');
+     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+     $page->add($setting);
+
+     // Copyright.
+    $name = 'theme_recit2/copyright_footer';
+    $title = get_string('copyright_footer', 'theme_recit2');
+    $description = '';
+    $default = get_string('copyright_default', 'theme_recit2');
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $page->add($setting);
 
     $name = 'theme_recit2/navcolor';
@@ -206,34 +202,14 @@ if ($ADMIN->fulltree) {
     $description = get_string('websitedesc', 'theme_recit2');
     $default = 'https://recitfad.ca';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
- //   $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Terms of usage
-    $name = 'theme_recit2/termsurl';
-    $title = get_string('termsurl', 'theme_recit2');
-    $description = get_string('termsurldesc', 'theme_recit2');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
- //   $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // policy privacy
-    $name = 'theme_recit2/policyurl';
-    $title = get_string('policyurl', 'theme_recit2');
-    $description = get_string('policyurldesc', 'theme_recit2');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
- //   $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Mobile.
     $name = 'theme_recit2/mobile';
     $title = get_string('mobile', 'theme_recit2');
     $description = get_string('mobiledesc', 'theme_recit2');
-    $default = '418-228-5541';
+    $default = '123-456-7890';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-//    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Mail.
@@ -242,7 +218,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('maildesc', 'theme_recit2');
     $default = 'info@recitfad.ca';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
- //   $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Facebook url setting.
@@ -251,7 +226,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('facebookdesc', 'theme_recit2');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
- //   $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Twitter url setting.
@@ -260,16 +234,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('twitterdesc', 'theme_recit2');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-//    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Googleplus url setting.
-    $name = 'theme_recit2/googleplus';
-    $title = get_string('googleplus', 'theme_recit2');
-    $description = get_string('googleplusdesc', 'theme_recit2');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
-  //  $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Linkdin url setting.
@@ -278,7 +242,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('linkedindesc', 'theme_recit2');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-   // $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Youtube url setting.
@@ -287,7 +250,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('youtubedesc', 'theme_recit2');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-  //  $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Instagram url setting.
@@ -296,16 +258,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('instagramdesc', 'theme_recit2');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-   // $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-
-    // Disable bottom footer.
-    $name = 'theme_recit2/disablebottomfooter';
-    $title = get_string('disablebottomfooter', 'theme_recit2');
-    $description = get_string('disablebottomfooterdesc', 'theme_recit2');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
-    $page->add($setting);
-   // $setting->set_updatedcallback('theme_reset_all_caches');
 
     $settings->add($page);
 }

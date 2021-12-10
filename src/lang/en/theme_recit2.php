@@ -28,37 +28,6 @@ $string['pluginname'] = 'RÉCIT v2';
 $string['configtitle'] = 'RÉCIT';
 $string['choosereadme'] = 'Recit is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
 
-$string['mod-book-name'] = 'À propos du livre';
-$string['mod-book-name-consigne'] = "Un livre est un ensemble de pages regroupées àzz l'aide d'une table des matières. Tu peux naviguer d'une page à l'autre.";
-$string['mod-assign-name'] = 'À propos du devoir';
-$string['mod-assign-name-consigne'] = 'Le devoir te demande de répondre à des questions. Le résultat du test sera comptabilisés.';
-$string['mod-hvp-name'] = 'À propos de H5P';
-$string['mod-hvp-name-consigne'] = 'H5P te présentera du contenu interactif tel que des vidéos interactives, des banques de questions, des questions « glisser-déposer », des questions à choix multiples, des présentations et bien plus encore.';
-$string['mod-chat-name'] = 'À propos du Clavardage';
-$string['mod-chat-name-consigne'] = 'Le clavardage permet aux participants d\'avoir une discussion synchrone en temps réel, en mode texte.';
-$string['mod-forum-name'] = 'À propos du forum';
-$string['mod-forum-name-consigne'] = 'Le forum est une discussion écrite entre les participants d\'un cours. On peut y poser des questions ou simplement ajouter des commentaires';
-$string['mod-folder-name'] = 'À propos du dépôt';
-$string['mod-folder-name-consigne'] = '';
-$string['mod-glossary-name'] = 'À propos du glossaire';
-$string['mod-glossary-name-consigne'] = 'Le glossaire permet aux élèves de créer et de gérer une liste de définitions, comme un dictionnaire, ou de collecter et organiser des ressources ou des informations.';
-$string['mod-lesson-name'] = 'À propos de la leçon';
-$string['mod-lesson-name-consigne'] = "La leçon permet de créer une activité avec plusieurs embranchements";
-$string['mod-page-name'] = 'À propos de la page';
-$string['mod-page-name-consigne'] = 'La page présente des informations multimédias et parfois interactives.';
-$string['mod-questionnaire-name'] = 'À propos du questionnaire';
-$string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
-$string['mod-quiz-name'] = 'À propos du test';
-$string['mod-quiz-name-consigne'] = 'Le  devoir permet à ton enseignant de te communiquer des tâches, de récolter tes travaux et de te fournir rétroactions et notes.';
-$string['mod-recitcahiercanada-name'] = "À propos du cahier des traces";
-$string['mod-recitcahiercanada-name-consigne'] = 'Le cahier des traces permet à l\'élève de noter les renseignements présents à l\'intérieur d\'une activité ou d\'une ressource';
-$string['mod-workshop-name'] = 'À propos de l\'atelier';
-$string['mod-workshop-name-consigne'] = "Pour en savoir plus";
-$string['mod-questionnaire-name'] = 'À propos du questionnaire';
-$string['mod-questionnaire-name-consigne'] = 'Le questionnaire permet à ton enseignant de recueillir des informations en te posant des questions.';
-$string['mod-tab-name'] = 'À propos des onglets';
-$string['mod-tab-name-consigne'] = 'Les permettenr à ton enseignant de présenter des contenus sous forme d\'onglets. Clique sur les onglets pour voir les contenus.';
-
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';
 $string['login'] = 'Already have an account?';
@@ -132,46 +101,6 @@ $string['bannercontent'] = 'Banner Content';
 $string['bannercontentdesc'] = 'Enter Banner Content Text';
 $string['displaymarketingbox'] = 'Display front page Marketingbox';
 $string['displaymarketingboxdesc'] = 'Show or Hide Front page Marketingbox';
-$string['marketing1icon'] = 'Marketing1 Icon';
-$string['marketing1icondesc'] = 'Upload Marketing1 Icon';
-$string['marketing1heading'] = 'Marketing1 Heading';
-$string['marketing1headingdesc'] = 'Enter Marketing1 Heading Text';
-$string['marketing1subheading'] = 'Marketing1 Subheading';
-$string['marketing1subheadingdesc'] = 'Enter Marketing1 Subheading Text';
-$string['marketing1content'] = 'Marketing1 Content';
-$string['marketing1contentdesc'] = 'Enter Marketing1 Content Text';
-$string['marketing1url'] = 'Marketing1 URL';
-$string['marketing1urldesc'] = 'Enter Marketing1 URL';
-$string['marketing2icon'] = 'Marketing2 Icon';
-$string['marketing2icondesc'] = 'Upload Marketing2 Icon';
-$string['marketing2heading'] = 'Marketing2 Heading';
-$string['marketing2headingdesc'] = 'Enter Marketing2 Heading Text';
-$string['marketing2subheading'] = 'Marketing2 Subheading';
-$string['marketing2subheadingdesc'] = 'Enter Marketing2 Subheading Text';
-$string['marketing2content'] = 'Marketing2 Content';
-$string['marketing2contentdesc'] = 'Enter Marketing2 Content Text';
-$string['marketing2url'] = 'Marketing2 URL';
-$string['marketing2urldesc'] = 'Enter Marketing2 URL';
-$string['marketing3icon'] = 'Marketing3 Icon';
-$string['marketing3icondesc'] = 'Upload Marketing3 Icon';
-$string['marketing3heading'] = 'Marketing3 Heading';
-$string['marketing3headingdesc'] = 'Enter Marketing3 Heading Text';
-$string['marketing3subheading'] = 'Marketing3 Subheading';
-$string['marketing3subheadingdesc'] = 'Enter Marketing3 Subheading Text';
-$string['marketing3content'] = 'Marketing3 Content';
-$string['marketing3contentdesc'] = 'Enter Marketing3 Content Text';
-$string['marketing3url'] = 'Marketing3 URL';
-$string['marketing3urldesc'] = 'Enter Marketing3 URL';
-$string['marketing4icon'] = 'Marketing4 Icon';
-$string['marketing4icondesc'] = 'Upload Marketing4 Icon';
-$string['marketing4heading'] = 'Marketing4 Heading';
-$string['marketing4headingdesc'] = 'Enter Marketing4 Heading Text';
-$string['marketing4subheading'] = 'Marketing4 Subheading';
-$string['marketing4subheadingdesc'] = 'Enter Marketing4 Subheading Text';
-$string['marketing4content'] = 'Marketing4 Content';
-$string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
-$string['marketing4url'] = 'Marketing4 URL';
-$string['marketing4urldesc'] = 'Enter Marketing4 URL';
 
 $string['sliderenabled'] = 'Enable slider';
 $string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
@@ -194,40 +123,24 @@ $string['frontpagenumberusers'] = 'Users';
 $string['frontpagenumbercourses'] = 'Courses';
 $string['frontpagenumberactivities'] = 'Activities';
 
-$string['sponsorstitledefault'] = 'Sponsors';
-$string['sponsorssubtitledefault'] = 'Companies and institutions that believe in us';
-$string['sponsorsfrontpage'] = 'Enable sponsors row';
-$string['sponsorsfrontpagedesc'] = 'If enabled, display a row with the sponsors logos with its urls.';
-$string['sponsorstitle'] = 'Sponsors title';
-$string['sponsorstitledesc'] = 'The header of the sponsors row.';
-$string['sponsorssubtitle'] = 'Sponsors subtitle';
-$string['sponsorssubtitledesc'] = 'The subtitle of the sponsors row.';
-$string['sponsorscount'] = 'Sponsors count';
-$string['sponsorscountdesc'] = 'Select how many sponsor\'s logos you want to add <strong>then click SAVE</strong> to load the input fields.';
-$string['sponsorsimage'] = 'Sponsor logo';
-$string['sponsorsimagedesc'] = 'Add the sponsor\'s logo.';
-$string['sponsorsurl'] = 'Sponsor URL';
-$string['sponsorsurldesc'] = 'Enter the sponsor\'s site URL';
-
-$string['clientstitledefault'] = 'Our clients';
-$string['clientssubtitledefault'] = 'Clients that believe in us';
-$string['clientsfrontpage'] = 'Enable clients row';
-$string['clientsfrontpagedesc'] = 'If enabled, display a row with the clients logos with its urls.';
-$string['clientstitle'] = 'Clients title';
-$string['clientstitledesc'] = 'The header of the clients row.';
-$string['clientssubtitle'] = 'Clients subtitle';
-$string['clientssubtitledesc'] = 'The subtitle of the clients row.';
-$string['clientscount'] = 'Clients count';
-$string['clientscountdesc'] = 'Select how many clients\'s logos you want to add <strong>then click SAVE</strong> to load the input fields.';
-$string['clientsimage'] = 'Client logo';
-$string['clientsimagedesc'] = 'Add the client\'s logo.';
-$string['clientsurl'] = 'Client URL';
-$string['clientsurldesc'] = 'Enter the client\'s site URL';
-
 // Footer settings tab.
 $string['footersettings'] = 'Footer';
-$string['getintouchcontent'] = 'Get In Touch Content';
-$string['getintouchcontentdesc'] = 'Enter Get In Touch Content Text';
+$string['footnote'] = 'Footnote';
+$string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
+$string['infolink'] = 'Info Links';
+$string['infolinkdefault'] = 'Moodle community|https://moodle.org
+Moodle free support|https://moodle.org/support
+Moodle Docs|http://docs.moodle.org|Moodle Docs
+Moodle.com|http://moodle.com/';
+$string['infolink_desc'] = 'You can configure a custom Info Links here to be shown by themes. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters.For example:
+<pre> Moodle community|https://moodle.org
+Moodle free support|https://moodle.org/support
+Moodle development|https://moodle.org/development
+Moodle Docs|http://docs.moodle.org|Moodle Docs
+German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
+Moodle.com|http://moodle.com/ </pre>';
+$string['copyright_footer'] = 'Copyright';
+$string['copyright_default'] = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0; float: left;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>&nbsp;<span style="font-size: small; color: #fff;">Ces formations (sauf avis contraire) sont mises à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</span>';
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Main company Website';
 $string['mobile'] = 'Mobile';
@@ -274,34 +187,8 @@ $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
 
 // color palette
-$string['colorpalettesettings'] = 'Color Palette';
-$string['treetopicssettings'] = 'Tree Topics';
-$string['variablessettings'] = 'Variables';
 $string['navcolor'] = 'Nav & footer Color';
 $string['navcolor_desc'] = 'Nav & footer Color';
-$string['color1'] = 'Color 1';
-$string['color1_desc'] = 'Color 1';
-$string['color2'] = 'Color 2';
-$string['color2_desc'] = '';
-$string['btnradius'] = 'Button Radius';
-$string['btnradius_desc'] = '';
-$string['fontsize'] = 'Font Size';
-$string['fontsize_desc'] = '';
-$string['headerheight'] = 'Header Height';
-$string['headerheight_desc'] = '';
-$string['fontfamily'] = 'Font Family';
-$string['fontfamily_desc'] = '';
-$string['headingsfontfamily'] = 'Heading font family';
-$string['headingsfontfamily_desc'] = '';
-$string['primarycolor'] = 'Primary Color';
-$string['primarycolor_desc'] = 'Primary Color';
-$string['primaryboldcolor'] = 'Primary Hover Color';
-$string['primaryboldcolor_desc'] = 'Primary Hover Color';
-$string['secondarycolor'] = 'Secondary Color';
-$string['secondarycolor_desc'] = 'Secondary Color';
-$string['ttmenucolorX'] = 'Tree Topics menu - color {$a}';
-$string['ttmenucolorX_desc'] = 'Tree Topics menu - color {$a}';
-
 
 $string['coursesections'] = 'Course sections';
 //$string['region-side-top'] = 'En haut';

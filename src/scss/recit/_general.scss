@@ -140,3 +140,25 @@ body.pagelayout-embedded{
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 }
+
+#page-footer{
+    max-width: $page-max-width;
+    margin: auto;
+
+    .infolink-list{
+        list-style: none; padding: 0; margin: 0; line-height: 30px;
+    }  
+
+    .social-media-list{
+        display: flex; list-style: none; padding: 0; margin: 0;
+        .social-media-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #fff;
+            margin: .3rem;
+        }
+    }    
+}
