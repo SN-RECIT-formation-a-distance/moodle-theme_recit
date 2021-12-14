@@ -267,12 +267,12 @@ if ($ADMIN->fulltree) {
 
     // Raw SCSS to include before the content.
     $default = file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss");
-    $setting = new admin_setting_configtextarea('theme_recit2/prescss', get_string('rawscsspre', 'theme_recit2'), get_string('rawscsspre_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 15);
+    $setting = new admin_setting_configtextarea('theme_recit2/prescss', get_string('rawscsspre', 'theme_recit2'), get_string('rawscsspre_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 25);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Raw SCSS to include after the content.
-    $setting = new admin_setting_configtextarea('theme_recit2/extrascss', get_string('rawscss', 'theme_recit2'), get_string('rawscss_desc', 'theme_recit2'), '');
+    $setting = new admin_setting_configtextarea('theme_recit2/extrascss', get_string('rawscss', 'theme_recit2'), get_string('rawscss_desc', 'theme_recit2'), '', PARAM_RAW, 60, 15);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

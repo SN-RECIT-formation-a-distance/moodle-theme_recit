@@ -155,6 +155,16 @@ class CtrlLayout{
             $result['css_custom'] = strip_tags($cssCustom);
         }
 
+        return $result;
+    }
+
+    public static function get_course_section_nav(){
+        global $PAGE, $COURSE;
+
+        $result = [
+            'layoutOptions' => (object) $PAGE->layout_options
+        ];
+
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
         if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin)){
             $result['section_bottom_nav'] = new stdClass();
@@ -164,24 +174,22 @@ class CtrlLayout{
             $showSectionBottomNav = ThemeSettings::get_custom_field('show_section_bottom_nav');
             $result['section_bottom_nav']->enable = ($showSectionBottomNav == 1);
 
-            $result['section_top_nav'] = self::get_course_nav_sections();
+            $result['section_top_nav'] = self::get_course_section_top_nav();
         }
         else{
             $result['layoutOptions']->showSectionTopNav = false;
             $result['layoutOptions']->showSectionBottomNav = false;
         }
 
-        $showActivityNav = ThemeSettings::get_custom_field('show_activity_nav');
-        $result['show_activity_nav'] = ($showActivityNav == 1);
-              
         return $result;
     }
 
-    public static function get_course_nav_sections(){
+    public static function get_course_section_top_nav(){
         global $COURSE, $PAGE, $CFG, $USER;
 
-        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
-        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($pageAdmin && $pageAdmin >= 0 )){
+        $coursePage = (basename($_SERVER['PHP_SELF']));
+        
+        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php')){
             return null;
         }
 
@@ -205,7 +213,10 @@ class CtrlLayout{
         }
         
         
-       // $result->addSection(0, "map", "map", "Menu", "<i class='fa fa-map'></i>");
+        
+        $protohref = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}%s";
+
+        //$result->addSection(1, "map", sprintf($protohref, "#map"), "<i class='fa fa-map'></i>", "Menu");
 
         foreach($sectionslist as $section){
             if( !$section->visible ){ continue; }
@@ -218,8 +229,7 @@ class CtrlLayout{
             }
 
             $sectionId = "#section-{$section->section}";
-            $href = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}$sectionId";
-            $result->addSection($sectionlevel, $sectionId, $href, $sectionDesc);
+            $result->addSection($sectionlevel, $sectionId, sprintf($protohref, $sectionId), $sectionDesc);
         }
 
         return $result;

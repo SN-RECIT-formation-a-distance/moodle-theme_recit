@@ -73,7 +73,11 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && isset($_GET['categoryid']),
 ];
 
+$showActivityNav = ThemeSettings::get_custom_field('show_activity_nav');
+$templatecontext['show_activity_nav'] = ($showActivityNav == 1);
+
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
+$templatecontext = array_merge($templatecontext, CtrlLayout::get_course_section_nav());
 
 $themesettings = new ThemeSettings();
 

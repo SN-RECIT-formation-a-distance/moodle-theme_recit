@@ -31,13 +31,13 @@ class CourseSectionNav{
     public $isMenuM3 = false;
     public $isMenuM5 = false;
 
-    public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = ""){
+    public function addSection($level = 1,  $sectionId = '', $url, $sectionDesc = "", $title = ""){
         $maxNbChars = 25;
         
         $obj = new stdClass();
         $obj->sectionId = $sectionId;
         $obj->url = $url;
-        $obj->title = $sectionDesc;
+        $obj->title = (strlen($title) > 0 ? $title : $sectionDesc);
         $obj->desc = mb_strimwidth($sectionDesc, 0, $maxNbChars, "...");
         $obj->subSections = array();
 
