@@ -1,66 +1,22 @@
-/**************************************
- * FONTS
- *************************************/
+// FONTS
 $font-family-text: 'Ubuntu', sans-serif !default;
 $font-family-text-size: .937rem !default;
 $headings-font-family:'Viga', sans-serif;
+$headings-font-size: 2.34375rem;
 
-/**************************************
- * COLORS
- *************************************/
+// COLORS
 $primary:#0069bf;
 $primaryBold: #022f53;
 $secondary:#e69321;
 $secondaryBold: #8a5205;
-
-$tt-menu-color1: #EAC167;
-$tt-menu-color2: #606972;
-$tt-menu-color3: #ffffff;
-$tt-menu-color4: #0069bf;
-
-$light:#f4f4f6;
-$dark:#373a3c;
-$white:#ffffff;
-$black:#000;
-
 $color1:#434343;
 $color2:#FFFFFF;
-
 $body-color: #373a3c;
-
 $nav-color: #343a40;
-
-/**************************************
- * GENERAL
- *************************************/
-$btn-radius: 30px;
-
-$navbar-header-color: #fff !default;
-
-$headings-font-weight: 400 !default;
-$headings-color: $primary !default;
-$headings-font-family-font-size: 2.34375rem;
-$header-height: 150px;
-
 $body-bg: #eef5f9 !default;
 
+// GENERAL
+$course-banner-max-height: 150px;
 $card-border-radius: 0 !default;
-$card-border-color: #d7dfe3 !default;
-
-$navbar-bg: $primary !default;
-$navbar-bg-hover: $secondary !default;
-$navbar-separator: $secondary !default;
-
 $page-max-width: 1500px;
 $top-navbar-height: 67px;
-
-$m-login-padding: 10px;
-$m-login-boxheight: 350px;
-$m-card-padding: 1.25rem;
-$m-moodle-color: #f98012 !default;
-$m-facebook-color: #3b5998 !default;
-$m-twitter-color: #55acee !default;
-$m-youtube-color: #cc181e !default;
-$m-googleplus-color: #d34836 !default;
-$m-linkedin-color: #007bb5 !default;
-$m-instagram-color: #8a3ab9 !default;

@@ -119,56 +119,13 @@ function theme_recit2_get_main_scss_content($theme) {
 
     $scss = '';
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
-    $scss .= theme_recit2_get_scss_variables($theme); // assign the custom variables coming from Moodle Theme interface
+
+    // Prepend pre-scss.
+    $scss .= $theme->settings->prescss;
+
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
 
     return $scss;
-}
-
-function theme_recit2_get_scss_variables($theme, $key = ''){
-    global $CFG;
-
-    $scss_variables = [
-        'navcolor' => '$nav-color'
-    ];
-
-    $varFileContent = file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss");
-    
-    $varFileContent = explode(";", $varFileContent);
-    $newVarFileContent = array();
-    $modified = false;
-
-    foreach($varFileContent as $item){
-        // value = [\$|\'|\#|\,|\-\w\d\s\!]*
-        // look for variables, for example: /$varname:/
-        if(preg_match('/\$[a-zA-z0-9-_]*\b:/', $item, $matches) == 0){
-            $newVarFileContent[] = $item;
-            continue;
-        }
-
-        $added = false;
-        foreach ($scss_variables as $k => $varname) {
-            $propname = $k.$key;
-            $value = isset($theme->settings->{$propname}) ? $theme->settings->{$propname} : null;
-            if (empty($value)) {
-                continue;
-            }
-
-            if($varname.":" == current($matches)){
-                $added = true;
-                $modified = true;
-                $newVarFileContent[] = $varname . ": " . $value;
-            }
-        }
-
-        if(!$added){
-            $modified = true;
-            $newVarFileContent[] = $item;
-        }
-    }
-
-    if (!empty($key) && !$modified) return false; //Subtheme doesn't have any var set so return nothing
-    return implode(";", $newVarFileContent);
 }
 
 /**
@@ -178,13 +135,17 @@ function theme_recit2_get_scss_variables($theme, $key = ''){
  * @return string
  */
 function theme_recit2_get_extra_scss($theme) { 
-    $scss = $theme->settings->scss;
+    $result = "";
 
-    $scss .= theme_recit2_set_headerimg($theme);
-    $scss .= theme_recit2_set_topfooterimg($theme);
-    $scss .= theme_recit2_set_loginbgimg($theme);
+    $result .= theme_recit2_set_headerimg($theme);
+    $result .= theme_recit2_set_topfooterimg($theme);
+    $result .= theme_recit2_set_loginbgimg($theme);
     
-    return $scss;
+    if(!empty($theme->settings->extrascss)){
+        $result .= $theme->settings->extrascss;
+    }
+
+    return $result;
 }
 
 /**

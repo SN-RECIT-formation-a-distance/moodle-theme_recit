@@ -82,15 +82,6 @@ $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
 $string['enablebreadcrumb'] = 'Enable breadcrumb navigation';
 $string['enablebreadcrumbdesc'] = '';
 
-// Advanced settings tab.
-$string['advancedsettings'] = 'Advanced';
-$string['rawscsspre'] = 'Raw initial SCSS';
-$string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
-$string['rawscss'] = 'Raw SCSS';
-$string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
-$string['googleanalytics'] = 'Google Analytics Code';
-$string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
-
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';
 $string['headerimg'] = 'Header image';
@@ -168,11 +159,12 @@ $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
-
-$string['list'] = 'List';
-$string['tile'] = 'Tile';
-$string['courselistview'] = 'Change course list view';
-$string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
+// advanced settings
+$string['advancedsettings'] = 'Advanced settings';
+$string['rawscsspre'] = 'Initial SCSS';
+$string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+$string['rawscss'] = 'Extra SCSS';
+$string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 
 // Forum.
 $string['forumsettings'] = 'Forum';

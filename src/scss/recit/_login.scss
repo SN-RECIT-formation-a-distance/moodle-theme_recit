@@ -1,3 +1,6 @@
+$m-login-padding: 10px;
+$m-login-boxheight: 350px;
+
 #page-login-index.recit-login {
     /*background-color: #f1f1f1;*/
     margin-left: 0;
@@ -156,7 +159,7 @@
     }
 
     .box.generalbox.boxaligncenter {
-        border-color: $card-border-color;
+        border-color: #d7dfe3;
         border-radius: $card-border-radius;
         -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);

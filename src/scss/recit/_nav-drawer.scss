@@ -1,3 +1,7 @@
+$navbar-bg: $primary !default;
+$navbar-bg-hover: $secondary !default;
+$navbar-separator: $secondary !default;
+
 #nav-drawer {
     padding: 5px;
     background-color: $navbar-bg;

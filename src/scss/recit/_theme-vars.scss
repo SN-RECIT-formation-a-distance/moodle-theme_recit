@@ -1,3 +1,5 @@
+$btn-radius: 30px;
+
 #page-footer, #mainTopNav {
     background-color: $nav-color !important;
 }
@@ -37,7 +39,7 @@
 
 
 h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
-body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
+
 .card-header {
     font-family: $headings-font-family;
 }
@@ -63,7 +65,7 @@ body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
     h1 {
         color: $color2;
         font-family: $headings-font-family !important;
-        font-size: $headings-font-family-font-size;
+        font-size: $headings-font-size;
     }
 }
 
@@ -74,7 +76,7 @@ body,p,span {font-family: $font-family-text; font-size: $font-family-text-size;}
     background-repeat: no-repeat;
     background-position: top center;
     height: 12vw;
-    max-height: $header-height;
+    max-height: $course-banner-max-height;
     min-height: 75px;
     border: none;
     padding: 1.25rem;

@@ -14,81 +14,50 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
     .row{ background-color: unset !important;} // ça créé de conflit avec le popup du module assign
 }
 
-
 // Début ajout classe bootstrap 4.4 
-.shadow-sm{
-    box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important
-}
-.shadow{
-    box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important
-}
-.shadow-lg{
-    box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important
-}
-.shadow-none{
-    box-shadow:none!important
-}
-.text-wrap {
-    white-space: normal !important;
-}
-.rounded-pill {
-    border-radius: 50rem!important;
-}
-.text-decoration-none {
-    text-decoration: none !important;
-}
+.shadow-sm{    box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important}
+.shadow{    box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important}
+.shadow-lg{    box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important}
+.shadow-none{    box-shadow:none!important}
+.text-wrap {    white-space: normal !important;}
+.rounded-pill {    border-radius: 50rem!important;}
+.text-decoration-none {    text-decoration: none !important;}
 // Fin ajout classe bootstrap 4.4 
-
 
 // Début ajout classe modal xl bootstrap 4.5
 @media (min-width: 992px) {
-    .modal-lg,
-    .modal-xl {
-      max-width: 800px;
-    }
+    .modal-lg,    .modal-xl {      max-width: 800px;    }
   }
   
   @media (min-width: 1200px) {
-    .modal-xl {
-      max-width: 1140px;
-    }
+    .modal-xl {      max-width: 1140px;    }
   }
 // Fin ajout classe modal xl bootstrap 4.5
 
 // Début ajout classe bootstrap 5.0 
-.border-1 {
-    border-width: 1px !important;
-}
-  
-.border-2 {
-  border-width: 2px !important;
-}
-
-.border-3 {
-  border-width: 3px !important;
-}
-
-.border-4 {
-  border-width: 4px !important;
-}
-
-.border-5 {
-  border-width: 5px !important;
-}
-.rounded-1 {
-  border-radius: 0.2rem !important;
-}
-
-.rounded-2 {
-  border-radius: 0.25rem !important;
-}
-
-.rounded-3 {
-  border-radius: 0.3rem !important;
-}
-
+.border-1 {    border-width: 1px !important;}
+.border-2 {  border-width: 2px !important;}
+.border-3 {  border-width: 3px !important;}
+.border-4 {  border-width: 4px !important;}
+.border-5 {  border-width: 5px !important;}
+.rounded-1 {  border-radius: 0.2rem !important;}
+.rounded-2 {  border-radius: 0.25rem !important;}
+.rounded-3 {  border-radius: 0.3rem !important;}
 // Fin ajout classe bootstrap 5.0 
 
-.modal-backdrop.show {
-  opacity:.9;
-}
+.modal-backdrop.show {  opacity:.9;}
+
+// début classes non-bootstrap RÉCIT
+
+/* Début arrière plan */
+/* by default center center */
+.cover { background-attachment: scroll;    background-position: center;    background-repeat: no-repeat;    background-size: cover;}
+.cover-t {    background-position: center top;}
+.cover-b {    background-position: center bottom;}
+.cover-r {    background-position: right center;}
+.cover-rt {    background-position: right top;}
+.cover-rb {    background-position: right bottom;}
+.cover-l {    background-position: left center;}
+.cover-lt {    background-position: left top;}
+.cover-lb {    background-position: left bottom;}
+// fin classes non-bootstrap RÉCIT

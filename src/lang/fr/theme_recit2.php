@@ -82,15 +82,6 @@ $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
 $string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
 $string['enablebreadcrumbdesc'] = '';
 
-// Advanced settings tab.
-$string['advancedsettings'] = 'SCSS et Google Analytics';
-$string['rawscsspre'] = 'SCSS initial Raw';
-$string['rawscsspre_desc'] = 'Dans ce champ, vous pouvez écrire du code SCSS. Il sera interprété avant tout autre chose. C\'est l\'endroit pour défénir des variabes.';
-$string['rawscss'] = 'Raw SCSS';
-$string['rawscss_desc'] = 'Dans ce champ, vous pouvez écrire du code SCSS. Il sera interprété à la fin des feuilles de style.';
-$string['googleanalytics'] = 'Code Google Analytics';
-$string['googleanalyticsdesc'] = 'Veuillez saisir votre code Google Analytics pour activer les analyses sur votre site Web. Le format de code doit ressembler à [UA-XXXXX-Y]';
-
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Page d\'accueil';
 $string['headerimg'] = 'Image d\'entête';
@@ -120,11 +111,6 @@ $string['frontpagenumbernumbers'] = 'Nombre';
 $string['frontpagenumberusers'] = 'Users';
 $string['frontpagenumbercourses'] = 'Cours';
 $string['frontpagenumberactivities'] = 'Activités';
-
-$string['list'] = 'Liste';
-$string['tile'] = 'Tuile';
-$string['courselistview'] = 'Changer la vue de liste de cours';
-$string['courselistviewdesc'] = 'Changer la vue de liste de cours par une liste';
 
 // Footer settings tab.
 $string['footersettings'] = 'Pied de page';
@@ -172,6 +158,13 @@ $string['policyurl'] = 'Politiques de confidentialité';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
 $string['disablebottomfooter'] = 'Enlever le pied de page';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
+
+// advanced settings
+$string['advancedsettings'] = 'Réglages avancés';
+$string['rawscsspre'] = 'SCSS initial';
+$string['rawscsspre_desc'] = "Dans ce champ, vous pouvez fournir du code SCSS d'initialisation, il sera injecté avant tout le reste. La plupart du temps, vous utiliserez ce paramètre pour définir des variables.";
+$string['rawscss'] = 'SCSS extra';
+$string['rawscss_desc'] = 'Utilisez ce champ pour fournir le code SCSS ou CSS qui sera injecté à la fin de la feuille de style.';
 
 // Forum.
 $string['forumsettings'] = 'Forum';

@@ -187,33 +187,6 @@ class core_renderer extends \core_renderer {
     }  
 
     /**
-     * Wrapper for header elements.
-     *
-     * @return string HTML to display the main header.
-     */
-    public function mydashboard_admin_header() {
-        global $PAGE;
-
-        $html = html_writer::start_div();
-        $html .= html_writer::start_div('col-xs-12 p-a-1');
-
-        $pageheadingbutton = $this->page_heading_button();
-        if (empty($PAGE->layout_options['nonavbar'])) {
-            $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
-            $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
-            $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button');
-            $html .= html_writer::end_div();
-        } else if ($pageheadingbutton) {
-            $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button nonavbar pull-xs-right m-r-1');
-        }
-
-        $html .= html_writer::end_div(); // End .row.
-        $html .= html_writer::end_div(); // End .col-xs-12.
-
-        return $html;
-    }
-   
-    /**
      * Gets the logo to be rendered.
      *
      * The priority of get log is: 1st try to get the theme logo, 2st try to get the theme logo

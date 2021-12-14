@@ -2,17 +2,18 @@
 Bodys
 *******************/
 html{
-    background-color: #e0e3e4;
+    background-color: #f7f7f7;
 }
 
 body{
     font-family: $font-family-text; 
     font-size: $font-family-text-size;
-    background-color: #e0e3e4;
+    background-color: #f7f7f7 !important;
 	color: $body-color;
     counter-reset: arts-tab-counter;
     -webkit-font-smoothing: antialiased;
-    
+    counter-reset: arts-tab-counter; /* Set "my-sec-counter" to 0 */
+
     // on veut pas que le scroll s'affiche sur le contenu de la page
     // il faut pas qu'il soit hidden sinon le menu flotant ne s'affiche pas au complet
     #page-content{
