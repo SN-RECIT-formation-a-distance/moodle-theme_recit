@@ -19,6 +19,13 @@
 		<p class="card-text"></p>
 		<div class="no-overflow">
             {{{coursesummary}}}
+            <div style="text-align:right">
+            {{#badges}}
+                <a href="{{courselink}}" class="contact" data-toggle="tooltip" title="{{name}}">
+                    {{{image}}}
+                </a>
+            {{/badges}}
+            </div>
 		</div>
 		<p></p>
 		<a href="{{courselink}}" class="card-link btn btn-primary" data-toggle="tooltip" title="{{coursename}}"><i class="fa fa-sign-in"></i> {{#str}}access,theme_recit2{{/str}}</a>

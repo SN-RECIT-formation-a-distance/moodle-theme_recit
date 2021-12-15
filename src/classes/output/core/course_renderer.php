@@ -324,6 +324,19 @@ class course_renderer extends \core_course_renderer {
                 $data->courseicons[] = $this->render($pixicon);
             }
         }
+        
+        $badges = badges_get_badges(BADGE_TYPE_COURSE, $course->id, '', '', 0, 0, 0);
+        $data->badges = array();
+        $bcount = 0;
+        foreach ($badges as $badge){
+            if ($badge->status == BADGE_STATUS_ACTIVE || $badge->status == BADGE_STATUS_ACTIVE_LOCKED){
+                $data->badges[] = array("name" => $badge->name, "image" => print_badge_image($badge, $badge->get_context()));
+                $bcount++;
+                if ($bcount > $this->maxInstructors){
+                    break;
+                }
+            }
+        }
 
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
