@@ -98,6 +98,13 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
    
+    $name = 'theme_recit2/featuredcourses';
+    $title = get_string('featuredcourses', 'theme_recit2');
+    $description = get_string('featuredcoursesdesc', 'theme_recit2');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $page->add($setting);
+
     // Enable or disable Slideshow settings.
     $name = 'theme_recit2/sliderenabled';
     $title = get_string('sliderenabled', 'theme_recit2');

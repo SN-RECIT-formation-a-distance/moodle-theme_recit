@@ -1,0 +1,31 @@
+
+	<a href="{{courselink}}">
+        {{{courseimage}}}
+    </a>
+    {{#hascontacts}}
+	<div class="course-contacts">
+        {{#coursecontacts}}
+            <a href="{{url}}" class="contact" data-toggle="tooltip" title="{{name}}">
+                <img src="{{picture}}" class="rounded-circle" alt="{{name}}">
+            </a>
+        {{/coursecontacts}}
+        {{#coursecontactsnum}}
+            <span class='badge badge-warning p-2'>+{{coursecontactsnum}}</span>
+        {{/coursecontactsnum}}
+    </div>
+    {{/hascontacts}}
+	<div class="card-body">
+		<h4 class="card-title"><a class="" href="{{courselink}}">{{coursename}}</a></h4>
+		<p class="card-text"></p>
+		<div class="no-overflow">
+            {{{coursesummary}}}
+		</div>
+		<p></p>
+		<a href="{{courselink}}" class="card-link btn btn-primary" data-toggle="tooltip" title="{{coursename}}"><i class="fa fa-sign-in"></i> {{#str}}access,theme_recit2{{/str}}</a>
+	</div>
+    {{#courseicons}}
+        {{{courseicons}}}
+    {{/courseicons}}
+    {{#caturl}}
+        {{{caturl}}}
+    {{/caturl}}

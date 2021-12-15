@@ -280,16 +280,18 @@ class course_renderer extends \core_course_renderer {
             $course = new core_course_list_element($course);
         }
 
-        // Course name.
-        $coursename = $chelper->get_course_formatted_name($course);
-        $courselink = new moodle_url('/course/view.php', array('id' => $course->id));
-        $coursenamelink = html_writer::link($courselink, $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+        $data = new stdClass();
 
-        $content = $this->get_course_summary_image($course, $courselink);
+        // Course name.
+        $data->coursename = $chelper->get_course_formatted_name($course);
+        $data->courselink = new moodle_url('/course/view.php', array('id' => $course->id));
+
+        $data->courseimage = $this->get_course_summary_image($course, $data->courselink);
 
         // Course instructors.
         if ($course->has_course_contacts()) {
-            $content .= html_writer::start_tag('div', array('class' => 'course-contacts'));
+            $data->coursecontacts = array();
+            $data->hascontacts = true;
 
             $instructors = $course->get_course_contacts();
             $countInstructors = 0;
@@ -297,70 +299,41 @@ class course_renderer extends \core_course_renderer {
                 $name = $instructor['username'];
                 $url = $CFG->wwwroot.'/user/profile.php?id='.$key;
                 $picture = $this->get_user_picture($DB->get_record('user', array('id' => $key)));
-
-                $content .= "<a href='{$url}' class='contact' data-toggle='tooltip' title='{$name}'>";
-                $content .= "<img src='{$picture}' class='rounded-circle' alt='{$name}'/>";
-                $content .= "</a>";
+                $data->coursecontacts[] = array('name' => $name, 'url' => $url, 'picture' => $picture);
 
                 $countInstructors++;
 
                 if($countInstructors >= $this->maxInstructors){
-                    $content .= sprintf("<span class='badge badge-warning p-2'>+%d</span>", count($instructors)-$countInstructors);
+                    $data->coursecontactsnum = count($instructors)-$countInstructors;
                     break;
                 }
             }
 
-            $content .= html_writer::end_tag('div'); // Ends course-contacts.
         }
-
-        $content .= html_writer::start_tag('div', array('class' => 'card-body'));
-        $content .= "<h4 class='card-title'>". $coursenamelink ."</h4>";
 
         // Display course summary.
         if ($course->has_summary()) {
-            $content .= html_writer::start_tag('p', array('class' => 'card-text'));
-            $content .= $chelper->get_course_formatted_summary($course,
-                array('overflowdiv' => true, 'noclean' => true, 'para' => false));
-            $content .= html_writer::end_tag('p'); // End summary.
+            $data->coursesummary = $chelper->get_course_formatted_summary($course, array('overflowdiv' => true, 'noclean' => true, 'para' => false));
         }
 
-        //$content .= html_writer::end_tag('div');
-
-        //$content .= html_writer::start_tag('div', array('class' => 'card-footer'));
 
         // Print enrolmenticons.
         if ($icons = enrol_get_course_info_icons($course)) {
+            $data->courseicons = array();
             foreach ($icons as $pixicon) {
-                $content .= $this->render($pixicon);
+                $data->courseicons[] = $this->render($pixicon);
             }
         }
-         
-        //$content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        //$content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-          //  get_string('access', 'theme_recit2'), array('class' => 'card-link btn btn-primary'));
-        
-        $url = new moodle_url('/course/view.php', array('id' => $course->id));
-        $content .= "<a href='{$url}' class='card-link btn btn-primary' data-toggle='tooltip' title='{$coursename}'>";
-        $content .= sprintf("%s %s", "<i class='fa fa-sign-in'></i>", get_string('access', 'theme_recit2'));
-        $content .= "</a>";
-
-        //$content .= html_writer::end_tag('div'); // End pull-right.
-
-        $content .= html_writer::end_tag('div'); // End card-block.
 
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             require_once($CFG->libdir. '/coursecatlib.php');
             if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
-                $content .= html_writer::start_tag('div', array('class' => 'coursecat'));
-                $content .= get_string('category').': '.
-                    html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
-                        $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
-                $content .= html_writer::end_tag('div'); // End coursecat.
+                $data->caturl = get_string('category').': '. html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)), $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
             }
         }
 
-        return $content;
+        return $this->render_from_template('theme_recit2/recit/courselistcontent', $data);
     }
 
     
@@ -457,4 +430,48 @@ class course_renderer extends \core_course_renderer {
 
         return $userimg->get_url($PAGE);
     }
+    
+
+    /**
+     * Outputs contents for frontpage as configured in $CFG->frontpage or $CFG->frontpageloggedin
+     *
+     * @return string
+     */
+    public function frontpage() {
+        global $CFG, $SITE;
+
+        $output = '';
+        $output .= $this->featuredcourses();
+        $output .= parent::frontpage();
+
+        return $output;
+    }
+    
+    protected function featuredcourses(){
+        $output = '';
+        $theme = \theme_config::load('recit2');
+        $courses = isset($theme->settings->featuredcourses) ? $theme->settings->featuredcourses : '';
+
+        if (empty($courses)) {
+            return $output;
+        }
+
+        $courses = explode(',', $courses);
+        $chelper = new \coursecat_helper();
+
+        $output .= "<h2>".get_string('featuredcourses', 'theme_recit2')."</h2>";
+        $output .= "<div class='recit-course-list courses'>";
+
+        foreach ($courses as $c) {
+            if (is_numeric($c)){
+                $course = new stdClass();
+                $course->id = $c;
+                $output .= $this->coursecat_coursebox($chelper, $course);
+            }
+        }
+        $output .= "</div>";
+
+        return $output;
+    }
+
 }

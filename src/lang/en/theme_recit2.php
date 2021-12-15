@@ -112,6 +112,9 @@ $string['frontpagenumberusers'] = 'Users';
 $string['frontpagenumbercourses'] = 'Courses';
 $string['frontpagenumberactivities'] = 'Activities';
 
+$string['featuredcourses'] = 'Featured courses';
+$string['featuredcoursesdesc'] = 'Show featured courses in front page. Please put course ID separated by a comma. Example: 3,6,7,8';
+
 // Footer settings tab.
 $string['footersettings'] = 'Footer';
 $string['footnote'] = 'Footnote';

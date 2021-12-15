@@ -112,6 +112,9 @@ $string['frontpagenumberusers'] = 'Users';
 $string['frontpagenumbercourses'] = 'Cours';
 $string['frontpagenumberactivities'] = 'Activités';
 
+$string['featuredcourses'] = 'Cours en vedette';
+$string['featuredcoursesdesc'] = 'Afficher les cours en vedette dans la page d\'accueil. Veuillez mettre l\'ID du cours séparé par une virgule. Example: 3,6,7,8';
+
 // Footer settings tab.
 $string['footersettings'] = 'Pied de page';
 $string['footnote'] = 'Note de bas de page';
