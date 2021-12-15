@@ -107,7 +107,7 @@ class core_renderer extends \core_renderer {
         $themesettings = new ThemeSettings();
         $header->slider = $themesettings->slideshow($theme);
         
-        js_reset_all_caches();
+        //js_reset_all_caches();
 
         return $this->render_from_template('theme_recit2/recit/header', $header);
     }
