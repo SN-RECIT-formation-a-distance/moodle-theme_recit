@@ -22,9 +22,11 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-use \core_customfield\category_controller;
-use \core_customfield\field_controller;
-use \theme_recit2\local\ThemeSettings;
+require_once(dirname(__FILE__).'/classes/local/Utils.php');
+
+use core_customfield\category_controller;
+use core_customfield\field_controller;
+use theme_recit2\local\ThemeSettings;
 
 /**
  * Load the Jquery and migration files

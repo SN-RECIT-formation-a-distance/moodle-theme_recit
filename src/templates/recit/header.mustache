@@ -56,28 +56,36 @@
 {{/isloggedin}}
 {{^isloggedin}}
     {{#slider.enabled}}
-        <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
-            <ol class="carousel-indicators">
-                {{#slider.slides}}
-                    <li data-target="#slideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
-                {{/slider.slides}}
-            </ol>
-            <div class="carousel-inner">
-                {{#slider.slides}}
-                    <div class="carousel-item {{#active}}active{{/active}}">
-                        <img class="d-block w-100 animated fadeIn" src="{{{ image }}}" alt="{{{ slidercap }}}" style="height: 500px; object-fit: contain;">
+        <header>
+            <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+                <ol class="carousel-indicators">
+                    {{#slider.slides}}
+                        <li data-target="#slideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+                    {{/slider.slides}}
+                </ol>
+                <div class="carousel-inner">
+                    {{#slider.slides}}
+                        <div class="carousel-item {{#active}}active{{/active}}">
+                            <img class="d-block w-100 animated fadeIn" src="{{{ image }}}" alt="{{{ slidercap }}}" style="object-fit: contain;">
 
-                        <div class="carousel-caption d-none d-md-block">
-                            {{#title}}<h5>{{{ title }}}</h5>{{/title}}
+                            <div class="carousel-caption d-none d-md-block">
+                                {{#title}}<h5>{{{ title }}}</h5>{{/title}}
 
-                            {{#caption}}<p>{{{ caption }}}</p>{{/caption}}
+                                {{#caption}}<p>{{{ caption }}}</p>{{/caption}}
+                            </div>
                         </div>
-                    </div>
-                {{/slider.slides}}
+                    {{/slider.slides}}
+                </div>
             </div>
-        </div>
+            {{#layoutOptions.showSiteSummary}}
+                <section class="p-5">{{{siteSummary}}}</section>
+            {{/layoutOptions.showSiteSummary}}
+        </header>
     {{/slider.enabled}}
     {{^slider.enabled}}
-        <header id="page-header"></header>
+        <header id="page-header" ></header>
+        {{#layoutOptions.showSiteSummary}}
+            <section class="p-5">{{{siteSummary}}}</section>
+        {{/layoutOptions.showSiteSummary}}
     {{/slider.enabled}}
 {{/isloggedin}}

@@ -89,7 +89,7 @@ class core_renderer extends \core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $PAGE;
+        global $PAGE, $SITE;
 
         $theme = theme_config::load('recit2');
 
@@ -103,6 +103,9 @@ class core_renderer extends \core_renderer {
         $header->coursebanner = $this->get_course_custom_banner();
         $header->layoutOptions = (object) $PAGE->layout_options;
         $header->isloggedin = isloggedin();
+
+        $header->siteSummary = ($header->layoutOptions->showSiteSummary ? $SITE->summary : null);
+
 
         $themesettings = new ThemeSettings();
         $header->slider = $themesettings->slideshow($theme);
