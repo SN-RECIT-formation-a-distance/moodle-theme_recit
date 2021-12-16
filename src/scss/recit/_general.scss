@@ -115,6 +115,11 @@ body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pag
     #frontpage-available-course-list, #frontpage-category-names, #frontpage-category-combo, #site-news-forum{padding: 1rem;}
 }
 
+body.pagelayout-incourse{
+    .activity-content{
+        width: 325px;
+    }
+}
 // this is necessary to make work for columns that freeze on the grader report
 body.pagelayout-report{
     #page-content{

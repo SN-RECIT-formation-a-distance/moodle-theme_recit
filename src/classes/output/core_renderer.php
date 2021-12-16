@@ -75,12 +75,7 @@ class core_renderer extends \core_renderer {
      * @return string the HTML to output.
      */
     public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
-        if (is_array($classes)) {
-            $classes = implode(' ', $classes);
-        }
-
-        $classes = "activity-content $classes";
-        return parent::box_start($classes . ' p-0 p-sm-3', $id, $attributes);
+        return parent::box_start("activity-content", $id, $attributes);
     }
 
     /**

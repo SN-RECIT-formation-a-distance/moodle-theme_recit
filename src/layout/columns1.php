@@ -36,7 +36,10 @@ $templatecontext = [
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
 
 if($PAGE->__get('pagelayout') == 'popup'){
-    if ($PAGE->cm) $PAGE->set_title($PAGE->cm->name);
+    if ($PAGE->cm){
+        $PAGE->set_title($PAGE->cm->name);
+    }
+    
     echo $OUTPUT->render_from_template('theme_recit2/recit/popup', $templatecontext);
 }
 else{
