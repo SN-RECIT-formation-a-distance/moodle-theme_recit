@@ -262,6 +262,15 @@ function theme_recit2_create_course_custom_fields(){
         'description' => get_string('show-section-bottom-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
+    );
+
+    $field_to_add[] = array(
+        'type' => 'checkbox',
+        'name' => get_string('hide_restricted_section', 'theme_recit2'),
+        'shortname' => 'hide_restricted_section',
+        'description' => get_string('hide_restricted_section_help', 'theme_recit2'),
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
     );    
 
     $options = array();

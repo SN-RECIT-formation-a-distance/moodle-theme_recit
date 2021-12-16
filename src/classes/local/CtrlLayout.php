@@ -218,9 +218,11 @@ class CtrlLayout{
         $protohref = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}%s";
 
         //$result->addSection(1, "map", sprintf($protohref, "#map"), "<i class='fa fa-map'></i>", "Menu");
+        $hideRestricted = ThemeSettings::get_custom_field('hide_restricted_section');
 
         foreach($sectionslist as $section){
-            if( !$section->visible ){ continue; }
+            if( !$section->visible ){ continue; } 
+            if( $hideRestricted === 1 && !$section->available ){ continue; } 
 
             $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             
