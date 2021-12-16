@@ -338,6 +338,12 @@ class course_renderer extends \core_course_renderer {
             }
         }
 
+        $data->tags = array();
+        $course_tags = \core_tag_tag::get_item_tags_array('core', 'course', $course->id);
+        foreach ($course_tags as $tag){
+            $data->tags[] = array("url" => $CFG->wwwroot."/tag/index.php?tag=" .urlencode($tag), "name" => $tag);
+        }
+
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             require_once($CFG->libdir. '/coursecatlib.php');

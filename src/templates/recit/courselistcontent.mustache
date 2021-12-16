@@ -29,6 +29,11 @@
 		</div>
 		<p></p>
 		<a href="{{courselink}}" class="card-link btn btn-primary" data-toggle="tooltip" title="{{coursename}}"><i class="fa fa-sign-in"></i> {{#str}}access,theme_recit2{{/str}}</a>
+        <div style="text-align:left;padding:5px">
+            {{#tags}}
+                <a href='{{url}}'><span class='badge badge-info'>{{name}}</span></a>
+            {{/tags}}
+        </div>
 	</div>
     {{#courseicons}}
         {{{courseicons}}}
