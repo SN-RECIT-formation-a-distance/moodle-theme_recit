@@ -89,7 +89,7 @@ class core_renderer extends \core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $PAGE, $SITE;
+        global $PAGE, $SITE, $USER, $COURSE;
 
         $theme = theme_config::load('recit2');
 
@@ -103,6 +103,13 @@ class core_renderer extends \core_renderer {
         $header->coursebanner = $this->get_course_custom_banner();
         $header->layoutOptions = (object) $PAGE->layout_options;
         $header->isloggedin = isloggedin();
+        $header->isguest = $USER->id == 1;
+        $header->incourse = $COURSE->id > 1;
+        if ($header->incourse){
+            $header->isenrolled = is_enrolled($PAGE->context, $USER) || strstr($_SERVER['REQUEST_URI'], 'enrol');
+            $header->canenrol = (is_enrolled($PAGE->context) === false) && ($USER->id > 1) && (!has_capability('moodle/course:update', $PAGE->context));
+            $header->course_id = $COURSE->id;
+        }
 
         $header->siteSummary = ($header->layoutOptions->showSiteSummary ? $SITE->summary : null);
 

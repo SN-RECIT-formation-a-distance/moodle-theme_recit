@@ -121,12 +121,13 @@ class CtrlLayout{
      * @return array
      */
     public static function get_template_context_common($output, $page, $user = null) {
-        global $CFG, $SITE, $COURSE, $PAGE;
+        global $CFG, $SITE, $COURSE, $PAGE, $USER;
 
         $result = [
             'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
             'output' => $output,
             'isloggedin' => isloggedin(),
+            'isguest' => $USER->id == 1,
             'modeedition' => self::user_is_editing($page),
             'is_siteadmin' => is_siteadmin(),
             'wwwroot' => $CFG->wwwroot,
