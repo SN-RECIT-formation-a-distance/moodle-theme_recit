@@ -208,3 +208,5 @@ $string['menu-m3'] = 'Vertical Left';
 $string['menu-m5'] = 'Horizontal 1 Level';
 $string['show-activity-nav'] = 'Show activity navigation';
 $string['show-activity-nav-help'] = "Show activity navigation";
+$string['hide_restricted_section'] = "Hide section from navigation if restricted";
+$string['hide_restricted_section_help'] = "Hide section from navigation if restricted";
