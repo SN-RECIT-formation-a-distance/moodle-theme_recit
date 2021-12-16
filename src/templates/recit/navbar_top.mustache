@@ -211,6 +211,18 @@
                 {{{ output.custom_menu }}}
             </ul>
             <ul class="navbar-nav my-2 my-lg-0" >  
+                {{#lang.show}}       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
+                            <span>{{lang.current}}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLang">
+                            {{#lang.options}}
+                                <a class="dropdown-item" href="{{url}}">{{text}}</a>
+                            {{/lang.options}}
+                        </div>
+                    </li>
+                {{/lang.show}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{{ config.wwwroot }}}/login/index.php" title="Connexion"><i class="fa fa-sign-in"></i> Connexion</a>
                 </li>

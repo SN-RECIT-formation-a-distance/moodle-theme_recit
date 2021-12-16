@@ -26,6 +26,8 @@ namespace theme_recit2\output\core;
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once($CFG->dirroot . '/lib/badgeslib.php');
+
 use moodle_url;
 use html_writer;
 use coursecat;
@@ -325,7 +327,7 @@ class course_renderer extends \core_course_renderer {
             }
         }
         
-        $badges = badges_get_badges(BADGE_TYPE_COURSE, $course->id, '', '', 0, 0, 0);
+        $badges = \badges_get_badges(BADGE_TYPE_COURSE, $course->id, '', '', 0, 0, 0);
         $data->badges = array();
         $bcount = 0;
         foreach ($badges as $badge){
