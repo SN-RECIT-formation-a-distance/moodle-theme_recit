@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_recit/popup
+    @template theme_recit2/popup
 
     Recit 1 column layout template.
 
@@ -37,7 +37,7 @@
     }
 }}
 
-{{> theme_recit/recit/head }}
+{{> theme_recit2/recit/head }}
 
 <body {{{ bodyattributes }}} class="m-0">
 
@@ -59,8 +59,8 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_recit/loader');
-require(['theme_recit/loader'], function() {
-  M.util.js_complete('theme_recit/loader');
+M.util.js_pending('theme_recit2/loader');
+require(['theme_recit2/loader'], function() {
+  M.util.js_complete('theme_recit2/loader');
 });
 {{/js}}
