@@ -36,7 +36,7 @@
 
 <div id="page-wrapper">
 
-    {{{ output.standard_top_of_body_html }}}
+{{{ output.standard_top_of_body_html }}}
 
     <div id="page" class="container-fluid mt-0">
         <div id="page-content" >
@@ -49,17 +49,35 @@
             </div>
         </div>
     </div>
-</div>
+</div><!-- Ends .page-wrapper -->
 
-{{{ output.standard_footer_html }}}
-
-{{{ output.standard_end_of_body_html }}}
 
 </body>
 </html>
 {{#js}}
 M.util.js_pending('theme_recit2/loader');
 require(['theme_recit2/loader'], function() {
-  M.util.js_complete('theme_recit2/loader');
+    M.util.js_complete('theme_recit2/loader');
+});
+
+require([], function() {
+    var iconsearch = document.querySelector('.recit-search-input .icon-magnifier');
+    var btnclosesearch = document.querySelector('.search-input-form .close-search');
+    var searchinputform = document.querySelector('.recit-search-input');
+
+    if (iconsearch) {
+
+        var togglesearchinputform = function() {
+            searchinputform.classList.toggle('expanded');
+        }
+
+        iconsearch.onclick = togglesearchinputform;
+        btnclosesearch.onclick = togglesearchinputform;
+    }
+
+    $(function(){
+        // Activate Carousel
+        $("#slideshow").carousel();
+    });
 });
 {{/js}}
