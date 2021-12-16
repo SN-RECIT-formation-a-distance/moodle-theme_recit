@@ -30,14 +30,7 @@
     }
 }}
 
-{{>theme_recit2/recit/head}}
-
-<body {{{ bodyattributes }}}>
-
-<div id="page-wrapper">
-
-    {{{ output.standard_top_of_body_html }}}
-
+{{>theme_recit2/recit/inc_start}}
     <div id="page" class="container-fluid mt-0">
         <div id="page-content" >
             <div id="region-main-box" class="col-12">
@@ -49,17 +42,4 @@
             </div>
         </div>
     </div>
-</div>
-
-{{{ output.standard_footer_html }}}
-
-{{{ output.standard_end_of_body_html }}}
-
-</body>
-</html>
-{{#js}}
-M.util.js_pending('theme_recit2/loader');
-require(['theme_recit2/loader'], function() {
-  M.util.js_complete('theme_recit2/loader');
-});
-{{/js}}
+{{>theme_recit2/recit/inc_end}}
