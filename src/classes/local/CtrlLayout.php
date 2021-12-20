@@ -220,7 +220,7 @@ class CtrlLayout{
 
         foreach($sectionslist as $section){
             if( !$section->visible ){ continue; } 
-            if( $hideRestricted === 1 && !$section->available ){ continue; } 
+            if( $hideRestricted == 1 && !$section->available ){ continue; } 
 
             $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             
