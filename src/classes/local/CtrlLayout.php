@@ -160,14 +160,14 @@ class CtrlLayout{
     }
 
     public static function get_course_section_nav(){
-        global $PAGE, $COURSE;
+        global $PAGE, $COURSE, $USER;
 
         $result = [
             'layoutOptions' => (object) $PAGE->layout_options
         ];
 
-        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');
-        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin)){
+        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
+        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && ($USER->id > 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');
@@ -190,7 +190,7 @@ class CtrlLayout{
 
         $coursePage = (basename($_SERVER['PHP_SELF']));
         
-        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php')){
+        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php') || ($USER->id <= 1)){
             return null;
         }
 
@@ -200,7 +200,7 @@ class CtrlLayout{
         if(count($sectionslist) == 0){
             return null;
         }
-
+        
         $result = new CourseSectionNav();
         $menuModalIndex = ThemeSettings::get_custom_field('menumodel') - 1;
         if($menuModalIndex >= 0){
@@ -212,8 +212,6 @@ class CtrlLayout{
         else{
             return null;
         }
-        
-        
         
         $protohref = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}%s";
 

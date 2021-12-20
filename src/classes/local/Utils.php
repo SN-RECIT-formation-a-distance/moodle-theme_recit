@@ -61,7 +61,7 @@ class CourseSectionNav{
  */
 class ThemeSettings {
 
-    public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
+    public const COURSE_CUSTOM_FIELDS_SECTION = 'Personnalisation du thème RÉCIT';  // hardcodé car il ne peut pas être modifié
     
     public const MENU_MODEL_LIST = array('m1', 'm2', 'm3', 'm5');
     
