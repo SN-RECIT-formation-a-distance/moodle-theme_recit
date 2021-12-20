@@ -236,15 +236,15 @@ M.recit.theme.recit2.SectionsNav = class{
                 this.curSection = section;
 
                 // If the user is on the course page then it dispatch the link click (with all listeners)
-                if(M.course){
+                /*if(M.course){
                     section.click(); 
-                }
-                else{
-                    // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
-                    let tmp = document.createElement('a');
-                    tmp.setAttribute('href', section.getAttribute('href'));
-                    this.onSectionNav({target: tmp});
-                }
+                }*/
+
+                // we don't want to call click() to avoid unnecessary redirection to href link, we just want to call onSectionNav
+                // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
+                let tmp = document.createElement('a');
+                tmp.setAttribute('href', section.getAttribute('href'));
+                this.onSectionNav({target: tmp});
             }
         }
     }
@@ -267,7 +267,7 @@ M.recit.theme.recit2.SectionsNav = class{
         return true;
     }    
 
-    onSectionNav(event){                
+    onSectionNav(event){           
         this.curSection = event.target;
 
         M.recit.theme.recit2.Utils.setCookieCurSection(this.curSection.hash);
