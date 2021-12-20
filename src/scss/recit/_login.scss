@@ -257,7 +257,8 @@ $m-login-boxheight: 350px;
     margin-bottom: 5px;
 }
 
-#page-login-signup {
+// only the front page login (user not connected)
+#page-login-signup.pagelayout-login{
     margin-left: 0;
 
     #page-wrapper {
