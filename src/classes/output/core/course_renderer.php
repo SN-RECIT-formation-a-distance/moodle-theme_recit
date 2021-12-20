@@ -347,9 +347,8 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course category if necessary (for example in search results).
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
-            require_once($CFG->libdir. '/coursecatlib.php');
-            if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
+        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT){
+            if ($cat = \core_course_category::get($course->category, IGNORE_MISSING)) {
                 $data->caturl = get_string('category').': '. html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)), $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
             }
         }
