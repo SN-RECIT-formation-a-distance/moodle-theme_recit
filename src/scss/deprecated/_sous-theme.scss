@@ -6,9 +6,6 @@
 }
 
 
-/*.editeur, body.theme-recit{
-  
-}*/
 #top-1.engine{display: none;} // code dynamique intrusif du Mobirise     
     
 body.theme-recit-francais{
@@ -50,29 +47,12 @@ body.theme-recit-francais{
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003a6d', endColorstr='#1361a5',GradientType=1 );
     }
 
-
-/*    @media screen and (min-width: 992px) {
-        h5 a {
-            padding: 6px 14px;
-        }
-                    }
-                    */
-
-    h1 {font-family: 'vigaregular', sans-serif;}
-    h2 {font-family: 'vigaregular', sans-serif;}
-    h3 {font-family: 'vigaregular', sans-serif;}
-    h4 {font-family: 'vigaregular', sans-serif;} 
-    h5 {font-family: 'vigaregular', sans-serif;}
-    h6 {font-family: 'vigaregular', sans-serif;} 
+    h1,h2,h3,h4,h5,h6 {font-family: 'Viga', sans-serif;}
+    h1,h2 {color:$white}
 
 }
 .editeur, body.theme-recit-mathematique{
-    h1 {font-family: 'vigaregular', sans-serif;}
-    h2 {font-family: 'vigaregular', sans-serif;}
-    h3 {font-family: 'vigaregular', sans-serif;}
-    h4 {font-family: 'vigaregular', sans-serif;} 
-    h5 {font-family: 'vigaregular', sans-serif;}
-    h6 {font-family: 'vigaregular', sans-serif;} 
+    h1,h2,h3,h4,h5,h6 {font-family: 'Viga', sans-serif;}
     .recit-btn-primary {
         color: $dark;
     }
@@ -135,7 +115,6 @@ body.theme-recit-histoire {
             margin-bottom: 20px;
             font-size: x-large;
             padding: .75rem 1.25rem;
-            //margin-bottom: 0;
             background-color: rgba(46, 43, 43, 0.459);
             border-bottom: 1px solid rgba(0,0,0,.125);
         }
@@ -144,10 +123,7 @@ body.theme-recit-histoire {
 
 .editeur, body.theme-recit-art{
     .page-header-headings h1 {
-        color: $black!important; 
-        //font-size: 22 em !important;	
-		//max-width: 500px;
-		//padding: 40px 40px 40px 40px;
+        color: $black!important;
     }
 }
 

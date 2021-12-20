@@ -1,5 +1,3 @@
-
-
 body {
  
  
@@ -11,18 +9,6 @@ body {
 }
 
 #top-1.engine{display: none;}
-
-body.theme-recit-histoire#page-mod-book-view .block-region .card-header {
-            font-family: $headings-font-family;
-            text-transform: uppercase;
-            display: inline-block;
-            line-height: 72px;
-            margin-bottom: 20px;
-            font-size: x-large;
-            padding: .75rem 1.25rem;
-            background-color: rgba(46, 43, 43, 0.459);
-            border-bottom: 1px solid rgba(0,0,0,.125);
-}
 
 #page-footer, #mainTopNav {
     background-color: $nav-color !important;
@@ -5165,7 +5151,7 @@ border: 2px solid $secondary;
 	    padding-left: 30px;
 	    width: 80%;
 	    padding-bottom: 20px;
-	    font-family: "vigaregular", sans-serif;
+	    font-family: "Viga", sans-serif;
 	    border-radius: 15px;
 	    background-color: #FFF;
 	    color: #000;
