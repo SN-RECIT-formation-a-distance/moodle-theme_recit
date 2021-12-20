@@ -15,7 +15,13 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 <div id="page-content">
-    <div id="region-main-box" class="col-12">
+    {{#hasblocksembed}}
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            {{{ sidepreblocks }}}
+        </div>
+    {{/hasblocksembed}}
+    
+    <div id="region-main-box" class="{{^hasblocksembed}}col-12{{/hasblocksembed}} {{#hasblocksembed}}col-9{{/hasblocksembed}}">
         {{#hasregionmainsettingsmenu}}
             <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
                 <div> {{{ output.region_main_settings_menu }}} </div>

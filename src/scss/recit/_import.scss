@@ -3,6 +3,37 @@
  * L'ordre des fichiers est important. Réfléchir avant de faire un changement.
  */
  
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('[[font:theme|ubuntu-regular_1-webfont.woff2]]') format('woff2'),
+        url('[[font:theme|ubuntu-regular_1-webfont.woff]]') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Viga';
+    src: url('[[font:theme|Viga-Regular-webfont.eot]]');
+    src: url('[[font:theme|Viga-Regular-webfont.eot?#iefix]]') format('embedded-opentype'),
+        //url('[[font:theme|Viga-Regular-webfont.woff2]]') format('woff2'),
+        url('[[font:theme|Viga-Regular-webfont.woff]]') format('woff'),
+        url('[[font:theme|Viga-Regular-webfont.ttf]]') format('truetype'),
+        url('[[font:theme|Viga-Regular-webfont.svg#vigaregular]]') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpecialElite';
+    src: url('[[font:theme|SpecialElite-webfont.eot?#iefix]]') format('embedded-opentype'),
+        url('[[font:theme|SpecialElite-webfont.woff]]') format('woff'),
+        url('[[font:theme|SpecialElite-webfont.ttf]]') format('truetype'),
+        url('[[font:theme|SpecialElite-webfont.svg#special_eliteregular]]') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 //@import "../../fonts/Poppins-Regular.scss";
 @import "../extras/fontello";
 @import "_bootstrap-override";

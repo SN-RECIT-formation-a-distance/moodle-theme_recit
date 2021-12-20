@@ -64,8 +64,10 @@ class ThemeSettings {
     public const COURSE_CUSTOM_FIELDS_SECTION = 'Thème RÉCIT';  // hardcodé car il ne peut pas être modifié
     
     public const MENU_MODEL_LIST = array('m1', 'm2', 'm3', 'm5');
+    
+    public const MODULES_WITH_EMBED_BLOCKS = ['book', 'quiz'];
 
-    public const SUBTHEME_LIST = array('theme-recit-anglais', 'theme-recit-art', 'theme-recit-ecr', 'theme-recit-francais',  'theme-recit-histoire', 'theme-recit-math', 'theme-recit-science');
+    public const SUBTHEME_LIST = array(1 => 'theme-recit-anglais', 2 => 'theme-recit-art', 3 => 'theme-recit-ecr', 4 => 'theme-recit-francais', 5 => 'theme-recit-histoire', 6 => 'theme-recit-math', 7=> 'theme-recit-science');
 
     public static function get_custom_field($name) {
         global $COURSE;
@@ -81,8 +83,18 @@ class ThemeSettings {
         return null;
     }
 
+    public static function get_subtheme_class(){
+        global $PAGE;
+        /*$theme = ThemeSettings::get_custom_field('subtheme');
+        if (!$theme || !isset(ThemeSettings::SUBTHEME_LIST[$theme])){
+            return 'theme-recit2';
+        }
+        return ThemeSettings::SUBTHEME_LIST[$theme];*/
+        return 'theme-'.str_replace('_', '-', $PAGE->theme->name);
+    }
+
     /**
-     * Get config theme footer itens
+     * Get config theme footer items
      *
      * @return array
      */

@@ -120,7 +120,7 @@ function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/style/moodle-base.css"); // loaded here because of [[pix:]]
+    $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
 
     // Prepend pre-scss.
     $scss .= $theme->settings->prescss;
@@ -287,14 +287,14 @@ function theme_recit2_create_course_custom_fields(){
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "options" => implode("\r\n", $options), "defaultvalue" => get_string("menu-m1", 'theme_recit2'))
     );
 
-    $field_to_add[] = array(
+    /*$field_to_add[] = array(
         'type' => 'select',
         'name' => get_string('course-subtheme', 'theme_recit2'),
         'shortname' => 'subtheme',
         'description' => get_string('course-subtheme-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "options" => implode("\r\n", ThemeSettings::SUBTHEME_LIST), "defaultvalue" => "")
-    );
+    );*/
 
     $field_to_add[] = array(
         'type' => 'textarea',

@@ -56,6 +56,7 @@ $extraclasses = [];
 if (CtrlLayout::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
+$extraclasses[] = ThemeSettings::get_subtheme_class();
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
@@ -82,5 +83,9 @@ $templatecontext = array_merge($templatecontext, CtrlLayout::get_course_section_
 $themesettings = new ThemeSettings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
+
+if ($hasblocks && isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, ThemeSettings::MODULES_WITH_EMBED_BLOCKS)) {
+    $templatecontext['hasblocksembed'] = true;
+}
 
 echo $OUTPUT->render_from_template('theme_recit2/recit/columns2', $templatecontext);
