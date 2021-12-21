@@ -48,9 +48,11 @@ body.theme-recit-francais{
     }
 
     h1,h2,h3,h4,h5,h6 {font-family: 'Viga', sans-serif;}
-    h1,h2 {color:$white}
-
+    .page-header-headings h1 {
+        color: $white!important;
+    }
 }
+
 .editeur, body.theme-recit-mathematique{
     h1,h2,h3,h4,h5,h6 {font-family: 'Viga', sans-serif;}
     .recit-btn-primary {
@@ -82,7 +84,7 @@ body.theme-recit-francais{
         box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.5) !important;
     }
     
-	p{	font-size: 16px;}
+	p {font-size: 16px;}
 }
 body.theme-recit-anglais{
     .personal-note-embedded{
