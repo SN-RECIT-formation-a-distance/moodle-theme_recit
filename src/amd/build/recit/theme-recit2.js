@@ -373,20 +373,24 @@ M.recit.theme.recit2.MenuM1 = class{
 
         // If the menu level1 item has a branch then it also select it.
         let branch = this.placeholder.querySelector(`[data-parent-section='${event.target.hash}']`);
-        if(branch !== null){
+        if(branch !== null){            
             branch.setAttribute("data-selected", "1");
         }
          
         // Select menu level2 item.
-        if((menuItem.parentElement.classList.contains("menu-level2"))){
+        let containMenuLevel2 = menuItem.parentElement.classList.contains("menu-level2");
+        if(containMenuLevel2){
             menuItem.parentElement.setAttribute("data-selected", "1");
             menuItem.parentElement.parentElement.setAttribute("data-selected", "1");
+        }
+
+        if(!this.placeholder.classList.contains('responsive') && ((branch !== null) || (containMenuLevel2))){
+            this.placeholder.style.marginBottom = "60px";
         }
 
         this.ctrlResponsive(menuItemDesc, branch);
     }
 
-    
     ctrlResponsive2(){
         if((window.innerWidth > 1024) && (this.placeholder.offsetWidth <= M.recit.theme.recit2.Options.maxWidth)){
             this.placeholder.classList.remove('responsive');
@@ -452,6 +456,8 @@ M.recit.theme.recit2.MenuM1 = class{
 
     resetSelection(){
         if(this.placeholder === null){ return;}
+
+        this.placeholder.style.marginBottom = "0";
 
         // Reset menu level 1 selection.
         let elems = this.placeholder.getElementsByClassName('menu-item');
