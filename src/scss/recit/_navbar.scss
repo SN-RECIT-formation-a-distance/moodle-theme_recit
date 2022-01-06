@@ -58,3 +58,9 @@ nav.navbar {
     margin-bottom: .5rem;
     padding: .5rem;
 }
+
+/* Patch m2 overlapping page content */
+
+#page-content {
+    margin-top: 10px;
+}
