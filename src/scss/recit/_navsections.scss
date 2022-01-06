@@ -222,7 +222,7 @@ $max-width-responsive-m5: 992px;
             
             .btn-menu-responsive{
                 width: 100%; display: flex; justify-content: left; padding: 1rem; 
-                button[data-btn='open']{width: 10%;}
+                button[data-btn='open']{width: 40px;}
                 .section-title{ width: 90%;font-variant: all-petite-caps; text-align: center; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; font-weight: 500; line-height: 1.2; font-size: 22px;}
                 .sous-section-title{ font-size: large; margin-right: 1rem;}
                 button[data-btn='close']{display: none;}
