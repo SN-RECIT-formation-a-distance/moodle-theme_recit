@@ -275,7 +275,12 @@ function theme_recit2_create_course_custom_fields(){
 
     $options = array();
     foreach(ThemeSettings::MENU_MODEL_LIST as $item){
-        $options[] = get_string("menu-$item", 'theme_recit2');
+        $str = "menu-$item";
+        if (get_string_manager()->string_exists($str, 'theme_recit2')) {
+            $options[] = get_string($str, 'theme_recit2');
+        }else{
+            $options[] = $item;
+        }
     }
     
     $field_to_add[] = array(
