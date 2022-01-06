@@ -106,7 +106,7 @@ class core_renderer extends \core_renderer {
             $header->course_id = $COURSE->id;
         }
 
-        $header->siteSummary = ($header->layoutOptions->showSiteSummary ? $SITE->summary : null);
+        $header->siteSummary = (isset($header->layoutOptions->showSiteSummary) && $header->layoutOptions->showSiteSummary ? $SITE->summary : null);
 
 
         $themesettings = new ThemeSettings();
