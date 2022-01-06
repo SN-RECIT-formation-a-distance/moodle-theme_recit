@@ -74,8 +74,12 @@ class core_renderer extends \core_renderer {
      * @param array $attributes An array of other attributes to give the box.
      * @return string the HTML to output.
      */
-    public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
-        return parent::box_start("activity-content", $id, $attributes);
+    public function box_start($classes = 'activity-content', $id = null, $attributes = array()) {
+        if (!isloggedin()){
+            return parent::box_start('activity-content', $id, $attributes);
+        }
+
+        return parent::box_start($classes, $id, $attributes);
     }
 
     /**
