@@ -85,12 +85,16 @@ body.theme-recit-francais{
     }
     
 	p {font-size: 16px;}
-}
-body.theme-recit-anglais{
+    
     .personal-note-embedded{
         .title{
             font-size: 16px;
         }
+    }
+
+    h2 {
+        font-family: 'Ubuntu';
+        font-weight: 500;
     }
 }
 
