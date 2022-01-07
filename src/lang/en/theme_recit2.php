@@ -54,6 +54,7 @@ $string['showhideblocks'] = 'Show/hide blocks';
 $string['privacy:metadata'] = 'The Recit theme does not store any personal data about any user.';
 $string['coursehome'] = 'Course Home';
 $string['grade'] = 'Grade';
+$string['editmode'] = 'Edit mode';
 
 // General settings tab.
 $string['generalsettings'] = 'General';

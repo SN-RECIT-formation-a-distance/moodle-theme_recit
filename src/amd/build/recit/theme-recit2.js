@@ -19,6 +19,15 @@ M.recit.theme.recit2.Ctrl = class{
 
         this.mainTopNav = new M.recit.theme.recit2.MainTopNav();
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
+
+        this.init();
+    }
+
+    init(){
+        let switchEditingMode = document.getElementById("switch-editing-mode");
+        switchEditingMode.onclick = function(event){
+            window.location.href = event.target.value;
+        }
     }
 
     ctrlShortcuts(e){
