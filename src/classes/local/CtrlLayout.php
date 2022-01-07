@@ -167,7 +167,9 @@ class CtrlLayout{
         ];
 
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
-        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && ($USER->id > 1)){            
+        $pageBadges = strpos($_SERVER['SCRIPT_NAME'], 'badges/view.php');   
+
+        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && (!$pageBadges) && ($USER->id > 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');

@@ -74,11 +74,19 @@ class core_renderer extends \core_renderer {
      * @param array $attributes An array of other attributes to give the box.
      * @return string the HTML to output.
      */
-    public function box_start($classes = 'activity-content', $id = null, $attributes = array()) {
-        if (!isloggedin()){
-            return parent::box_start('activity-content', $id, $attributes);
-        }
+    public function box_start($classes = '', $id = null, $attributes = array()) {
+        global $PAGE;
 
+        $classes = explode(" ", $classes);
+
+        if($PAGE->pagelayout == 'frontpage'){
+            $classes[] = 'activity-content';
+        }
+        else if(in_array('quizinfo', $classes)){
+            $classes[] = 'alert alert-secondary';
+        }
+                        
+        $classes = implode(" ", $classes);
         return parent::box_start($classes, $id, $attributes);
     }
 
