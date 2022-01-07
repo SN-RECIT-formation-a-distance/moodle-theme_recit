@@ -208,3 +208,5 @@ $string['show-activity-nav'] = 'Afficher la navigation par activité';
 $string['show-activity-nav-help'] = "Affiche en bas de page 2 boutons de navigation : activité précédente et activité suivante.";
 $string['hide_restricted_section'] = "Cacher les sections qui sont restreint de la navigation";
 $string['hide_restricted_section_help'] = "Lorsque coché, les sections non disponibles ne sont pas affichées dans le menu.";
+$string['prev_section'] = 'Section précédente';
+$string['next_section'] = 'Section suivante';

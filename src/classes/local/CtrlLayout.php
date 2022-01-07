@@ -171,8 +171,8 @@ class CtrlLayout{
 
         if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && (!$pageBadges) && ($USER->id > 1)){            
             $result['section_bottom_nav'] = new stdClass();
-            $result['section_bottom_nav']->prev_section = get_string('prev_section', 'format_treetopics');
-            $result['section_bottom_nav']->next_section = get_string('next_section', 'format_treetopics');
+            $result['section_bottom_nav']->prev_section = get_string('prev_section', 'theme_recit2');
+            $result['section_bottom_nav']->next_section = get_string('next_section', 'theme_recit2');
         
             $showSectionBottomNav = ThemeSettings::get_custom_field('show_section_bottom_nav');
             $result['section_bottom_nav']->enable = ($showSectionBottomNav == 1);
