@@ -169,7 +169,7 @@ class CtrlLayout{
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
         $pageBadges = strpos($_SERVER['SCRIPT_NAME'], 'badges/view.php');   
 
-        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && (!$pageBadges) && ($USER->id > 1)){            
+        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && (!$pageBadges) && ($USER->id >= 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'theme_recit2');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'theme_recit2');
@@ -192,7 +192,7 @@ class CtrlLayout{
 
         $coursePage = (basename($_SERVER['PHP_SELF']));
         
-        if(($COURSE->id <= 1) || ($USER->id <= 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php') || ($USER->id <= 1)){
+        if(($COURSE->id <= 1) || ($USER->id < 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php')){
             return null;
         }
 

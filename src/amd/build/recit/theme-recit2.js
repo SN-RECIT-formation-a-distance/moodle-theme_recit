@@ -25,8 +25,11 @@ M.recit.theme.recit2.Ctrl = class{
 
     init(){
         let switchEditingMode = document.getElementById("switch-editing-mode");
-        switchEditingMode.onclick = function(event){
-            window.location.href = event.target.value;
+
+        if(switchEditingMode){
+            switchEditingMode.onclick = function(event){
+                window.location.href = event.target.value;
+            }
         }
     }
 
