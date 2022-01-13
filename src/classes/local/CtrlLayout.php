@@ -168,8 +168,12 @@ class CtrlLayout{
 
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
         $pageBadges = strpos($_SERVER['SCRIPT_NAME'], 'badges/view.php');   
+        $pageContent = strpos($_SERVER['SCRIPT_NAME'], 'contentbank/index.php');   
+        $pageUser = strpos($_SERVER['SCRIPT_NAME'], 'user/index.php');  
+        $pageCompetencies = strpos($_SERVER['SCRIPT_NAME'], 'coursecompetencies.php');  
+        $pages = $pageAdmin | $pageBadges | $pageContent | $pageUser | $pageCompetencies;
 
-        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pageAdmin) && (!$pageBadges) && ($USER->id >= 1)){            
+        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pages) && ($USER->id >= 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'theme_recit2');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'theme_recit2');
@@ -188,13 +192,7 @@ class CtrlLayout{
     }
 
     public static function get_course_section_top_nav(){
-        global $COURSE, $PAGE, $CFG, $USER;
-
-        $coursePage = (basename($_SERVER['PHP_SELF']));
-        
-        if(($COURSE->id <= 1) || ($USER->id < 1) || ($PAGE->user_is_editing()) || ($coursePage != 'view.php')){
-            return null;
-        }
+        global $COURSE, $CFG;
 
         $modinfo = get_fast_modinfo($COURSE);
         $sectionslist = $modinfo->get_section_info_all();
