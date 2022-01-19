@@ -178,6 +178,7 @@
                     </div>
                 </li>
 
+                
                 {{#settingsmenu.paramsact}}
                     <li class="nav-item-divider ml-2"></li>
                     <li class="nav-item">
@@ -185,6 +186,9 @@
                     </li>
                 {{/settingsmenu.paramsact}}
                 {{#settingsmenu.turneditingonoff}}
+                    {{^settingsmenu.paramsact}}
+                        <li class="nav-item-divider ml-2"></li>    
+                    {{/settingsmenu.paramsact}}
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="switch-editing-mode" value='{{settingsmenu.turneditingonoff.url}}' {{settingsmenu.turneditingonoff.checked}}>
                         <label class="custom-control-label text-white"  for="switch-editing-mode">{{settingsmenu.turneditingonoff.title}}</label>
