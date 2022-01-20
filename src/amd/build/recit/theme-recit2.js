@@ -502,6 +502,15 @@ M.recit.theme.recit2.MenuM5 = class{
         //window.onscroll = this.onScroll.bind(this);
 
         this.placeholder = placeholder;
+        
+        if (placeholder.parentElement.classList.contains('vertical')){//If menu is vertical, prevent dropdowns from closing
+            let els = placeholder.querySelectorAll('.dropdown-menu');
+            for (let el of els){
+                el.addEventListener("click", function(e){
+                    e.stopPropagation();
+                });
+            }
+        }
     }
 
     /*onScroll(event){
