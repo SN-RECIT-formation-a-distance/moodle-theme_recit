@@ -63,7 +63,7 @@ class ThemeSettings {
 
     public const COURSE_CUSTOM_FIELDS_SECTION = 'Personnalisation du thème RÉCIT';  // hardcodé car il ne peut pas être modifié
     
-    public const MENU_MODEL_LIST = array(0 => 'm1', 1 => 'm2', 2 => 'm3', 3 => 'm5', 4 => 'Aucun menu');
+    public const MENU_MODEL_LIST = array(1 => 'm1', 2 => 'm3', 3 => 'm2', 4 => 'm5', 5 => 'Aucun menu');
     
     public const MODULES_WITH_EMBED_BLOCKS = ['book', 'quiz'];
 

@@ -203,7 +203,7 @@ class CtrlLayout{
         
         $result = new CourseSectionNav();
         $menuModalIndex = ThemeSettings::get_custom_field('menumodel');
-        if($menuModalIndex >= 0){
+        if($menuModalIndex && $menuModalIndex >= 0){
             $result->isMenuM1 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m1");
             $result->isMenuM2 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m2");
             $result->isMenuM3 = (ThemeSettings::MENU_MODEL_LIST[$menuModalIndex] == "m3");
