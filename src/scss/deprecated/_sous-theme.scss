@@ -143,6 +143,11 @@ body.theme-recit-histoire {
     .page-header-headings h1 {
         color: $black!important;
     }
+    .navsections.vertical .menuM5 ul.navbar-nav li.nav-item[data-selected="1"] {
+        font-weight: unset;
+        font-size: unset;
+        text-decoration: unset;
+    }
 }
 
 .editeur, body.theme-recit-ecr{
