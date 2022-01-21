@@ -192,6 +192,9 @@ $string['region-side-post'] = 'En haut';
 
 $string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';
 $string['showleavingsitewarning'] = 'Alerte si lien externe';
+$string['timeout'] = 'La connexion a été perdu';
+$string['close'] = 'Fermer';
+$string['msgtimeout'] = 'La connexion au serveur Moodle a été perdu. Veuillez vérifier votre connexion internet.';
 $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter Moodle lorsqu\'un lien mène vers un site en dehors de Moodle';
 
 // Custom fields

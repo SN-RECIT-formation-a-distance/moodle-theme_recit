@@ -19,8 +19,10 @@ M.recit.theme.recit2.Ctrl = class{
 
         this.mainTopNav = new M.recit.theme.recit2.MainTopNav();
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
+        this.webApi = new M.recit.theme.recit2.WebApi();
 
         this.init();
+        this.initTimeoutModal();
     }
 
     init(){
@@ -31,6 +33,19 @@ M.recit.theme.recit2.Ctrl = class{
                 window.location.href = event.target.value;
             }
         }
+    };
+
+    initTimeoutModal(){
+        let modal = document.getElementById('recit-modal-timeout');
+        if (modal){
+            setInterval(() => this.checkForTimeout(), 60000 * 5);//Check every 5 mins
+        }
+    }
+
+    checkForTimeout(){
+        this.webApi.ping(null, () => {
+            $('#recit-modal-timeout').modal('show');
+        });
     }
 
     ctrlShortcuts(e){
@@ -531,5 +546,58 @@ M.recit.theme.recit2.MenuM5 = class{
                 el.setAttribute("data-selected", "0");
             }
         }
+    }
+}
+
+M.recit.theme.recit2.WebApi = class{
+    constructor(){
+        this.gateway = this.getGateway();
+
+        this.post = this.post.bind(this);
+    }
+
+    getGateway(){
+        return `${M.cfg.wwwroot}/theme/recit2/classes/local/WebApi.php`;
+    }
+
+    post(url, data, callbackSuccess, callbackError){
+        data = JSON.stringify(data);
+
+        let xhr = new XMLHttpRequest();
+        let that = this;
+
+        xhr.open("post", url, true);
+        // Header sent to the server, specifying a particular format (the content of message body).
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        xhr.setRequestHeader('Accept', 'json'); // What kind of response to expect.
+
+        xhr.onload = function(event){
+            if(this.clientOnLoad !== null){
+                let result = null;
+
+                try{
+                    result = JSON.parse(event.target.response);
+                }
+                catch(error){
+                    console.log(error, this);
+                }
+                
+                if (callbackSuccess){
+                    callbackSuccess.call(this, result);
+                }
+            }
+        }
+
+        if (callbackError){
+            xhr.onerror = callbackError;
+        }
+        
+        xhr.send(data);
+    }
+
+    ping(onSuccess, onError){
+        let options = {};
+        options.service = "ping";
+        this.post(this.gateway, options, onSuccess, onError);
     }
 }

@@ -191,6 +191,9 @@ $string['coursesections'] = 'Course sections';
 $string['region-side-post'] = 'To the top';
 
 $string['msgleavingmoodle'] = 'Are you sure you want to leave the Moodle - This link is taking you to a site outside of Moodle?';
+$string['timeout'] = 'Connection timed out';
+$string['close'] = 'Close';
+$string['msgtimeout'] = 'The connection to Moodle has been lost. Please check your internet connection.';
 $string['showleavingsitewarning'] = 'Show warning when user clicks on external link';
 $string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if link is external';
 
