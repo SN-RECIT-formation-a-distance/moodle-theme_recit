@@ -171,13 +171,13 @@ class core_renderer extends \core_renderer {
         }
 
         
-        $showleavingsitewarning = false;
-        if (isset($theme->settings->showleavingsitewarning) && $theme->settings->showleavingsitewarning) $showleavingsitewarning = true;
         $settings = array(
-            'showleavingsitewarning' => $showleavingsitewarning,
+            'showleavingsitewarning' => (isset($theme->settings->showleavingsitewarning) && $theme->settings->showleavingsitewarning),
         );
         // force le chargement du fichier js du thème de base RÉCIT
-        $PAGE->requires->js('/theme/recit2/amd/build/recit/theme-recit2-init-vars.js');
+        $PAGE->requires->js('/theme/recit2/js/theme-recit2-navsection.js');
+        $PAGE->requires->js('/theme/recit2/js/theme-recit2.js');
+        $PAGE->requires->js('/theme/recit2/js/theme-recit2-init-vars.js');
         $PAGE->requires->js_init_call('theme_recit2_init_vars', array($settings));
 
 
