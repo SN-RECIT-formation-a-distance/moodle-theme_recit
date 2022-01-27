@@ -137,11 +137,18 @@
                         {{#usermenu.grades.url}}
                             <a class="dropdown-item" href="{{usermenu.grades.url}}" title="{{usermenu.grades.title}}"><i class="fa {{usermenu.grades.pix}}"></i> {{usermenu.grades.title}}</a>
                         {{/usermenu.grades.url}}
+                        {{#usermenu.calendar.url}}
+                            <a class="dropdown-item" href="{{usermenu.calendar.url}}"><i class="fa {{usermenu.calendar.pix}}"></i> {{usermenu.calendar.title}}</a>
+                        {{/usermenu.calendar.url}}
+                        {{#usermenu.privatefiles.url}}
+                            <a class="dropdown-item" href="{{usermenu.privatefiles.url}}"><i class="fa {{usermenu.privatefiles.pix}}"></i> {{usermenu.privatefiles.title}}</a>
+                        {{/usermenu.privatefiles.url}}
+
+                        <div class="dropdown-divider"></div>
                         {{#usermenu.home.url}}
                             <a class="dropdown-item" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i> {{usermenu.home.title}}</a>  
                         {{/usermenu.home.url}}
-                        
-                        <div class="dropdown-divider"></div>
+
                         {{#usermenu.participants.url}}
                             <a class="dropdown-item" href="{{usermenu.participants.url}}"><i class="fa {{usermenu.participants.pix}}"></i> {{usermenu.participants.title}}</a>
                         {{/usermenu.participants.url}}
@@ -150,13 +157,7 @@
                         {{/usermenu.badgesview.url}}
                         {{#usermenu.competencies.url}}
                             <a class="dropdown-item" href="{{{usermenu.competencies.url}}}"><i class="fa {{usermenu.competencies.pix}}"></i> {{usermenu.competencies.title}}</a>
-                        {{/usermenu.competencies.url}}
-                        {{#usermenu.calendar.url}}
-                            <a class="dropdown-item" href="{{usermenu.calendar.url}}"><i class="fa {{usermenu.calendar.pix}}"></i> {{usermenu.calendar.title}}</a>
-                        {{/usermenu.calendar.url}}
-                        {{#usermenu.privatefiles.url}}
-                            <a class="dropdown-item" href="{{usermenu.privatefiles.url}}"><i class="fa {{usermenu.privatefiles.pix}}"></i> {{usermenu.privatefiles.title}}</a>
-                        {{/usermenu.privatefiles.url}}
+                        {{/usermenu.competencies.url}}                        
 
                         {{#usermenu.switchroleto.url}}
                             <div class="dropdown-divider"></div>
@@ -169,7 +170,7 @@
                         {{/usermenu.switchrolereturn.url}}
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:M.recit.course.theme.ThemeRecit.instance.ctrlFullScreen(event)"  title="Plein écran"><i class="fa fa-compress"></i> Plein écran</a>
+                        <a class="dropdown-item" href="javascript:M.recit.theme.recit2.Ctrl.instance.ctrlFullScreen(event)"  title="Plein écran"><i class="fa fa-compress"></i> Plein écran</a>
 
                         {{#usermenu.logout.url}}
                             <div class="dropdown-divider"></div>

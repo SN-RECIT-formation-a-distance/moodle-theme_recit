@@ -15,18 +15,22 @@ M.recit.theme.recit2.Ctrl = class{
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
         this.webApi = new M.recit.theme.recit2.WebApi();
 
+        this.switchEditingMode = null;
+
         this.init();
         this.initTimeoutModal();
     }
 
     init(){
-        let switchEditingMode = document.getElementById("switch-editing-mode");
+        this.switchEditingMode = document.getElementById("switch-editing-mode");
 
-        if(switchEditingMode){
-            switchEditingMode.onclick = function(event){
+        if(this.switchEditingMode){
+            this.switchEditingMode.onclick = function(event){
                 window.location.href = event.target.value;
             }
         }
+
+        window.addEventListener("keydown", this.ctrlShortcuts);
     };
 
     initTimeoutModal(){
@@ -45,14 +49,7 @@ M.recit.theme.recit2.Ctrl = class{
     ctrlShortcuts(e){
         // 69 = e
         if (e.ctrlKey && e.altKey && e.which == 69){
-            this.ctrlModeEdition(); 
-        }
-    }
-
-    ctrlModeEdition(){
-        let btn = document.getElementById("btnEditionMode");
-        if(btn !== null){
-            btn.click();
+            this.switchEditingMode.onclick({target: this.switchEditingMode});
         }
     }
 
