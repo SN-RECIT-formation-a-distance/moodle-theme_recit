@@ -53,6 +53,7 @@ body.theme-recit-francais{
     h1,h2,h3,h4,h5,h6 {font-family: 'Viga', sans-serif;}
     .page-header-headings h1 {
         color: $white!important;
+        text-shadow: unset;
     }
 }
 
@@ -106,6 +107,7 @@ body.theme-recit-francais{
 body.theme-recit-science {
     .page-header-headings h1 {
         color: $white!important;
+        text-shadow: unset;
         font-family: 'Times New Roman', Times, serif;
     }
 }
@@ -142,6 +144,7 @@ body.theme-recit-histoire {
 .editeur, body.theme-recit-art{
     .page-header-headings h1 {
         color: $black!important;
+        text-shadow: unset;
     }
     .navsections.vertical .menuM5 ul.navbar-nav li.nav-item[data-selected="1"] {
         font-weight: unset;
