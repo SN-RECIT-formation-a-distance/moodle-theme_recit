@@ -282,7 +282,7 @@ class CtrlLayout{
         if ($COURSE->id > 1) {
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-home';
+            $item->pix = 'fa-university';
             $item->title = get_string('coursehome', 'theme_recit2');
             $result['coursehome'] = $item;
 
