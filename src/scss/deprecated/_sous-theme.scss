@@ -143,6 +143,8 @@ body.theme-recit-histoire {
     .page-header-headings h1 {
         color: $black!important;
         text-shadow: unset;
+        background-color: unset;
+        font-size: 4.34375rem;    
     }
     .navsections.vertical .menuM5 ul.navbar-nav li.nav-item[data-selected="1"] {
         font-weight: unset;
