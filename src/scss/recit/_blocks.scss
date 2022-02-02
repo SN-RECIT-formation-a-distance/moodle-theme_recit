@@ -57,13 +57,13 @@ body:not(.pagelayout-secure){
 
     &.drawer-open-right #sidepreopen-control{
         //width: 260px;
-        right: 25vw;
+        right: 340px;
     }
 
 
     #sidepre-blocks{
         overflow-y: auto;
-        width: 25vw; // drawer width
+        width: 340px; // drawer width
         height: 100%;
         top: -$top-navbar-height;
 
