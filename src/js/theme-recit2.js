@@ -191,8 +191,9 @@ M.recit.theme.recit2.Utils = class{
         let courseId = window.document.body.className.match(/course-\d+/);
 
         if(courseId){
-            sectionId = sectionId.replace( /^\D+/g, '');
-            M.recit.theme.recit2.Utils.setCookie(`${courseId}-cursection`, sectionId, 1440, `/`);
+            let section = sectionId.replace( /^\D+/g, '');
+            if (section == '') section = sectionId;
+            M.recit.theme.recit2.Utils.setCookie(`${courseId}-cursection`, section, 1440, `/`);
         }
     }
 
