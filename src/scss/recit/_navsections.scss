@@ -81,6 +81,7 @@ $max-width-responsive-m5: 992px;
                     }
                 }
                 li.nav-item[data-selected="1"]{font-weight: bold; text-decoration:underline;}            
+                li.nav-item.show .dropdown-item[data-selected="1"]{font-weight: bold;text-decoration:underline;}            
             }
         }
     }   
