@@ -74,24 +74,26 @@ M.recit.theme.recit2.Ctrl.createInstance = function(){
 }
 
 M.recit.theme.recit2.MainTopNav = class{
-    constructor(){        
-        this.ctrlResponsive = this.ctrlResponsive.bind(this);   
-
-        window.addEventListener('resize', this.ctrlResponsive);
-
+    constructor(){
         this.mainTopNav = document.getElementById('mainTopNav');
-        this.menuMobile = mainTopNav.querySelector('[id=menu-mobile]');
-        this.menuCourse = mainTopNav.querySelector('[id=menu-course]');
-        this.menuPlatform = mainTopNav.querySelector('[id=menu-platform]');
+        if (this.mainTopNav){
+            this.ctrlResponsive = this.ctrlResponsive.bind(this);   
 
-        this.elems = {
-            btnCourseHome: mainTopNav.querySelector('[data-button="coursehome"]'),
-            btnNotifications: mainTopNav.querySelector('[data-button="notifications"]'),
-            btnMessages: mainTopNav.querySelector('[data-button="messages"]'),
-            titles: mainTopNav.querySelectorAll('[data-title]')
+            window.addEventListener('resize', this.ctrlResponsive);
+
+            this.menuMobile = mainTopNav.querySelector('[id=menu-mobile]');
+            this.menuCourse = mainTopNav.querySelector('[id=menu-course]');
+            this.menuPlatform = mainTopNav.querySelector('[id=menu-platform]');
+
+            this.elems = {
+                btnCourseHome: mainTopNav.querySelector('[data-button="coursehome"]'),
+                btnNotifications: mainTopNav.querySelector('[data-button="notifications"]'),
+                btnMessages: mainTopNav.querySelector('[data-button="messages"]'),
+                titles: mainTopNav.querySelectorAll('[data-title]')
+            }
+
+            this.ctrlResponsive();
         }
-
-        this.ctrlResponsive();
     }
 
     ctrlResponsive(){
