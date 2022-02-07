@@ -2,7 +2,6 @@ M.recit = M.recit || {};
 M.recit.theme = M.recit.theme || {};
 M.recit.theme.recit2 = M.recit.theme.recit2 || {};
 
-
 M.recit.theme.recit2.SectionsNav = class{
     constructor(){        
         this.onSectionNav = this.onSectionNav.bind(this);
@@ -89,7 +88,6 @@ M.recit.theme.recit2.SectionsNav = class{
     }
 }
 
-
 M.recit.theme.recit2.SectionPagination = class{
     constructor(sectionList, onSectionNav){
         this.placeholder = null;
@@ -146,148 +144,143 @@ M.recit.theme.recit2.SectionPagination = class{
 
 M.recit.theme.recit2.MenuM1 = class{
     constructor(placeholder){
-        this.ctrlResponsive2 = this.ctrlResponsive2.bind(this); 
-
-        window.addEventListener('resize', this.ctrlResponsive2);
+        this.ctrl = this.ctrl.bind(this);
+        this.init = this.init.bind(this);
+        this.onSelect = this.onSelect.bind(this);
+        this.onSelectNormal = this.onSelectNormal.bind(this);
+        this.onSelectResponsive = this.onSelectResponsive.bind(this);
+        this.onMenuCollapase = this.onMenuCollapase.bind(this);
+        this.onSubMenuCollapase = this.onSubMenuCollapase.bind(this);
+        window.onresize = this.onWindowResize.bind(this);
 
         this.placeholder = placeholder;
-
-        this.btnMenuResponsive = null;
-
+        this.menuSections = null;
         this.init();
     }
 
     init(){
-        this.btnMenuResponsive = this.placeholder.querySelector('.btn-menu-responsive');
+        this.menuSections = document.getElementById('menu-sections');
 
-        this.ctrlResponsive2();
+        let btn = document.getElementById(`btn-menu-collapse`);
+        btn.onclick = this.onMenuCollapase;
+
+        let items = this.menuSections.querySelectorAll('[data-btn-submenu-collapse]');
+        for(let item of items){
+            item.onclick = this.onSubMenuCollapase;
+        }
+
+        this.onWindowResize();
     }
 
-    ctrl(event){
-        let menuItem, menuItemDesc;
-
-        menuItemDesc = this.placeholder.querySelector(`[href='${event.target.getAttribute("href")}']`);
-
-        if(menuItemDesc === null){ return; }
-        
-        menuItem = menuItemDesc.parentElement.parentElement;
-        
-        // Reset menu level 1 selection.
-        this.resetSelection();
-
-        menuItem.setAttribute("data-selected", "1");
-
-        // If the menu level1 item has a branch then it also select it.
-        let branch = this.placeholder.querySelector(`[data-parent-section='${event.target.hash}']`);
-        if(branch !== null){            
-            branch.setAttribute("data-selected", "1");
-        }
-         
-        // Select menu level2 item.
-        let containMenuLevel2 = menuItem.parentElement.classList.contains("menu-level2");
-        if(containMenuLevel2){
-            menuItem.parentElement.setAttribute("data-selected", "1");
-            menuItem.parentElement.parentElement.setAttribute("data-selected", "1");
-        }
-
-        if(!this.placeholder.classList.contains('responsive') && ((branch !== null) || (containMenuLevel2))){
-            this.placeholder.style.marginBottom = "60px";
-        }
-
-        this.ctrlResponsive(menuItemDesc, branch);
-    }
-
-    ctrlResponsive2(){
+    onWindowResize(){
         if((window.innerWidth > 1024) && (this.placeholder.offsetWidth <= M.recit.theme.recit2.Options.maxWidth)){
             this.placeholder.classList.remove('responsive');
+            this.placeholder.classList.add('normal');
+            this.menuSections.style.display = 'flex';
+
+            let items = this.menuSections.querySelectorAll('[data-btn-submenu-collapse]');
+            for(let item of items){
+                item.nextElementSibling.classList.remove("d-flex");
+            }
         }
         else{
             this.placeholder.classList.add('responsive');
+            this.placeholder.classList.remove('normal');
+            this.menuSections.style.display = 'none';
         }
     }
 
-    ctrlResponsive(menuItemDesc, branch){
-        if(this.btnMenuResponsive === null){ return;}
-
-        let sectionTitle = this.btnMenuResponsive.children[1];
-        let sectionSubtitle = this.btnMenuResponsive.children[2];
-
-        if (sectionTitle){
-            //Make appear the title of the section in the responsive menu
-            sectionTitle.innerHTML = menuItemDesc.textContent;
-
-            if(branch !== null){
-                //Make appear the title of the sous section in the responsive menu
-                let sections = branch.getElementsByClassName('menu-item');
-                for(let sec of sections){
-                    if(sec.getAttribute('data-selected') === "1"){
-                        let subsection = sec.getElementsByClassName('menu-item-desc');
-                        sectionSubtitle.innerHTML = subsection.textContent;
-                        break;
-                    }
-                }
-            }
-        }
-        this.ctrlOpeningResponsive(null);
-    }
-
-    //Open and close the menu responsive
-    ctrlOpeningResponsive(event){
-        event = event || null;
-        if(this.placeholder === null){ return; }
-
-        let status = (event ? event.currentTarget.getAttribute('data-btn') : 'close');
+    ctrl(event){
+        let sectionId = event.target.getAttribute("href");
         
-        this.placeholder.setAttribute('data-status', status);
-    }
-
-    //Open and close the submenu responsive
-    ctrlOpeningSubMenuResponsive(event, sectionId){
-        if(this.placeholder === null){ return; }
-
-        let branch = this.placeholder.querySelector(`[data-parent-section='${sectionId}']`);
-        if(branch !== null){
-            if(branch.getAttribute("data-status") === "open"){
-                branch.setAttribute("data-status", "close");
-                event.currentTarget.firstChild.classList.add("fa-plus");
-                event.currentTarget.firstChild.classList.remove("fa-minus");
+        let href = this.placeholder.querySelector(`[href='${sectionId}']`);
+        if(href !== null){
+            this.onSelect(href);
+            if(this.placeholder.classList.contains('responsive')){
+                this.onSelectResponsive(href);
             }
             else{
-                branch.setAttribute("data-status", "open");
-                event.currentTarget.firstChild.classList.add("fa-minus");
-                event.currentTarget.firstChild.classList.remove("fa-plus");
+                this.onSelectNormal(href);
             }
         }
     }
 
-    resetSelection(){
-        if(this.placeholder === null){ return;}
+    onMenuCollapase(){
+        this.menuSections.style.display = (this.menuSections.style.display === 'flex' ? 'none' : 'flex');
 
-        this.placeholder.style.marginBottom = "0";
+        let sectionId = M.recit.theme.recit2.Utils.getCookieCurSection();
+        let tmp = document.createElement('a');
+        tmp.setAttribute('href', sectionId);
+        this.ctrl({target: tmp});
+    }
 
-        // Reset menu level 1 selection.
-        let elems = this.placeholder.getElementsByClassName('menu-item');
-        for(let el of elems){
-            el.setAttribute("data-selected", "0");
+    onSubMenuCollapase(event, forceOpen){
+        console.log(event.currentTarget)
+        let icon = event.currentTarget.firstElementChild;
+        let submenu = event.currentTarget.nextElementSibling;
+        
+        if(forceOpen || icon.classList.contains("fa-plus")){
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            submenu.classList.add("d-flex");
+        }
+        else{
+            icon.classList.add('fa-plus');
+            icon.classList.remove('fa-minus');
+            submenu.classList.remove("d-flex");
+        }
+    }
 
-            //set the negative(-) sign to plus(+) sign
-            let levelSection = el.getElementsByClassName('menu-item-desc level-section active');
-            if(levelSection.length >= 1){
-                for(let item of levelSection){
-                    let sectionIcon = el.getElementsByClassName('fas fa-minus');
-                    for(let sec of sectionIcon){
-                        item.classList.toggle("active");
-                        sec.className = 'fas fa-plus';
-                    }
-                }
+    onSelect(href){
+        let menuItem = href.parentElement;
+
+        let items = this.placeholder.querySelectorAll(`li`);
+
+        // restart menu
+        for(let item of items){
+            // unselect all items
+            item.setAttribute('data-selected', '0');            
+        }
+
+        for(let item of items){
+            // select menu itemn (level 1 or 2)
+            if(item.isSameNode(menuItem)){
+                menuItem.setAttribute('data-selected', '1');
+            }
+
+            // in case menuItem is level2 then we need to select its parent
+            if(item.contains(menuItem)){
+                item.setAttribute('data-selected', '1');
             }
         }
+    }
 
-        // Reset menu level 2 selection.
-        elems = this.placeholder.querySelectorAll('[data-parent-section]');
-        for(let el of elems){
-            el.setAttribute("data-selected", "0");
+    onSelectNormal(href){
+        let menuItem = href.parentElement;
+
+        // restart menu
+        this.placeholder.style.marginBottom = "0px";
+
+        let items = this.placeholder.querySelectorAll(`li`);
+
+        for(let item of items){
+            if(menuItem.contains(item)){
+                this.placeholder.style.marginBottom = "60px";
+                break;
+            }
         }
+    }
+
+    onSelectResponsive(href){
+        let item = this.placeholder.querySelector(`.active-item`);
+
+        item.innerHTML = href.innerHTML;
+
+        if(href.parentElement.parentElement.previousElementSibling.hasAttribute('data-btn-submenu-collapse')){
+            this.onSubMenuCollapase({currentTarget: href.parentElement.parentElement.previousElementSibling}, true);
+        }
+
+        this.menuSections.style.display = 'none';
     }
 }
 

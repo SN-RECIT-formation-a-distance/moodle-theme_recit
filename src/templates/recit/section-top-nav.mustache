@@ -18,40 +18,23 @@
 {{#section_top_nav}}   
     {{#section_top_nav.isMenuM1}}
         <div class="navsections">
-            <nav class='menuM1' id='nav-sections' data-status='close'>                    
-                <div class='background-menu-mobile' data-btn='close' onclick="M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningResponsive(event)"></div>
-                <ul class='menu-level1'>
-                    <li class='btn-menu-responsive'>
-                        <button class='btn btn-outline-light btn-sm' data-btn='open'
-                            onclick='M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningResponsive(event)'><i class='fa fa-ellipsis-v'></i>
-                        </button>
-                        <div class='section-title'></div>
-                        <div class='sous-section-title'></div>
-                        <button class='btn btn-outline-light btn-sm' data-btn='close'
-                            onclick='M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningResponsive(event)'><i class='fa fa-times'></i>
-                        </button>
-                    </li>
-
+            <nav class='menuM1' id='nav-sections'>
+                <div class="responsive-bar">
+                    <button id="btn-menu-collapse" class='btn btn-outline-light btn-sm'><i class='fa fa-ellipsis-v'></i></button>
+                    <div class='active-item'></div>
+                </div>              
+                <ul id="menu-sections">
                     {{#section_top_nav.sections}}
-                        <li class='menu-item' data-submenu='0'>
-                            <div class='menu-item-title'>
-                                <div class='arrow'></div>
-                                <a class='menu-item-desc' href='{{url}}' title='{{title}}'>{{{desc}}}</a>
-                                {{#hasSubSections}}
-                                    <button class='btn btn-sm btn-outline-light btn-expand-sub-menu' 
-                                        onclick="M.recit.theme.recit2.Ctrl.instance.sectionsNav.menu.ctrlOpeningSubMenuResponsive(event, '{{sectionId}}')"><i class='fa fa-plus'></i></button>
-                                {{/hasSubSections}}
-                            </div>
+                        <li>
+                            <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
                             {{#hasSubSections}}
-                                <ul class="menu-level2" data-parent-section='{{sectionId}}' data-status='closed'>
+                                <button data-btn-submenu-collapse class='btn btn-outline-light btn-sm'><i class='fa fa-plus'></i></button>
+                                <ul>
                                 {{#subSections}}
-                                    <li class='menu-item' data-submenu='1'>
-                                        <div class='menu-item-title'>
-                                            <div class='arrow'></div>
-                                            <a class='menu-item-desc' href='{{url}}' title='{{title}}'>{{{desc}}}</a>
-                                        </div>
+                                    <li>
+                                        <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
                                     </li>
-                                    <li></li>    
+                                    <li></li>
                                 {{/subSections}}
                                 </ul>
                             {{/hasSubSections}}
