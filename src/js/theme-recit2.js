@@ -155,7 +155,7 @@ M.recit.theme.recit2.Utils = class{
                 return c.substring(name.length, c.length);
             }
         }
-        return "";
+        return false;
     }
 
     static setCookie(id, value, minutesExpire, path) {
@@ -177,11 +177,12 @@ M.recit.theme.recit2.Utils = class{
 
     static getCookieCurSection(){
         let courseId = window.document.body.className.match(/course-\d+/);
-        let result = "";
+        let result = false;
 
         if(courseId){
-            result = M.recit.theme.recit2.Utils.getCookie(`${courseId}-cursection`);
-            result = "#section-"+result;
+            let cookie = M.recit.theme.recit2.Utils.getCookie(`${courseId}-cursection`);
+            if (!cookie) return false;
+            result = "#section-"+cookie;
         }
 
         return result;
