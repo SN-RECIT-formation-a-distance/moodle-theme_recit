@@ -215,7 +215,6 @@ M.recit.theme.recit2.MenuM1 = class{
     }
 
     onSubMenuCollapase(event, forceOpen){
-        console.log(event.currentTarget)
         let icon = event.currentTarget.firstElementChild;
         let submenu = event.currentTarget.nextElementSibling;
         
@@ -264,7 +263,7 @@ M.recit.theme.recit2.MenuM1 = class{
         let items = this.placeholder.querySelectorAll(`li`);
 
         for(let item of items){
-            if(menuItem.contains(item)){
+            if(!menuItem.isSameNode(item) && (menuItem.contains(item) || item.contains(menuItem))){
                 this.placeholder.style.marginBottom = "60px";
                 break;
             }
