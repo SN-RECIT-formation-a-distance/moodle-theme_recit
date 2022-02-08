@@ -43,7 +43,7 @@ $max-width-responsive-m5: 992px;
                         }
                     }
                 }
-                li.nav-item[data-selected="1"]{
+                li.nav-item[data-selected="1"] > a{
                     font-weight: bold; 
                     text-decoration: underline solid #fff;
                 }

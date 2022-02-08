@@ -303,6 +303,10 @@ M.recit.theme.recit2.MenuM5 = class{
         return this.placeholder.parentElement.classList.contains('vertical');
     }
 
+    isMobile(){
+        return window.innerWidth < 990;
+    }
+
     /*onScroll(event){
          let verticalMenu = this.placeholder.querySelector("[id='navbarTogglerCourse']");
          
@@ -321,7 +325,7 @@ M.recit.theme.recit2.MenuM5 = class{
                 el.setAttribute("data-selected", "0");
             }
 
-            if (this.isVertical() && el.classList.contains('dropdown')){
+            if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){
                 let subelems = el.querySelectorAll('.dropdown-item');
                 for(let subel of subelems){
                     if(event.target.hash === subel.hash){
