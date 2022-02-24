@@ -35,7 +35,7 @@ $plugin->requires = 2020061500.00; // Moodle 3.9.0
 $plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'v2.0.0';
+$plugin->release = 'v2.0.1';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_ALPHA;
