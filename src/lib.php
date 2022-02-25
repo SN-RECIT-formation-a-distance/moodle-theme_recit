@@ -243,7 +243,7 @@ function theme_recit2_create_course_custom_fields(){
             'shortname' => 'img_course_as_banner',
             'description' => get_string('course-banner-help', 'theme_recit2'),
             'descriptionformat' => FORMAT_HTML,
-            'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 0)
+            'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 0)
     );
 
     $field_to_add[] = array(
@@ -252,7 +252,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'show_activity_nav',
         'description' => get_string('show-activity-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 2, "checkbydefault" => 1)
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
     );
 
     $field_to_add[] = array(
@@ -261,7 +261,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'show_section_bottom_nav',
         'description' => get_string('show-section-bottom-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
     );
 
     $field_to_add[] = array(
@@ -270,7 +270,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'hide_restricted_section',
         'description' => get_string('hide_restricted_section_help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "checkbydefault" => 1)
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
     );    
 
     $options = array();
@@ -289,7 +289,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'menumodel',
         'description' => get_string('menu-model-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "options" => implode("\r\n", $options), "defaultvalue" => get_string("menu-m1", 'theme_recit2'))
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "options" => implode("\r\n", $options), "defaultvalue" => get_string("menu-m1", 'theme_recit2'))
     );
 
     /*$field_to_add[] = array(
@@ -307,7 +307,7 @@ function theme_recit2_create_course_custom_fields(){
         'shortname' => 'css_custom',
         'description' => 'CSS Custom',
         'descriptionformat' => FORMAT_HTML,
-        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 1, "defaultvalue" => "", "defaultvalueformat" => "1")
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "defaultvalue" => "", "defaultvalueformat" => "1")
     );
 
     $fields = array();
