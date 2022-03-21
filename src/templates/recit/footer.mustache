@@ -41,16 +41,12 @@
         <div class="col-12 col-md-4 col-lg-3">
             <ul class="infolink-list">
                 {{#sitehome}}<li><a href="{{sitehome}}">{{s_sitehome}}</a></li>{{/sitehome}}
-
-                {{#sitepolicy}}<li><a href="{{sitepolicy}}" target="_blank">{{s_sitepolicy}}</a></li>{{/sitepolicy}}
                
                 {{#page_doc_link}}
                     <li><a href="{{page_doc_link}}" target="_blank">{{s_page_doc_link}}</a></li>
                 {{/page_doc_link}}
 
-                {{#showdataretentionsummary}}
-                    <li><a href="{{showdataretentionsummary}}" target="_blank">{{s_showdataretentionsummary}}</a></li>
-                {{/showdataretentionsummary}}
+                <li><div class="tool_usertours-resettourcontainer"></div></li>
             </ul>
         </div>
 
@@ -124,8 +120,8 @@
         <hr class="border-light"/>
         <div id="course-footer">{{{ output.course_footer }}}</div>    
     {{/output.course_footer}}
-
-    {{#output.standard_footer_html}}
+    
+   {{#output.standard_footer_html}}
         <hr class="border-light"/>
         {{{ output.standard_footer_html }}}
     {{/output.standard_footer_html}}

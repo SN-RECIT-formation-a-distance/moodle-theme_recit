@@ -590,9 +590,9 @@ class core_renderer extends \core_renderer {
 
         $output = null;
 
-        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', \context_system::instance())) {  // Only in developer mode
+        //if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', \context_system::instance())) {  // Only in developer mode
             $output = parent::standard_footer_html();
-        }
+        //}
 
         return $output;
     }
