@@ -103,7 +103,7 @@ class core_renderer extends \core_renderer {
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
-        $header->breadcrumb = (isset($theme->settings->enablebreadcrumb) && $theme->settings->enablebreadcrumb == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
+        $header->breadcrumb = (ThemeSettings::get_custom_field('enablebreadcrumb') == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
         $header->pageheadingbutton = $this->page_heading_button();
         $header->showpageheadingbutton = ($this->page->cm != null && in_array($this->page->cm->modname, array('wiki')));
         $header->headeractions = $this->page->get_header_actions();
