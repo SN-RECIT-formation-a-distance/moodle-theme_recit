@@ -88,4 +88,9 @@ if ($hasblocks && isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, Them
     $templatecontext['hasblocksembed'] = true;
 }
 
-echo $OUTPUT->render_from_template('theme_recit2/recit/columns2', $templatecontext);
+if($PAGE->__get('pagelayout') == 'mydashboard'){    
+    echo $OUTPUT->render_from_template('theme_recit2/recit/mydashboard', $templatecontext);
+}
+else{
+    echo $OUTPUT->render_from_template('theme_recit2/recit/columns2', $templatecontext);
+}
