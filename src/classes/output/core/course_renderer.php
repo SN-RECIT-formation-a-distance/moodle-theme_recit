@@ -486,7 +486,11 @@ class course_renderer extends \core_course_renderer {
             if (is_numeric($c)){
                 $course = new stdClass();
                 $course->id = $c;
-                $output .= $this->coursecat_coursebox($chelper, $course);
+                try {
+                    $output .= $this->coursecat_coursebox($chelper, $course);
+                }catch(\Exception $e){
+                    $output .= "Failed to load course $c";
+                }
             }
         }
         $output .= "</div>";
