@@ -184,7 +184,7 @@ $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty templ
 
 // color palette
 $string['navcolor'] = 'Couleur de bas et haut de page';
-$string['navcolor_desc'] = 'Couleur de bas et haut de page';
+$string['navcolor_desc'] = 'Couleur de bas et haut de page.';
 
 $string['coursesections'] = 'Sections de cours';
 //$string['region-side-top'] = 'En haut';
@@ -192,18 +192,18 @@ $string['region-side-post'] = 'En haut';
 
 $string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';
 $string['showleavingsitewarning'] = 'Alerte si lien externe';
-$string['timeout'] = 'La connexion a été perdu';
+$string['timeout'] = 'La connexion a été perdu.';
 $string['close'] = 'Fermer';
 $string['msgtimeout'] = 'La connexion au serveur Moodle a été perdu. Veuillez vérifier votre connexion internet.';
-$string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter Moodle lorsqu\'un lien mène vers un site en dehors de Moodle';
+$string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter Moodle lorsqu\'un lien mène vers un site en dehors de Moodle.';
 
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
-$string['course-banner-help'] = "Utiliser l'image du cours comme bannière";
+$string['course-banner-help'] = "Utiliser l'image du cours comme bannière.";
 $string['show-section-bottom-nav'] = 'Afficher la navigation par section';
 $string['show-section-bottom-nav-help'] = 'Affiche en bas de page 2 boutons de navigation : section précédente et section suivante.';
 $string['menu-model'] = 'Modèle de menu';
-$string['menu-model-help'] = 'Le menu peut avoir un visuel différent. Vous pouvez choisir le modèle qui vous convient';
+$string['menu-model-help'] = 'Le menu peut avoir un visuel différent. Vous pouvez choisir le modèle qui vous convient.';
 $string['menu-m1'] = 'Horizontal 2 niveaux';
 $string['menu-m2'] = 'Vertical à droite';
 $string['menu-m3'] = 'Vertical à gauche';

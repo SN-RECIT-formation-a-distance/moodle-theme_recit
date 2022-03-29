@@ -191,19 +191,19 @@ $string['coursesections'] = 'Course sections';
 $string['region-side-post'] = 'To the top';
 
 $string['msgleavingmoodle'] = 'Are you sure you want to leave the Moodle - This link is taking you to a site outside of Moodle?';
-$string['timeout'] = 'Connection timed out';
+$string['timeout'] = 'Connection timed out.';
 $string['close'] = 'Close';
 $string['msgtimeout'] = 'The connection to Moodle has been lost. Please check your internet connection.';
 $string['showleavingsitewarning'] = 'Show warning when user clicks on external link';
-$string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if link is external';
+$string['showleavingsitewarningdesc'] = 'Ask if user wants to leave Moodle if link is external.';
 
 // Custom fields
 $string['course-banner'] = 'Course banner';
-$string['course-banner-help'] = "Use the course image as a banner";
+$string['course-banner-help'] = "Use the course image as a banner.";
 $string['show-section-bottom-nav'] = 'Show navigation by section';
 $string['show-section-bottom-nav-help'] = 'Displays 2 navigation buttons at the bottom of the page: previous section and next section.';
 $string['menu-model'] = 'Menu Model';
-$string['menu-model-help'] = 'The menu may have a different visual. You can choose the model that suits you';
+$string['menu-model-help'] = 'The menu may have a different visual. You can choose the model that suits you.';
 $string['menu-m1'] = 'Horizontal 2 Levels';
 $string['menu-m2'] = 'Vertical Right';
 $string['menu-m3'] = 'Vertical Left';
