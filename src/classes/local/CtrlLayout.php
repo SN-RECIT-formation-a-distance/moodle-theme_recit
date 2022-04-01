@@ -343,14 +343,10 @@ class CtrlLayout{
 
         $state = ($page->user_is_editing() ? 'off' : 'on');
 
-       // if((isset($page->cm) && $page->cm->modname == 'book')){
-            $item->url = sprintf("%s&sesskey=%s&edit=%s", $PAGE->url->out(), sesskey(), $state);
-        /*} else {
-            $item->url = sprintf("%s/course/view.php?id=%ld&sesskey=%s&edit=%s", $CFG->wwwroot, $COURSE->id, sesskey(), $state);
-        }	*/
-        
+        $item->url = sprintf("%s&sesskey=%s&recitedit=%s", $PAGE->url->out(), sesskey(), $state);
         $item->title = get_string('editmode', 'theme_recit2');
         $item->checked = (self::user_is_editing($page) == 1 ? 'checked' : '');
+        
         return $item;
     }
 

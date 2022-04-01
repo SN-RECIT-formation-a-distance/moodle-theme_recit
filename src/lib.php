@@ -35,7 +35,13 @@ use theme_recit2\local\ThemeSettings;
  * @param  moodle_page $page [description]
  */
 function theme_recit2_page_init(moodle_page $page) {
+    global $USER;
     theme_recit2_strings_for_js();
+
+    if (isset($_GET['recitedit'])){//When user clicks on editing mode toggle
+        $USER->editing = $_GET['recitedit'] == 'on' ? true : false;
+    }
+
 }
 
  /**
