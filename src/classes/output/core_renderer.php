@@ -61,9 +61,14 @@ class core_renderer extends \core_renderer {
      * @param string $target one of rendering target constants
      */
     public function __construct(\moodle_page $page, $target){
+        global $USER;
         parent::__construct($page, $target);
 
         $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit2');
+        
+        if (isset($_GET['recitedit'])){//When user clicks on editing mode toggle
+            $USER->editing = $_GET['recitedit'] == 'on' ? true : false;
+        }
     }
 
     /**
