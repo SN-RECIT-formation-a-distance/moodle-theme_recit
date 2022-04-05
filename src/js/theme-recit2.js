@@ -19,6 +19,7 @@ M.recit.theme.recit2.Ctrl = class{
 
         this.init();
         this.initTimeoutModal();
+        this.initLightbox();
     }
 
     init(){
@@ -38,6 +39,14 @@ M.recit.theme.recit2.Ctrl = class{
         if (modal){
             setInterval(() => this.checkForTimeout(), 60000 * 5);//Check every 5 mins
         }
+    }
+
+    initLightbox(){
+        if (typeof $ == 'undefined') return;
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
     }
 
     checkForTimeout(){
