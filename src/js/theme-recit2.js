@@ -19,6 +19,7 @@ M.recit.theme.recit2.Ctrl = class{
 
         this.init();
         this.initTimeoutModal();
+        this.initEkkoLightbox();
     }
 
     init(){
@@ -32,6 +33,15 @@ M.recit.theme.recit2.Ctrl = class{
 
         window.addEventListener("keydown", this.ctrlShortcuts);
     };
+
+    initEkkoLightbox(){
+        require(["jquery"],function($){
+            $(document).on('click','[data-toggle="lightbox"]',function(event){
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        });
+    }
 
     initTimeoutModal(){
         let modal = document.getElementById('recit-modal-timeout');
