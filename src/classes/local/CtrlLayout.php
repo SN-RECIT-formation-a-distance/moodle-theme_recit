@@ -343,7 +343,12 @@ class CtrlLayout{
 
         $state = ($page->user_is_editing() ? 'off' : 'on');
 
-        $item->url = sprintf("%s&sesskey=%s&recitedit=%s", $PAGE->url->out(), sesskey(), $state);
+        $url = $PAGE->url->out();
+        if (strpos($url, '?') !== false) {
+            $item->url = sprintf("%s&sesskey=%s&recitedit=%s", $url, sesskey(), $state);
+        }else{
+            $item->url = sprintf("%s?sesskey=%s&recitedit=%s", $url, sesskey(), $state);
+        }
         $item->title = get_string('editmode', 'theme_recit2');
         $item->checked = (self::user_is_editing($page) == 1 ? 'checked' : '');
         
