@@ -1424,6 +1424,7 @@ class core_renderer extends \core_renderer {
             $output .= sprintf("<h2 class='activity-title'>%s</h2>", $text);
             $output .= "</div>";           
             $output .= "<div class='activity-controls'>"; 
+            $output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
             /*$output .= "<div class='btn-group' style='margin-right: 1rem;'>";
             $output .= sprintf("<button  class='btn btn-primary' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
                         $this->act_name(), $this->act_name_cons());
