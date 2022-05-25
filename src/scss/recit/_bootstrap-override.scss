@@ -20,7 +20,6 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
 .shadow-lg{    box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important}
 .shadow-none{    box-shadow:none!important}
 .text-wrap {    white-space: normal !important;}
-.rounded-pill {    border-radius: 50rem!important;}
 .text-decoration-none {    text-decoration: none !important;}
 // Fin ajout classe bootstrap 4.4 
 
@@ -43,6 +42,21 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
 .rounded-1 {  border-radius: 0.2rem !important;}
 .rounded-2 {  border-radius: 0.25rem !important;}
 .rounded-3 {  border-radius: 0.3rem !important;}
+.rounded-pill {    border-radius: 50rem!important;}
+.top-50 {    top: 50% !important;  }
+.top-100 {    top: 100% !important;  }  
+.bottom-0 {    bottom: 0 !important;  }
+.bottom-50 {    bottom: 50% !important;  }
+.bottom-100 {    bottom: 100% !important;  }
+.start-0 {    left: 0 !important;  }
+.start-50 {    left: 50% !important;  }
+.start-100 {    left: 100% !important;  }
+.end-0 {    right: 0 !important;  }
+.end-50 {    right: 50% !important;  }
+.end-100 {    right: 100% !important;  }
+.translate-middle {    transform: translate(-50%, -50%) !important;  }
+.translate-middle-x {    transform: translateX(-50%) !important;  }
+.translate-middle-y {    transform: translateY(-50%) !important;  }
 // Fin ajout classe bootstrap 5.0 
 
 .modal-backdrop.show {  opacity:.9;}
