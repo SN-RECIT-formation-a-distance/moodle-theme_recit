@@ -82,7 +82,9 @@ class core_renderer extends \core_renderer {
     public function box_start($classes = '', $id = null, $attributes = array()) {
         global $PAGE;
 
-        $classes = explode(" ", $classes);
+        if(is_string($classes)){
+            $classes = explode(" ", $classes);
+        }
 
         if($PAGE->pagelayout == 'frontpage'){
             $classes[] = 'activity-content';
