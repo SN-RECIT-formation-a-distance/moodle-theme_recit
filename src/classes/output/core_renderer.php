@@ -120,8 +120,9 @@ class core_renderer extends \core_renderer {
         $header->isguest = $USER->id == 1;
         $header->incourse = $COURSE->id > 1;
         if ($header->incourse){
-            $header->isenrolled = is_enrolled($PAGE->context, $USER) || strstr($_SERVER['REQUEST_URI'], 'enrol');
-            $header->canenrol = (is_enrolled($PAGE->context) === false) && ($USER->id > 1) && (!has_capability('moodle/course:update', $PAGE->context));
+            $courseContext = \context_course::instance($COURSE->id );
+            $header->isenrolled = is_enrolled($courseContext, $USER) || strstr($_SERVER['REQUEST_URI'], 'enrol');
+            $header->canenrol = (is_enrolled($courseContext) === false) && ($USER->id > 1) && (!has_capability('moodle/course:update', $courseContext));
             $header->course_id = $COURSE->id;
         }
 
