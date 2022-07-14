@@ -393,7 +393,7 @@ class CtrlLayout{
         // Get some navigation opts.
         $navoptions = user_get_user_navigation_info($user, $page);
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
         $instance = \core\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
 
@@ -465,7 +465,7 @@ class CtrlLayout{
             return;
         }
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
         $instance = \core\output\icon_system_fontawesome::instance($theme->get_icon_system());
         $iconmap = $instance->get_icon_name_map();
 

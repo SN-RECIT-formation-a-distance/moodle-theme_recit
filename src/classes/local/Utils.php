@@ -93,6 +93,14 @@ class ThemeSettings {
         return 'theme-'.str_replace('_', '-', $PAGE->theme->name);
     }
 
+    public static function get_theme_name(){
+        global $PAGE,$CFG;
+        if (file_exists($CFG->dirroot.'/theme/'.$PAGE->theme->name.'/settings.php')){
+            return $PAGE->theme->name;
+        }
+        return "recit2";
+    }
+
     /**
      * Get config theme footer items
      *
@@ -101,7 +109,7 @@ class ThemeSettings {
     public function footer_items() {
         global $CFG, $PAGE;
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(self::get_theme_name());
 
         $templatecontext = [];
 
@@ -124,7 +132,7 @@ class ThemeSettings {
             }
         }
 
-        $templatecontext['infolink'] = $this->getInfolink( $theme->settings->infolink);
+        $templatecontext['infolink'] = $this->getInfolink($theme->settings->infolink);
 
         $templatecontext['s_sitepolicy'] = get_string('sitepolicy', 'core_admin');
         $templatecontext['sitepolicy'] = $CFG->sitepolicy;
@@ -191,7 +199,7 @@ class ThemeSettings {
     public function slideshow($theme) {
         global $OUTPUT;
 
-        $templatecontext['enabled'] = ($theme->settings->sliderenabled == 1);
+        $templatecontext['enabled'] = (isset($theme->settings->sliderenabled) && $theme->settings->sliderenabled == 1);
 
         if (empty($templatecontext['enabled'])) {
             return $templatecontext;

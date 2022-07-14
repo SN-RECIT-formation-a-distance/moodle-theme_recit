@@ -469,7 +469,7 @@ class course_renderer extends \core_course_renderer {
     
     protected function featuredcourses(){
         $output = '';
-        $theme = \theme_config::load('recit2');
+        $theme = \theme_config::load(\ThemeSettings::get_theme_name());
         $courses = isset($theme->settings->featuredcourses) ? $theme->settings->featuredcourses : '';
 
         if (empty($courses)) {

@@ -105,7 +105,7 @@ class core_renderer extends \core_renderer {
     public function full_header() {
         global $PAGE, $SITE, $USER, $COURSE;
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
 
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
@@ -172,7 +172,7 @@ class core_renderer extends \core_renderer {
                                 </script>
                                 <script async src='https://www.google-analytics.com/analytics.js'></script>";
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
 
         if (!empty($theme->settings->googleanalytics)) {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
@@ -263,7 +263,7 @@ class core_renderer extends \core_renderer {
     public function favicon() {
         global $OUTPUT;
 
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
 
@@ -280,7 +280,7 @@ class core_renderer extends \core_renderer {
      * @return string
      */
     public function get_theme_logo_url() {
-        $theme = theme_config::load('recit2');
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
 
         return $theme->setting_file_url('logo', 'logo');
     }
