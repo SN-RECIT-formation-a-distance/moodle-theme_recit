@@ -327,7 +327,7 @@ class CtrlLayout{
                 $result['grade'] = $item;*/
             }
         }else{
-            if ($page->user_allowed_editing() && $page->pagelayout == 'frontpage') {
+            if ($page->user_allowed_editing() && ($page->pagelayout == 'frontpage' || $page->pagelayout == 'mydashboard')) {
                 // editing mode
                 $result['turneditingonoff'] = self::get_editing_mode_object($page);
                  
