@@ -50,6 +50,12 @@ class Settings {
         $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
         $page->add($setting);
 
+        $name = 'theme_'.$this->theme_name.'/enablebreadcrumb';
+        $title = get_string('enablebreadcrumb', 'theme_recit2');
+        $description = get_string('enablebreadcrumbdesc', 'theme_recit2');
+        $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
+        $page->add($setting);
+
         // Must add the page after defining all the settings!
         $settings->add($page);
 

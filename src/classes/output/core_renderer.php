@@ -110,7 +110,6 @@ class core_renderer extends \core_renderer {
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         $header->contextheader = $this->context_header();
-        $header->breadcrumb = (ThemeSettings::get_custom_field('enablebreadcrumb') == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
         $header->pageheadingbutton = $this->page_heading_button();
         $header->showpageheadingbutton = ($this->page->cm != null && in_array($this->page->cm->modname, array('wiki')));
         $header->headeractions = $this->page->get_header_actions();
@@ -124,6 +123,9 @@ class core_renderer extends \core_renderer {
             $header->isenrolled = is_enrolled($courseContext, $USER) || strstr($_SERVER['REQUEST_URI'], 'enrol');
             $header->canenrol = (is_enrolled($courseContext) === false) && ($USER->id > 1) && (!has_capability('moodle/course:update', $courseContext));
             $header->course_id = $COURSE->id;
+            $header->breadcrumb = (ThemeSettings::get_custom_field('enablebreadcrumb') == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
+        }else{
+            $header->breadcrumb = ((isset($theme->settings->enablebreadcrumb) && $theme->settings->enablebreadcrumb == 1) ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
         }
 
         $header->siteSummary = (isset($header->layoutOptions->showSiteSummary) && $header->layoutOptions->showSiteSummary ? $SITE->summary : null);
