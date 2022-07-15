@@ -73,26 +73,6 @@ function theme_recit2_set_headerimg($theme) {
 }
 
 /**
- * Adds the footer image to CSS.
- *
- * @param theme_config $theme The theme config object.
- * @return string
- */
-function theme_recit2_set_topfooterimg($theme) {
-    global $OUTPUT;
-
-    $topfooterimg = $theme->setting_file_url('topfooterimg', 'topfooterimg');
-
-    if (is_null($topfooterimg)) {
-        $topfooterimg = $OUTPUT->image_url('footer-bg', 'theme');
-    }
-
-    $headercss = "#top-footer {background-image: url('$topfooterimg');}";
-
-    return $headercss;
-}
-
-/**
  * Adds the login page background image to CSS.
  *
  * @param theme_config $theme The theme config object.
@@ -142,7 +122,6 @@ function theme_recit2_get_extra_scss($theme) {
     $result = "";
 
     $result .= theme_recit2_set_headerimg($theme);
-    $result .= theme_recit2_set_topfooterimg($theme);
     $result .= theme_recit2_set_loginbgimg($theme);
     
     if(!empty($theme->settings->extrascss)){
@@ -180,8 +159,6 @@ function theme_recit2_pluginfile($course, $cm, $context, $filearea, $args, $forc
         return $theme->setting_file_serve('marketing3icon', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing4icon') {
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'topfooterimg') {
-        return $theme->setting_file_serve('topfooterimg', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbgimg') {
         return $theme->setting_file_serve('loginbgimg', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {

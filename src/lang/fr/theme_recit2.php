@@ -28,30 +28,13 @@ $string['pluginname'] = 'RÉCIT v2';
 $string['configtitle'] = 'RÉCIT';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 
-$string['currentinparentheses'] = '(current)';
-$string['region-side-pre'] = 'Droit';
 $string['login'] = 'Vous avez déjà un compte?';
 $string['notenrolled'] = 'Vous n\'êtes pas inscrit(e) à ce cours';
 $string['notloggedin'] = 'Vous n\'êtes pas connecté(e)';
 $string['prev_section'] = 'Section précédente';
 $string['next_section'] = 'Section suivante';
-$string['search_site'] = 'Rechercher sur le site';
-$string['search_forums'] = 'Rechercher dans le forum du cours';
-$string['platform_access'] = 'Accéder à laplate-forme';
-$string['readmore'] = 'En lire plus';
-$string['stayintouch'] = 'Je suis RÉCIT';
-$string['madewitmoodle'] = 'Fierement réalisé';
-$string['madeby'] = 'Fait avec';
-$string['by'] = 'par';
-$string['discipline_progress'] = 'progrès';
-$string['access'] = 'Accéder';
-$string['cachedef_admininfos'] = 'Tableau de bord de l\'administrateur';
-$string['diskusage'] = 'Moodledata';
-$string['totalusers'] = 'Utilisateurs actifs / Suspendus';
-$string['totalcourses'] = 'Total';
-$string['onlineusers'] = 'Usagers en ligne lors de 5 dernières minutes)';
-$string['showhideblocks'] = 'montrer /cacher blocks';
-$string['privacy:metadata'] = 'Le thème  Recit ne conserve aucune données utilisateur.';
+$string['showhideblocks'] = 'Montrer / cacher blocks';
+$string['privacy:metadata'] = 'Le thème Recit ne conserve aucune données utilisateur.';
 $string['coursehome'] = 'Accueil du cours';
 $string['grade'] = 'Carnet des résultats';
 $string['editmode'] = 'Mode édition';
@@ -61,27 +44,9 @@ $string['generalsettings'] = 'Général';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Le logo est affiché en entête.';
 $string['favicon'] = 'favicon pesonnalisé';
-$string['favicondesc'] = 'Téléverser votre favicon.  Ce doit être un ficher .ico.';
-$string['preset'] = 'Theme preset';
-$string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
-$string['presetfiles'] = 'Additional theme preset files';
-$string['presetfiles_desc'] = 'Preset files can be used to dramatically alter the appearance of the theme.';
+$string['favicondesc'] = 'Téléverser votre favicon. Ce doit être un ficher .ico.';
 $string['loginbgimg'] = 'Arrière-plan de la page de connexion';
 $string['loginbgimg_desc'] = 'Téléverser votre image d\'arrère-plan de page de connexion.';
-$string['brandcolor'] = 'Brand colour';
-$string['brandcolor_desc'] = 'The accent colour.';
-$string['navbarheadercolor'] = 'Navbar header color';
-$string['navbarheadercolor_desc'] = 'The top navbar header color';
-/*$string['coursetheme'] = 'Thème du cours';
-$string['coursethemedesc'] = '';
-$string['themeFrancais'] = 'Thème RECIT Français';
-$string['themeHistoire'] = 'Thème RECIT Histoire';*/
-$string['coursepresentation'] = 'Course presentation';
-$string['coursepresentationdesc'] = '<b>Default presentation:</b> The default course appearence.<br><b>Cover image:</b> Will be showed a cover image on the top of the course page(the first image in course summary files will be used).';
-$string['coursedefault'] = 'Default presentation';
-$string['coursecover'] = 'Cover image';
-$string['courselistview'] = 'Enable course list view';
-$string['courselistviewdesc'] = 'Switch the courses view from box to list view';
 $string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
 $string['enablebreadcrumbdesc'] = '';
 
@@ -89,12 +54,6 @@ $string['enablebreadcrumbdesc'] = '';
 $string['frontpagesettings'] = 'Page d\'accueil';
 $string['headerimg'] = 'Image d\'entête';
 $string['headerimgdesc'] = 'Téléchargez ici votre image d\'entête personnalisée si vous voulez l\'ajouter dans l\'entête. La taille de l\'image doit être de 1500px par 150px.';
-$string['bannerheading'] = 'Entête de la bannière';
-$string['bannerheadingdesc'] = 'Entrez le texte de l\'entête de la bannière';
-$string['bannercontent'] = 'Contenu de la bannière';
-$string['bannercontentdesc'] = 'Enter Banner Content Text';
-$string['displaymarketingbox'] = 'Entrez le texte de contenu de la bannière';
-$string['displaymarketingboxdesc'] = 'Affiche ou masque les boîtes de promotion sur la première page';
 
 $string['sliderenabled'] = 'Activer le diaporama';
 $string['sliderenableddesc'] = 'Activer un diaporama en haut de votre page d\'accueil';
@@ -106,14 +65,6 @@ $string['slidertitle'] = 'Titre de la diapositive';
 $string['slidertitledesc'] = 'Ajouter un titre à la diapositive.';
 $string['slidercaption'] = 'Texte de la diapositive';
 $string['slidercaptiondesc'] = 'Ajouter un titre à votre diapositive';
-
-$string['numbersfrontpage'] = 'Show site numbers on frontpage';
-$string['numbersfrontpagedesc'] = 'If enabled, display the number of active users, courses and activities in the frontpage.';
-$string['frontpagenumbersome'] = 'Some';
-$string['frontpagenumbernumbers'] = 'Nombre';
-$string['frontpagenumberusers'] = 'Users';
-$string['frontpagenumbercourses'] = 'Cours';
-$string['frontpagenumberactivities'] = 'Activités';
 
 $string['featuredcourses'] = 'Cours en vedette';
 $string['featuredcoursesdesc'] = 'Afficher les cours en vedette dans la page d\'accueil. Veuillez mettre l\'ID du cours séparé par une virgule. Example: 3,6,7,8';
@@ -136,12 +87,12 @@ German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
 Moodle.com|http://moodle.com/ </pre>";
 $string['copyright_footer'] = "Droit d'auteur";
 $string['copyright_default'] = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0; float: left;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>&nbsp;<span style="font-size: small; color: #fff;">Ces formations (sauf avis contraire) sont mises à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</span>';
-$string['website'] = 'Website URL';
-$string['websitedesc'] = 'Main company Website';
+$string['website'] = 'URL du site web';
+$string['websitedesc'] = 'URL principal de l\'organisation';
 $string['mobile'] = 'Mobile';
-$string['mobiledesc'] = 'Enter Mobile No';
+$string['mobiledesc'] = 'Entrer numéro de téléphone';
 $string['mail'] = 'E-Mail';
-$string['maildesc'] = 'Enter E-Mail ID';
+$string['maildesc'] = 'Entrer addresse courriel';
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Enter the URL of your Facebook. (i.e http://www.facebook.com/moodlehq)';
 $string['twitter'] = 'Twitter URL';
@@ -154,16 +105,12 @@ $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/moodlehq)';
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
-$string['topfooterimg'] = 'Footer image';
-$string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
-$string['footerlogo'] = 'Footer logo image';
+$string['footerlogo'] = 'Logo du footer';
 $string['footerlogodesc'] = 'Upload your custom footer logo image here if you want to replace the default image.';
 $string['termsurl'] = 'Politiques d\'utilisation';
 $string['termsurldesc'] = 'Enter the URL of your Terms of Usage';
 $string['policyurl'] = 'Politiques de confidentialité';
 $string['policyurldesc'] = 'Enter the URL of your Privacy Policy page';
-$string['disablebottomfooter'] = 'Enlever le pied de page';
-$string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
 // advanced settings
 $string['advancedsettings'] = 'Réglages avancés';
@@ -172,23 +119,9 @@ $string['rawscsspre_desc'] = "Dans ce champ, vous pouvez fournir du code SCSS d'
 $string['rawscss'] = 'SCSS extra';
 $string['rawscss_desc'] = 'Utilisez ce champ pour fournir le code SCSS ou CSS qui sera injecté à la fin de la feuille de style.';
 
-// Forum.
-$string['forumsettings'] = 'Forum';
-$string['forumsettingsdesc'] = 'Configurer les paranètres generaux pour le forum général.';
-$string['forumhtmlemailheader'] = 'En-tête de courriel';
-$string['forumhtmlemailheaderdesc'] = 'Configure the email header for the forum messages.';
-$string['forumhtmlemailfooter'] = 'Email footer';
-$string['forumhtmlemailfooterdesc'] = 'Configure the email footer for the forum messages.';
-$string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
-$string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
-
 // color palette
 $string['navcolor'] = 'Couleur de bas et haut de page';
 $string['navcolor_desc'] = 'Couleur de bas et haut de page.';
-
-$string['coursesections'] = 'Sections de cours';
-//$string['region-side-top'] = 'En haut';
-$string['region-side-post'] = 'En haut';
 
 $string['msgleavingmoodle'] = 'Êtes-vous sûr de vouloir quitter Moodle - Ce lien vous mène vers un site en dehors de Moodle?';
 $string['showleavingsitewarning'] = 'Alerte si lien externe';
