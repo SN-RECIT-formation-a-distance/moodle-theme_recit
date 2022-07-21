@@ -38,6 +38,7 @@ $string['privacy:metadata'] = 'Le thème Recit ne conserve aucune données utili
 $string['coursehome'] = 'Accueil du cours';
 $string['grade'] = 'Carnet des résultats';
 $string['editmode'] = 'Mode édition';
+$string['access'] = 'Accéder';
 
 // General settings tab.
 $string['generalsettings'] = 'Général';
