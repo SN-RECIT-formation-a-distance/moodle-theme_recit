@@ -34,6 +34,7 @@ use coursecat;
 use coursecat_helper;
 use stdClass;
 use core_course_list_element;
+use theme_recit2\local\ThemeSettings;
 
 /**
  * Renderers to align recit2's course elements to what is expect
@@ -469,7 +470,7 @@ class course_renderer extends \core_course_renderer {
     
     protected function featuredcourses(){
         $output = '';
-        $theme = \theme_config::load(\ThemeSettings::get_theme_name());
+        $theme = \theme_config::load(ThemeSettings::get_theme_name());
         $courses = isset($theme->settings->featuredcourses) ? $theme->settings->featuredcourses : '';
 
         if (empty($courses)) {
