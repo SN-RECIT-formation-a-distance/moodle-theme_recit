@@ -84,6 +84,13 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true, 'showSiteSummary' => false),
     ),
+     // Internal course modules page.
+     'report' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre','side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => false, 'showSectionTopNav' => false, 'showSiteSummary' => false),
+    ),
     // The site home page.
     'frontpage' => array(
         'file' => 'columns2.php',
