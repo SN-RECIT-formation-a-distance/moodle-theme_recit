@@ -34,7 +34,6 @@ $btn-radius: 30px;
     border-color: $secondaryBold;
 }
 
-
 #jump-to-activity{background: $primary url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -1 4 7'%3E%3Cpath fill='white' d='M2 0L0 0h4zm0 4L0 2h4z'/%3E%3C/svg%3E") no-repeat right .75rem center; color: #FFF;}
 
 
@@ -66,7 +65,7 @@ h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
         color: $color2;
         font-family: $headings-font-family !important;
         font-size: $headings-font-size;
-        text-shadow: 3px 3px 3px rgb(0 0 0);
+        text-shadow: 3px 3px 3px #000;
         background-color: #0000000d;
     }
 }

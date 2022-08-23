@@ -47,6 +47,7 @@ Pages
 #page-wrapper {
     position: relative;
     margin-top: $top-navbar-height;
+    min-height: calc(100vh - #{$top-navbar-height});
     #page{
         max-width: $page-max-width;
         background-color: #FFF;
@@ -54,6 +55,7 @@ Pages
         width: 100%;
     }
 }
+
 
 .pagelayout-maintenance{
     #page-wrapper{
@@ -69,6 +71,10 @@ Pages
     #page-wrapper::after {
         min-height: inherit;        
     }
+}
+
+#page-footer {
+    width: 100%;
 }
 
 // ceci est le #page-content de la page principale (ce n'est pas un iframe genre le plug-in h5p)
