@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'RÉCIT v2';
-$string['configtitle'] = 'RÉCIT';
+$string['configtitle'] = 'RÉCIT v2';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 
 $string['login'] = 'Vous avez déjà un compte?';
@@ -44,7 +44,7 @@ $string['access'] = 'Accéder';
 $string['generalsettings'] = 'Général';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Le logo est affiché en entête.';
-$string['favicon'] = 'favicon pesonnalisé';
+$string['favicon'] = 'favicon personnalisé';
 $string['favicondesc'] = 'Téléverser votre favicon. Ce doit être un ficher .ico.';
 $string['loginbgimg'] = 'Arrière-plan de la page de connexion';
 $string['loginbgimg_desc'] = 'Téléverser votre image d\'arrère-plan de page de connexion.';

@@ -118,7 +118,8 @@ function theme_recit2_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit2_get_extra_scss($theme) { 
+function theme_recit2_get_extra_scss($theme_org) {
+    $theme = theme_config::load(ThemeSettings::get_theme_name());
     $result = "";
 
     $result .= theme_recit2_set_headerimg($theme);
