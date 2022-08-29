@@ -367,6 +367,8 @@ class CtrlLayout{
             $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
             if(ThemeUtils::isAdminRole($roles)){
                 $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
+                $item->pix = "fa-line-chart";
+                $item->title = get_string('pluginname', 'local_recitdashboard');
             }
         }
     }
@@ -409,10 +411,7 @@ class CtrlLayout{
                 $item->title = $navitem->title;
                 $navid = current(explode(",", $navitem->titleidentifier));
 
-                if ($navid == "mymoodle") {
-                    self::set_recit_dashboard($item);
-                }
-                else if($navid == 'messages'){
+                if($navid == 'messages'){
                     continue;
                 }
 
@@ -431,6 +430,9 @@ class CtrlLayout{
         }
 
         $result["user"] = $item;
+        $dashboard = new stdClass();
+        self::set_recit_dashboard($dashboard);
+        $result["recitdashboard"] = $dashboard;
 
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "home");
         self::add_nav_item_from_flat_nav($result, $page->flatnav, "calendar");
@@ -448,7 +450,7 @@ class CtrlLayout{
             self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
             
         }
-
+        
         return $result;
     }
 

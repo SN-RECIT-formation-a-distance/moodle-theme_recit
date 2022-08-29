@@ -95,9 +95,11 @@
                     </li>
                 {{/lang.show}}
 
+                {{#usermenu.recitdashboard.url}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{usermenu.mymoodle.url}}" title="{{usermenu.mymoodle.title}}"><i class="fa {{usermenu.mymoodle.pix}}"></i><span  data-title> {{usermenu.mymoodle.title}}</span></a>
-                </li>                
+                    <a class="nav-link" href="{{usermenu.recitdashboard.url}}" title="{{usermenu.recitdashboard.title}}"><i class="fa {{usermenu.recitdashboard.pix}}"></i><span  data-title> {{usermenu.recitdashboard.title}}</span></a>
+                </li>
+                {{/usermenu.recitdashboard.url}}
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
@@ -148,6 +150,9 @@
                         {{#usermenu.home.url}}
                             <a class="dropdown-item" href="{{usermenu.home.url}}" title="{{usermenu.home.title}}"><i class="fa {{usermenu.home.pix}}"></i> {{usermenu.home.title}}</a>  
                         {{/usermenu.home.url}}
+                        {{#usermenu.mymoodle.url}}
+                            <a class="dropdown-item" href="{{usermenu.mymoodle.url}}"><i class="fa {{usermenu.mymoodle.pix}}"></i> {{usermenu.mymoodle.title}}</a>
+                        {{/usermenu.mymoodle.url}}
 
                         {{#usermenu.participants.url}}
                             <a class="dropdown-item" href="{{usermenu.participants.url}}"><i class="fa {{usermenu.participants.pix}}"></i> {{usermenu.participants.title}}</a>
