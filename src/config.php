@@ -96,7 +96,7 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => false, 'showSectionTopNav' => false, 'showSiteSummary' => true),
+        'options' => array('showCourseBanner' => true, 'showSectionTopNav' => false, 'showSiteSummary' => true),
     ),
     // Server administration scripts.
     'admin' => array(
