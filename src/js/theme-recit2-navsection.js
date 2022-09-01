@@ -173,7 +173,7 @@ M.recit.theme.recit2.MenuM1 = class{
     }
 
     onWindowResize(){
-        if((window.innerWidth > 1024) && (this.placeholder.offsetWidth <= M.recit.theme.recit2.Options.maxWidth)){
+        if((window.innerWidth > 1024) && (!this.menuWidth || this.menuWidth <= M.recit.theme.recit2.Options.maxWidth)){
             this.placeholder.classList.remove('responsive');
             this.placeholder.classList.add('normal');
             this.menuSections.style.display = 'flex';
@@ -181,6 +181,11 @@ M.recit.theme.recit2.MenuM1 = class{
             let items = this.menuSections.querySelectorAll('[data-btn-submenu-collapse]');
             for(let item of items){
                 item.nextElementSibling.classList.remove("d-flex");
+            }
+
+            if (!this.menuWidth){
+                this.menuWidth = this.menuSections.offsetWidth; //Keep width in memory because if we add responsive, width will return 0 as it's display none
+                this.onWindowResize(); //we added all classes so now we can see if menu is too large
             }
         }
         else{
