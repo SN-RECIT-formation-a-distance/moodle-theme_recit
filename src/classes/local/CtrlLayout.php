@@ -222,7 +222,7 @@ class CtrlLayout{
             if( !$section->visible ){ continue; } 
             if( $hideRestricted == 1 && !$section->available ){ continue; } 
 
-            $sectionDesc = (empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
+            $sectionDesc = get_section_name($COURSE, $section->section);//(empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             
             $sectionlevel = 1;
             if(isset($section->sectionlevel)){
