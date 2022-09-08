@@ -39,6 +39,8 @@ $string['coursehome'] = 'Accueil du cours';
 $string['grade'] = 'Carnet des résultats';
 $string['editmode'] = 'Mode édition';
 $string['access'] = 'Accéder';
+$string['region-side-pre'] = 'Droite';
+$string['region-side-post'] = 'Droite';
 
 // General settings tab.
 $string['generalsettings'] = 'Général';
