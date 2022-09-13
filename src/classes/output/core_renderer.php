@@ -194,6 +194,7 @@ class core_renderer extends \core_renderer {
         
         $settings = array(
             'showleavingsitewarning' => (isset($theme->settings->showleavingsitewarning) && $theme->settings->showleavingsitewarning),
+            'moodleversion' => $CFG->version
         );
         // force le chargement du fichier js du thème de base RÉCIT
         $PAGE->requires->js('/theme/recit2/js/theme-recit2-navsection.js');

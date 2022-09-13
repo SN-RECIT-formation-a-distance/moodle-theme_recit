@@ -104,6 +104,11 @@ function theme_recit2_get_main_scss_content($theme) {
     $scss = '';
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
 
+    //Moodle 3.11
+    if ($CFG->version >= 20210517){
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-311-base.css"); // loaded here because of [[pix:]]
+    }
+
     // Prepend pre-scss.
     $scss .= $theme->settings->prescss;
 
