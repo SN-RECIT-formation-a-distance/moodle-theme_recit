@@ -1,5 +1,5 @@
 body:not(.pagelayout-secure){
-    #sidepreopen-control, [data-region="blocks-column"] {
+    -control, [data-region="blocks-column"] {
         @include vendor('transition', 'width .5s ease, right .5s ease, opacity .5s ease, height .5s ease');
 
         .dropdown-menu {
@@ -35,7 +35,7 @@ body:not(.pagelayout-secure){
         font-size: 20px;
         padding: 8px 0 0 4px;
         cursor: pointer;
-        z-index: 1050;
+        z-index: 1000; // avoid conflit with Bootstrap modal z-index: 1040
         border: 2px solid #FFF;
 
         &:before {
