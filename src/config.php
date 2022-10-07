@@ -28,13 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ . '/lib.php');
 
 $THEME->name = 'recit2';
-//$THEME->sheets[] = "bootstrap";
-//$THEME->sheets[] = "moodle-base";
-//$THEME->sheets[] = "moodle-base-3-9-2";
-//$THEME->sheets[] = "recit";
 $THEME->editor_sheets = [];
 $THEME->parents = [];
 $THEME->enable_dock = false;
+$THEME->haseditswitch = true;
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
@@ -103,10 +100,17 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-		'options' => array('showBreadcrumb' => true, 'showSectionTopNav' => false, 'showSiteSummary' => false),
+		'options' => array('showBreadcrumb' => true, 'showSectionTopNav' => false, 'showSiteSummary' => false, 'showSecondaryNav' => true),
     ),
     // My dashboard page.
     'mydashboard' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('showCourseBanner' => false, 'showSectionTopNav' => false, 'showSiteSummary' => false),
+    ),
+    // My public page.
+    'mypublic' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',

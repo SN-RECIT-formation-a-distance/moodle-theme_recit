@@ -102,14 +102,6 @@ class CtrlLayout{
         $result['purgeallcaches'] = self::get_purge_all_caches_nav_item();
         $result['purgethemecache'] = self::get_purge_theme_cache_nav_item();
 
-        if (file_exists("{$CFG->dirroot}/local/recitgestioncontenu/version.php")) {
-            $item = new stdClass();
-            $item->url = sprintf("%s/local/recitgestioncontenu/view.php", $CFG->wwwroot);
-            $item->pix = "fa";
-            $item->title = get_string('pluginname', 'local_recitgestioncontenu');
-            $result['contentmanagement'] = $item;
-        }
-
         return $result;
     }
 
@@ -383,6 +375,17 @@ class CtrlLayout{
         global $COURSE, $USER;
 
         $result = array();
+        $staticicons = array(
+            'mymoodle,admin' => 'i/dashboard',
+            'profile,moodle' => 'i/user',
+            'privatefiles,moodle' => 'i/files',
+            'calendar,core_calendar' => 'i/calendar',
+            'grades,grades' => 't/grades',
+            'messages,message' => 't/message',
+            'preferences,moodle' => 't/preferences',
+            'logout,moodle' => 'a/logout',
+            'switchroleto,moodle' => 'i/switchrole',
+        );
 
         if ($user->id == 0) {
             return $result;
@@ -404,8 +407,10 @@ class CtrlLayout{
                 $item = new stdClass();
                 $item->url = $navitem->url->out(false);
 
-                if (isset($iconmap["core:" . $navitem->pix])) {
+                if (isset($navitem->pix) && isset($iconmap["core:" . $navitem->pix])) {
                     $item->pix = $iconmap["core:" . $navitem->pix];
+                }else if (isset($staticicons[$navitem->titleidentifier])){
+                    $item->pix = $iconmap["core:".$staticicons[$navitem->titleidentifier]];
                 }
 
                 $item->title = $navitem->title;
@@ -434,23 +439,28 @@ class CtrlLayout{
         self::set_recit_dashboard($dashboard);
         $result["recitdashboard"] = $dashboard;
 
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "home");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "calendar");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "privatefiles");
-        self::add_nav_item_from_flat_nav($result, $page->flatnav, "sitesettings");
+        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "home");
+        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
+        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
+        $item = new stdClass();
+        $url = new \moodle_url('/admin/search.php');
+        $item->url = $url->out();
+        $item->pix = 'fa-wrench';
+        $item->title = get_string('sitesettings');
+        $result["sitesettings"] = $item;
 
         if($COURSE->id > 1){
            
             $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
             if(ThemeUtils::isAdminRole($roles)){
-                self::add_nav_item_from_flat_nav($result, $page->flatnav, "participants");
-                self::add_nav_item_from_flat_nav($result, $page->flatnav, "contentbank");
+                self::add_nav_item_from_flat_nav($result, $page->secondarynav, "participants");
+                self::add_nav_item_from_flat_nav($result, $page->secondarynav, "contentbank");
             }
-            self::add_nav_item_from_flat_nav($result, $page->flatnav, "badgesview");
-            self::add_nav_item_from_flat_nav($result, $page->flatnav, "competencies");
+            self::add_nav_item_from_flat_nav($result, $page->secondarynav, "badgesview");
+            self::add_nav_item_from_flat_nav($result, $page->secondarynav, "competencies");
             
         }
-        
+    
         return $result;
     }
 
@@ -461,7 +471,7 @@ class CtrlLayout{
      * @param unknown $key
      */
     public static function add_nav_item_from_flat_nav(&$navitems, $flatnav, $key) {
-        $flatnavitem = $flatnav->find($key);
+        $flatnavitem = $flatnav->find($key, null);
         
         if (empty($flatnavitem) || empty($flatnavitem->action)) {
             return;

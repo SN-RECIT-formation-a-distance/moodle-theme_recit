@@ -58,6 +58,21 @@ if (CtrlLayout::is_drawer_open_right() && $hasblocks) {
 }
 $extraclasses[] = ThemeSettings::get_subtheme_class();
 
+$secondarynavigation = false;
+$overflow = '';
+if ($PAGE->has_secondary_navigation()) {
+    $tablistnav = $PAGE->has_tablist_secondary_navigation();
+    $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
+    $secondarynavigation = $moremenu->export_for_template($OUTPUT);
+    $overflowdata = $PAGE->secondarynav->get_overflow_menu_data();
+    if (!is_null($overflowdata)) {
+        $overflow = $overflowdata->export_for_template($OUTPUT);
+    }
+}
+$primary = new core\navigation\output\primary($PAGE);
+$renderer = $PAGE->get_renderer('core');
+$primarymenu = $primary->export_for_template($renderer);
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -67,7 +82,11 @@ $templatecontext = [
     'sidetopblocks' => $topblockshtml,
     'hastopblocks' => $hastopblocks,
     'bodyattributes' => $bodyattributes,
+    'overflow' => $overflow,
     'hasdrawertoggle' => $hasdrawertoggle,
+    'primarymoremenu' => $primarymenu['moremenu'],
+    'secondarymoremenu' => $secondarynavigation ?: false,
+    'mobileprimarynav' => $primarymenu['mobileprimarynav'],
     'navdraweropen' => CtrlLayout::is_nav_drawer_open(),
     'draweropenright' => CtrlLayout::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,

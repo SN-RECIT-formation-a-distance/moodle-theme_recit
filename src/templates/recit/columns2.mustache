@@ -66,6 +66,13 @@
             {{/section_top_nav}}
         {{/layoutOptions.showSectionTopNav}}
         {{^layoutOptions.showSectionTopNav}}
+        {{#layoutOptions.showSecondaryNav}}
+            {{#secondarymoremenu}}
+                <div class="secondary-navigation">
+                    {{> core/moremenu}}
+                </div>
+            {{/secondarymoremenu}}
+        {{/layoutOptions.showSecondaryNav}}
             {{> theme_recit2/recit/page-content }}
         {{/layoutOptions.showSectionTopNav}}
 

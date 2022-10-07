@@ -2,6 +2,7 @@
     max-width: $page-max-width;
     min-height:  $top-navbar-height;
     margin: auto;
+    border-bottom: none;
 
     @media screen and (max-width: 992px){
         &.fixed-top{
@@ -11,7 +12,14 @@
                 }
             } 
         } 
-        .nav-item-divider{    transform: rotate(90deg);                align-self: flex-start!important;}
+        .nav-item-divider{
+            transform: rotate(90deg);
+            align-self: flex-start!important;
+        }
+    }
+
+    .navbar-brand {
+        line-height: 48px;
     }
 
     .navbar-nav{ 
@@ -40,6 +48,10 @@ nav.navbar {
     max-height: inherit; // min-content does not work with firefox;
 }
 
+.header-action {
+    margin-right: 10px;
+}
+
 nav.navbar .logo img {
     max-width: 60px;
 }
@@ -56,6 +68,11 @@ nav.navbar .logo img {
             padding-top: 10px;
         }
     }
+}
+
+.secondary-navigation .navigation {
+    margin: 0;
+    padding: 0;
 }
 
 .breadcrumb {

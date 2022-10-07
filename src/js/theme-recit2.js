@@ -20,6 +20,7 @@ M.recit.theme.recit2.Ctrl = class{
         this.init();
         this.initTimeoutModal();
         this.initEkkoLightbox();
+        this.initGoToTopBtn();
     }
 
     init(){
@@ -33,6 +34,19 @@ M.recit.theme.recit2.Ctrl = class{
 
         window.addEventListener("keydown", this.ctrlShortcuts);
     };
+
+    initGoToTopBtn(){
+        let btn = document.getElementById('goto-top-link');
+        if (btn){
+            document.addEventListener('scroll', (e) => {
+                if (document.documentElement.scrollTop > 500){
+                    btn.style.display = 'block';
+                }else{
+                    btn.style.display = 'none';
+                }
+            })
+        }
+    }
 
     initEkkoLightbox(){
         require(["jquery"],function($){
