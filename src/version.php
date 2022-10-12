@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version = 2022100100;
 
 // This is the version of Moodle this plugin requires.
-$plugin->requires = 2020061500.00; // Moodle 3.9.0
+$plugin->requires = 2022041904.00; // Moodle 4.0.0
 
 // This is the component name of the plugin - it always starts with 'theme_'
 // for themes and should be the same as the name of the folder.
