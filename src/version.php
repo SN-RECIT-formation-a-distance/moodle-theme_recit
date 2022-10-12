@@ -36,6 +36,6 @@ $plugin->component = 'theme_recit2';
 
 // This is the named version.
 $plugin->release = 'v3.0.0';
-$plugin->supported = [39, 400];      //  Moodle 3.9.x, 3.10.x and 3.11.x are supported.
+$plugin->supported = [400];      //  Moodle 4.0.x, are supported.
 // This is a stable release.
 $plugin->maturity = MATURITY_BETA;
