@@ -425,16 +425,19 @@ class CtrlLayout{
         }
 
         $item = new stdClass();
-        $item->url = $navoptions->metadata['userprofileurl']->out();
-        $item->pix = $navoptions->metadata['useravatar'];
-        $item->title = $navoptions->metadata['userfullname'];
-        $item->extra = "";
+        if (isset($navoptions->metadata['userprofileurl'])){
+            $item->url = $navoptions->metadata['userprofileurl']->out();
+            $item->pix = $navoptions->metadata['useravatar'];
+            $item->title = $navoptions->metadata['userfullname'];
+            $item->extra = "";
 
-        if (isset($navoptions->metadata['rolename'])) {
-            $item->role = $navoptions->metadata['rolename'];
+            if (isset($navoptions->metadata['rolename'])) {
+                $item->role = $navoptions->metadata['rolename'];
+            }
+
+            $result["user"] = $item;
         }
 
-        $result["user"] = $item;
         $dashboard = new stdClass();
         self::set_recit_dashboard($dashboard);
         $result["recitdashboard"] = $dashboard;

@@ -54,6 +54,15 @@
         </div>
     </header>
 {{/isloggedin}}
+{{^incourse}}
+    {{#isguest}}
+        <div class="guestbanner">
+            <p>
+                {{#str}} notloggedin, theme_recit2 {{/str}}
+            </p>
+        </div>
+    {{/isguest}}
+{{/incourse}}
 {{#incourse}}
     {{#isguest}}
         <div class="guestbanner">

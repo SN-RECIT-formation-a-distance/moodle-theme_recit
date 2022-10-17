@@ -1,6 +1,6 @@
 #mainTopNav{
     max-width: $page-max-width;
-    min-height:  $top-navbar-height;
+    min-height: $top-navbar-height;
     margin: auto;
     border-bottom: none;
 
@@ -16,12 +16,23 @@
             transform: rotate(90deg);
             align-self: flex-start!important;
         }
+        #navbarMenuItems{
+            padding: 10px;
+        }
+    }
+
+    #menu-mobile {
+        li {
+            margin-block: auto;
+        }
     }
 
     .navbar-brand {
         line-height: 48px;
     }
-
+    &.navbar-dark .navbar-toggler {
+        border-color: rgba(0,0,0,0);
+    }
     .navbar-nav{ 
         align-items: baseline;    
 
@@ -42,6 +53,11 @@
     .popover-region-header-actions .icon {
         color: rgba(0,0,0,.5) !important;
     }
+}
+
+.navbar.fixed-top {//Override Moodle, breaks mobile navbar
+    align-items: unset;
+    height: unset;
 }
 
 nav.navbar {

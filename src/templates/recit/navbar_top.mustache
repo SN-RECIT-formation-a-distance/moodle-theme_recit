@@ -120,6 +120,7 @@
                     </li>
                 {{/is_siteadmin}}
 
+                {{^isguest}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
                         {{{usermenu.user.pix}}}
@@ -183,6 +184,12 @@
                         {{/usermenu.logout.url}}
                     </div>
                 </li>
+                {{/isguest}}
+                {{#isguest}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{{ config.wwwroot }}}/login/index.php" title="{{#str}} login {{/str}}"><i class="fa fa-sign-in mr-1"></i> {{#str}} login {{/str}}</a>
+                </li>
+                {{/isguest}}
 
                 
                 {{#settingsmenu.paramsact}}
@@ -228,7 +235,7 @@
                     </li>
                 {{/lang.show}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{{ config.wwwroot }}}/login/index.php" title="Connexion"><i class="fa fa-sign-in"></i> Connexion</a>
+                    <a class="nav-link" href="{{{ config.wwwroot }}}/login/index.php" title="{{#str}} login {{/str}}"><i class="fa fa-sign-in mr-1"></i> {{#str}} login {{/str}}</a>
                 </li>
             </ul>
         </div>
