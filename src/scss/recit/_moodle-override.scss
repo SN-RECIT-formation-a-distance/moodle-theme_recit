@@ -123,12 +123,12 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
     }
 }
 
-// fix the minimum height of a module //brise les contenus de cours
-/* .pagelayout-incourse{
+// fix the minimum height of a module to fix menu
+.pagelayout-incourse{
     #region-main{
-        .card{overflow-x:auto;overflow-y:visible;min-height:45rem}
+        min-height: 500px;
     }
-} */
+} 
 
 // DÉBUT PATCH H5P
 #fitem_id_h5peditor {
