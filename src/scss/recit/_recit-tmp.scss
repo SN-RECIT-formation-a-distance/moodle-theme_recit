@@ -12,8 +12,18 @@ body {
 }
 
 // patch pour prbl scrollbar verticale H5P
-.h5p-iframe-wrapper {
-    margin-top: -1px;
+#page-h5p-embed {
+
+    &::-webkit-scrollbar { width: 4px; height: 4px;}
+    
+    /* Track */
+    &::-webkit-scrollbar-track { background: #f1f1f1; }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {background: #888;}
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {background: #555;}
 }
 
 .titre_actvity {
