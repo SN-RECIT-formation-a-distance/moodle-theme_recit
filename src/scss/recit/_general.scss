@@ -91,22 +91,47 @@ body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pag
                     padding: 1rem; // main padding of the content container                    
 
                     .activity-title-container{
-                        display: grid; grid-template-columns: 70% 30%; margin-top: 1.5rem; margin-bottom: 1rem;
-                        .activity-title{font-size: 36px; }
-                        .activity-controls{display: flex; justify-content: flex-end; align-items: center;}
+                        display: grid;
+                        grid-template-columns: 70% 30%;
+                        margin-top: 1.5rem;
+                        margin-bottom: 1rem;
+                        .activity-title{
+                            font-size: 36px;
+                        }
+                        .activity-controls{
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                        }
                     }
 
                     .activity-nav{
+                        display: grid;
+                        grid-gap: 2%;
+                        grid-template-columns: 31% 33% 31%;
+                        grid-template-areas: "prevlink activitylist nextlink";
+                        
                         .prevlink{
-                            grid-area: prevlink; justify-self: start; width: 100%;
-                            button:nth-child(2){width: 100%; border: 1px solid #efefef;}
+                            grid-area: prevlink;
+                            justify-self: start;
+                            width: 100%;
+                            button:nth-child(2){
+                                width: 100%;
+                                border: 1px solid #efefef;
+                            }
                         }
                         .nextlink{
-                            grid-area: nextlink; justify-self: end; width: 100%;
-                            button:nth-child(1){width: 100%; border: 1px solid #efefef;}
+                            grid-area: nextlink;
+                            justify-self: end;
+                            width: 100%;
+                            button:nth-child(1){
+                                width: 100%; border: 1px solid #efefef;
+                            }
                         }
-                        .activitylist{grid-area: activitylist; justify-self: stretch;}
-                        display: grid; grid-gap: 2rem; grid-template-columns: calc(33% - 2rem) 34% calc(33% - 2rem); grid-template-areas: "prevlink activitylist nextlink";
+                        .activitylist{
+                            grid-area: activitylist;
+                            justify-self: stretch;
+                        }
                         
                     }
                 }
@@ -114,7 +139,9 @@ body.pagelayout-base, body.pagelayout-report, body.pagelayout-standard, body.pag
         }
     }
 
-    #frontpage-available-course-list, #frontpage-category-names, #frontpage-category-combo, #site-news-forum{padding: 1rem;}
+    #frontpage-available-course-list, #frontpage-category-names, #frontpage-category-combo, #site-news-forum{
+        padding: 1rem;
+    }
 }
 
 // this is necessary to make work for columns that freeze on the grader report
