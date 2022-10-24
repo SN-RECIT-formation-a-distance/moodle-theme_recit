@@ -442,15 +442,10 @@ class CtrlLayout{
         self::set_recit_dashboard($dashboard);
         $result["recitdashboard"] = $dashboard;
 
-        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "home");
         self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
         self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
-        $item = new stdClass();
-        $url = new \moodle_url('/admin/search.php');
-        $item->url = $url->out();
-        $item->pix = 'fa-wrench';
-        $item->title = get_string('sitesettings');
-        $result["sitesettings"] = $item;
+        self::add_nav_item($result, "home", "fa-home", "sitehome", "/");
+        self::add_nav_item($result, "sitesettings", "fa-wrench", "sitesettings", "/admin/search.php");
 
         if($COURSE->id > 1){
            
@@ -488,6 +483,17 @@ class CtrlLayout{
         $item->url = $flatnavitem->action->out();
         $item->pix = $iconmap["core:" . $flatnavitem->icon->pix];
         $item->title = $flatnavitem->text;
+
+        $navitems[$key] = $item;
+    }
+
+    public static function add_nav_item(&$navitems, $key, $icon, $string, $url) {
+        
+        $item = new stdClass();
+        $murl = new \moodle_url($url);
+        $item->url = $murl->out();
+        $item->pix = $icon; 
+        $item->title = get_string($string);
 
         $navitems[$key] = $item;
     }
