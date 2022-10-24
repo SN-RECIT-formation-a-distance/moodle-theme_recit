@@ -48,7 +48,10 @@
         .qnbutton{color: #007bff;} // force the color because there is a conflit with btn-secondary
     }
 
-    .formulation{background-color: #f8f9fa;} 
+    .formulation {
+        background-color: #ffffff;
+        border: 1px solid rgba(0,0,0,.125);
+    } 
 
     .que{
         .info{
