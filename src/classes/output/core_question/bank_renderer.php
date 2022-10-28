@@ -41,7 +41,7 @@ class bank_renderer extends \core_question_bank_renderer {
      *
      * @return string
      */
-    public function extra_horizontal_navigation() {
+    public function extra_horizontal_navigation($active = null) {
         // Horizontal navigation for question bank.
         if ($questionnode = $this->page->settingsnav->find("questionbank", \navigation_node::TYPE_CONTAINER)) {
             if ($children = $questionnode->children) {
