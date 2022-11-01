@@ -52,8 +52,7 @@ require_once($CFG->libdir . '/behat/lib.php');
 class core_renderer extends \core_renderer {
     /** @var custom_menu_item language The language menu if created */
     protected $language = null;
-    protected $printedHeadingCount = 0;
-
+    
     /**
      * Constructor
      *
@@ -103,7 +102,7 @@ class core_renderer extends \core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $PAGE, $SITE, $USER, $COURSE;
+        global $PAGE, $SITE, $USER, $COURSE, $OUTPUT;
 
         $theme = theme_config::load(ThemeSettings::get_theme_name());
 
@@ -130,6 +129,13 @@ class core_renderer extends \core_renderer {
 
         $header->siteSummary = (isset($header->layoutOptions->showSiteSummary) && $header->layoutOptions->showSiteSummary ? $SITE->summary : null);
 
+        //Activity setting
+        if (isset($PAGE->cm->modname)) {
+            $output = '';
+            //$output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
+            $output .= $OUTPUT->region_main_settings_menu();
+            $header->activitysettings = $output;
+        }
 
         $themesettings = new ThemeSettings();
         $header->slider = $themesettings->slideshow($theme);
@@ -627,35 +633,10 @@ class core_renderer extends \core_renderer {
             return null;
         }
 
-        //$icon_assign = '';
         $level = (integer) $level;
-        //$homelink='';
-       // $homelink = $this->home_link();
         $output = "";
-        
         if ($level < 1 or $level > 6) {
             throw new coding_exception('Heading level must be an integer between 1 and 6.');
-        }
-        elseif (isset($PAGE->cm->modname) && $level == 2) {
-            $output = "<div class='activity-title-container'>";
-            $output .= "<div>";            
-            $output .= sprintf("<h2 class='activity-title'>%s</h2>", $text);
-            $output .= "</div>";           
-            $output .= "<div class='activity-controls'>"; 
-            $output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
-            /*$output .= "<div class='btn-group' style='margin-right: 1rem;'>";
-            $output .= sprintf("<button  class='btn btn-primary' data-container='body' data-toggle='popover' data-placement='top' title='%s' data-content='%s' ><i class='fa fa-info-circle'></i></button>", 
-                        $this->act_name(), $this->act_name_cons());
-            $output .= sprintf("<button class='btn btn-outline-secondary' disabled>%s</button>", $this->act_name());
-            $output .= "</div>";*/
-            if ($this->printedHeadingCount == 0){
-                $output .= $OUTPUT->region_main_settings_menu();
-                $this->printedHeadingCount++;
-            }
-            $output .= "</div>";
-            $output .= "</div>";
-            $output .= "<hr/>";
-            
         }
         else{
             $output =  html_writer::tag('h' . $level, $text, array('id' => $id, 'class' =>  renderer_base::prepare_classes($classes)));

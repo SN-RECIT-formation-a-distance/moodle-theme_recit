@@ -51,6 +51,9 @@
                     </div>
                 {{/showpageheadingbutton}}   
             {{/layoutOptions.showCourseBanner}}
+            {{#activitysettings}}
+                <div class="d-flex justify-content-end mr-2">{{{.}}}</div>
+            {{/activitysettings}}
         </div>
     </header>
 {{/isloggedin}}
