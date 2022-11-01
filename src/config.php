@@ -68,6 +68,13 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true, 'showSiteSummary' => false),
     ),
+    // Course page.
+    'mycourses' => array(
+        'file' => 'columns2.php',
+        'regions' => array('side-pre','side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true, 'showSiteSummary' => false),
+    ),
     'coursecategory' => array(
         'file' => 'columns2.php',
         'regions' => array('side-pre'),
