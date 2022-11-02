@@ -12,15 +12,19 @@ $max-width-responsive-m5: 992px;
     grid-area: page-content;
 }
 
-.page-content-wrapper{display: grid; grid-template-areas: "navsections" "page-content";}
+.page-content-wrapper{display: grid; grid-template-areas: "navsections" "activitysettings" "page-content";}
 
-.vertical-right{display: grid; grid-template-columns: 80% 20%; grid-template-areas: "page-content navsections";}
-.vertical-left{display: grid; grid-template-columns:  20% 80%; grid-template-areas: "navsections page-content";}
+.vertical-right{display: grid; grid-template-columns: 80% 20%; grid-template-areas: "activitysettings page-content navsections";}
+.vertical-left{display: grid; grid-template-columns:  20% 80%; grid-template-areas: "navsections activitysettings page-content";}
 @media screen and (max-width: 992px){
-    .vertical-right{grid-template-columns: 100%; grid-template-areas: "navsections" "page-content";}
-    .vertical-left{grid-template-columns:  100%; grid-template-areas: "navsections" "page-content";}
+    .vertical-right{grid-template-columns: 100%; grid-template-areas: "navsections" "activitysettings" "page-content";}
+    .vertical-left{grid-template-columns:  100%; grid-template-areas: "navsections" "activitysettings" "page-content";}
 }
 
+.activitysettings {
+    grid-area: activitysettings;
+    margin-top: 7px;
+}
 .navsections{
     grid-area: navsections;
 

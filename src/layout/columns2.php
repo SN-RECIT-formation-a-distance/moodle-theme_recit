@@ -106,6 +106,13 @@ $templatecontext = array_merge($templatecontext, $themesettings->footer_items())
 if ($hasblocks && isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, ThemeSettings::MODULES_WITH_EMBED_BLOCKS)) {
     $templatecontext['hasblocksembed'] = true;
 }
+//Activity setting
+if (isset($PAGE->cm->modname)) {
+    $output = '';
+    //$output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
+    $output .= $OUTPUT->region_main_settings_menu();
+    $templatecontext['activitysettings'] = $output;
+}
 
 if($PAGE->__get('pagelayout') == 'mydashboard'){    
     echo $OUTPUT->render_from_template('theme_recit2/recit/mydashboard', $templatecontext);

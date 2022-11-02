@@ -129,14 +129,6 @@ class core_renderer extends \core_renderer {
 
         $header->siteSummary = (isset($header->layoutOptions->showSiteSummary) && $header->layoutOptions->showSiteSummary ? $SITE->summary : null);
 
-        //Activity setting
-        if (isset($PAGE->cm->modname)) {
-            $output = '';
-            //$output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
-            $output .= $OUTPUT->region_main_settings_menu();
-            $header->activitysettings = $output;
-        }
-
         $themesettings = new ThemeSettings();
         $header->slider = $themesettings->slideshow($theme);
         
