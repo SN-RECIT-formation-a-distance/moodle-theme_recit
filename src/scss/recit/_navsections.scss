@@ -31,7 +31,7 @@ $max-width-responsive-m5: 992px;
 
 .vertical-left{
     display: grid; 
-    grid-template-columns: 17% auto;
+    grid-template-columns: 20% 80%;
     grid-template-rows: auto auto;
     grid-template-areas: "activitysettings activitysettings" "navsections page-content";
 }

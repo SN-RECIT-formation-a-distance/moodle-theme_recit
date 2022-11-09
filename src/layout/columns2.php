@@ -108,10 +108,7 @@ if ($hasblocks && isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, Them
 }
 //Activity setting
 if (isset($PAGE->cm->modname)) {
-    $output = '';
-    //$output .= "<span class='mr-2'>".$this->page_heading_button()."</span>";
-    $output .= $OUTPUT->region_main_settings_menu();
-    $templatecontext['activitysettings'] = $output;
+    $templatecontext['activitysettings'] = $OUTPUT->region_main_settings_menu();
 }
 
 if($PAGE->__get('pagelayout') == 'mydashboard'){    
