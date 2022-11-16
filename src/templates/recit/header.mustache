@@ -38,6 +38,14 @@
                 {{/breadcrumb}}
             {{/layoutOptions.showBreadcrumb}}
 
+            {{#layoutOptions.showSecondaryNav}}
+                {{#headeractions}}
+                    <div class="" data-region="header-actions-container" style="height: 40px;">
+                        <div class="header-action ml-2 mt-2">{{{.}}}</div>
+                    </div>
+                {{/headeractions}}
+            {{/layoutOptions.showSecondaryNav}}
+
             {{#layoutOptions.showCourseBanner}}
 
                 {{#showpageheadingbutton}}   
