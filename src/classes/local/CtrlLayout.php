@@ -456,10 +456,26 @@ class CtrlLayout{
             }
             self::add_nav_item_from_flat_nav($result, $page->secondarynav, "badgesview");
             self::add_nav_item_from_flat_nav($result, $page->secondarynav, "competencies");
+            $unenrol = self::get_unenrol_url();
+            if ($unenrol){
+                self::add_nav_item($result, "unenrolself", "fa-user", "unenrolself", $unenrol['url'], $unenrol['title']);
+            }
             
         }
     
         return $result;
+    }
+
+    public static function get_unenrol_url(){
+        global $USER, $COURSE;
+        $node = new \navigation_node('Test Node');
+        $node->type = \navigation_node::TYPE_SYSTEM;
+        enrol_add_course_navigation($node, $COURSE);
+        $unenrol = $node->get('unenrolself');
+        if ($unenrol){
+            return ['url' =>$unenrol->action->out(), 'title' => $unenrol->text];
+        }
+        return null;
     }
 
     /**
@@ -487,13 +503,17 @@ class CtrlLayout{
         $navitems[$key] = $item;
     }
 
-    public static function add_nav_item(&$navitems, $key, $icon, $string, $url) {
+    public static function add_nav_item(&$navitems, $key, $icon, $string, $url, $title = null) {
         
         $item = new stdClass();
         $murl = new \moodle_url($url);
         $item->url = $murl->out();
         $item->pix = $icon; 
-        $item->title = get_string($string);
+        if ($title){
+            $item->title = $title;
+        }else{
+            $item->title = get_string($string);
+        }
 
         $navitems[$key] = $item;
     }
