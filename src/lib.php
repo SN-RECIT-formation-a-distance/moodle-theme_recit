@@ -145,7 +145,7 @@ function theme_recit2_get_extra_scss($theme_org) {
  * @return mixed
  */
 function theme_recit2_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    $theme = theme_config::load(ThemeSettings::get_theme_name());
+    $theme = theme_config::load('recit2');
     
 
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
