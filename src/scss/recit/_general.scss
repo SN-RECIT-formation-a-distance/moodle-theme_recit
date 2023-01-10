@@ -1,9 +1,6 @@
 /*******************
-Bodys
+Body
 *******************/
-html{
-    background-color: #f7f7f7;
-}
 
 body{
     font-family: $font-family-text; 
@@ -19,6 +16,11 @@ body{
     #page-content{
         overflow: inherit;
     }
+}
+
+body.h5p-embed {
+    //h5p iframe has gray background, remove it
+    background-color: #fff !important;
 }
 
 #page-enrol-index {
