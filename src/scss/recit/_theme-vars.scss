@@ -1,7 +1,11 @@
 $btn-radius: 30px;
 
-#page-footer, #mainTopNav {
+#mainTopNav {
     background-color: $nav-color !important;
+}
+
+#page-footer {
+    background-color: $footer-color !important;
 }
 
 .theme-bg-color {

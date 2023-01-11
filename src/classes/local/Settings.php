@@ -173,12 +173,12 @@ class Settings {
         $setting = new \admin_setting_configtextarea($name, $title, $description, $default);
         $page->add($setting);
 
-        $name = 'theme_'.$this->theme_name.'/navcolor';
+       /* $name = 'theme_'.$this->theme_name.'/navcolor';
         $title = get_string('navcolor', 'theme_recit2');
         $description = get_string('navcolor_desc', 'theme_recit2');
         $setting = new \admin_setting_configcolourpicker($name, $title, $description, '');
         $setting->set_updatedcallback('theme_reset_all_caches');
-        $page->add($setting);
+        $page->add($setting);*/
 
         // Website.
         $name = 'theme_'.$this->theme_name.'/website';
@@ -250,13 +250,21 @@ class Settings {
         $page = new \admin_settingpage('theme_'.$this->theme_name.'_advanced', get_string('advancedsettings', 'theme_recit2'));
 
         // Raw SCSS to include before the content.
-        $default = file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss");
-        $setting = new \admin_setting_configtextarea('theme_recit2/prescss', get_string('rawscsspre', 'theme_recit2'), get_string('rawscsspre_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 25);
+        if (file_exists($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_variables.scss")){
+            $default = file_get_contents($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_variables.scss");
+        }else{
+            $default = file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss");
+        }
+        $setting = new \admin_setting_configtextarea('theme_'.$this->theme_name.'/prescss', get_string('rawscsspre', 'theme_recit2'), get_string('rawscsspre_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 25);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
         // Raw SCSS to include after the content.
-        $setting = new \admin_setting_configtextarea('theme_recit2/extrascss', get_string('rawscss', 'theme_recit2'), get_string('rawscss_desc', 'theme_recit2'), '', PARAM_RAW, 60, 15);
+        $default = '';
+        if (file_exists($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_custom.scss")){
+            $default = file_get_contents($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_custom.scss");
+        }
+        $setting = new \admin_setting_configtextarea('theme_'.$this->theme_name.'/extrascss', get_string('rawscss', 'theme_recit2'), get_string('rawscss_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 15);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 

@@ -105,7 +105,7 @@ function theme_recit2_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
 
     // Prepend pre-scss.
-    $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
+    $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
     $scss .= $theme->settings->prescss;
 
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
@@ -119,8 +119,7 @@ function theme_recit2_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_recit2_get_extra_scss($theme_org) {
-    $theme = theme_config::load(ThemeSettings::get_theme_name());
+function theme_recit2_get_extra_scss($theme) {
     $result = "";
 
     $result .= theme_recit2_set_headerimg($theme);

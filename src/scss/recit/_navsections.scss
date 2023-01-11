@@ -178,7 +178,7 @@ $max-width-responsive-m5: 992px;
     }
 
     .menuM5{
-        background-color: $tt-menu-bgcolor-m5;
+        background-color: $tt-menu-bgcolor-m5-l1;
 
         .nav-item.dropdown{padding-right: 1rem;}
 
@@ -194,11 +194,11 @@ $max-width-responsive-m5: 992px;
         ul.navbar-nav{
             li.nav-item{
                 text-align: left;
-                .nav-link{color: $tt-menu-color-m5;}
-                .nav-link:hover{color: $tt-menu-hover-color;}
+                .nav-link{color: $tt-menu-color-m5-l1;}
+                .nav-link:hover{color: $tt-menu-hover-color-l1;}
             }
             ul.dropdown-menu{
-                background-color: $tt-menu-bgcolor-m5;
+                background-color: $tt-menu-bgcolor-m5-l2;
                 margin: 0;
                 border-radius: 0px;
                 border: none;
@@ -206,11 +206,11 @@ $max-width-responsive-m5: 992px;
     
                 li{
                     .dropdown-item{
-                        color: $tt-menu-color-m5;
+                        color: $tt-menu-color-m5-l2;
                         height: $menu-item-height;
                     }
                     .dropdown-item:hover{
-                        color: rgba(255,255,255,.5);
+                        color: $tt-menu-hover-color-l2;
                         background-color: transparent;
                     }
                 }

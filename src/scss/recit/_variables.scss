@@ -13,6 +13,7 @@ $color1:#434343;
 $color2:#FFFFFF;
 $body-color: #373a3c;
 $nav-color: #343a40;
+$footer-color: $nav-color;
 $body-bg: #eef5f9 !default;
 
 // GENERAL
@@ -24,8 +25,11 @@ $top-navbar-height: 67px;
 // NAV SECTIONS
 $tt-menu-bgcolor-m1: #EAC167;
 $tt-menu-color-m1: #606972;
-$tt-menu-color-m5: #ffffff;
+$tt-menu-color-m5-l1: #ffffff;
+$tt-menu-color-m5-l2: #EAC167;
+$tt-menu-bgcolor-m5-l1: #0069bf;
+$tt-menu-bgcolor-m5-l2: #606972;
+$tt-menu-hover-color-l1: #606972;
+$tt-menu-hover-color-l2: #fff;
 $tt-menu-active-color: #fff;
 $tt-menu-inactive-color: #606972;
-$tt-menu-hover-color: #606972;
-$tt-menu-bgcolor-m5: #0069bf;

@@ -21,6 +21,9 @@ body{
 body.h5p-embed {
     //h5p iframe has gray background, remove it
     background-color: #fff !important;
+    #page-content {
+        margin-top: 0px;
+    }
 }
 
 #page-enrol-index {
