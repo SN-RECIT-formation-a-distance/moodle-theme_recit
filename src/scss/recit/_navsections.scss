@@ -1,10 +1,4 @@
-/***************************************
-* VARIABLES NAV SECTIONS
-***************************************/
-$tt-menu-color1: #EAC167;
-$tt-menu-color2: #606972;
-$tt-menu-color3: #ffffff;
-$tt-menu-color4: #0069bf;
+
 $menu-item-height:30px;
 $max-width-responsive-m5: 992px;
 
@@ -70,7 +64,7 @@ $max-width-responsive-m5: 992px;
                 }
                 li.nav-item[data-selected="1"] > a{
                     font-weight: bold; 
-                    text-decoration: underline solid #fff;
+                    text-decoration: underline solid $tt-menu-active-color;
                 }
             }
         }
@@ -116,15 +110,15 @@ $max-width-responsive-m5: 992px;
         ul{
             li{
                 a{
-                    padding: .3rem;    font-size: 16px;      font-weight: 600;    text-align: center; color: $tt-menu-color2;
+                    padding: .3rem;    font-size: 16px;      font-weight: 600;    text-align: center; color: $tt-menu-color-m1;
                     -webkit-hyphens: none;    -ms-hyphens: none;    hyphens: none; white-space: normal;
                     background-color: transparent; box-shadow: none;
                 }
                 &[data-selected="1"]:before{
-                    content: ' \276F'; font-size: 20px; color: #FFF; font-weight: 700;            
+                    content: ' \276F'; font-size: 20px; color: $tt-menu-active-color; font-weight: 700;            
                 }
                 &[data-selected="1"]{
-                    a{color: #FFF;}
+                    a{color: $tt-menu-active-color;}
                 }
             }
         }
@@ -134,7 +128,7 @@ $max-width-responsive-m5: 992px;
         position: relative;  
         .responsive-bar{display: none;}
         ul{
-            background-color: $tt-menu-color1;
+            background-color: $tt-menu-bgcolor-m1;
             width: 100%; list-style: none; margin: auto; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; padding: 0; height: 70px;
             li{
                 padding: .5rem; align-self: center; display: flex; justify-content: center; align-items: center; 
@@ -142,9 +136,9 @@ $max-width-responsive-m5: 992px;
                 button[data-btn-submenu-collapse]{display: none;}
 
                 ul{
-                    position: absolute;  top: 70px; left: 0px; background-color: $tt-menu-color2; display: none;
+                    position: absolute;  top: 70px; left: 0px; background-color: $tt-menu-color-m1; display: none;
                     li[data-selected="0"]{
-                        a{color: $tt-menu-color1; }
+                        a{color: $tt-menu-inactive-color; }
                     }
                 }               
                 &[data-selected="1"]{
@@ -153,7 +147,7 @@ $max-width-responsive-m5: 992px;
                     }
                 }
             }
-            li:empty{border-left: 1px solid #FFF; height: 35px; padding: 0px; margin: 0px;}
+            li:empty{border-left: 1px solid $tt-menu-active-color; height: 35px; padding: 0px; margin: 0px;}
             li:last-child:empty{display: none;}
         }
     }
@@ -161,20 +155,20 @@ $max-width-responsive-m5: 992px;
     .menuM1.responsive{
         width: 100%; 
         .responsive-bar{
-            background-color: $tt-menu-color1; width: 100%; display: flex; justify-content: left; padding: 1rem;
+            background-color: $tt-menu-bgcolor-m1; width: 100%; display: flex; justify-content: left; padding: 1rem;
             #btn-menu-collapse{width: 40px;}
             .active-item{ width: 90%; font-variant: all-petite-caps; text-align: center; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; font-weight: 500; line-height: 1.2; font-size: 22px;}
         }
         ul{
-            background-color: $tt-menu-color1;  list-style: none;  display: none; flex-direction: column; height: auto; margin: 0px; max-width: 500px;
+            background-color: $tt-menu-bgcolor-m1;  list-style: none;  display: none; flex-direction: column; height: auto; margin: 0px; max-width: 500px;
         
             li{
-                border-bottom: .1px solid #fff; width: 90%; flex-direction: column; padding: 0.5rem; margin: 0.1rem;
+                border-bottom: .1px solid $tt-menu-active-color; width: 90%; flex-direction: column; padding: 0.5rem; margin: 0.1rem;
                 button[data-btn-submenu-collapse]{display: inline; float: right;}
                 ul{
                     li{border-bottom: none;}
                     li[data-selected="0"]{
-                        a{color: $tt-menu-color2; }
+                        a{color: $tt-menu-color-m1; }
                     }
                 }
             }
@@ -184,7 +178,7 @@ $max-width-responsive-m5: 992px;
     }
 
     .menuM5{
-        background-color: $tt-menu-color4;
+        background-color: $tt-menu-bgcolor-m5;
 
         .nav-item.dropdown{padding-right: 1rem;}
 
@@ -200,11 +194,11 @@ $max-width-responsive-m5: 992px;
         ul.navbar-nav{
             li.nav-item{
                 text-align: left;
-                .nav-link{color: $tt-menu-color3;}
-                .nav-link:hover{color: rgba(255,255,255,.5);}
+                .nav-link{color: $tt-menu-color-m5;}
+                .nav-link:hover{color: $tt-menu-hover-color;}
             }
             ul.dropdown-menu{
-                background-color: $tt-menu-color4;
+                background-color: $tt-menu-bgcolor-m5;
                 margin: 0;
                 border-radius: 0px;
                 border: none;
@@ -212,7 +206,7 @@ $max-width-responsive-m5: 992px;
     
                 li{
                     .dropdown-item{
-                        color: $tt-menu-color3;
+                        color: $tt-menu-color-m5;
                         height: $menu-item-height;
                     }
                     .dropdown-item:hover{
