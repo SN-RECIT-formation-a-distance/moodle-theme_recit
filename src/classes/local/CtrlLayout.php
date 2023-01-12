@@ -278,6 +278,7 @@ class CtrlLayout{
             $item->title = get_string('coursehome', 'theme_recit2');
             $result['coursehome'] = $item;
 
+
             $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
             if(ThemeUtils::isAdminRole($roles)){
                 $item = new stdClass();
@@ -312,11 +313,6 @@ class CtrlLayout{
                     $result['paramsact'] = $item;
                 }
 
-                /*$item = new stdClass();
-                $item->url = sprintf("%s/grade/report/grader/?id=%ld", $CFG->wwwroot, $COURSE->id);
-                $item->pix = 'fa-graduation-cap';
-                $item->title =  get_string('grade', 'theme_recit2');
-                $result['grade'] = $item;*/
             }
         }else{
             if ($page->user_allowed_editing() && ($page->pagelayout == 'frontpage' || $page->pagelayout == 'mydashboard')) {
@@ -372,7 +368,7 @@ class CtrlLayout{
      * @return array|stdClass[]
      */
     public static function get_user_menu($page, $user) {
-        global $COURSE, $USER;
+        global $COURSE, $USER, $CFG;
 
         $result = array();
         $staticicons = array(
@@ -445,6 +441,13 @@ class CtrlLayout{
         self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
         self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
         self::add_nav_item($result, "home", "fa-home", "sitehome", "/");
+
+        $gradeurl = sprintf("%s/grade/report/overview/index.php", $CFG->wwwroot);
+        if ($COURSE->id > 1){
+            $gradeurl = sprintf("%s/grade/report/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+        }
+        self::add_nav_item($result, "grades", "fa-graduation-cap", "grades", $gradeurl);
+        
         self::add_nav_item($result, "sitesettings", "fa-wrench", "sitesettings", "/admin/search.php");
 
         if($COURSE->id > 1){
