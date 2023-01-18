@@ -184,7 +184,7 @@ class CtrlLayout{
     }
 
     public static function get_course_section_top_nav(){
-        global $COURSE, $CFG;
+        global $COURSE, $CFG, $PAGE;
 
         $modinfo = get_fast_modinfo($COURSE);
         $sectionslist = $modinfo->get_section_info_all();
@@ -208,10 +208,16 @@ class CtrlLayout{
         $protohref = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}%s";
 
         //$result->addSection(1, "map", sprintf($protohref, "#map"), "<i class='fa fa-map'></i>", "Menu");
+        // Retrieve course format option fields and add them to the $course object.
+        $course = course_get_format($COURSE)->get_course();
+        $hideVisible = isset($course->hiddensections) ? $course->hiddensections : 1; //0 = show for teachers, 1 = hidden for everyone
         $hideRestricted = ThemeSettings::get_custom_field('hide_restricted_section');
 
         foreach($sectionslist as $section){
-            if( !$section->visible ){ continue; } 
+            if( !$section->visible ){ 
+                if ($hideVisible == 1) continue; 
+                if ($hideVisible == 0 && !$PAGE->user_allowed_editing()) continue; 
+            } 
             if( $hideRestricted == 1 && !$section->available ){ continue; } 
 
             $sectionDesc = get_section_name($COURSE, $section->section);//(empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
@@ -274,7 +280,7 @@ class CtrlLayout{
         if ($COURSE->id > 1) {
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-            $item->pix = 'fa-university';
+            $item->pix = 'fa-course-home';
             $item->title = get_string('coursehome', 'theme_recit2');
             $result['coursehome'] = $item;
 
