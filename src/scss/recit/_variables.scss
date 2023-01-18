@@ -23,13 +23,32 @@ $page-max-width: 1500px;
 $top-navbar-height: 67px;
 
 // NAV SECTIONS
-$tt-menu-bgcolor-m1: #EAC167;
-$tt-menu-color-m1: #606972;
-$tt-menu-color-m5-l1: #ffffff;
-$tt-menu-color-m5-l2: #EAC167;
-$tt-menu-bgcolor-m5-l1: #0069bf;
-$tt-menu-bgcolor-m5-l2: #606972;
-$tt-menu-hover-color-l1: #606972;
-$tt-menu-hover-color-l2: #fff;
-$tt-menu-active-color: #fff;
-$tt-menu-inactive-color: #606972;
+//M5 = dropdown
+
+//Background color
+$navsections-bgcolor-m5: #0069bf; 
+//Text color
+$navsections-color-m5: #fff; 
+//Color when section is selected
+$navsections-active-color-m5: #fff; 
+//Color when mouse is hovering menu
+$navsections-hover-color-m5: rgba(255,255,255,.5); 
+
+//M1 = 2 level
+
+//Background color of level 1
+$navsections-bgcolor-m1-l1: #EAC167;
+//Background color of level 2
+$navsections-bgcolor-m1-l2: #606972;
+//Text color of level 1
+$navsections-color-m1-l1: #606972; 
+//Text color of level 2
+$navsections-color-m1-l2: #EAC167; 
+//Color when section is selected on level 1
+$navsections-active-color-m1-l1: #fff; 
+//Color when section is selected on level 2
+$navsections-active-color-m1-l2: #fff; 
+//Color when mouse is hovering menu of level 1
+$navsections-hover-color-m1-l1: #606972; 
+//Color when mouse is hovering menu of level 2
+$navsections-hover-color-m1-l2: #EAC167; 

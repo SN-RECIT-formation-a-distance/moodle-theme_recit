@@ -35,6 +35,12 @@
     &.navbar-dark .navbar-toggler {
         border-color: rgba(0,0,0,0);
     }
+    &.navbar-dark a .icon {
+        color: unset!important;
+    }
+    .fa-course-home {
+        @extend .fa-university
+    }
     .navbar-nav{ 
         align-items: center;    
 

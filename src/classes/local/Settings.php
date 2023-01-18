@@ -261,8 +261,8 @@ class Settings {
 
         // Raw SCSS to include after the content.
         $default = '';
-        if (file_exists($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_custom.scss")){
-            $default = file_get_contents($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_custom.scss");
+        if (file_exists($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_extrascss.scss")){
+            $default = file_get_contents($CFG->dirroot . "/theme/{$this->theme_name}/scss/recit/_extrascss.scss");
         }
         $setting = new \admin_setting_configtextarea('theme_'.$this->theme_name.'/extrascss', get_string('rawscss', 'theme_recit2'), get_string('rawscss_desc', 'theme_recit2'), $default, PARAM_RAW, 60, 15);
         $setting->set_updatedcallback('theme_reset_all_caches');

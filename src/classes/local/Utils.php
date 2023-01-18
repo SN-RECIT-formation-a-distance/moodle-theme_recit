@@ -107,9 +107,10 @@ class ThemeSettings {
      * @return array
      */
     public function footer_items() {
-        global $CFG, $PAGE;
+        global $CFG, $PAGE, $OUTPUT;
 
-        $theme = theme_config::load(self::get_theme_name());
+        $theme_name = self::get_theme_name();
+        $theme = theme_config::load($theme_name);
 
         $templatecontext = [];
 
@@ -133,6 +134,7 @@ class ThemeSettings {
         }
 
         $templatecontext['infolink'] = $this->getInfolink($theme->settings->infolink);
+        $templatecontext['output'] = $OUTPUT;
 
         $templatecontext['s_sitepolicy'] = get_string('sitepolicy', 'core_admin');
         $templatecontext['sitepolicy'] = $CFG->sitepolicy;
@@ -161,7 +163,11 @@ class ThemeSettings {
             $templatecontext['showdataretentionsummary'] = "{$CFG->wwwroot}/admin/tool/dataprivacy/summary.php";
         }
         
-        return $templatecontext;
+        $templatename = "theme_recit2/recit/footer";
+        if (file_exists($CFG->dirroot . "/theme/{$theme_name}/templates/recit/footer.mustache")){
+            $templatename = "theme_{$theme_name}/recit/footer";
+        }
+        return array('footer' => $OUTPUT->render_from_template($templatename, $templatecontext));
     }
 
     /**
