@@ -67,7 +67,7 @@ class core_renderer extends \core_renderer {
         $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit2');
         
         if (isset($_GET['recitedit'])){//When user clicks on editing mode toggle
-            $USER->editing = $_GET['recitedit'] == 'on' ? true : false;
+            $USER->editing = $_GET['recitedit'] == 1 ? true : false;
         }
     }
 

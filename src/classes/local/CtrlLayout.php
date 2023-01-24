@@ -341,18 +341,38 @@ class CtrlLayout{
         global $CFG, $COURSE, $PAGE;
         $item = new stdClass();
 
-        $state = ($page->user_is_editing() ? 'off' : 'on');
+        list($state, $checked) = self::get_editing_state($page);
 
         $url = $PAGE->url->out();
+        $edit = "recitedit";
+        if (strpos($url, 'report/grader') !== false) { //Report grader doesn't use the same editing mode as everything else. This has been fixed in Moodle 4
+            $edit = "edit";
+        }
+
         if (strpos($url, '?') !== false) {
-            $item->url = sprintf("%s&sesskey=%s&recitedit=%s", $url, sesskey(), $state);
+            $item->url = sprintf("%s&sesskey=%s&%s=%s", $url, sesskey(), $edit, $state);
         }else{
-            $item->url = sprintf("%s?sesskey=%s&recitedit=%s", $url, sesskey(), $state);
+            $item->url = sprintf("%s?sesskey=%s&%s=%s", $url, sesskey(), $edit, $state);
         }
         $item->title = get_string('editmode', 'theme_recit2');
-        $item->checked = (self::user_is_editing($page) == 1 ? 'checked' : '');
+        $item->checked = $checked;
         
         return $item;
+    }
+
+    public static function get_editing_state($page){
+        global $USER;
+        $state = ($page->user_is_editing() ? 0 : 1);
+        $checked = ($state == 0 ? 'checked' : '');
+
+        $url = $page->url->out();
+        if (strpos($url, 'report/grader') !== false) {
+            $courseid = required_param('id', PARAM_INT);
+            $state = ($USER->gradeediting[$courseid] == 0 ? 1 : 0);
+            $checked = ($state == 0 ? 'checked' : '');
+        }
+        
+        return [$state, $checked];
     }
 
     /**
