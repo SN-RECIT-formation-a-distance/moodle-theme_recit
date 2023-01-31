@@ -444,8 +444,8 @@ class CtrlLayout{
         self::set_recit_dashboard($dashboard);
         $result["recitdashboard"] = $dashboard;
 
-        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
-        self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
+        //self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
+        //self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
         self::add_nav_item($result, "home", "fa-home", "sitehome", "/");
 
         $gradeurl = sprintf("%s/grade/report/overview/index.php", $CFG->wwwroot);
