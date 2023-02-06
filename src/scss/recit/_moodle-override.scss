@@ -59,6 +59,17 @@
     }
 }
 
+.qnbutton.flagged .thispageholder {
+    background: transparent url([[pix:theme|mod/quiz/flag-on]]) 15px 0 no-repeat;
+}
+.path-mod-assign [data-region="user-selector"] [data-action="previous-user"]:before{
+    font-size: 26px;
+    content: "<";
+}
+.path-mod-assign [data-region="user-selector"] [data-action="next-user"]::before {
+    font-size: 26px;
+    content: ">";
+}
 //input[type=text], input[type=password], textarea{width: 100%;}
 .moodle-dialogue-wrap{min-width: 350px;}
 
