@@ -72,6 +72,8 @@ if ($PAGE->has_secondary_navigation()) {
 $primary = new core\navigation\output\primary($PAGE);
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
+$header = $PAGE->activityheader;
+$headercontent = $header->export_for_template($renderer);
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
@@ -87,6 +89,7 @@ $templatecontext = [
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
+    'headercontent' => $headercontent,
     'navdraweropen' => CtrlLayout::is_nav_drawer_open(),
     'draweropenright' => CtrlLayout::is_drawer_open_right(),
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
