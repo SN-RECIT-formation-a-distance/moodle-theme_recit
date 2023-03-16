@@ -160,3 +160,25 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
         border: 0;
     }
 }
+
+/**
+ * Grader report. Table heading to stick under navbar
+ */
+ .path-grade-report-grader {
+    #mainTopNav {
+        max-width: unset;
+    }
+    #page-wrapper #page {
+        max-width: unset;
+    }
+    #page-footer {
+        max-width: unset;
+    }
+    .gradeparent {
+        tr.heading {
+            position: sticky;
+            top: $top-navbar-height;
+            z-index: 1;
+        }
+    }
+}

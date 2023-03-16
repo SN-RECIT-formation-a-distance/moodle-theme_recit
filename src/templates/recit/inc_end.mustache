@@ -53,7 +53,7 @@ require([], function() {
 
     $(function(){
         // Activate Carousel
-        $("#slideshow").carousel();
+        if ($("#slideshow")) $("#slideshow").carousel();
     });
 });
 
