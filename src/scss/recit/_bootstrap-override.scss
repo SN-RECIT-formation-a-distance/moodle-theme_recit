@@ -75,3 +75,25 @@ body.pagelayout-admin, body.pagelayout-login, .editeur, section{
 .cover-lt {    background-position: left top;}
 .cover-lb {    background-position: left bottom;}
 // fin classes non-bootstrap RÉCIT
+
+.tabs {
+  .btn-primary:focus,.btn-primary.focus ,
+  .btn-secondary:focus,.btn-secondary.focus,
+  .btn-success:focus,.btn-success.focus,
+  .btn-info:focus,.btn-info.focus,
+  .btn-warning:focus,.btn-warning.focus,
+  .btn-danger:focus,.btn-danger.focus, 
+  .btn-light:focus,.btn-light.focus ,
+  .btn-dark:focus,.btn-dark.focus ,
+  .btn-outline-primary:focus,.btn-outline-primary.focus,
+  .btn-outline-secondary:focus,.btn-outline-secondary.focus ,
+  .btn-outline-success:focus,.btn-outline-success.focus,
+  .btn-outline-info:focus,.btn-outline-info.focus,
+  .btn-outline-warning:focus,.btn-outline-warning.focus,
+  .btn-outline-danger:focus,.btn-outline-danger.focus,
+  .btn-outline-light:focus,.btn-outline-light.focus,
+  .btn-outline-dark:focus,.btn-outline-dark.focus,.nav-link:focus {
+    outline: unset;
+    box-shadow: unset !important;
+  }
+}
