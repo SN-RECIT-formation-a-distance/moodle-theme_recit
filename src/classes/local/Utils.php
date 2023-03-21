@@ -34,11 +34,13 @@ class CourseSectionNav{
     public function addSection($level = 1,  $sectionId = '', $url = '', $sectionDesc = "", $title = ""){
         $maxNbChars = 25;
         
+        $truncate = ThemeSettings::get_custom_field('truncatesections');
+
         $obj = new stdClass();
         $obj->sectionId = $sectionId;
         $obj->url = $url;
         $obj->title = (strlen($title) > 0 ? $title : $sectionDesc);
-        $obj->desc = mb_strimwidth($sectionDesc, 0, $maxNbChars, "...");
+        $obj->desc = $truncate == 0 ? $sectionDesc : mb_strimwidth($sectionDesc, 0, $maxNbChars, "...");
         $obj->subSections = array();
 
         if($level > 1){

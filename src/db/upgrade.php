@@ -4,7 +4,7 @@ require_once(dirname(__FILE__)."/../lib.php");
  
 function xmldb_theme_recit2_upgrade($oldversion) {
     
-    $newversion = 2022020902;
+    $newversion = 2023011901;
     if ($oldversion < $newversion) {
         theme_recit2_create_course_custom_fields();
 

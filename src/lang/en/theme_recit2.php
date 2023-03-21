@@ -52,6 +52,8 @@ $string['loginbgimg'] = 'Login page background';
 $string['loginbgimg_desc'] = 'Upload your custom background image for the login page.';
 $string['enablebreadcrumb'] = 'Enable breadcrumb navigation';
 $string['enablebreadcrumbdesc'] = '';
+$string['truncatesections'] = 'Truncate section name';
+$string['truncatesectionsdesc'] = 'Truncate';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';

@@ -263,6 +263,15 @@ function theme_recit2_create_course_custom_fields(){
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
     );
 
+    $field_to_add[] = array(
+        'type' => 'checkbox',
+        'name' => get_string('truncatesections', 'theme_recit2'),
+        'shortname' => 'truncatesections',
+        'description' => get_string('truncatesectionsdesc', 'theme_recit2'),
+        'descriptionformat' => FORMAT_HTML,
+        'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
+    );
+
     $options = array();
     foreach(ThemeSettings::MENU_MODEL_LIST as $item){
         $str = "menu-$item";
