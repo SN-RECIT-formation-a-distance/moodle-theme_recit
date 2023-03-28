@@ -139,8 +139,8 @@ class core_renderer extends \core_renderer {
 
     public function get_course_custom_banner(){
         global $COURSE, $OUTPUT;
+        $theme = theme_config::load(ThemeSettings::get_theme_name());
         if ($COURSE->id == 1){//Homepage, load headerimg 
-            $theme = theme_config::load(ThemeSettings::get_theme_name());
 
             $headerimg = $theme->setting_file_url('headerimg', 'headerimg');
 
@@ -158,6 +158,10 @@ class core_renderer extends \core_renderer {
                 if($courseImage){
                     return "background-image: url('$courseImage'); background-position: center;";
                 }
+            }
+            $courseimgtheme = $theme->setting_file_url('coursebanner', 'coursebanner');
+            if ($courseimgtheme){
+                return "background-image: url('$courseimgtheme'); background-position: center;";                  
             }
         }
     

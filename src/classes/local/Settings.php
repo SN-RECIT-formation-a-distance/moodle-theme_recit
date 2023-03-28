@@ -44,6 +44,14 @@ class Settings {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
+        $name = 'theme_'.$this->theme_name.'/coursebanner';
+        $title = get_string('course-banner', 'theme_recit2');
+        $description = get_string('course-banner-desc', 'theme_recit2');
+        $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
+        $setting = new \admin_setting_configstoredfile($name, $title, $description, 'coursebanner', 0, $opts);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
         $name = 'theme_'.$this->theme_name.'/showleavingsitewarning';
         $title = get_string('showleavingsitewarning', 'theme_recit2');
         $description = get_string('showleavingsitewarningdesc', 'theme_recit2');

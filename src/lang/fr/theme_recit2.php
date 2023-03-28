@@ -138,6 +138,7 @@ $string['showleavingsitewarningdesc'] = 'Demander si l\'utilisateur veut quitter
 // Custom fields
 $string['course-banner'] = 'Bannière du cours';
 $string['course-banner-help'] = "Utiliser l'image du cours comme bannière.";
+$string['course-banner-desc'] = "L'image bannière du cours par défaut";
 $string['show-section-bottom-nav'] = 'Afficher la navigation par section';
 $string['show-section-bottom-nav-help'] = 'Affiche en bas de page 2 boutons de navigation : section précédente et section suivante.';
 $string['menu-model'] = 'Modèle de menu';
