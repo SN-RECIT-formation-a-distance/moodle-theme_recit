@@ -71,7 +71,7 @@ M.recit.theme.recit2.SectionsNav = class{
         return true;
     }    
 
-    onSectionNav(event){           
+    onSectionNav(event){
         this.curSection = event.target;
 
         M.recit.theme.recit2.Utils.setCookieCurSection(this.curSection.hash);
@@ -94,7 +94,11 @@ M.recit.theme.recit2.SectionPagination = class{
         this.sectionList = sectionList;
         this.btnPrevious = null;
         this.btnNext = null;
-        this.onSectionNav = onSectionNav;
+        this.onSectionNav = function(e){
+            if (M.course){//If we're in an activity we do not want to load the section ajax. In an activity, M.course is null
+                onSectionNav(e);
+            }
+        }
 
         this.init();
     }
