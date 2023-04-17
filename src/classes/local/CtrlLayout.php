@@ -32,8 +32,12 @@ class CtrlLayout{
      * @return boolean
      */
     public static function is_nav_drawer_open() {
-        // return (get_user_preferences('drawer-open-nav', 'true') == 'true');
-        return false; // Par default.
+        $navdrawer = get_user_preferences('drawer-open-nav', 'true');
+        $courseindex = core_course_drawer();
+        if (!$courseindex) {
+            $navdrawer = false;
+        }
+        return false;
     }
 
     /**
@@ -41,8 +45,14 @@ class CtrlLayout{
      * @return boolean
      */
     public static function is_drawer_open_right() {
-        // return (get_user_preferences('sidepre-open', 'true') == 'true');
-        return false; // Par default.
+        global $PAGE, $OUTPUT;
+        $drawer = get_user_preferences('drawer-open-block', 'true');
+        $forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
+        //if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, ThemeSettings::MODULES_WITH_EMBED_BLOCKS)) {
+        if ($forceblockdraweropen){
+            $drawer = true;
+        }
+        return $drawer;
     }
 
     /**

@@ -26,6 +26,7 @@ body:not(.pagelayout-secure){
         background-color: $secondary;
         position: fixed;
         right: 0;
+        @include vendor('transition', 'width .5s ease, right .5s ease, opacity .5s ease, height .5s ease');
         top: $top-navbar-height;
         color: #fff;
         width: 30px;
@@ -35,7 +36,7 @@ body:not(.pagelayout-secure){
         font-size: 20px;
         padding: 8px 0 0 4px;
         cursor: pointer;
-        z-index: 1000; // avoid conflit with Bootstrap modal z-index: 1040
+        z-index: 1000; // avoid conflict with Bootstrap modal z-index: 1040
         border: 2px solid #FFF;
 
         &:before {
@@ -57,15 +58,19 @@ body:not(.pagelayout-secure){
 
     &.drawer-open-right #sidepreopen-control{
         //width: 260px;
-        right: 340px;
+        right: $right-drawer-width;
+        @include vendor('transition', 'right .5s ease');
     }
 
 
     #sidepre-blocks{
+        @include vendor('transition', 'width .5s ease');
         overflow-y: auto;
-        width: 340px; // drawer width
+        width: $right-drawer-width; // drawer width
+        min-height: 100vh;
+        z-index: 1020;
+        background-color: #e3e3e3;
        // height: 100%;
-        top: -$top-navbar-height;
 
         .card{
             .card-body{
@@ -75,13 +80,11 @@ body:not(.pagelayout-secure){
     }
 
     #sidepre-blocks.closed{
+        @include vendor('transition', 'width .5s ease');
         width: 0px; // cache par defaut
-        height: 0px;
-        opacity: 0;
     }
 
     [data-region="blocks-column"] {
-        width: 0px;
         background-color: #fff;
         position: absolute;
         top: 0;

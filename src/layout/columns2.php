@@ -31,15 +31,15 @@ use theme_recit2\local\CtrlLayout;
 use theme_recit2\local\ThemeSettings;
 
 CtrlLayout::set_user_preference_drawer();
+user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
+user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
 
 $hasdrawertoggle = false;
-// Code $navdraweropen = false;
-// Code $draweropenright = false;.
+$navdraweropen = false;
+$draweropenright = false;
 
 if (isloggedin()) {
     $hasdrawertoggle = true;
-    // $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');"
-    // $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
 }
 
 $blockshtml = $OUTPUT->blocks('side-pre');
@@ -49,12 +49,14 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
-/*if ($navdraweropen) {
+/*if (CtrlLayout::is_nav_drawer_open()) {
     $extraclasses[] = 'drawer-open-left';
+    $navdraweropen = true;
 }*/
 
 if (CtrlLayout::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
+    $draweropenright = true;
 }
 $extraclasses[] = ThemeSettings::get_subtheme_class();
 
@@ -90,8 +92,8 @@ $templatecontext = [
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
     'headercontent' => $headercontent,
-    'navdraweropen' => CtrlLayout::is_nav_drawer_open(),
-    'draweropenright' => CtrlLayout::is_drawer_open_right(),
+    'navdraweropen' => $navdraweropen,
+    'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && isset($_GET['categoryid']),
 ];
@@ -106,9 +108,6 @@ $themesettings = new ThemeSettings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-if ($hasblocks && isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, ThemeSettings::MODULES_WITH_EMBED_BLOCKS)) {
-    $templatecontext['hasblocksembed'] = true;
-}
 //Activity setting
 if (isset($PAGE->cm->modname)) {
     $templatecontext['activitysettings'] = $OUTPUT->region_main_settings_menu();

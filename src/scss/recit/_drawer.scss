@@ -1,5 +1,4 @@
 
-$right-drawer-width: 320px;
 
 $zindex-sticky:                     1020 !default;
 
@@ -11,9 +10,8 @@ $zindex-sticky:                     1020 !default;
     &.drawer {
         z-index: $zindex-sticky;
         position: fixed;
-        top: $top-navbar-height;
         right: 0;
-        height: calc(100% - #{$top-navbar-height});
+        height: 100%;
         width: $right-drawer-width;
         box-shadow: -2px 2px 4px rgba(0, 0, 0, .08);
         padding: 0;
@@ -42,12 +40,12 @@ $zindex-sticky:                     1020 !default;
     border-image: linear-gradient(white, #e3e3e3, white) 30 stretch;
     padding: 15px;
     overflow-y: auto;
-    max-height: 100vh;
+    max-height: calc(100vh - #{$top-navbar-height});
 }
 body:not(.pagelayout-secure) #sidepre-blocks {
     position: fixed;
     overflow-y: hidden;
-    top: 0;
+    padding: $top-navbar-height 0;
     /* width */
     ::-webkit-scrollbar { width: 4px; height: 4px;}
     
@@ -85,5 +83,51 @@ body:not(.pagelayout-secure) #sidepre-blocks {
 .dir-rtl {
     [data-region=right-hand-drawer] {
         box-shadow: 2px 2px 4px rgba(0, 0, 0, .08);
+    }
+}
+
+@media screen and (max-width: 2170px){
+    .maincontent {
+        @include vendor('transition', 'width .5s ease');
+        width: 100%;
+    }
+}
+
+.drawer-open-right {
+    .maindrawer {
+        position: fixed;
+        width: $right-drawer-width;
+        z-index: $zindex-sticky;
+    }
+    .mainpage {
+        width: 100%;
+    }
+    .maincontent {
+        width: min(calc(100vw - #{$right-drawer-width}), 1500px);
+    }
+
+    @media screen and (min-width: 2170px){
+        .maincontent, #mainTopNav {
+            margin: auto;
+        }
+    }
+    @media screen and (max-width: 2170px){
+        .maincontent, #mainTopNav {
+            margin-right: $right-drawer-width;
+            margin: unset;
+        }
+    }
+    @media screen and (max-width: 1023px){
+        .maincontent, #mainTopNav {
+            margin-right: unset;
+            margin: unset;
+            width: 100%;
+            max-width: 100vw;
+        }
+    }
+    @media screen and (max-width: 1500px){
+        #mainTopNav {
+            max-width: 100vw;
+        }
     }
 }

@@ -21,6 +21,7 @@ M.recit.theme.recit2.Ctrl = class{
         this.initTimeoutModal();
         this.initEkkoLightbox();
         this.initGoToTopBtn();
+        setTimeout(() => this.initDrawer(), 500);//Timer needed because drawer needs to be initiated by Bootstrap
     }
 
     init(){
@@ -34,6 +35,28 @@ M.recit.theme.recit2.Ctrl = class{
 
         window.addEventListener("keydown", this.ctrlShortcuts);
     };
+
+    initDrawer(){
+        if (window.innerWidth < 550){//if mobile hide drawer
+            if (document.body.classList.contains('drawer-open-right')){
+                let btn = document.getElementById('sidepreopen-control');
+                if (btn){
+                    btn.click();
+                }
+            }
+        }
+
+        let toggler = document.getElementById('sidepreopen-control');
+        if (toggler){
+            toggler.addEventListener('click', () => setTimeout(() => {
+                if (document.body.classList.contains('drawer-open-right')){
+                    M.util.set_user_preference('drawer-open-block', true);
+                }else{
+                    M.util.set_user_preference('drawer-open-block', false);
+                }
+            }, 100))
+        }
+    }
 
     initGoToTopBtn(){
         let btn = document.getElementById('goto-top-link');

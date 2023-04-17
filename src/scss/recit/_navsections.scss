@@ -44,6 +44,25 @@ $max-width-responsive-m5: 992px;
     grid-area: navsections;
 
     display: grid; 
+    max-width: 100%;
+    &.overflow-scroll {
+        /* width */
+        &::-webkit-scrollbar { width: 4px; height: 4px;}
+        
+        /* Track */
+        &::-webkit-scrollbar-track { background: #f1f1f1; }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {background: #888;}
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {background: #555;}
+        /* Scrollbar for Firefox */
+        scrollbar-color: #888 #f1f1f1;
+        scrollbar-width: thin;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
     &.horizontal{
         grid-template-columns: auto;
         grid-template-rows: auto auto;
@@ -141,10 +160,13 @@ $max-width-responsive-m5: 992px;
         .responsive-bar{display: none;}
         ul{
             background-color: $navsections-bgcolor-m1-l1;
-            width: 100%; list-style: none; margin: auto; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; padding: 0; height: 70px;
+            min-width: 100%; max-width: 1366px; list-style: none; margin: auto; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; padding: 0; height: 70px;
             li{
-                padding: .5rem; align-self: center; display: flex; justify-content: center; align-items: center; 
-                
+                padding: .5rem; align-self: center; display: flex; justify-content: center; align-items: center; max-width: 200px;
+                &:not(:empty) {
+                    min-width: 75px;
+                    width: max-content;
+                }
                 button[data-btn-submenu-collapse]{display: none;}
 
                 ul{

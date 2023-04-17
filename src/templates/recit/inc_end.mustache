@@ -1,3 +1,8 @@
+
+    {{{ footer }}}
+</div><!-- Ends .page-wrapper -->
+</div><!-- Ends .maincontent -->
+<div class="maindrawer">
     {{#hasblocks}}
         <i id="sidepreopen-control"
             aria-expanded="{{#draweropenright}}true{{/draweropenright}}{{^draweropenright}}false{{/draweropenright}}"
@@ -8,12 +13,12 @@
             title="{{#str}} showhideblocks, theme_recit2 {{/str}}">
         </i>
 
-        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print {{^navdraweropen}}closed{{/navdraweropen}}">
+        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print {{^draweropenright}}closed{{/draweropenright}}">
             {{{ sidepreblocks }}}
         </section>
     {{/hasblocks}}
-    {{{ footer }}}
-</div><!-- Ends .page-wrapper -->
+</div>
+</div><!-- Ends .mainpage -->
 
 
 {{{message_drawer}}}

@@ -174,6 +174,8 @@ M.recit.theme.recit2.MenuM1 = class{
         }
 
         this.onWindowResize();
+
+        this.placeholder.parentElement.classList.add('overflow-scroll'); // Add this class so the 2 sections menu will have a scroll bar if too small screen
     }
 
     onWindowResize(){
@@ -187,10 +189,10 @@ M.recit.theme.recit2.MenuM1 = class{
                 item.nextElementSibling.classList.remove("d-flex");
             }
 
-            if (!this.menuWidth){
+            /*if (!this.menuWidth){
                 this.menuWidth = this.menuSections.offsetWidth; //Keep width in memory because if we add responsive, width will return 0 as it's display none
                 this.onWindowResize(); //we added all classes so now we can see if menu is too large
-            }
+            }*/
         }
         else{
             this.placeholder.classList.add('responsive');

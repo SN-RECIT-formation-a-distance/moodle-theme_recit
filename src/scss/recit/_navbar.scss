@@ -1,4 +1,5 @@
 #mainTopNav{
+    @include vendor('transition', 'width .5s ease, margin .5s ease');
     max-width: $page-max-width;
     min-height: $top-navbar-height;
     margin: auto;
@@ -18,6 +19,9 @@
         }
         #navbarMenuItems{
             padding: 10px;
+        }
+        .navbar-nav{ 
+            align-items: unset !important;
         }
     }
     .count-container {
