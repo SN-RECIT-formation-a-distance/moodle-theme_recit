@@ -464,7 +464,9 @@ class CtrlLayout{
         }
         self::add_nav_item($result, "grades", "fa-graduation-cap", "grades", $gradeurl);
         
-        self::add_nav_item($result, "sitesettings", "fa-wrench", "sitesettings", "/admin/search.php");
+        self::add_nav_item($result, "sitesettings", "fa-wrench", "sitesettings", $CFG->wwwroot . "/admin/search.php");
+        self::add_nav_item($result, "mycourses", "fa-graduation-cap", "mycourses", $CFG->wwwroot . "/my/courses.php");
+        self::add_nav_item($result, "mymoodle", "fa-tachometer", "dashboard", $CFG->wwwroot . "/my/", get_string('mymoodle', 'my'));
 
         if($COURSE->id > 1){
            
