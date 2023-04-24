@@ -456,7 +456,7 @@ class CtrlLayout{
 
         //self::add_nav_item_from_flat_nav($result, $page->secondarynav, "calendar");
         //self::add_nav_item_from_flat_nav($result, $page->secondarynav, "privatefiles");
-        self::add_nav_item($result, "home", "fa-home", "sitehome", "/");
+        self::add_nav_item($result, "home", "fa-home", "sitehome", "/?redirect=0");
 
         $gradeurl = sprintf("%s/grade/report/overview/index.php", $CFG->wwwroot);
         if ($COURSE->id > 1){
