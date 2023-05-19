@@ -9,6 +9,10 @@ $max-width-responsive-m5: 992px;
 .page-content-wrapper{
     display: grid; 
     grid-template-areas: "navsections" "activitysettings" "page-content";
+    
+    .navbar-toggler-desktop {
+        display: none;
+    }
 }
 
 .vertical-right{
@@ -21,13 +25,75 @@ $max-width-responsive-m5: 992px;
     grid-template-areas:
         "activitysettings activitysettings"
         "page-content navsections";
+    .navbar-toggler-desktop {
+            display: none;
+    }
 }
 
 .vertical-left{
+    transition: width ease-in-out 0.25s;
     display: grid; 
     grid-template-columns: 20% 80%;
     grid-template-rows: auto auto;
     grid-template-areas: "activitysettings activitysettings" "navsections page-content";
+    
+    @media screen and (min-width: 992px){
+        .menuM5-inner {
+            height: calc(100vh - #{$top-navbar-height});
+            overflow-y: auto;
+            position: relative;
+            /* width */
+            &::-webkit-scrollbar { width: 4px; height: 4px;}
+            
+            /* Track */
+            &::-webkit-scrollbar-track { background: #f1f1f1; }
+    
+            /* Handle */
+            &::-webkit-scrollbar-thumb {background: #888;}
+    
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {background: #555;}
+            /* Scrollbar for Firefox */
+            scrollbar-color: #888 #f1f1f1;
+            scrollbar-width: thin;
+        }
+        .navbar-expand-lg .navbar-toggler-desktop {
+            display: block !important;
+            padding: 0.25rem 0.75rem;
+            font-size: 1.171875rem;
+            line-height: 1;
+            background-color: transparent;
+            border: 1px solid transparent;
+            color: #fff;
+            .icon{ margin: 5px 0 0 5px}
+        }
+        &.collapsedM5 {
+            grid-template-columns: 4% 95%;
+            #nav-sections {
+                padding: 0;
+                transition: width ease-in-out 0.25s;
+                width: calc(min(100vw, #{$page-max-width}) * 0.04) !important;
+            }
+            .navbar-collapse.collapse{
+                display: none !important;
+            }
+            .hideif-collapsed {
+                display: none;
+            }
+            .hideif-notcollapsed {
+                display: block;
+            }
+        }
+        .hideif-collapsed {
+            display: block;
+        }
+        .hideif-notcollapsed {
+            display: none;
+        }
+        .navbar-collapse.collapse {
+            display: flex!important;
+        }
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -42,8 +108,8 @@ $max-width-responsive-m5: 992px;
 
 .navsections{
     grid-area: navsections;
+    z-index: 1;
 
-    display: grid; 
     max-width: 100%;
     &.overflow-scroll {
         /* width */
@@ -64,6 +130,7 @@ $max-width-responsive-m5: 992px;
         overflow-y: hidden;
     }
     &.horizontal{
+        display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto auto;
 
@@ -94,6 +161,10 @@ $max-width-responsive-m5: 992px;
         grid-template-rows: auto;
 
         .navbar{align-items: baseline; align-content: baseline;}
+  
+        .navbar-expand-lg .navbar-toggler-desktop {
+            display: none;
+        }
 
         @media (min-width: $max-width-responsive-m5){
             .navbar-expand-lg{
@@ -104,8 +175,13 @@ $max-width-responsive-m5: 992px;
                     }
                 }
                 
-            }  
+            }
+            .menuM5 {
+                display: block;
+                height: 100%;
+            }
         }
+        
             
         .menuM5{
             //min-width: 10vw;
@@ -234,6 +310,7 @@ $max-width-responsive-m5: 992px;
 
     .menuM5{
         background-color: $navsections-bgcolor-m5;
+        padding: 0.5rem 0.1rem 0.5rem 0.5rem;
 
         .nav-item.dropdown{padding-right: 1rem;}
 

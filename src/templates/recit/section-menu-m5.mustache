@@ -14,10 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
+<div class='menuM5-scrollhelper'><!-- needed to detect when to stick the menu --></div>
 <nav class='navbar navbar-dark navbar-expand-lg menuM5' id='nav-sections'>
+    <div class="menuM5-inner">
     <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menuM5-collapse'
             aria-controls='menuM5-collapse' aria-expanded='false' aria-label='Toggle navigation'>
         <span class='navbar-toggler-icon'></span>
+    </button>
+    <button class='navbar-toggler-desktop' type='button' data-target='#menuM5-collapse'
+            aria-controls='menuM5-collapse' aria-expanded='false' aria-label='Toggle navigation'>
+       <i class="icon fa fa-times fa-fw hideif-collapsed" aria-hidden="true"></i>
+        <i class="icon fa fa-list fa-fw hideif-notcollapsed" aria-hidden="true"></i>
     </button>
     <div class='collapse navbar-collapse' id='menuM5-collapse'>
         <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
@@ -43,5 +50,6 @@
                 {{/hasSubSections}}
             {{/section_top_nav.sections}}
         </ul>
+    </div>
     </div>
 </nav>

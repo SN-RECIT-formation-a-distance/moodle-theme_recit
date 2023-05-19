@@ -111,6 +111,48 @@ M.recit.theme.recit2.Ctrl = class{
     }
 }
 
+M.recit.theme.recit2.floatingSection = class {
+    constructor(section, floatingSection){
+        
+        window.onscroll = this.onScroll.bind(this);
+        window.onresize = this.onScroll.bind(this);
+        this.navsections = section;
+        this.menu = floatingSection;
+        this.navbarHeight = document.querySelector('#mainTopNav').offsetHeight;
+        this.maincontent = document.querySelector('#page-content');
+        this.menu.style.maxHeight = 'calc(100vh - '+this.navbarHeight+'px)';
+    }
+
+    isMobile(){
+        return window.innerWidth < 990;
+    }
+
+    onScroll(event){
+        if (this.isMobile() || this.maincontent.offsetHeight < (this.menu.offsetHeight + 50)){ //If maincontent is empty (smaller than menu), no need to go floating
+            this.menu.style.top = '';
+            this.menu.style.height = '';
+            return;
+        }
+
+        var scrolled = this.navsections.getBoundingClientRect();
+        var top = 0-scrolled.top + this.navbarHeight;
+        var heightToRemove = (this.navsections.offsetHeight - top - 10);
+        if (heightToRemove > window.innerHeight){
+            heightToRemove = '';
+        }else{
+            heightToRemove = heightToRemove + 'px';
+        }
+        
+        if (top > 0){
+            this.menu.style.top = top + 'px';
+            this.menu.style.height = heightToRemove;
+        }else{
+            this.menu.style.top = '';
+            this.menu.style.height = '';
+        }
+    }
+}
+
 // definition static attributes and methods to work with Firefox
 if (typeof M.recit.theme.recit2.Ctrl.instance == 'undefined') M.recit.theme.recit2.Ctrl.instance = null;
 

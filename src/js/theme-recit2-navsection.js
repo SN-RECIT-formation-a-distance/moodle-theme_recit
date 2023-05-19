@@ -158,6 +158,7 @@ M.recit.theme.recit2.MenuM1 = class{
         window.onresize = this.onWindowResize.bind(this);
 
         this.placeholder = placeholder;
+        this.wrapper = document.querySelector('.page-content-wrapper');
         this.menuSections = null;
         this.init();
     }
@@ -296,17 +297,36 @@ M.recit.theme.recit2.MenuM1 = class{
 
 M.recit.theme.recit2.MenuM5 = class{
     constructor(placeholder){
-        //window.onscroll = this.onScroll.bind(this);
 
         this.placeholder = placeholder;
+        this.collapser = document.querySelector('.navbar-toggler-desktop');
+        this.wrapper = document.querySelector('.page-content-wrapper');
+        let navsections = document.querySelector('#nav-sections');
+        let menu = document.querySelector('.menuM5-inner');
         
         if (this.isVertical()){//If menu is vertical, prevent dropdowns from closing
+            this.floatingMenu = new M.recit.theme.recit2.floatingSection(navsections, menu);
             let els = placeholder.querySelectorAll('.dropdown-menu');
             for (let el of els){
                 el.addEventListener("click", function(e){
                     e.stopPropagation();
                 });
             }
+            
+            if (this.collapser){
+                this.collapser.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    this.collapse();
+                });
+            }
+        }
+    }
+
+    collapse(){
+        if (this.wrapper.classList.contains('collapsedM5')){
+            this.wrapper.classList.remove('collapsedM5');
+        }else{
+            this.wrapper.classList.add('collapsedM5')
         }
     }
 
@@ -317,14 +337,6 @@ M.recit.theme.recit2.MenuM5 = class{
     isMobile(){
         return window.innerWidth < 990;
     }
-
-    /*onScroll(event){
-         let verticalMenu = this.placeholder.querySelector("[id='navbarTogglerCourse']");
-         
-         if((verticalMenu) && (this.menu.parentElement.classList.contains("vertical")) && (window.scrollY < 0)){
-             verticalMenu.style.marginTop = `${window.scrollY}px`;
-         }
-     }*/
 
     ctrl(event){
         let elems = this.placeholder.querySelectorAll('.menu-item');
