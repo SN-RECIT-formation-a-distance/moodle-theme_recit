@@ -45,6 +45,11 @@ $string['region-side-post'] = 'Droite';
 // General settings tab.
 $string['generalsettings'] = 'Général';
 $string['logo'] = 'Logo';
+$string['categoryliststyle'] = 'Apparence des catégories de cours';
+$string['categoryliststyledesc'] = "Condensé : le résumé est révélé par un lien modal cliquable.
+Étendu : toutes les informations sont affichées à l'intérieur d'une carte horizontale.";
+$string['condensed'] = 'Condensé';
+$string['extended'] = 'Étendu';
 $string['logodesc'] = 'Le logo est affiché en entête.';
 $string['favicon'] = 'favicon personnalisé';
 $string['favicondesc'] = 'Téléverser votre favicon. Ce doit être un ficher .ico.';

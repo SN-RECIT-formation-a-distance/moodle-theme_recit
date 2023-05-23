@@ -42,18 +42,36 @@
             }
         }
     }
-
-    .recit-course-list{
+    .recit-course-list-grid{
         grid-template-columns: 50% 50%;
     }
+
 }
 
 
 /**********************************************************
 / tablets layout
 /*********************************************************/
-@media screen and (min-width: 1024px) and (max-width: 1280px){
+@media screen and (max-width: 1280px){
     .recit-course-list{
-        grid-template-columns: 33.3% 33.3% 33.3%;
+        .coursedesc .row {
+            padding: 5px 15px;
+        }
+        .summary {
+            height: unset;
+            min-height: 115px;
+        }
+        .coursetitle {
+            min-height: unset;
+        }
+        .recit-card-img-top {
+            width: 100%;
+            min-height: 225px;
+        }
+        .instructors {
+            img {
+                height: 35px;
+            }
+        }
     }
 }

@@ -46,6 +46,7 @@ use theme_recit2\local\ThemeSettings;
 class course_renderer extends \core_course_renderer {
 
     private $listview = false;
+    private $extendedview = false;
     private $maxInstructors = 5;
  /**
      * Renders html to display a course search form.
@@ -122,6 +123,10 @@ class course_renderer extends \core_course_renderer {
             $this->listview = true;
             return parent::coursecat_courses($chelper, $courses, $_totalcount);
         }
+
+        if (theme_recit2_get_setting('categoryliststyle') == 1){
+            $this->extendedview = true;
+        }
         
 
         if (!$totalcount) {
@@ -183,13 +188,17 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'recit-course-list'));
+        $classes = 'recit-course-list';
+        if (!$this->extendedview){
+            $classes .= " recit-course-list-grid";
+        }
+        $content .= html_writer::start_tag('div', array('class' => $classes));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
             /*if ($coursecount % 4 == 0) {
                 $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'recit-course-list'));
+                $content .= html_writer::start_tag('div', array('class' => ));
             }*/
 
             $coursecount ++;
@@ -239,7 +248,7 @@ class course_renderer extends \core_course_renderer {
             $course = new core_course_list_element($course);
         }
 
-        $classes = trim('card');
+        $classes = 'card';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h3';
         } else {
@@ -288,6 +297,7 @@ class course_renderer extends \core_course_renderer {
         // Course name.
         $data->coursename = $chelper->get_course_formatted_name($course);
         $data->courselink = new moodle_url('/course/view.php', array('id' => $course->id));
+        $data->courseid = $course->id;
 
         $data->courseimage = $this->get_course_summary_image($course, $data->courselink);
 
@@ -316,7 +326,16 @@ class course_renderer extends \core_course_renderer {
 
         // Display course summary.
         if ($course->has_summary()) {
-            $data->coursesummary = $chelper->get_course_formatted_summary($course, array('overflowdiv' => true, 'noclean' => true, 'para' => false));
+            $elipsis = 315;
+            $fullsummary = $chelper->get_course_formatted_summary($course, array('overflowdiv' => true, 'noclean' => true, 'para' => false));
+            $summary = strip_tags($fullsummary);
+            if (strlen($summary) > $elipsis){
+                $summary = $this->cutString($summary, $elipsis);
+                $data->haselipsis = true;
+            }
+            $data->coursesummary = $summary;
+            $data->fullcoursesummary = strip_tags(str_replace('"', "'", $fullsummary));
+            $data->fullcoursesummaryhtml = $fullsummary;
         }
 
 
@@ -344,6 +363,7 @@ class course_renderer extends \core_course_renderer {
         $data->tags = array();
         $course_tags = \core_tag_tag::get_item_tags_array('core', 'course', $course->id);
         foreach ($course_tags as $tag){
+            $data->hastags = true;
             $data->tags[] = array("url" => $CFG->wwwroot."/tag/index.php?tag=" .urlencode($tag), "name" => $tag);
         }
 
@@ -354,9 +374,27 @@ class course_renderer extends \core_course_renderer {
             }
         }
 
-        return $this->render_from_template('theme_recit2/recit/courselistcontent', $data);
+        if ($this->extendedview){
+            return $this->render_from_template('theme_recit2/recit/courselistcontent_extended', $data);
+        }else{
+            return $this->render_from_template('theme_recit2/recit/courselistcontent', $data);
+        }
     }
 
+    public function cutString($string, $maxLength = 200) {
+        if (strlen($string) <= $maxLength) {
+            return $string;
+        }
+    
+        $cutString = substr($string, 0, $maxLength);
+        $lastSpace = strrpos($cutString, ' ');
+    
+        if ($lastSpace !== false) {
+            $cutString = substr($cutString, 0, $lastSpace);
+        }
+    
+        return $cutString;
+    }
     
     /**
      * Returns HTML to display course contacts.

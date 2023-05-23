@@ -64,6 +64,14 @@ class Settings {
         $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
         $page->add($setting);
 
+        $name = 'theme_'.$this->theme_name.'/categoryliststyle';
+        $title = get_string('categoryliststyle', 'theme_recit2');
+        $description = get_string('categoryliststyledesc', 'theme_recit2');
+        $default = 0;
+        $options = array(0 => get_string('condensed', 'theme_recit2'), 1 => get_string('extended', 'theme_recit2'));
+        $setting = new \admin_setting_configselect($name, $title, $description, $default, $options);
+        $page->add($setting);
+
         // Must add the page after defining all the settings!
         $settings->add($page);
 

@@ -32,10 +32,10 @@
 {{/hascontacts}}
 
 <div class="card-body">
-    <h4 class="card-title"><a class="" href="{{courselink}}">{{{coursename}}}</a></h4>
-    <p class="card-text"></p>
+    <h4 class="card-title">
+    <a class="" href="{{courselink}}">{{{coursename}}}</a>
+    {{#fullcoursesummaryhtml}}<a class="" href="#" data-toggle="modal" data-target="#modalcourse{{courseid}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>{{/fullcoursesummaryhtml}}</h4>
     <div class="no-overflow">
-        {{{coursesummary}}}
         <div class="p-3 text-right">
         {{#badges}}
             <a href="{{courselink}}" class="contact" data-toggle="tooltip" title="{{name}}">
@@ -44,19 +44,30 @@
         {{/badges}}
         </div>
     </div>
-    <p></p>
-    <div class='text-center'>
-        {{#courseicons}}
-            {{{.}}}
-        {{/courseicons}}
-        <a href="{{courselink}}" class="card-link btn btn-primary" data-toggle="tooltip" title="{{coursename}}"><i class="fa fa-sign-in"></i> {{#str}}access,theme_recit2{{/str}}</a>
-        {{#caturl}}
-            {{{caturl}}}
-        {{/caturl}}
-    </div>
-    <div class="text-left pt-4">
+    <div class="courseinfo">
         {{#tags}}
             <a href='{{url}}'><span class='badge badge-info'>{{name}}</span></a>
         {{/tags}}
+        {{#courseicons}}
+            {{{.}}}
+        {{/courseicons}}
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalcourse{{courseid}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{{coursename}}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{{fullcoursesummaryhtml}}}
+      </div>
+    </div>
+  </div>
 </div>

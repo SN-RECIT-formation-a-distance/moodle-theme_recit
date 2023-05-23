@@ -35,9 +35,20 @@
         }
     }
 
-    .recit-course-list{
+    .recit-course-list-grid{
         grid-template-columns: auto;
-    }  
+    }
+    .recit-course-list{
+        .course-card {
+            height: unset;
+        }
+
+
+        .summary {
+            height: unset;
+            min-height: unset;
+        }
+    }
 
     #page-login-index.recit-login {
         #page-wrapper {

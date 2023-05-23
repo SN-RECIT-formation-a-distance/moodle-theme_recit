@@ -45,6 +45,10 @@ $string['access'] = 'Access';
 // General settings tab.
 $string['generalsettings'] = 'General';
 $string['logo'] = 'Logo';
+$string['categoryliststyle'] = 'Category list style';
+$string['categoryliststyledesc'] = 'List layout';
+$string['condensed'] = 'Condensed';
+$string['extended'] = 'Extended';
 $string['logodesc'] = 'The logo is displayed in the header.';
 $string['favicon'] = 'Custom favicon';
 $string['favicondesc'] = 'Upload your own favicon. It should be an .ico file.';

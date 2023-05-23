@@ -124,7 +124,7 @@ M.recit.theme.recit2.floatingSection = class {
     }
 
     isMobile(){
-        return window.innerWidth < 990;
+        return window.innerWidth < 992;
     }
 
     onScroll(event){
