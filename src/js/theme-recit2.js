@@ -120,7 +120,7 @@ M.recit.theme.recit2.floatingSection = class {
         this.menu = floatingSection;
         this.navbarHeight = document.querySelector('#mainTopNav').offsetHeight;
         this.maincontent = document.querySelector('#page-content');
-        this.menu.style.maxHeight = 'calc(100vh - '+this.navbarHeight+'px)';
+
     }
 
     isMobile(){
@@ -131,6 +131,7 @@ M.recit.theme.recit2.floatingSection = class {
         if (this.isMobile() || this.maincontent.offsetHeight < (this.menu.offsetHeight + 50)){ //If maincontent is empty (smaller than menu), no need to go floating
             this.menu.style.top = '';
             this.menu.style.height = '';
+            this.menu.style.maxHeight = '';
             return;
         }
 
@@ -146,9 +147,11 @@ M.recit.theme.recit2.floatingSection = class {
         if (top > 0){
             this.menu.style.top = top + 'px';
             this.menu.style.height = heightToRemove;
+            this.menu.style.maxHeight = 'calc(100vh - '+this.navbarHeight+'px)';
         }else{
             this.menu.style.top = '';
             this.menu.style.height = '';
+            this.menu.style.maxHeight = '';
         }
     }
 }
