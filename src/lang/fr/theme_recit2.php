@@ -58,7 +58,7 @@ $string['loginbgimg_desc'] = 'Téléverser votre image d\'arrère-plan de page d
 $string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
 $string['enablebreadcrumbdesc'] = '';
 $string['truncatesections'] = 'Tronquer le nom des sections';
-$string['truncatesectionsdesc'] = 'Tronquer le nom des sections';
+$string['truncatesectionsdesc'] = '';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Page d\'accueil';
