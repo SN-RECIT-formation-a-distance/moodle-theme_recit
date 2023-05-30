@@ -194,7 +194,7 @@ class CtrlLayout{
     }
 
     public static function get_course_section_top_nav(){
-        global $COURSE, $CFG, $PAGE;
+        global $COURSE, $CFG, $PAGE, $USER;
 
         $modinfo = get_fast_modinfo($COURSE);
         $sectionslist = $modinfo->get_section_info_all();
@@ -222,13 +222,18 @@ class CtrlLayout{
         $course = course_get_format($COURSE)->get_course();
         $hideVisible = isset($course->hiddensections) ? $course->hiddensections : 1; //0 = show for teachers, 1 = hidden for everyone
         $hideRestricted = ThemeSettings::get_custom_field('hide_restricted_section');
+        $ccontext = \context_course::instance($COURSE->id);
+        $seehidden = has_capability('theme/recit2:accesshiddensections', $ccontext, $USER->id, false);
 
         foreach($sectionslist as $section){
-            if( !$section->visible ){ 
+            if(!$section->visible){
                 if ($hideVisible == 1) continue; 
-                if ($hideVisible == 0 && !$PAGE->user_allowed_editing()) continue; 
-            } 
-            if( $hideRestricted == 1 && !$section->available ){ continue; } 
+                if ($hideVisible == 0 && !$seehidden) continue;
+            }
+            if ($hideRestricted == 1 && !$section->available){
+                if ($hideVisible == 1) continue; 
+                if ($hideVisible == 0 && !$seehidden) continue;
+            }
 
             $sectionDesc = get_section_name($COURSE, $section->section);//(empty($section->name) ? get_string('section') . '' . $section->section : $section->name);
             

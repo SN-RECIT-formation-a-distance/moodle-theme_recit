@@ -41,6 +41,7 @@ $string['coursehome'] = 'Course Home';
 $string['grade'] = 'Grade';
 $string['editmode'] = 'Edit mode';
 $string['access'] = 'Access';
+$string['recit2:accesshiddensections'] = 'Access hidden sections';
 
 // General settings tab.
 $string['generalsettings'] = 'General';
