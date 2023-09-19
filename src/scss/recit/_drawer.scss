@@ -1,6 +1,6 @@
 
 
-$zindex-sticky:                     1020 !default;
+$zindex-sticky:                     1030 !default;
 
 [data-region=right-hand-drawer] {
     display: flex;
@@ -11,12 +11,13 @@ $zindex-sticky:                     1020 !default;
         z-index: $zindex-sticky;
         position: fixed;
         right: 0;
-        height: 100%;
+        height: calc(100% - #{$top-navbar-height});
         width: $right-drawer-width;
         box-shadow: -2px 2px 4px rgba(0, 0, 0, .08);
         padding: 0;
-        visibility: visible;
+        visibility: visible; 
         opacity: 1;
+        top: $top-navbar-height;
     }
 
     .closewidget {
