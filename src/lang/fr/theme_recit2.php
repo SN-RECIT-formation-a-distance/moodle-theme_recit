@@ -59,6 +59,9 @@ $string['enablebreadcrumb'] = "Activer la navigation dans le fil d'Ariane";
 $string['enablebreadcrumbdesc'] = '';
 $string['truncatesections'] = 'Tronquer le nom des sections';
 $string['truncatesectionsdesc'] = '';
+$string['navbuttonhome'] = 'Navigation par retour au menu';
+$string['navbuttonhomedesc'] = '';
+$string['back'] = 'Retour';
 $string['recit2:accesshiddensections'] = 'Accès aux sections cachées';
 
 // Frontpage settings tab.

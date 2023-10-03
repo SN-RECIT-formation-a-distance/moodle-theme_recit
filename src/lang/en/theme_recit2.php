@@ -59,6 +59,9 @@ $string['enablebreadcrumb'] = 'Enable breadcrumb navigation';
 $string['enablebreadcrumbdesc'] = '';
 $string['truncatesections'] = 'Truncate section name';
 $string['truncatesectionsdesc'] = '';
+$string['navbuttonhome'] = 'Navigation back to home';
+$string['navbuttonhomedesc'] = '';
+$string['back'] = 'Back';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';

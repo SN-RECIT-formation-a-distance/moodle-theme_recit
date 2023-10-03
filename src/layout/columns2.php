@@ -101,6 +101,8 @@ $templatecontext = [
 $showActivityNav = ThemeSettings::get_custom_field('show_activity_nav');
 $templatecontext['show_activity_nav'] = ($showActivityNav == 1);
 
+$templatecontext['show_navbuttonhome'] = (ThemeSettings::get_custom_field('themerecit2_navbuttonhome') == 1);
+
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_course_section_nav());
 
