@@ -40,7 +40,7 @@ $string['grade'] = 'Carnet des résultats';
 $string['editmode'] = 'Mode édition';
 $string['access'] = 'Accéder';
 $string['region-side-pre'] = 'Droite';
-$string['region-side-post'] = 'Droite';
+$string['region-side-post'] = 'Centre';
 
 // General settings tab.
 $string['generalsettings'] = 'Général';
