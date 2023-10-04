@@ -61,7 +61,7 @@ $string['truncatesections'] = 'Truncate section name';
 $string['truncatesectionsdesc'] = '';
 $string['navbuttonhome'] = 'Navigation back to home';
 $string['navbuttonhomedesc'] = '';
-$string['back'] = 'Back';
+$string['menu'] = 'Menu';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';

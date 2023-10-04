@@ -15,21 +15,23 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-{{#section_bottom_nav.enable}}   
-        <nav id='sectionPagination' aria-label='Pagination de sections' style='margin-top: 3rem; border-top: 1px solid #efefef; padding-top: 1rem;'>
-            <ul class="pagination justify-content-center ">
-                <li class="page-item">
-                    <a class='page-link' href='#' tabindex='-1'>
-                        <i class='fa fa-arrow-left'></i> 
-                        {{section_bottom_nav.prev_section}}   
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class='page-link' href='#' tabindex='-1'>
-                        {{section_bottom_nav.next_section}}
-                        <i class='fa fa-arrow-right'></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-{{/section_bottom_nav.enable}}
+{{#layoutOptions.showSectionBottomNav}} 
+    {{#section_bottom_nav.enable}}   
+            <nav id='sectionPagination' aria-label='Pagination de sections'>
+                <ul >
+                    <li >
+                        <a class='page-link' href='#' tabindex='-1'>
+                            <i class='fa fa-arrow-left'></i> 
+                            {{section_bottom_nav.prev_section}}   
+                        </a>
+                    </li>
+                    <li >
+                        <a class='page-link' href='#' tabindex='-1'>
+                            {{section_bottom_nav.next_section}}
+                            <i class='fa fa-arrow-right'></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    {{/section_bottom_nav.enable}}
+{{/layoutOptions.showSectionBottomNav}}

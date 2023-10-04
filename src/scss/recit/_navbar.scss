@@ -42,9 +42,7 @@
     &.navbar-dark a .icon {
         color: unset!important;
     }
-    .fa-course-home {
-        @extend .fa-university
-    }
+    
     .navbar-nav{ 
         align-items: center;    
 
@@ -65,6 +63,10 @@
     .popover-region-header-actions .icon {
         color: rgba(0,0,0,.5) !important;
     }
+}
+
+.fa-course-home {
+    @extend .fa-university
 }
 
 .navbar.fixed-top {//Override Moodle, breaks mobile navbar

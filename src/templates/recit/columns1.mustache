@@ -59,13 +59,8 @@
                                 {{{ output.activity_navigation }}}
                             {{/show_activity_nav}}
 
-                            {{#layoutOptions.showNavButtonHome}}
-                                {{#show_navbuttonhome}}
-                                    <div id="themerecit2_navbuttonhome" class="m-2 p-2 d-flex justify-content-center ">
-                                        <a href="{{settingsmenu.coursehome.url}}" class="btn btn-primary">{{#str}} back, theme_recit2 {{/str}}</a>
-                                    </div>
-                                {{/show_navbuttonhome}}
-                            {{/layoutOptions.showNavButtonHome}}
+                            {{> theme_recit2/recit/navbuttonhome }}
+
                             {{{ output.course_content_footer }}}
                         </div>
                     </div>

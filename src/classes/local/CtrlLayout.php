@@ -296,7 +296,7 @@ class CtrlLayout{
             $item = new stdClass();
             $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
             $item->pix = 'fa-course-home';
-            $item->title = get_string('coursehome', 'theme_recit2');
+            $item->title = get_string('menu', 'theme_recit2');
             $result['coursehome'] = $item;
 
 

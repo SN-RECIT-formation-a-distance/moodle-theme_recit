@@ -234,3 +234,26 @@ body.pagelayout-embedded{
         font-size: 16px;
     }
 }
+
+#themerecit2_navbuttonhome{
+    /* define padding and margin here to allow the user to override it*/
+    padding: 1.5rem; 
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+}
+
+#sectionPagination{
+    /* define padding and margin here to allow the user to override it*/
+    padding: 1.5rem; 
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    ul{display: flex; justify-content: center; margin:0;       padding-left: 0;        list-style: none;        border-radius: 0.5rem;} 
+}

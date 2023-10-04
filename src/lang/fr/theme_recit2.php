@@ -61,7 +61,7 @@ $string['truncatesections'] = 'Tronquer le nom des sections';
 $string['truncatesectionsdesc'] = '';
 $string['navbuttonhome'] = 'Navigation par retour au menu';
 $string['navbuttonhomedesc'] = '';
-$string['back'] = 'Retour';
+$string['menu'] = 'Menu';
 $string['recit2:accesshiddensections'] = 'Accès aux sections cachées';
 
 // Frontpage settings tab.
