@@ -34,7 +34,20 @@ M.recit.theme.recit2.Ctrl = class{
         }
 
         window.addEventListener("keydown", this.ctrlShortcuts);
+
+       this.preventScrollToTop();
     };
+
+    preventScrollToTop(){
+        // The HTML spec specifies that if fragment is the empty string, then return the special value top of the document.
+        let elements = document.querySelectorAll('a[href="#"][data-toggle="popover"]');
+
+        for(let el of elements){
+            el.addEventListener('click',function(e){
+                e.preventDefault();
+            });
+        }
+    }
 
     initDrawer(){
         if (window.innerWidth < 550){//if mobile hide drawer
