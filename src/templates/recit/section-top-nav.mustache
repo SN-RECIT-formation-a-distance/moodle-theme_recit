@@ -15,52 +15,54 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-{{#section_top_nav}}   
-    {{#section_top_nav.isMenuM1}}
-        <div class="navsections">
-            <nav class='menuM1' id='nav-sections'>
-                <div class="responsive-bar">
-                    <button id="btn-menu-collapse" class='btn btn-outline-light btn-sm'><i class='fa fa-ellipsis-v'></i></button>
-                    <div class='active-item'></div>
-                </div>              
-                <ul id="menu-sections">
-                    {{#section_top_nav.sections}}
-                        <li>
-                            <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
-                            {{#hasSubSections}}
-                                <button data-btn-submenu-collapse class='btn btn-outline-light btn-sm'><i class='fa fa-plus'></i></button>
-                                <ul>
-                                {{#subSections}}
-                                    <li>
-                                        <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
-                                    </li>
-                                    <li></li>
-                                {{/subSections}}
-                                </ul>
-                            {{/hasSubSections}}
-                        </li>
-                        <li></li>
-                    {{/section_top_nav.sections}}
-                </ul>
-            </nav>
-        </div>
-    {{/section_top_nav.isMenuM1}}
+{{#isenrolleduser}}
+    {{#section_top_nav}}   
+        {{#section_top_nav.isMenuM1}}
+            <div class="navsections">
+                <nav class='menuM1' id='nav-sections'>
+                    <div class="responsive-bar">
+                        <button id="btn-menu-collapse" class='btn btn-outline-light btn-sm'><i class='fa fa-ellipsis-v'></i></button>
+                        <div class='active-item'></div>
+                    </div>              
+                    <ul id="menu-sections">
+                        {{#section_top_nav.sections}}
+                            <li>
+                                <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
+                                {{#hasSubSections}}
+                                    <button data-btn-submenu-collapse class='btn btn-outline-light btn-sm'><i class='fa fa-plus'></i></button>
+                                    <ul>
+                                    {{#subSections}}
+                                        <li>
+                                            <a href='{{url}}' title='{{title}}'>{{{desc}}}</a>
+                                        </li>
+                                        <li></li>
+                                    {{/subSections}}
+                                    </ul>
+                                {{/hasSubSections}}
+                            </li>
+                            <li></li>
+                        {{/section_top_nav.sections}}
+                    </ul>
+                </nav>
+            </div>
+        {{/section_top_nav.isMenuM1}}
 
-    {{#section_top_nav.isMenuM2}}
-        <div class="navsections vertical">
-            {{>theme_recit2/recit/section-menu-m5}}
-        </div>
-    {{/section_top_nav.isMenuM2}}
+        {{#section_top_nav.isMenuM2}}
+            <div class="navsections vertical">
+                {{>theme_recit2/recit/section-menu-m5}}
+            </div>
+        {{/section_top_nav.isMenuM2}}
 
-    {{#section_top_nav.isMenuM3}}
-        <div class="navsections vertical">
-            {{>theme_recit2/recit/section-menu-m5}}
-        </div>
-    {{/section_top_nav.isMenuM3}}
+        {{#section_top_nav.isMenuM3}}
+            <div class="navsections vertical">
+                {{>theme_recit2/recit/section-menu-m5}}
+            </div>
+        {{/section_top_nav.isMenuM3}}
 
-    {{#section_top_nav.isMenuM5}}
-        <div class="navsections horizontal">
-            {{>theme_recit2/recit/section-menu-m5}}
-        </div>
-    {{/section_top_nav.isMenuM5}}
-{{/section_top_nav}}
+        {{#section_top_nav.isMenuM5}}
+            <div class="navsections horizontal {{issigneduser}}">
+                {{>theme_recit2/recit/section-menu-m5}}
+            </div>
+        {{/section_top_nav.isMenuM5}}
+    {{/section_top_nav}}
+{{/isenrolleduser}}

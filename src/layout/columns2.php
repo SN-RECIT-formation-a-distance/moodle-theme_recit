@@ -96,6 +96,7 @@ $templatecontext = [
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && isset($_GET['categoryid']),
+    'isenrolleduser' => CtrlLayout::isEnrolledUser($COURSE)
 ];
 
 $showActivityNav = ThemeSettings::get_custom_field('show_activity_nav');

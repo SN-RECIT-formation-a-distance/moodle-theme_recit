@@ -543,4 +543,31 @@ class CtrlLayout{
 
         $navitems[$key] = $item;
     }
+
+    public static function isEnrolledUser($course){
+        global $DB;
+
+        $result = false;
+        
+        $context = context_course::instance($course->id, MUST_EXIST);
+
+        if(is_enrolled($context)){
+            return true;
+        }
+
+        $params = array('courseid' => $course->id, 'status' => ENROL_INSTANCE_ENABLED);
+        $instances = $DB->get_records('enrol', $params, 'sortorder, id ASC');
+        $enrols = enrol_get_plugins(true);
+
+        foreach($instances as $instance){
+            $until = $enrols[$instance->enrol]->try_guestaccess($instance);
+
+            if ($until !== false and $until > time()) {
+                $result = true;
+                break;
+            }
+        }
+
+        return $result;
+    }
 }
