@@ -62,6 +62,11 @@
     }
 }
 
+// Background-color des embed questions dans les page
+.que .formulation{
+    background-color: transparent!important;
+}
+
 .qnbutton.flagged .thispageholder {
     background: transparent url([[pix:theme|mod/quiz/flag-on]]) 15px 0 no-repeat;
 }

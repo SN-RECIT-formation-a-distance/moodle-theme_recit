@@ -36,8 +36,9 @@
 
 //@import "../../fonts/Poppins-Regular.scss";
 @import "../extras/fontello";
+@import "../extras/google";
 @import "_bootstrap-override";
-@import "_moodle-override";
+@import "_moodle-override"; 
 @import "_vendor.scss";
 @import "transition";
 @import "../extras/transitions";
@@ -45,7 +46,7 @@
 @import "../extras/animate";
 @import "../extras/metismenu";
 @import "general";
-@import "navbar";
+@import "navbar"; 
 @import "frontpage";
 @import "login";
 @import "blocks";
