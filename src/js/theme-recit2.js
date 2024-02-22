@@ -125,32 +125,48 @@ M.recit.theme.recit2.Ctrl = class{
 }
 
 M.recit.theme.recit2.floatingSection = class {
-    constructor(section, floatingSection){
-        
+    constructor(section, floatingSection){        
         window.onscroll = this.onScroll.bind(this);
         window.onresize = this.onScroll.bind(this);
         this.navsections = section;
         this.menu = floatingSection;
         this.navbarHeight = document.querySelector('#mainTopNav').offsetHeight;
+        this.switchEditingMode = document.getElementById("switch-editing-mode");
         this.maincontent = document.querySelector('#page-content');
-
     }
 
     isMobile(){
         return window.innerWidth < 992;
     }
 
+    isMainContentSmallerThanMenu(){
+        let maincontentheight = 0;
+
+        if(this.switchEditingMode.checked){
+            let maincontenteditingmode = document.querySelector('div.tab-content.recitformatmenu');
+            if(maincontenteditingmode){
+                maincontentheight = maincontenteditingmode.offsetHeight;
+            }            
+        }
+        else{
+            maincontentheight = this.maincontent.offsetHeight;
+        }
+
+        return (maincontentheight < (this.menu.offsetHeight + 50));
+    }
+
     onScroll(event){
-        if (this.isMobile() || this.maincontent.offsetHeight < (this.menu.offsetHeight + 50)){ //If maincontent is empty (smaller than menu), no need to go floating
+        //If maincontent is empty (smaller than menu), no need to go floating
+        if (this.isMobile() || this.isMainContentSmallerThanMenu()){ 
             this.menu.style.top = '';
             this.menu.style.height = '';
-            this.menu.style.maxHeight = '';
+            this.menu.style.maxHeight = ''; 
             return;
         }
 
         var scrolled = this.navsections.getBoundingClientRect();
         var top = 0-scrolled.top + this.navbarHeight;
-        var heightToRemove = (this.navsections.offsetHeight - top - 10);
+        var heightToRemove = (this.navsections.offsetHeight - top - 10); // 10px = margin
         if (heightToRemove > window.innerHeight){
             heightToRemove = '';
         }else{
