@@ -35,7 +35,7 @@ $plugin->requires = 2022041904.00; // Moodle 4.0.0
 $plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'v3.1.12-stable';
+$plugin->release = 'v3.1.13-stable';
 $plugin->supported = [400, 401];      //  Moodle 4.0.x, are supported.
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;

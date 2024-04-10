@@ -549,9 +549,15 @@ class CtrlLayout{
 
         $result = false;
         
-        $context = context_course::instance($course->id, MUST_EXIST);
+        $coursecontext = context_course::instance($course->id, MUST_EXIST);
 
-        if(is_enrolled($context)){
+        if(is_enrolled($coursecontext)){
+            return true;
+        }
+        
+        //$catcontext = context_coursecat::instance($course->category, MUST_EXIST);
+        $coursecat = \core_course_category::get($course->category);
+        if( $coursecat->has_manage_capability()){
             return true;
         }
 
