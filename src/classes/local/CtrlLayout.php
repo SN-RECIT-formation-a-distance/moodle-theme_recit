@@ -556,8 +556,8 @@ class CtrlLayout{
         }
         
         //$catcontext = context_coursecat::instance($course->category, MUST_EXIST);
-        $coursecat = \core_course_category::get($course->category);
-        if( $coursecat->has_manage_capability()){
+        $coursecat = \core_course_category::get($course->category, IGNORE_MISSING);
+        if($coursecat && $coursecat->has_manage_capability()){
             return true;
         }
 
