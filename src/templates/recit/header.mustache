@@ -32,6 +32,12 @@
                 </div>     
             {{/layoutOptions.showCourseBanner}}
 
+            <div class="header-actions-container ml-auto" data-region="header-actions-container">
+                {{#headeractions}}
+                    <div class="header-action m-2 text-right">{{{.}}}</div>
+                {{/headeractions}}
+            </div>
+
             {{#layoutOptions.showBreadcrumb}}
                 {{#breadcrumb}}   
                     {{{breadcrumb}}}

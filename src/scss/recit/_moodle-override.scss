@@ -183,3 +183,9 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
     }
 }
 }
+
+body.bulkenabled{
+    #region-main{
+        padding-left: 2rem; // fix to display checkbox on Moodle 4.3 - bulk actions
+    }
+}

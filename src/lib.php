@@ -100,10 +100,16 @@ function theme_recit2_set_loginbgimg($theme) {
  */
 function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
-
+   
     $scss = '';
-    $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
-
+    // 2023100900.00 = Moodle 4.3.0
+    if($CFG->version < 2023100900.00){
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
+    }
+    else{
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3-3.css");
+    }
+    
     // Prepend pre-scss.
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
     if (isset($theme->settings->prescss)) $scss .= $theme->settings->prescss;
