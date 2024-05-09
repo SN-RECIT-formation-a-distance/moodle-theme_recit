@@ -66,7 +66,7 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => array('side-pre','side-post'),
         'defaultregion' => 'side-pre',
-        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true, 'showSiteSummary' => false),
+        'options' => array('showCourseBanner' => true, 'showBreadcrumb' => true, 'showSectionBottomNav' => true, 'showSectionTopNav' => true, 'showSiteSummary' => false, 'showSecondaryNav' => true),
     ),
     // Course page.
     'mycourses' => array(

@@ -32,28 +32,21 @@
                 </div>     
             {{/layoutOptions.showCourseBanner}}
 
-            <div class="header-actions-container ml-auto" data-region="header-actions-container">
+            {{#layoutOptions.showSecondaryNav}}
                 {{#headeractions}}
-                    <div class="header-action m-2 text-right">{{{.}}}</div>
+                    <div class="header-actions-container ml-auto" data-region="header-actions-container">
+                        <div class="header-action m-2 text-right">{{{.}}}</div>
+                    </div>
                 {{/headeractions}}
-            </div>
+            {{/layoutOptions.showSecondaryNav}}
 
             {{#layoutOptions.showBreadcrumb}}
                 {{#breadcrumb}}   
                     {{{breadcrumb}}}
                 {{/breadcrumb}}
             {{/layoutOptions.showBreadcrumb}}
-
-            {{#layoutOptions.showSecondaryNav}}
-                {{#headeractions}}
-                    <div class="" data-region="header-actions-container" style="height: 40px;">
-                        <div class="header-action ml-2 mt-2">{{{.}}}</div>
-                    </div>
-                {{/headeractions}}
-            {{/layoutOptions.showSecondaryNav}}
-
+            
             {{#layoutOptions.showCourseBanner}}
-
                 {{#showpageheadingbutton}}   
                     <div class="m-1 p-1 d-flex justify-content-end">
                         {{{pageheadingbutton}}}

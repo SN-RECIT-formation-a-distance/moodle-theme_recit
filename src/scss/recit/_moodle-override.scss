@@ -189,3 +189,7 @@ body.bulkenabled{
         padding-left: 2rem; // fix to display checkbox on Moodle 4.3 - bulk actions
     }
 }
+
+.course-content li.section:not(.course-section) ul {
+    list-style: disc;
+}
