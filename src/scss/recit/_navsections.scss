@@ -202,7 +202,13 @@ $max-width-responsive-m5: 992px;
                     color: $navsections-active-color-m5;
                     border: 2px solid $navsections-active-color-m5;
                     border-radius: .5rem;
-                    .nav-link{box-shadow: none;text-wrap: balance; }
+                    .nav-link{box-shadow: none;}
+                }
+
+                .nav-item{
+                    .nav-link.dropdown-toggle{
+                        white-space: normal;
+                    }
                 }
             }
         }

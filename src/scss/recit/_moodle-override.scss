@@ -190,6 +190,7 @@ body.bulkenabled{
     }
 }
 
+// Small bug in tab component on HTML editor: remove the black pins in front of the names
 .course-content li.section:not(.course-section) ul {
-    list-style: disc;
+    list-style: none;
 }
