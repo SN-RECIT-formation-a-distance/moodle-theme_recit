@@ -29,10 +29,13 @@ require_once($CFG->libdir . '/behat/lib.php');
 
 use theme_recit2\local\CtrlLayout;
 use theme_recit2\local\ThemeSettings;
+use theme_recit2\local\ThemeUtils;
 
-//CtrlLayout::set_user_preference_drawer();
-//user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
-//user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
+if(ThemeUtils::moodle401()){
+    CtrlLayout::set_user_preference_drawer();
+    user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
+    user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
+}
 
 $hasdrawertoggle = false;
 $navdraweropen = false;

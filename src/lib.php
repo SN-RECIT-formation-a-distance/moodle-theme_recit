@@ -27,6 +27,7 @@ require_once(dirname(__FILE__).'/classes/local/Utils.php');
 use core_customfield\category_controller;
 use core_customfield\field_controller;
 use theme_recit2\local\ThemeSettings;
+use theme_recit2\local\ThemeUtils;
 
 /**
  * Load the Jquery and migration files
@@ -102,12 +103,11 @@ function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
    
     $scss = '';
-    // 2023100900.00 = Moodle 4.3.0
-    if($CFG->version < 2023100900.00){
-        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
+    if(ThemeUtils::moodle403()){
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3-3.css");
     }
     else{
-        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3-3.css");
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
     }
     
     // Prepend pre-scss.
