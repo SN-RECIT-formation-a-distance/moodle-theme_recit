@@ -104,7 +104,7 @@ function theme_recit2_get_main_scss_content($theme) {
    
     $scss = '';
     if(ThemeUtils::moodle403()){
-        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3-3.css");
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3.css");
     }
     else{
         $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]

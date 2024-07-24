@@ -123,13 +123,6 @@ nav.navbar ul.navbar-nav .popover-region .popover-region-toggle{line-height: nor
     }
 }
 
-// fix the minimum height of a module //brise les contenus de cours
-/* .pagelayout-incourse{
-    #region-main{
-        .card{overflow-x:auto;overflow-y:visible;min-height:45rem}
-    }
-} */
-
 // DÉBUT PATCH H5P
 #fitem_id_h5peditor {
     .form-control-static {
@@ -194,3 +187,12 @@ body.bulkenabled{
 .course-content li.section:not(.course-section) ul {
     list-style: none;
 }
+
+// Patch module book
+.path-mod-book{
+    // the navigation bar margin adds a scroll-x
+    #mod_book-chaptersnavigation{
+        margin: auto!important; width: 100px;         height: 4rem;
+        .tertiary-navigation{padding: 0px}
+    }
+} 
