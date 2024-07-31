@@ -321,6 +321,6 @@ class ThemeUtils
     public static function moodle403(){
         global $CFG;
 
-        return ($CFG->version >= 2023100900.00);
+        return (($CFG->version >= 2023100900.00) && ($CFG->version < 2024071200));
     }
 }

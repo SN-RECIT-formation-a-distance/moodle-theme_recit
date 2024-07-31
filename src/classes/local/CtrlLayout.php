@@ -144,7 +144,7 @@ class CtrlLayout{
         }
 
         $result['message_and_notification'] = message_popup_render_navbar_output($output);
-        $result['message_drawer'] = core_message_standard_after_main_region_html();
+        $result['message_drawer'] = \core_message\helper::render_messaging_widget(true, null, null);
 
         $result['lang'] = new stdClass();
         $result['lang']->options = self::getLangMenu();

@@ -23,7 +23,6 @@
  */
 
 namespace theme_recit2\output;
-require_once($CFG->dirroot . "/lib/outputrenderers.php");
 
 use html_writer;
 use custom_menu_item;
