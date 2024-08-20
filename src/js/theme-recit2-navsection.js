@@ -304,15 +304,26 @@ M.recit.theme.recit2.MenuM5 = class{
         let navsections = document.querySelector('#nav-sections');
         let menu = document.querySelector('.menuM5-inner');
         
-        if (this.isVertical()){//If menu is vertical, prevent dropdowns from closing
+        if (this.isVertical()){
             this.floatingMenu = new M.recit.theme.recit2.floatingSection(navsections, menu);
-            let els = placeholder.querySelectorAll('.dropdown-menu');
+
+            // select all menu items with dropdown
+            let els = placeholder.querySelectorAll('li.dropdown');
             for (let el of els){
+                // it recreates the click on dropdown item because we removed the attribute  data-toggle='dropdown' 
+                // it prevents the dropdown menu to close when clicking outside
                 el.addEventListener("click", function(e){
-                    e.stopPropagation();
+                    let result = el.classList.toggle('show');
+                    el.firstElementChild.setAttribute('aria-expanded', (result ? 'true' : 'false'));
+                    el.firstElementChild.nextElementSibling.classList.toggle('show');
+
+                    //If menu is vertical, prevent dropdowns from closing
+                    el.firstElementChild.nextElementSibling.addEventListener("click", function(e){
+                        e.stopPropagation();
+                    });
                 });
             }
-            
+
             if (this.collapser){
                 this.collapser.addEventListener("click", (e) => {
                     e.stopPropagation();
