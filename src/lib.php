@@ -102,6 +102,8 @@ function theme_recit2_set_loginbgimg($theme) {
 function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
    
+    $themeRecit2 = theme_config::load('recit2');
+
     $scss = '';
     if(ThemeUtils::moodle403()){
         $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3.css");
@@ -112,9 +114,15 @@ function theme_recit2_get_main_scss_content($theme) {
     
     // Prepend pre-scss.
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
-    if (isset($theme->settings->prescss)) $scss .= $theme->settings->prescss;
+    if (isset($themeRecit2->settings->prescss)){
+        $scss .= $themeRecit2->settings->prescss;
+    } 
 
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
+
+    if(!empty($themeRecit2->settings->extrascss)){
+        $scss .= $themeRecit2->settings->extrascss;
+    }
 
     return $scss;
 }
@@ -129,11 +137,7 @@ function theme_recit2_get_extra_scss($theme) {
     $result = "";
 
     $result .= theme_recit2_set_headerimg($theme);
-    $result .= theme_recit2_set_loginbgimg($theme);
-    
-    if(!empty($theme->settings->extrascss)){
-        $result .= $theme->settings->extrascss;
-    }
+    $result .= theme_recit2_set_loginbgimg($theme);    
 
     return $result;
 }
