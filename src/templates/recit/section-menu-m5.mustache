@@ -37,7 +37,7 @@
 
                 {{#hasSubSections}}
                     <li class='nav-item dropdown menu-item'>
-                        <a class='nav-link dropdown-toggle' href='{{url}}' title='{{title}}' data-target='{{sectionId}}dropdownmenu'
+                        <a class='nav-link dropdown-toggle' data-toggle="{{#section_top_nav.isMenuM5}}dropdown{{/section_top_nav.isMenuM5}}" href='{{url}}' title='{{title}}' data-target='{{sectionId}}dropdownmenu'
                             aria-haspopup='true' aria-expanded='false' id='{{sectionId}}DropdownMenuLink'>{{{desc}}}</a>
                         <ul class='dropdown-menu' aria-labelledby='{{sectionId}}DropdownMenuLink' id='{{sectionId}}dropdownmenu'>
                             {{#subSections}}
