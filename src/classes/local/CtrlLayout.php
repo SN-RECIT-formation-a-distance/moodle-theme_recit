@@ -473,6 +473,10 @@ class CtrlLayout{
         self::add_nav_item($result, "mycourses", "fa-graduation-cap", "mycourses", $CFG->wwwroot . "/my/courses.php");
         self::add_nav_item($result, "mymoodle", "fa-tachometer", "dashboard", $CFG->wwwroot . "/my/", get_string('mymoodle', 'my'));
 
+        if(is_dir($CFG->dirroot . "/admin/tool/recitapis")){
+            self::add_nav_item($result, "recitapis", "fa-connectdevelop", null, $CFG->wwwroot . "/admin/tool/recitapis/view.php", get_string("tool_recitapis", "theme_recit2"));
+        }
+
         if($COURSE->id > 1){
            
             $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
