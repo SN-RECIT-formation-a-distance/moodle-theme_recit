@@ -119,10 +119,10 @@ class course_renderer extends \core_course_renderer {
             $totalcount = $_totalcount;
         }
 
-        if ($CFG->courseswithsummarieslimit < $totalcount){
+        /*if ($CFG->courseswithsummarieslimit < $totalcount){
             $this->listview = true;
             return parent::coursecat_courses($chelper, $courses, $_totalcount);
-        }
+        }*/
 
         if (theme_recit2_get_setting('categoryliststyle') == 1){
             $this->extendedview = true;
