@@ -46,6 +46,14 @@
                 {{/breadcrumb}}
             {{/layoutOptions.showBreadcrumb}}
             
+            {{^layoutOptions.showCourseBanner}}
+                {{#contextheader}}
+                    <div class="p-3">
+                        {{{contextheader}}}
+                    </div>
+                {{/contextheader}}
+             {{/layoutOptions.showCourseBanner}}
+
             {{#layoutOptions.showCourseBanner}}
                 {{#showpageheadingbutton}}   
                     <div class="m-1 p-1 d-flex justify-content-end">

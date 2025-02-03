@@ -63,18 +63,6 @@ h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
     border-color: $primary!important;
 }
 
-
-.page-header-headings {
-    h1 {
-        color: $color2;
-        font-family: $headings-font-family !important;
-        font-size: $headings-font-size;
-        text-shadow: 3px 3px 3px #000;
-        background-color: #0000000d;
-    }
-}
-
-
 #course-banner {
     background-image: url('[[pix:theme|banner-course]]');
     background-size: cover;
@@ -87,4 +75,15 @@ h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
     padding: 1.25rem;
     display: flex;
     align-items: center;
+
+    
+    .page-header-headings {
+        h1 {
+            color: $color2;
+            font-family: $headings-font-family !important;
+            font-size: $headings-font-size;
+            text-shadow: 3px 3px 3px #000;
+            background-color: #0000000d;
+        }
+    }
 }
