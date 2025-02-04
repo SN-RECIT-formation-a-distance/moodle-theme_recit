@@ -64,6 +64,12 @@ class Settings {
         $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
         $page->add($setting);
 
+        $name = 'theme_'.$this->theme_name.'/enablebs4warning';
+        $title = get_string('enablebs4warning', 'theme_recit2');
+        $description = get_string('enablebs4warningdesc', 'theme_recit2');
+        $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
+        $page->add($setting);
+
         $name = 'theme_'.$this->theme_name.'/categoryliststyle';
         $title = get_string('categoryliststyle', 'theme_recit2');
         $description = get_string('categoryliststyledesc', 'theme_recit2');

@@ -114,6 +114,10 @@ function theme_recit2_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
     if (isset($theme->settings->prescss)) $scss .= $theme->settings->prescss;
 
+    if (isset($theme->settings->enablebs4warning) && $theme->settings->enablebs4warning){
+        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_bs4warning.scss");
+    }
+
     $scss .= file_get_contents($CFG->dirroot . "/theme/{$theme->name}/scss/recit.scss"); // scss from Theme RÉCIT
 
     return $scss;
