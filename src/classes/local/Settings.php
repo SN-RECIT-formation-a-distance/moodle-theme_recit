@@ -68,6 +68,7 @@ class Settings {
         $title = get_string('enablebs4warning', 'theme_recit2');
         $description = get_string('enablebs4warningdesc', 'theme_recit2');
         $setting = new \admin_setting_configcheckbox($name, $title, $description, 0);
+        $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
         $name = 'theme_'.$this->theme_name.'/categoryliststyle';
