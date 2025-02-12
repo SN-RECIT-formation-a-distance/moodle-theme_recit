@@ -31,12 +31,6 @@ use theme_recit2\local\CtrlLayout;
 use theme_recit2\local\ThemeSettings;
 use theme_recit2\local\ThemeUtils;
 
-if(ThemeUtils::moodle401()){
-    CtrlLayout::set_user_preference_drawer();
-    user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
-    user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
-}
-
 $hasdrawertoggle = false;
 $navdraweropen = false;
 $draweropenright = false;

@@ -104,7 +104,7 @@ body:not(.pagelayout-secure) #sidepre-blocks {
         width: 100%;
     }
     .maincontent {
-        width: min(calc(100vw - #{$right-drawer-width}), 1500px);
+        width: css-min(calc(100vw - #{$right-drawer-width}), 1500px);
     }
 
     @media screen and (min-width: 2170px){

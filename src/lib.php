@@ -101,18 +101,14 @@ function theme_recit2_set_loginbgimg($theme) {
  */
 function theme_recit2_get_main_scss_content($theme) {
     global $CFG;
-   
-    $scss = '';
-    if(ThemeUtils::moodle403()){
-        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base-4-3.css");
-    }
-    else{
-        $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/style/moodle-base.css"); // loaded here because of [[pix:]]
-    }
+
+    $scss = file_get_contents($CFG->dirroot . "/theme/recit2/style/preset.css"); // loaded here because of [[pix:]]
     
     // Prepend pre-scss.
     $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_variables.scss"); // Load variables in case current precss doesn't have all variables
-    if (isset($theme->settings->prescss)) $scss .= $theme->settings->prescss;
+    if (isset($theme->settings->prescss)) {
+        $scss .= $theme->settings->prescss;
+    }
 
     if (isset($theme->settings->enablebs4warning) && $theme->settings->enablebs4warning){
         $scss .= file_get_contents($CFG->dirroot . "/theme/recit2/scss/recit/_bs4warning.scss");

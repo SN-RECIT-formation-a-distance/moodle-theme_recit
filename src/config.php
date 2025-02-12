@@ -28,7 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ . '/lib.php');
 
 $THEME->name = 'recit2';
-$THEME->editor_sheets = [];
+//$THEME->editor_sheets = [];
+$THEME->editor_scss = ['editor'];
 $THEME->parents = [];
 $THEME->enable_dock = false;
 $THEME->haseditswitch = true;
