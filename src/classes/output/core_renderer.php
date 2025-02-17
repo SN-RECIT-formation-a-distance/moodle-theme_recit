@@ -195,6 +195,7 @@ class core_renderer extends \core_renderer {
         
         $settings = array(
             'showleavingsitewarning' => (isset($theme->settings->showleavingsitewarning) && $theme->settings->showleavingsitewarning),
+            'enablebs4warning' => (isset($theme->settings->enablebs4warning) && $theme->settings->enablebs4warning),
             'moodleversion' => $CFG->version
         );
         // force le chargement du fichier js du thème de base RÉCIT

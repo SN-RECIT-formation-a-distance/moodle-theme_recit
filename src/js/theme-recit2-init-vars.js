@@ -18,5 +18,10 @@ function theme_recit2_init_vars(_, settings){
         }
     }
 
+
+    if (settings.enablebs4warning){
+        M.recit.theme.recit2.Ctrl.initBs4Warning();
+    }
+
     M.recit.moodle.version = settings.moodleversion;
 }
