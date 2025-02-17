@@ -31,19 +31,6 @@ class CtrlLayout{
      * Function for class ThemeRecitUtils2.
      * @return boolean
      */
-    public static function is_nav_drawer_open() {
-        $navdrawer = get_user_preferences('drawer-open-nav', 'true');
-        $courseindex = core_course_drawer();
-        if (!$courseindex) {
-            $navdrawer = false;
-        }
-        return false;
-    }
-
-    /**
-     * Function for class ThemeRecitUtils2.
-     * @return boolean
-     */
     public static function is_drawer_open_right() {
         global $PAGE, $OUTPUT;
         $drawer = get_user_preferences('drawer-open-block', 'true');
@@ -62,14 +49,6 @@ class CtrlLayout{
      */
     public static function user_is_editing($page) {
         return $page->user_is_editing();
-    }
-
-    /**
-     * Function for class ThemeRecitUtils2.
-     */
-    public static function set_user_preference_drawer() {
-        //user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-        //user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
     }
 
     /**
@@ -479,6 +458,10 @@ class CtrlLayout{
             if(ThemeUtils::isAdminRole($roles)){
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "participants");
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "contentbank");
+                
+                if($result["contentbank"]){
+                    $result["contentbank"]->pix = "fa fa-paintbrush";
+                }
             }
             self::add_nav_item_from_flat_nav($result, $page->secondarynav, "badgesview");
             self::add_nav_item_from_flat_nav($result, $page->secondarynav, "competencies");
