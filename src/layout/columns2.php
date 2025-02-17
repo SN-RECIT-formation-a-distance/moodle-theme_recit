@@ -46,10 +46,6 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
 
 $extraclasses = [];
-/*if (CtrlLayout::is_nav_drawer_open()) {
-    $extraclasses[] = 'drawer-open-left';
-    $navdraweropen = true;
-}*/
 
 if (CtrlLayout::is_drawer_open_right() && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
