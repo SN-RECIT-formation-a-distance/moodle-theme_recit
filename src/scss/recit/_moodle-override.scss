@@ -192,7 +192,11 @@ body.bulkenabled{
 .path-mod-book{
     // the navigation bar margin adds a scroll-x
     #mod_book-chaptersnavigation{
-        margin: auto!important; width: 100px;         height: 4rem;
+        margin: auto!important;
+        position: fixed;
+        top: 45%;
+        width: 95vw; 
+        max-width: calc(#{$page-max-width} - 37px);
         .tertiary-navigation{padding: 0px}
     }
 } 

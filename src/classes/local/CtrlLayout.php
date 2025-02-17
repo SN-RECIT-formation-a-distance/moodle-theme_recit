@@ -68,8 +68,8 @@ class CtrlLayout{
      * Function for class ThemeRecitUtils2.
      */
     public static function set_user_preference_drawer() {
-        user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-        user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
+        //user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+        //user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
     }
 
     /**
