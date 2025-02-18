@@ -195,7 +195,8 @@ body.bulkenabled{
         margin: auto!important;
         position: fixed;
         top: 45%;
-        width: 95vw; 
+        width: 95vw;
+        z-index: 2;
         max-width: calc(#{$page-max-width} - 37px);
         .tertiary-navigation{padding: 0px}
     }
