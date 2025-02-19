@@ -459,7 +459,7 @@ class CtrlLayout{
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "participants");
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "contentbank");
                 
-                if($result["contentbank"]){
+                if(isset($result["contentbank"])){
                     $result["contentbank"]->pix = "fa fa-paintbrush";
                 }
             }
