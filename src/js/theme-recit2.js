@@ -152,7 +152,7 @@ M.recit.theme.recit2.floatingSection = class {
     isMainContentSmallerThanMenu(){
         let maincontentheight = 0;
 
-        if(this.switchEditingMode.checked){
+        if(this.switchEditingMode && this.switchEditingMode.checked){
             let maincontenteditingmode = document.querySelector('div.tab-content.recitformatmenu');
             if(maincontenteditingmode){
                 maincontentheight = maincontenteditingmode.offsetHeight;
