@@ -169,6 +169,9 @@ class ThemeSettings {
         if (file_exists($CFG->dirroot . "/theme/{$theme_name}/templates/recit/footer.mustache")){
             $templatename = "theme_{$theme_name}/recit/footer";
         }
+
+        $templatecontext['customfooter']  = get_config('theme_recit2', 'customfooter');
+
         return array('footer' => $OUTPUT->render_from_template($templatename, $templatecontext));
     }
 
