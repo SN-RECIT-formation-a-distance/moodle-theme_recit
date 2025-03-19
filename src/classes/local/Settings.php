@@ -260,6 +260,14 @@ class Settings {
         $setting = new \admin_setting_configtext($name, $title, $description, $default);
         $page->add($setting);
 
+         /* Footer Content */
+         $name = 'theme_'.$this->theme_name.'/customfooter';
+         $title = get_string('customfooter', 'theme_recit2');
+         $description = get_string('customfooterdesc', 'theme_recit2');
+         $default = "";
+         $setting = new \admin_setting_confightmleditor($name, $title, $description, $default);
+         $page->add($setting);
+
         $settings->add($page);
 
         // Advanced settings.
