@@ -165,3 +165,4 @@ $string['hide_restricted_section'] = "Do not display sections that have access r
 $string['hide_restricted_section_help'] = "When checked, unavailable sections are not displayed in the menu.";
 $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
+$string['tool_recitapis'] = 'RÉCIT APIs';

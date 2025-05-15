@@ -166,3 +166,4 @@ $string['hide_restricted_section'] = "Ne pas afficher les sections qui possèden
 $string['hide_restricted_section_help'] = "Lorsque coché, les sections non disponibles ne sont pas affichées dans le menu.";
 $string['prev_section'] = 'Section précédente';
 $string['next_section'] = 'Section suivante';
+$string['tool_recitapis'] = 'RÉCIT APIs';
