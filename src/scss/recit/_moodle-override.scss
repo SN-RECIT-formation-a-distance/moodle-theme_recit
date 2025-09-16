@@ -201,3 +201,10 @@ body.bulkenabled{
         .tertiary-navigation{padding: 0px}
     }
 } 
+.path-mod-assign{
+    #fitem_id_onlinetext_editor{
+        div[data-fieldtype="editor"]{
+            flex: 0 0 100%; max-width: 100%;  // Improved student writing box within assignment text submission
+        }
+    }
+}
