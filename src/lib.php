@@ -201,6 +201,7 @@ function theme_recit2_get_setting($setting, $format = false) {
 }
 
 function theme_recit2_get_course_metadata($courseid, $cat) {
+    $prefix = ThemeSettings::COURSE_CUSTOM_FIELDS_PREFIX;
     $handler = \core_customfield\handler::get_handler('core_course', 'course');
     // This is equivalent to the line above.
     //$handler = \core_course\customfield\course_handler::create();
@@ -211,23 +212,23 @@ function theme_recit2_get_course_metadata($courseid, $cat) {
         if (empty($data->get_value())) {
             continue;
         }
-        if($data->get_field()->get_category()->get('name') != $cat){
-            continue;
-        }
 
         $attr = $data->get_field()->get('shortname');
-        $result->$attr = $data->get_value();
+        if (str_contains($attr, $prefix)){
+            $result->$attr = $data->get_value();
+        }
     }
     return $result;
 }
 
 function theme_recit2_create_course_custom_fields(){
     $category_name = ThemeSettings::COURSE_CUSTOM_FIELDS_SECTION;
+    $prefix = ThemeSettings::COURSE_CUSTOM_FIELDS_PREFIX;
     $field_to_add = array();
     $field_to_add[] = array(
             'type' => 'checkbox',
             'name' => get_string('course-banner', 'theme_recit2'),
-            'shortname' => 'img_course_as_banner',
+            'shortname' => $prefix.'img_course_as_banner',
             'description' => get_string('course-banner-help', 'theme_recit2'),
             'descriptionformat' => FORMAT_HTML,
             'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 0)
@@ -236,7 +237,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('show-activity-nav', 'theme_recit2'),
-        'shortname' => 'show_activity_nav',
+        'shortname' => $prefix.'show_activity_nav',
         'description' => get_string('show-activity-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 0)
@@ -245,7 +246,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('show-section-bottom-nav', 'theme_recit2'),
-        'shortname' => 'show_section_bottom_nav',
+        'shortname' => $prefix.'show_section_bottom_nav',
         'description' => get_string('show-section-bottom-nav-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
@@ -254,7 +255,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('hide_restricted_section', 'theme_recit2'),
-        'shortname' => 'hide_restricted_section',
+        'shortname' => $prefix.'hide_restricted_section',
         'description' => get_string('hide_restricted_section_help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
@@ -263,7 +264,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('enablebreadcrumb', 'theme_recit2'),
-        'shortname' => 'enablebreadcrumb',
+        'shortname' => $prefix.'enablebreadcrumb',
         'description' => get_string('enablebreadcrumbdesc', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
@@ -272,7 +273,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('truncatesections', 'theme_recit2'),
-        'shortname' => 'truncatesections',
+        'shortname' => $prefix.'truncatesections',
         'description' => get_string('truncatesectionsdesc', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 0)
@@ -291,7 +292,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'select',
         'name' => get_string('menu-model', 'theme_recit2'),
-        'shortname' => 'menumodel',
+        'shortname' => $prefix.'menumodel',
         'description' => get_string('menu-model-help', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "options" => implode("\r\n", $options), "defaultvalue" => get_string("menu-m2", 'theme_recit2'))
@@ -309,7 +310,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'textarea',
         'name' => 'CSS Custom',
-        'shortname' => 'css_custom',
+        'shortname' => $prefix.'css_custom',
         'description' => 'CSS Custom',
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "defaultvalue" => "", "defaultvalueformat" => "1")
@@ -318,7 +319,7 @@ function theme_recit2_create_course_custom_fields(){
     $field_to_add[] = array(
         'type' => 'checkbox',
         'name' => get_string('navbuttonhome', 'theme_recit2'),
-        'shortname' => 'themerecit2_navbuttonhome',
+        'shortname' => $prefix.'themerecit2_navbuttonhome',
         'description' => get_string('navbuttonhomedesc', 'theme_recit2'),
         'descriptionformat' => FORMAT_HTML,
         'configdata' => array('required' => 0, 'uniquevalues' => 0, 'locked' => 0, 'visibility' => 0, "checkbydefault" => 1)
@@ -331,11 +332,11 @@ function theme_recit2_create_course_custom_fields(){
     $curcat = $handler->get_categories_with_fields();
     foreach($curcat as $cat){
         if ($cat->get('name') == $category_name){
-            $category = $cat->get('id');
-            
-            foreach ($cat->get_fields() as $field) {
-                $fields[] = $field->get('shortname');
-            }
+            $category = $cat->get('id');    
+        }
+
+        foreach ($cat->get_fields() as $field) {
+            $fields[] = $field->get('shortname');
         }
     }
 

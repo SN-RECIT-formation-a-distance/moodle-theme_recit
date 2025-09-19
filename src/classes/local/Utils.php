@@ -63,7 +63,8 @@ class CourseSectionNav{
  */
 class ThemeSettings {
 
-    public const COURSE_CUSTOM_FIELDS_SECTION = 'Personnalisation du thème RÉCIT';  // hardcodé car il ne peut pas être modifié
+    public const COURSE_CUSTOM_FIELDS_SECTION = 'Personnalisation du thème RÉCIT'; 
+    public const COURSE_CUSTOM_FIELDS_PREFIX = 'recit_'; 
     
     public const MENU_MODEL_LIST = array(1 => 'm1', 2 => 'm3', 3 => 'm2', 4 => 'm5', 5 => 'Aucun menu');
     
@@ -73,12 +74,14 @@ class ThemeSettings {
 
     public static function get_custom_field($name) {
         global $COURSE;
+        $prefix = ThemeSettings::COURSE_CUSTOM_FIELDS_PREFIX;
+        $field = $prefix.$name;
 
         if($COURSE->id > 1){
             $customFieldsRecit = theme_recit2_get_course_metadata($COURSE->id, self::COURSE_CUSTOM_FIELDS_SECTION);
 
-            if(property_exists($customFieldsRecit, $name)){
-                return $customFieldsRecit->$name;
+            if(property_exists($customFieldsRecit, $field)){
+                return $customFieldsRecit->$field;
             }
         }
 
