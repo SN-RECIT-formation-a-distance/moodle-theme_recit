@@ -150,11 +150,12 @@ class CtrlLayout{
         $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
         $pageBadges = strpos($_SERVER['SCRIPT_NAME'], 'badges/view.php');   
         $pageContent = strpos($_SERVER['SCRIPT_NAME'], 'contentbank/index.php');   
+        $pageSection = strpos($_SERVER['SCRIPT_NAME'], 'course/section.php');   
         $pageUser = strpos($_SERVER['SCRIPT_NAME'], 'user/index.php');  
         $pageCompetencies = strpos($_SERVER['SCRIPT_NAME'], 'coursecompetencies.php');  
         $pages = $pageAdmin | $pageBadges | $pageContent | $pageUser | $pageCompetencies;
 
-        if(($COURSE->id > 1) && (!$PAGE->user_is_editing()) && (!$pages) && ($USER->id >= 1)){            
+        if(($COURSE->id > 1) && (!$pages) && ($USER->id >= 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'theme_recit2');
             $result['section_bottom_nav']->next_section = get_string('next_section', 'theme_recit2');
@@ -194,7 +195,7 @@ class CtrlLayout{
             return null;
         }
         
-        $protohref = "{$CFG->wwwroot}/course/view.php?id={$COURSE->id}%s";
+        $protohref = "{$CFG->wwwroot}/course/section.php?id=%s";
 
         //$result->addSection(1, "map", sprintf($protohref, "#map"), "<i class='fa fa-map'></i>", "Menu");
         // Retrieve course format option fields and add them to the $course object.
@@ -222,7 +223,7 @@ class CtrlLayout{
             }
 
             $sectionId = "#section-{$section->section}";
-            $result->addSection($sectionlevel, $sectionId, sprintf($protohref, $sectionId), $sectionDesc);
+            $result->addSection($sectionlevel, $sectionId, sprintf($protohref, $section->id), $sectionDesc, '', $section->id);
         }
 
         return $result;
@@ -273,7 +274,18 @@ class CtrlLayout{
         // Le courseId = 1 est l'accueil du site donc on l'ignore ici.
         if ($COURSE->id > 1) {
             $item = new stdClass();
-            $item->url = sprintf("%s/course/view.php?id=%ld", $CFG->wwwroot, $COURSE->id);
+            if (!empty($page->cm->id)) {
+                // User is inside an activity
+                $sectionid = $page->cm->sectionnum;
+                $section = $DB->get_record('course_sections', [
+                    'course'  => $COURSE->id,
+                    'section' => $sectionid
+                ], 'id', MUST_EXIST);                
+                $item->url = sprintf("%s/course/section.php?id=%d", $CFG->wwwroot, $section->id);
+            } else {
+                // User is at course level
+                $item->url = sprintf("%s/course/view.php?id=%d", $CFG->wwwroot, $COURSE->id);
+            }
             $item->pix = 'fa-course-home';
             $item->title = get_string('menu', 'theme_recit2');
             $result['coursehome'] = $item;

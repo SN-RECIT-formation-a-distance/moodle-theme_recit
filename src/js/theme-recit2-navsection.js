@@ -31,12 +31,15 @@ M.recit.theme.recit2.SectionsNav = class{
             this.menu = new M.recit.theme.recit2.MenuM5(placeholder);
         }
 
-        let sectionId = window.location.hash || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
+        let curSectionId = M.recit.theme.recit2.Utils.getCurSection();
+        let sectionId = curSectionId || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
+        if (curSectionId){
+            M.recit.theme.recit2.Utils.setCookieCurSection(curSectionId);
+        }
         for(let section of sectionList){
             section.addEventListener('click', this.onSectionNav);
-
             // if the user is the course page then it load automatically the section content. More than one listener could exist.
-            if(section.hash === sectionId){
+            if(section.hash === sectionId || section.getAttribute('data-sectionid') == sectionId){
                 this.curSection = section;
 
                 // If the user is on the course page then it dispatch the link click (with all listeners)
@@ -73,8 +76,6 @@ M.recit.theme.recit2.SectionsNav = class{
 
     onSectionNav(event){
         this.curSection = event.target;
-
-        M.recit.theme.recit2.Utils.setCookieCurSection(this.curSection.hash);
        
         if(this.menu){
             this.menu.ctrl(event);
@@ -84,7 +85,7 @@ M.recit.theme.recit2.SectionsNav = class{
             o.call(this, event);
         }
         
-        this.pagination.ctrl(this.curSection.hash);
+        this.pagination.ctrl(this.curSection.getAttribute('href'));
     }
 }
 
@@ -341,7 +342,7 @@ M.recit.theme.recit2.MenuM5 = class{
     ctrl(event){
         let elems = this.placeholder.querySelectorAll('.menu-item');
         for(let el of elems){
-            if(event.target.hash === el.firstElementChild.hash){
+            if(event.target.href === el.firstElementChild.href){
                 el.setAttribute('data-selected', '1');
             }
             else{
@@ -351,7 +352,7 @@ M.recit.theme.recit2.MenuM5 = class{
             if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){
                 let subelems = el.querySelectorAll('.dropdown-item');
                 for(let subel of subelems){
-                    if(event.target.hash === subel.hash){
+                    if(event.target.href === subel.href){
                         subel.setAttribute('data-selected', '1');
                         if (!el.classList.contains('show')){
                             el.classList.add('show')

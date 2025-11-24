@@ -31,7 +31,7 @@
             {{#section_top_nav.sections}}
                 {{^hasSubSections}}
                     <li class='nav-item menu-item'>
-                        <a class='nav-link' href='{{url}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
+                        <a class='nav-link' href='{{url}}' data-sectionid='{{id}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
                     </li>
                 {{/hasSubSections}}
 
@@ -42,7 +42,7 @@
                         <ul class='dropdown-menu' aria-labelledby='{{sectionId}}DropdownMenuLink' id='{{sectionId}}dropdownmenu'>
                             {{#subSections}}
                                 <li>
-                                    <a class='dropdown-item' href='{{url}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
+                                    <a class='dropdown-item' href='{{url}}' data-sectionid='{{id}}' title='{{title}}' data-target='#menuM5-collapse'>{{{desc}}}</a>
                                 </li>
                             {{/subSections}}    
                         </ul>

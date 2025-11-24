@@ -315,7 +315,21 @@ M.recit.theme.recit2.Utils = class{
         if(courseId){
             let cookie = M.recit.theme.recit2.Utils.getCookie(`${courseId}-cursection`);
             if (!cookie) return false;
-            result = "#section-"+cookie;
+            result = cookie;
+        }
+
+        return result;
+    }
+
+    static getCurSection(){
+        let result = false;
+        if (window.location.href.includes('section.php')){
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            if(id){
+                result = id;
+            }
         }
 
         return result;

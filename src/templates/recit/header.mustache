@@ -25,20 +25,12 @@
                     <div>
                         <div class="d-flex">
                             <div class="mr-auto">
-                                {{{contextheader}}}
+                                <h1>{{{course_name}}}</h1>
                             </div>
                         </div>
                     </div>
                 </div>     
             {{/layoutOptions.showCourseBanner}}
-
-            {{#layoutOptions.showSecondaryNav}}
-                {{#headeractions}}
-                    <div class="header-actions-container ml-auto" data-region="header-actions-container">
-                        <div class="header-action m-2 text-right">{{{.}}}</div>
-                    </div>
-                {{/headeractions}}
-            {{/layoutOptions.showSecondaryNav}}
 
             {{#layoutOptions.showBreadcrumb}}
                 {{#breadcrumb}}   
@@ -53,6 +45,19 @@
                     </div>
                 {{/contextheader}}
              {{/layoutOptions.showCourseBanner}}
+
+            {{#layoutOptions.showSecondaryNav}}
+                    <div class="header-actions-container d-flex float-right" data-region="header-actions-container">
+                        {{#isediting}}
+                        {{#incourse}}
+                            <a class='btn btn-link' href='{{course_url}}'>Configurer le menu et les activités <i class='fa fa-cog'></i></a>
+                        {{/incourse}}
+                        {{/isediting}}
+                {{#headeractions}}
+                        <div class="header-action">{{{.}}}</div>
+                {{/headeractions}}
+                    </div>
+            {{/layoutOptions.showSecondaryNav}}
 
             {{#layoutOptions.showCourseBanner}}
                 {{#showpageheadingbutton}}   

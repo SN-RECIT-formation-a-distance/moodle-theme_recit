@@ -77,13 +77,12 @@ h1,h2,h3,h4,h5,h6 {font-family: $headings-font-family}
     align-items: center;
 
     
-    .page-header-headings {
-        h1 {
+        h1,h2 {
             color: $color2;
             font-family: $headings-font-family !important;
             font-size: $headings-font-size;
             text-shadow: 3px 3px 3px #000;
             background-color: #0000000d;
         }
-    }
+    
 }
