@@ -114,7 +114,7 @@ class core_renderer extends \core_renderer {
         $header->coursebanner = $this->get_course_custom_banner();
         $header->layoutOptions = (object) $PAGE->layout_options;
         $header->isloggedin = isloggedin();
-        $header->isediting = $USER->editing;
+        $header->isediting = (isset($USER->editing) ? $USER->editing : false);
         $header->isguest = $USER->id == 1;
         $header->incourse = $COURSE->id > 1;
         if ($header->incourse){
