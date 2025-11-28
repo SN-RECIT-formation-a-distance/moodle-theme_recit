@@ -116,12 +116,12 @@ M.recit.theme.recit2.SectionPagination = class{
         }
     }
 
-    ctrl(sectionId){
+    ctrl(sectionHref){
         if(this.placeholder === null){ return; }
       
         let iSection = 0;
         for(iSection = 0; iSection < this.sectionList.length; iSection++){
-            if(this.sectionList[iSection].hash === sectionId){
+            if(this.sectionList[iSection].href === sectionHref){
                 break;
             }
         }
@@ -344,6 +344,15 @@ M.recit.theme.recit2.MenuM5 = class{
         for(let el of elems){
             if(event.target.href === el.firstElementChild.href){
                 el.setAttribute('data-selected', '1');
+                if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){
+                    if (!el.classList.contains('show')){
+                        el.classList.add('show')
+                        let menu = el.querySelector('.dropdown-menu');
+                        if (menu){
+                            menu.classList.add('show');
+                        }
+                    }
+                }
             }
             else{
                 el.setAttribute("data-selected", "0");

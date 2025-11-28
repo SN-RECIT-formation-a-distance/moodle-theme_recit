@@ -28,6 +28,13 @@ $max-width-responsive-m5: 992px;
     .navbar-toggler-desktop {
             display: none;
     }
+    @media screen and (min-width: 992px){
+        .menuM5-inner {
+            height: calc(100vh - #{$top-navbar-height});
+            overflow-y: auto;
+            position: relative;
+        }
+    }
 }
 
 .vertical-left{
@@ -120,7 +127,11 @@ $max-width-responsive-m5: 992px;
         grid-template-columns: auto;
         grid-template-rows: auto auto;
 
-        .menuM5{            
+        .menuM5{
+            .dropdown:hover > .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
             ul.navbar-nav{
                 flex-wrap: wrap; 
                 li.nav-item{text-align: center;}

@@ -109,6 +109,12 @@ if (isset($PAGE->cm->modname)) {
     $templatecontext['activitysettings'] = $OUTPUT->region_main_settings_menu();
 }
 
+//Add section title in section.php view
+ 
+if (strpos($_SERVER['SCRIPT_NAME'], 'course/section.php')){
+    $templatecontext['contenttitle'] = $PAGE->heading;
+}
+
 if($PAGE->__get('pagelayout') == 'mydashboard'){    
     echo $OUTPUT->render_from_template('theme_recit2/recit/mydashboard', $templatecontext);
 }
