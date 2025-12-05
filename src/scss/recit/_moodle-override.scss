@@ -196,9 +196,16 @@ body.bulkenabled{
         position: fixed;
         top: 45%;
         width: 95vw;
-        z-index: 2;
+        z-index: 10200;
         max-width: calc(#{$page-max-width} - 37px);
         .tertiary-navigation{padding: 0px}
+    }
+
+    .vertical-left {
+        #mod_book-chaptersnavigation{
+            max-width: calc(#{$page-max-width} - 300px - 37px)
+        }
+
     }
 } 
 .path-mod-assign{
@@ -210,4 +217,10 @@ body.bulkenabled{
 }
 .single-section .section-navigation {
     display: none!important;
+}
+.tertiary-navigation .tertiary-navigation-selector .dropdown-toggle.btn{
+    border-color: #0f6cbf;
+    border-width: 3px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
 }
