@@ -109,7 +109,6 @@ class CtrlLayout{
             'output' => $output,
             'isloggedin' => isloggedin(),
             'isguest' => $USER->id == 1,
-            'modeedition' => self::user_is_editing($page),
             'is_siteadmin' => is_siteadmin(),
             'wwwroot' => $CFG->wwwroot,
             'layoutOptions' => (object) $PAGE->layout_options
@@ -308,15 +307,6 @@ class CtrlLayout{
 
             // the user has  permission to access these shortcuts
             if ($page->user_allowed_editing()) {
-
-                $result['turneditingonoff'] = self::get_editing_mode_object($page);
-
-                /*$item = new stdClass();
-                $item->url = sprintf("%s/group/index.php?id=%ld", $CFG->wwwroot, $COURSE->id);
-                $item->pix = 'fa-users';
-                $item->title = get_string('groups');
-                $result['groups'] = $item;*/
-
                 if (!empty($page->cm->id)) {
                     $item = new stdClass();
                     $item->url = sprintf("%s/course/modedit.php?update=%ld&return=1", $CFG->wwwroot, $page->cm->id);
@@ -326,33 +316,9 @@ class CtrlLayout{
                 }
 
             }
-        }else{
-            if ($page->user_allowed_editing() && ($page->pagelayout == 'frontpage' || $page->pagelayout == 'mydashboard')) {
-                // editing mode
-                $result['turneditingonoff'] = self::get_editing_mode_object($page);
-                 
-            }
         }
 
         return $result;
-    }
-
-    public static function get_editing_mode_object($page){
-        global $CFG, $COURSE, $PAGE;
-        $item = new stdClass();
-
-        $state = ($page->user_is_editing() ? 'off' : 'on');
-
-        $url = $PAGE->url->out();
-        if (strpos($url, '?') !== false) {
-            $item->url = sprintf("%s&sesskey=%s&recitedit=%s", $url, sesskey(), $state);
-        }else{
-            $item->url = sprintf("%s?sesskey=%s&recitedit=%s", $url, sesskey(), $state);
-        }
-        $item->title = get_string('editmode', 'theme_recit2');
-        $item->checked = (self::user_is_editing($page) == 1 ? 'checked' : '');
-        
-        return $item;
     }
 
     /**

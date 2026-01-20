@@ -63,12 +63,22 @@ class core_renderer extends \core_renderer {
         parent::__construct($page, $target);
 
         $this->page->requires->string_for_js('msgleavingmoodle', 'theme_recit2');
-        
-        if (isset($_GET['recitedit'])){//When user clicks on editing mode toggle
-            $USER->editing = $_GET['recitedit'] == 'on' ? true : false;
-        }
     }
 
+    public function edit_switch() {
+        $html = "";
+        $editSwitch = parent::edit_switch();
+
+        if($editSwitch != null){
+            $editSwitch = str_replace('text-primary', '', $editSwitch);
+            $html .= '<li class="nav-item-divider ml-2"></li>';    
+            $html .= '<li class="text-white">';
+            $html .= $editSwitch;
+            $html .= '</li>';
+        }
+
+        return $html;
+    }
     /**
      * Outputs the opening section of a box.
      *

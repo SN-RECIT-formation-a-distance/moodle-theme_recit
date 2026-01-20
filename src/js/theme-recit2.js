@@ -15,8 +15,6 @@ M.recit.theme.recit2.Ctrl = class{
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
         this.webApi = new M.recit.theme.recit2.WebApi();
 
-        this.switchEditingMode = null;
-
         this.init();
         this.initTimeoutModal();
         this.initEkkoLightbox();
@@ -25,17 +23,9 @@ M.recit.theme.recit2.Ctrl = class{
     }
 
     init(){
-        this.switchEditingMode = document.getElementById("switch-editing-mode");
-
-        if(this.switchEditingMode){
-            this.switchEditingMode.onclick = function(event){
-                window.location.href = event.target.value;
-            }
-        }
-
         window.addEventListener("keydown", this.ctrlShortcuts);
 
-       this.preventScrollToTop();
+        this.preventScrollToTop();
     };
 
     static initBs4Warning(){ //called by init-vars
@@ -117,10 +107,6 @@ M.recit.theme.recit2.Ctrl = class{
     }
 
     ctrlShortcuts(e){
-        // 69 = e
-        if (e.ctrlKey && e.altKey && e.which == 69){
-            this.switchEditingMode.onclick({target: this.switchEditingMode});
-        }
     }
 
     ctrlFullScreen(){        
@@ -141,7 +127,6 @@ M.recit.theme.recit2.floatingSection = class {
         this.navsections = section;
         this.menu = floatingSection;
         this.navbarHeight = document.querySelector('#mainTopNav').offsetHeight;
-        this.switchEditingMode = document.getElementById("switch-editing-mode");
         this.maincontent = document.querySelector('#page-content');
     }
 
@@ -152,12 +137,10 @@ M.recit.theme.recit2.floatingSection = class {
     isMainContentSmallerThanMenu(){
         let maincontentheight = 0;
 
-        if(this.switchEditingMode && this.switchEditingMode.checked){
-            let maincontenteditingmode = document.querySelector('div.tab-content.recitformatmenu');
-            if(maincontenteditingmode){
-                maincontentheight = maincontenteditingmode.offsetHeight;
-            }            
-        }
+        let maincontenteditingmode = document.querySelector('div.tab-content.recitformatmenu');
+        if(maincontenteditingmode){
+            maincontentheight = maincontenteditingmode.offsetHeight;
+        }            
         else{
             maincontentheight = this.maincontent.offsetHeight;
         }

@@ -207,15 +207,8 @@
                         <a class="nav-link" href="{{settingsmenu.paramsact.url}}" title="{{settingsmenu.paramsact.title}}"><i class="fa {{settingsmenu.paramsact.pix}}"></i><span  data-title> {{settingsmenu.paramsact.title}}</span></a>
                     </li>
                 {{/settingsmenu.paramsact}}
-                {{#settingsmenu.turneditingonoff}}
-                    {{^settingsmenu.paramsact}}
-                        <li class="nav-item-divider ml-2"></li>    
-                    {{/settingsmenu.paramsact}}
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="switch-editing-mode" value='{{{settingsmenu.turneditingonoff.url}}}' {{settingsmenu.turneditingonoff.checked}}>
-                        <label class="custom-control-label text-white"  for="switch-editing-mode">{{settingsmenu.turneditingonoff.title}}</label>
-                    </div>
-                {{/settingsmenu.turneditingonoff}} 
+                                
+                {{{ output.edit_switch }}}
             </ul>
         </div>
 

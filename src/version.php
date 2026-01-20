@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2025112600;
+$plugin->version = 2026012000;
 
 // This is the version of Moodle this plugin requires.
 $plugin->requires = 2024071200.00; // Moodle 4.5.0
@@ -35,7 +35,7 @@ $plugin->requires = 2024071200.00; // Moodle 4.5.0
 $plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'v4.1.0-stable';
+$plugin->release = 'v4.1.1-stable';
 $plugin->supported = [405, 405];      //  Moodle 4.0.x, are supported.
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
