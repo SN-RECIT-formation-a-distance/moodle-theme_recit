@@ -303,16 +303,15 @@ class ThemeUtils
         return $ret;
     }
     
-    public static function isAdminRole($roles){
-        $adminRoles = array('ad', 'mg', 'cc', 'et', 'tc');
-
-        if(empty($roles)){ return false;}
-
-        foreach($roles as $role){
-            if(in_array($role, $adminRoles)){
-                return true;
-            }
+    public static function isAdminRole(){
+        global $PAGE;
+        
+        if ((is_a($PAGE->context, 'context_course') && has_capability('moodle/course:update', $PAGE->context)) ||
+                (is_a($PAGE->context, 'context_category') && has_capability('moodle/category:manage', $PAGE->context))) {
+            return true;
         }
-        return false;
+        else{
+            return false;
+        }
     }
 }

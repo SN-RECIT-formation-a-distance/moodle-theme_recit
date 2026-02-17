@@ -289,9 +289,7 @@ class CtrlLayout{
             $item->title = get_string('menu', 'theme_recit2');
             $result['coursehome'] = $item;
 
-
-            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemeUtils::isAdminRole($roles)){
+            if(ThemeUtils::isAdminRole()){
                 $item = new stdClass();
                 $item->url = sprintf("%s/course/admin.php?courseid=%ld", $CFG->wwwroot, $COURSE->id);
                 $item->pix = 'fa-cog';
@@ -330,8 +328,7 @@ class CtrlLayout{
 
         $pathrecitdashboard = '/local/recitdashboard/view.php';
         if (file_exists($CFG->dirroot . $pathrecitdashboard)) {
-            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemeUtils::isAdminRole($roles)){
+            if(ThemeUtils::isAdminRole()){
                 $item->url = sprintf("%s?courseId=%ld", $CFG->wwwroot.$pathrecitdashboard, $COURSE->id);
                 $item->pix = "fa-line-chart";
                 $item->title = get_string('pluginname', 'local_recitdashboard');
@@ -435,9 +432,7 @@ class CtrlLayout{
         }
 
         if($COURSE->id > 1){
-           
-            $roles = ThemeUtils::getUserRoles($COURSE->id, $USER->id);
-            if(ThemeUtils::isAdminRole($roles)){
+            if(ThemeUtils::isAdminRole()){
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "participants");
                 self::add_nav_item_from_flat_nav($result, $page->secondarynav, "contentbank");
                 
