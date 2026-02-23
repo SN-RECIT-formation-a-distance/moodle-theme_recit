@@ -214,3 +214,7 @@ body.bulkenabled{
     padding-left: 0.25rem;
     padding-right: 0.25rem;
 }
+
+.gradingform_rubric.evaluate .criterion .levels .level:hover, .gradingform_rubric.evaluate .criterion .levels .level.checked {
+    background: #91bae8!important;
+}
