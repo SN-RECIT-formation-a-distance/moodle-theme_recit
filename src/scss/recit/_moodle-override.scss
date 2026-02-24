@@ -218,3 +218,8 @@ body.bulkenabled{
 .gradingform_rubric.evaluate .criterion .levels .level:hover, .gradingform_rubric.evaluate .criterion .levels .level.checked {
     background: #91bae8!important;
 }
+
+// override on editing mode
+.course-section .summarytext img {
+    border-radius: inherit!important;
+}
