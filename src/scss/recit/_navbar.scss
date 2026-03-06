@@ -4,6 +4,7 @@
     min-height: $top-navbar-height;
     margin: auto;
     border-bottom: none;
+    padding-left: 1rem;
 
     @media screen and (max-width: 992px){
         &.fixed-top{

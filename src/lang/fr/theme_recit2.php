@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'RÉCIT v2';
-$string['configtitle'] = 'RÉCIT v2';
+$string['pluginname'] = 'RÉCIT';
+$string['configtitle'] = 'RÉCIT';
 $string['choosereadme'] = 'Recit est un thème moderne. Ce thème est destiné à être utilisé directement ou en tant que thème parent lors de la création de nouveaux thèmes utilisant Bootstrap 4.';
 
 $string['login'] = 'Vous avez déjà un compte?';

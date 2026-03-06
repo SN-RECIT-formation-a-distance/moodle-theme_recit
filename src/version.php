@@ -25,17 +25,17 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2026012001;
+$plugin->version = 2026030600;
 
 // This is the version of Moodle this plugin requires.
-$plugin->requires = 2024071200.00; // Moodle 4.5.0
+$plugin->requires = 2025100603.00; // Moodle 5.1.3
 
 // This is the component name of the plugin - it always starts with 'theme_'
 // for themes and should be the same as the name of the folder.
 $plugin->component = 'theme_recit2';
 
 // This is the named version.
-$plugin->release = 'v4.1.5-stable';
-$plugin->supported = [405, 405];      //  Moodle 4.0.x, are supported.
+$plugin->release = 'v5.0.0-stable';
+$plugin->supported = [501, 501];      //  Moodle 4.0.x, are supported.
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
