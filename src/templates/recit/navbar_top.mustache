@@ -36,7 +36,7 @@
 
     <ul id="menu-mobile" class="navbar-nav mr-auto ml-4" style="flex-direction: row;"></ul>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarMenuItems" aria-controls="navbarMenuItems" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -84,7 +84,7 @@
 
                  {{#lang.show}}       
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
                             <span>{{lang.current}}</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownLang">
@@ -103,7 +103,7 @@
 
                 {{#is_siteadmin}}       
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Administration">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Administration">
                             <i class="fa fa-wrench"></i> 
                             <span  data-title> Administration</span>
                         </a>
@@ -122,7 +122,7 @@
 
                 {{^isguest}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{usermenu.user.title}}">
                         {{{usermenu.user.pix}}}
                         <span  data-title> {{usermenu.user.title}}</span>
                     </a>
@@ -226,7 +226,7 @@
             <ul class="navbar-nav my-2 my-lg-0" >  
                 {{#lang.show}}       
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Langue">
                             <span>{{lang.current}}</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownLang">

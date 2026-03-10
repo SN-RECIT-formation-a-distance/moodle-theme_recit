@@ -40,7 +40,7 @@ M.recit.theme.recit2.Ctrl = class{
 
     preventScrollToTop(){
         // The HTML spec specifies that if fragment is the empty string, then return the special value top of the document.
-        let elements = document.querySelectorAll('a[href="#"][data-toggle="popover"]');
+        let elements = document.querySelectorAll('a[href="#"][data-bs-toggle="popover"]');
 
         for(let el of elements){
             el.addEventListener('click',function(e){

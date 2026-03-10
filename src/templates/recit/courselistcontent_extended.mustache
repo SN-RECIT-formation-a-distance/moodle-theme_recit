@@ -32,12 +32,12 @@
         <div class='row'>
             <div class='col-lg-9'>
                 <div class="summary">
-                    <div class="collapse show coursesummary{{courseid}}">{{{coursesummary}}} {{#haselipsis}}... <button type="button" class="btn btn-link p-0" data-toggle="collapse" data-target=".coursesummary{{{courseid}}}">Plus</button>{{/haselipsis}}</div>
-                    <div class="collapse coursesummary{{courseid}}">{{{fullcoursesummary}}} {{#haselipsis}} <button type="button" class="btn btn-link p-0" data-toggle="collapse" data-target=".coursesummary{{{courseid}}}">Moins</button>{{/haselipsis}}</div>
+                    <div class="collapse show coursesummary{{courseid}}">{{{coursesummary}}} {{#haselipsis}}... <button type="button" class="btn btn-link p-0" data-bs-toggle="collapse" data-target=".coursesummary{{{courseid}}}">Plus</button>{{/haselipsis}}</div>
+                    <div class="collapse coursesummary{{courseid}}">{{{fullcoursesummary}}} {{#haselipsis}} <button type="button" class="btn btn-link p-0" data-bs-toggle="collapse" data-target=".coursesummary{{{courseid}}}">Moins</button>{{/haselipsis}}</div>
                 </div>
                {{#hascontacts}} <p>
                     <span class="instructors"> {{#coursecontacts}}
-                        <a href="{{url}}" class="" data-toggle="tooltip" title="{{name}}">
+                        <a href="{{url}}" class="" data-bs-toggle="tooltip" title="{{name}}">
                             <img src="{{{picture}}}"/>
                         </a>
                     {{/coursecontacts}}

@@ -21,7 +21,7 @@
 {{#hascontacts}}
 <div class="course-contacts">
     {{#coursecontacts}}
-        <a href="{{url}}" class="contact" data-toggle="tooltip" title="{{name}}">
+        <a href="{{url}}" class="contact" data-bs-toggle="tooltip" title="{{name}}">
             <img src="{{picture}}" class="rounded-circle" alt="{{name}}">
         </a>
     {{/coursecontacts}}
@@ -34,11 +34,11 @@
 <div class="card-body">
     <h4 class="card-title">
     <a class="" href="{{courselink}}">{{{coursename}}}</a>
-    {{#fullcoursesummaryhtml}}<a class="" href="#" data-toggle="modal" data-target="#modalcourse{{courseid}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>{{/fullcoursesummaryhtml}}</h4>
+    {{#fullcoursesummaryhtml}}<a class="" href="#" data-bs-toggle="modal" data-target="#modalcourse{{courseid}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>{{/fullcoursesummaryhtml}}</h4>
     <div class="no-overflow">
         <div class="p-3 text-right">
         {{#badges}}
-            <a href="{{courselink}}" class="contact" data-toggle="tooltip" title="{{name}}">
+            <a href="{{courselink}}" class="contact" data-bs-toggle="tooltip" title="{{name}}">
                 {{{image}}}
             </a>
         {{/badges}}
