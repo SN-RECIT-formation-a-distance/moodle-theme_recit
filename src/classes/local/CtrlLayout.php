@@ -205,10 +205,13 @@ class CtrlLayout{
         $seehidden = has_capability('theme/recit2:accesshiddensections', $ccontext, $USER->id, false);
 
         foreach($sectionslist as $section){
-            if(!$section->visible){
-                if ($hideVisible == 1) continue; 
-                if ($hideVisible == 0 && !$seehidden) continue;
-            }
+            if (!$PAGE->user_is_editing()){
+                if(!$section->visible){
+                    if ($hideVisible == 1) continue; 
+                    if ($hideVisible == 0 && !$seehidden) continue;
+                }
+            } 
+            
             if ($hideRestricted == 1 && !$section->available){
                 if ($hideVisible == 1) continue; 
                 if ($hideVisible == 0 && !$seehidden) continue;
