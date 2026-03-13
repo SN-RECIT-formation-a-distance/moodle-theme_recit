@@ -1,7 +1,7 @@
 
-    {{{ footer }}}
+{{{footer}}}
 </div><!-- Ends .page-wrapper -->
-</div><!-- Ends .maincontent -->
+
 <div class="maindrawer">
     {{#hasblocks}}
         <i id="sidepreopen-control"
@@ -18,18 +18,21 @@
         </section>
     {{/hasblocks}}
 </div>
-</div><!-- Ends .mainpage -->
 
 
 {{{message_drawer}}}
 
+ 
 </body>
 </html>
 {{#js}}
+
+{{^do_not_call_loader}}
 M.util.js_pending('theme_recit2/loader');
 require(['theme_recit2/loader'], function() {
     M.util.js_complete('theme_recit2/loader');
 });
+{{/do_not_call_loader}}
 
 M.util.js_pending('theme_recit2/drawer');
 require(['theme_recit2/drawer'], function(drawer) {
@@ -66,6 +69,4 @@ M.util.js_pending('theme_recit2/recit/ekko-lightbox');
 require(['theme_recit2/recit/ekko-lightbox'], function(mod) {
     M.util.js_complete('theme_recit2/recit/ekko-lightbox');
 });
-
-
 {{/js}}

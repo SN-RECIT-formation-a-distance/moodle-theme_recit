@@ -97,6 +97,23 @@ $templatecontext['show_activity_nav'] = ($showActivityNav == 1);
 
 $templatecontext['show_navbuttonhome'] = (ThemeSettings::get_custom_field('themerecit2_navbuttonhome') == 1);
 
+// BUG Bootstrap dropdowns on course/edit.php or editing mode
+// The culprit — loader.min.js (function realocateBootstrapEvents)
+// Moodle core ALSO loads Bootstrap for form UI and it removes all Bootstrap dropdown keydown listeners from document, then re-registers them on document.body. 
+// On view.php that's fine — theme_recit2 owns the only Bootstrap instance. 
+// But on edit.php, Moodle core has already registered its own dropdown handlers on document, and your off() call silently kills them.
+
+$doNotCallLoaderPages = [
+    'course-edit',
+  //  'course-editbulkcompletion',
+  //  'course-editdefaultcompletion',
+];
+
+$templatecontext['do_not_call_loader'] = (
+    in_array($PAGE->pagetype, $doNotCallLoaderPages) ||
+    ($PAGE->pagetype === 'course-view-topics' && $PAGE->user_is_editing())
+);
+
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_course_section_nav());
 
