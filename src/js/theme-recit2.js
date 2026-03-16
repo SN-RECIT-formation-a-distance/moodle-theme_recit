@@ -62,11 +62,10 @@ M.recit.theme.recit2.Ctrl = class{
         let toggler = document.getElementById('sidepreopen-control');
         if (toggler){
             toggler.addEventListener('click', () => setTimeout(() => {
-                if (document.body.classList.contains('drawer-open-right')){
-                    M.util.set_user_preference('drawer-open-block', true);
-                }else{
-                    M.util.set_user_preference('drawer-open-block', false);
-                }
+                const isOpen = document.body.classList.contains('drawer-open-right');
+                require(['core_user/repository'], function(UserRepository) {
+                    UserRepository.setUserPreference('drawer-open-block', isOpen);
+                });
             }, 100))
         }
     }

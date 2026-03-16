@@ -25,11 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/behat/lib.php');
-//require_once($CFG->dirroot . '/theme/recit2/classes/local/CtrlLayout.php');
 
 use theme_recit2\local\CtrlLayout;
 use theme_recit2\local\ThemeSettings;
-use theme_recit2\local\ThemeUtils;
 
 $hasdrawertoggle = false;
 $navdraweropen = false;
