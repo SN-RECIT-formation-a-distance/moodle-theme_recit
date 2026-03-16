@@ -5,8 +5,6 @@ M.recit.theme.recit2 = M.recit.theme.recit2 || {};
 M.recit.theme.recit2.SectionsNav = class{
     constructor(){        
         this.onSectionNav = this.onSectionNav.bind(this);
-        this.curSection = null;
-        this.observers = [];
         this.menu = null;
         this.pagination = null;
         
@@ -30,62 +28,23 @@ M.recit.theme.recit2.SectionsNav = class{
         else if(placeholder.classList.contains('menuM5')){
             this.menu = new M.recit.theme.recit2.MenuM5(placeholder);
         }
-
-        let curSectionId = M.recit.theme.recit2.Utils.getCurSection();
-        let sectionId = curSectionId || M.recit.theme.recit2.Utils.getCookieCurSection() || '#section-0';
-        if (curSectionId){
-            M.recit.theme.recit2.Utils.setCookieCurSection(curSectionId);
-        }
+       
+        const sectionId = M.recit.theme.recit2.Utils.getCurSection();
+        
         for(let section of sectionList){
-            section.addEventListener('click', this.onSectionNav);
-            // if the user is the course page then it load automatically the section content. More than one listener could exist.
-            if(section.hash === sectionId || section.getAttribute('data-sectionid') == sectionId){
-                this.curSection = section;
-
-                // If the user is on the course page then it dispatch the link click (with all listeners)
-                /*if(M.course){
-                    section.click(); 
-                }*/
-
-                // we don't want to call click() to avoid unnecessary redirection to href link, we just want to call onSectionNav
-                // if the user is on a module course page then we can't dispatch the link click (otherwise it will return to the course page)
-                let tmp = document.createElement('a');
-                tmp.setAttribute('href', section.getAttribute('href'));
-                this.onSectionNav({target: tmp});
+            if(section.hash === sectionId || section.getAttribute('data-sectionid') == sectionId || sectionId === false){
+                this.onSectionNav(section.getAttribute('href'));
+                break;
             }
         }
     }
 
-    addOnSectionNavListener(callback){
-        for(let o of this.observers){
-            if(o === callback){
-                return false;
-            }
-        }
-
-        this.observers.push(callback);
-        
-        if(this.curSection){
-            let tmp = document.createElement('a');
-            tmp.setAttribute('href', this.curSection.getAttribute('href'));
-            callback.call(this, {target: tmp, preventDefault: ()=>{}});
-        }
-
-        return true;
-    }    
-
-    onSectionNav(event){
-        this.curSection = event.target;
-       
+    onSectionNav(sectionUrl){
         if(this.menu){
-            this.menu.ctrl(event);
+            this.menu.ctrl(sectionUrl);
         }
 
-        for(let o of this.observers){
-            o.call(this, event);
-        }
-        
-        this.pagination.ctrl(this.curSection.getAttribute('href'));
+        this.pagination.ctrl(sectionUrl);
     }
 }
 
@@ -339,10 +298,11 @@ M.recit.theme.recit2.MenuM5 = class{
         return window.innerWidth < 990;
     }
 
-    ctrl(event){
+    ctrl(sectionUrl){        
         let elems = this.placeholder.querySelectorAll('.menu-item');
         for(let el of elems){
-            if(event.target.href === el.firstElementChild.href){
+            console.log(sectionUrl, el.firstElementChild.href)
+            if(sectionUrl === el.firstElementChild.href){
                 el.setAttribute('data-selected', '1');
                 if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){
                     if (!el.classList.contains('show')){
@@ -361,7 +321,7 @@ M.recit.theme.recit2.MenuM5 = class{
             if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){
                 let subelems = el.querySelectorAll('.dropdown-item');
                 for(let subel of subelems){
-                    if(event.target.href === subel.href){
+                    if(sectionUrl === subel.href){
                         subel.setAttribute('data-selected', '1');
                         if (!el.classList.contains('show')){
                             el.classList.add('show')
