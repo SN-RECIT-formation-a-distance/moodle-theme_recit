@@ -127,16 +127,20 @@ M.recit.theme.recit2.MenuM1 = class{
         this.menuSections = document.getElementById('menu-sections');
 
         let btn = document.getElementById(`btn-menu-collapse`);
-        btn.onclick = this.onMenuCollapase;
+        if(btn){
+            btn.onclick = this.onMenuCollapase;
+        }
 
-        let items = this.menuSections.querySelectorAll('[data-btn-submenu-collapse]');
-        for(let item of items){
-            item.onclick = this.onSubMenuCollapase;
+        if(this.menuSections){
+            let items = this.menuSections.querySelectorAll('[data-btn-submenu-collapse]');
+            for(let item of items){
+                item.onclick = this.onSubMenuCollapase;
+            }
         }
 
         this.onWindowResize();
 
-        this.placeholder.parentElement.classList.add('overflow-scroll'); // Add this class so the 2 sections menu will have a scroll bar if too small screen
+        this.placeholder.parentElement.classList.add('overflow-scroll2'); // Add this class so the 2 sections menu will have a scroll bar if too small screen
     }
 
     onWindowResize(){
@@ -162,8 +166,8 @@ M.recit.theme.recit2.MenuM1 = class{
         }
     }
 
-    ctrl(event){
-        let sectionId = event.target.getAttribute("href");
+    ctrl(sectionUrl){
+        let sectionId = sectionUrl;
         
         let href = this.placeholder.querySelector(`[href='${sectionId}']`);
         if(href !== null){
@@ -264,6 +268,8 @@ M.recit.theme.recit2.MenuM5 = class{
         let navsections = document.querySelector('#nav-sections');
         let menu = document.querySelector('.menuM5-inner');
         
+        if (!this.wrapper || !navsections || !menu) return;  // guard all three
+
         if (this.isVertical()){//If menu is vertical, prevent dropdowns from closing
             this.floatingMenu = new M.recit.theme.recit2.floatingSection(navsections, menu);
             let els = placeholder.querySelectorAll('.dropdown-menu');
@@ -301,7 +307,6 @@ M.recit.theme.recit2.MenuM5 = class{
     ctrl(sectionUrl){        
         let elems = this.placeholder.querySelectorAll('.menu-item');
         for(let el of elems){
-            console.log(sectionUrl, el.firstElementChild.href)
             if(sectionUrl === el.firstElementChild.href){
                 el.setAttribute('data-selected', '1');
                 if ((this.isVertical() || this.isMobile()) && el.classList.contains('dropdown')){

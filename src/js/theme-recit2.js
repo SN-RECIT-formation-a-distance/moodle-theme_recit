@@ -125,7 +125,10 @@ M.recit.theme.recit2.floatingSection = class {
         window.onresize = this.onScroll.bind(this);
         this.navsections = section;
         this.menu = floatingSection;
-        this.navbarHeight = document.querySelector('#mainTopNav').offsetHeight;
+
+        const topNav = document.querySelector('#mainTopNav');
+        this.navbarHeight = topNav ? topNav.offsetHeight : 0;
+
         this.maincontent = document.querySelector('#page-content');
     }
 
@@ -194,15 +197,15 @@ M.recit.theme.recit2.MainTopNav = class{
 
             window.addEventListener('resize', this.ctrlResponsive);
 
-            this.menuMobile = mainTopNav.querySelector('[id=menu-mobile]');
-            this.menuCourse = mainTopNav.querySelector('[id=menu-course]');
-            this.menuPlatform = mainTopNav.querySelector('[id=menu-platform]');
+            this.menuMobile = this.mainTopNav.querySelector('[id=menu-mobile]');
+            this.menuCourse = this.mainTopNav.querySelector('[id=menu-course]');
+            this.menuPlatform = this.mainTopNav.querySelector('[id=menu-platform]');
 
             this.elems = {
-                btnCourseHome: mainTopNav.querySelector('[data-button="coursehome"]'),
-                btnNotifications: mainTopNav.querySelector('[data-button="notifications"]'),
-                btnMessages: mainTopNav.querySelector('[data-button="messages"]'),
-                titles: mainTopNav.querySelectorAll('[data-title]')
+                btnCourseHome: this.mainTopNav.querySelector('[data-button="coursehome"]'),
+                btnNotifications: this.mainTopNav.querySelector('[data-button="notifications"]'),
+                btnMessages: this.mainTopNav.querySelector('[data-button="messages"]'),
+                titles: this.mainTopNav.querySelectorAll('[data-title]')
             }
 
             this.ctrlResponsive();
