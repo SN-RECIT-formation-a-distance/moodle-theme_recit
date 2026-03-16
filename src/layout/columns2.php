@@ -111,7 +111,8 @@ $doNotCallLoaderPages = [
 
 $templatecontext['do_not_call_loader'] = (
     in_array($PAGE->pagetype, $doNotCallLoaderPages) ||
-    ($PAGE->pagetype === 'course-view-topics' && $PAGE->user_is_editing())
+    ($PAGE->pagetype === 'course-view-topics' && $PAGE->user_is_editing()) ||
+    ($PAGE->pagetype === 'course-view-recit' && $PAGE->user_is_editing())
 );
 
 $templatecontext = array_merge($templatecontext, CtrlLayout::get_template_context_common($OUTPUT, $PAGE, $USER));
