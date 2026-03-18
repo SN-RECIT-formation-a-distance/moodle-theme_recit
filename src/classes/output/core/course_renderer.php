@@ -449,9 +449,17 @@ class course_renderer extends \core_course_renderer {
 
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            
+            $url = \core\url::make_pluginfile_url(
+                    $file->get_contextid(),
+                    $file->get_component(),
+                    $file->get_filearea(),
+                    null,
+                    $file->get_filepath(),
+                    $file->get_filename(),
+                    !$isimage
+                )->out(false);
+
             if ($isimage) {
                 $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
                     'src' => $url,
