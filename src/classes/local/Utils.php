@@ -305,13 +305,27 @@ class ThemeUtils
     
     public static function isAdminRole(){
         global $PAGE;
-        
-        if ((is_a($PAGE->context, 'context_course') && has_capability('moodle/course:update', $PAGE->context)) ||
-                (is_a($PAGE->context, 'context_category') && has_capability('moodle/category:manage', $PAGE->context))) {
-            return true;
+
+        $context = $PAGE->context;
+
+        // Normalize module context up to course level
+        if (is_a($context, 'context_module')) {
+            $context = $context->get_course_context();
         }
-        else{
-            return false;
+
+        if (is_a($context, 'context_course')) {
+            return has_capability('moodle/course:update', $context)           // editing teacher+
+                || has_capability('moodle/course:viewhiddenactivities', $context); // non-editing teacher+
         }
+
+        if (is_a($context, 'context_category')) {
+            return has_capability('moodle/category:manage', $context);
+        }
+
+        if (is_a($context, 'context_system')) {
+            return has_capability('moodle/site:config', $context);
+        }
+
+        return false;
     }
 }
