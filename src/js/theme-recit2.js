@@ -28,13 +28,47 @@ M.recit.theme.recit2.Ctrl = class{
         this.preventScrollToTop();
     };
 
-    static initBs4Warning(){ //called by init-vars
-        let bs4LegacySelector = '.editing .border-left, .editing .border-right, .editing .rounded-left, .editing .rounded-right, .editing .rounded-sm, .editing .rounded-lg, .editing .ml-0, .editing .mr-0, .editing .ml-1, .editing .mr-1, .editing .ml-2, .editing .mr-2, .editing .ml-3, .editing .mr-3, .editing .ml-4, .editing .mr-4, .editing .ml-5, .editing .mr-5, .editing .ml-6, .editing .mr-6, .editing .pl-0, .editing .pr-0, .editing .pl-1, .editing .pr-1, .editing .pl-2, .editing .pr-2, .editing .pl-3, .editing .pr-3, .editing .pl-4, .editing .pr-4, .editing .pl-5, .editing .pr-5, .editing .pl-6, .editing .pr-6, .editing .ml-sm-0, .editing .mr-sm-0, .editing .ml-sm-1, .editing .mr-sm-1, .editing .ml-sm-2, .editing .mr-sm-2, .editing .ml-sm-3, .editing .mr-sm-3, .editing .ml-sm-4, .editing .mr-sm-4, .editing .ml-sm-5, .editing .mr-sm-5, .editing .ml-sm-6, .editing .mr-sm-6, .editing .pl-sm-0, .editing .pr-sm-0, .editing .pl-sm-1, .editing .pr-sm-1, .editing .pl-sm-2, .editing .pr-sm-2, .editing .pl-sm-3, .editing .pr-sm-3, .editing .pl-sm-4, .editing .pr-sm-4, .editing .pl-sm-5, .editing .pr-sm-5, .editing .pl-sm-6, .editing .pr-sm-6, .editing .ml-md-0, .editing .mr-md-0, .editing .ml-md-1, .editing .mr-md-1, .editing .ml-md-2, .editing .mr-md-2, .editing .ml-md-3, .editing .mr-md-3, .editing .ml-md-4, .editing .mr-md-4, .editing .ml-md-5, .editing .mr-md-5, .editing .ml-md-6, .editing .mr-md-6, .editing .pl-md-0, .editing .pr-md-0, .editing .pl-md-1, .editing .pr-md-1, .editing .pl-md-2, .editing .pr-md-2, .editing .pl-md-3, .editing .pr-md-3, .editing .pl-md-4, .editing .pr-md-4, .editing .pl-md-5, .editing .pr-md-5, .editing .pl-md-6, .editing .pr-md-6, .editing .ml-lg-0, .editing .mr-lg-0, .editing .ml-lg-1, .editing .mr-lg-1, .editing .ml-lg-2, .editing .mr-lg-2, .editing .ml-lg-3, .editing .mr-lg-3, .editing .ml-lg-4, .editing .mr-lg-4, .editing .ml-lg-5, .editing .mr-lg-5, .editing .ml-lg-6, .editing .mr-lg-6, .editing .pl-lg-0, .editing .pr-lg-0, .editing .pl-lg-1, .editing .pr-lg-1, .editing .pl-lg-2, .editing .pr-lg-2, .editing .pl-lg-3, .editing .pr-lg-3, .editing .pl-lg-4, .editing .pr-lg-4, .editing .pl-lg-5, .editing .pr-lg-5, .editing .pl-lg-6, .editing .pr-lg-6, .editing .ml-xl-0, .editing .mr-xl-0, .editing .ml-xl-1, .editing .mr-xl-1, .editing .ml-xl-2, .editing .mr-xl-2, .editing .ml-xl-3, .editing .mr-xl-3, .editing .ml-xl-4, .editing .mr-xl-4, .editing .ml-xl-5, .editing .mr-xl-5, .editing .ml-xl-6, .editing .mr-xl-6, .editing .pl-xl-0, .editing .pr-xl-0, .editing .pl-xl-1, .editing .pr-xl-1, .editing .pl-xl-2, .editing .pr-xl-2, .editing .pl-xl-3, .editing .pr-xl-3, .editing .pl-xl-4, .editing .pr-xl-4, .editing .pl-xl-5, .editing .pr-xl-5, .editing .pl-xl-6, .editing .pr-xl-6, .editing .ml-auto, .editing .mr-auto, .editing .ml-sm-auto, .editing .mr-sm-auto, .editing .ml-md-auto, .editing .mr-md-auto, .editing .ml-lg-auto, .editing .mr-lg-auto, .editing .ml-xl-auto, .editing .mr-xl-auto, .editing .float-left, .editing .float-right, .editing .float-sm-left, .editing .float-sm-right, .editing .float-md-left, .editing .float-md-right, .editing .float-lg-left, .editing .float-lg-right, .editing .float-xl-left, .editing .float-xl-right, .editing .text-left, .editing .text-right, .editing .text-sm-left, .editing .text-sm-right, .editing .text-md-left, .editing .text-md-right, .editing .text-lg-left, .editing .text-lg-right, .editing .text-xl-left, .editing .text-xl-right, .editing .form-group, .editing .no-gutters, .editing .btn-block, .editing .media, .editing .badge-danger, .editing .badge-warning, .editing .badge-success, .editing .badge-primary';
-        let els = document.querySelectorAll(bs4LegacySelector);
-        let page = document.querySelector('.editing #region-main');
-        if (page && els.length > 0){
-            let alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">Il y a des classes obsolètes. Veuillez ouvrir l\'éditeur Bootstrap et corriger cela. <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>';
-            page.innerHTML = alert + page.innerHTML;
+    //called by init-vars
+    static initBs4Warning() {
+        if (!document.body.classList.contains('editing')) return;
+
+        const page = document.querySelector('#region-main');
+        if (!page) return;
+
+        const bs4Classes = [
+            'border-left','border-right','rounded-left','rounded-right','rounded-sm','rounded-lg',
+            'float-left','float-right','float-sm-left','float-sm-right',
+            'float-md-left','float-md-right','float-lg-left','float-lg-right',
+            'float-xl-left','float-xl-right',
+            'text-left','text-right','text-sm-left','text-sm-right',
+            'text-md-left','text-md-right','text-lg-left','text-lg-right','text-xl-left','text-xl-right',
+            'form-group','no-gutters','btn-block','media',
+            'badge-danger','badge-warning','badge-success','badge-primary',
+            'ml-auto','mr-auto','ml-sm-auto','mr-sm-auto',
+            'ml-md-auto','mr-md-auto','ml-lg-auto','mr-lg-auto','ml-xl-auto','mr-xl-auto',
+        ];
+
+        const spacingPrefixes = ['ml','mr','pl','pr'];
+        const breakpoints = ['', 'sm-', 'md-', 'lg-', 'xl-'];
+        for (const prefix of spacingPrefixes) {
+            for (const bp of breakpoints) {
+                for (let i = 0; i <= 6; i++) {
+                    bs4Classes.push(`${prefix}-${bp}${i}`);
+                }
+            }
+        }
+
+        for (const cls of bs4Classes) {
+            if (document.querySelector(`.${cls}`)) {
+                console.log("aaa")
+                page.insertAdjacentHTML('afterbegin', `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Il y a des classes obsolètes. Veuillez ouvrir l'éditeur Bootstrap et corriger cela.
+                    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>`);
+                return; // stop immediately
+            }
         }
     }
 
