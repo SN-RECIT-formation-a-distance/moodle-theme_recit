@@ -54,6 +54,7 @@
     } 
 
     .que{
+        display: grid!important;
         .info{
             float: none; display: flex; width: 100%; justify-content: space-between; align-items: center; background-color: transparent; border: none; margin: 0;
             &>div{margin: 0;}
