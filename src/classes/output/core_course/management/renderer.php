@@ -204,7 +204,7 @@ class renderer extends \core_course_management_renderer {
         $listing = core_course_category::get(0)->get_children();
 
         $attributes = array(
-            'class' => 'ml-1 list-unstyled',
+            'class' => 'ms-1 list-unstyled',
             'role' => 'tree',
             'aria-labelledby' => 'category-listing-title'
         );
@@ -373,14 +373,14 @@ class renderer extends \core_course_management_renderer {
 
         if ($category->can_resort_courses()) {
             // In order for dnd to be available the user must be able to resort the category children..
-            $html .= html_writer::div($this->output->pix_icon('i/move_2d', get_string('dndcourse')), 'float-left drag-handle');
+            $html .= html_writer::div($this->output->pix_icon('i/move_2d', get_string('dndcourse')), 'float-start drag-handle');
         }
 
-        $html .= html_writer::start_div('ba-checkbox float-left');
+        $html .= html_writer::start_div('ba-checkbox float-start');
         $html .= html_writer::empty_tag('input', $bulkcourseinput).'&nbsp;';
         $html .= html_writer::end_div();
-        $html .= html_writer::link($viewcourseurl, $text, array('class' => 'float-left coursename'));
-        $html .= html_writer::start_div('float-right');
+        $html .= html_writer::link($viewcourseurl, $text, array('class' => 'float-start coursename'));
+        $html .= html_writer::start_div('float-end');
         if ($course->idnumber) {
             $html .= html_writer::tag('span', s($course->idnumber), array('class' => 'dimmed idnumber'));
         }
@@ -554,14 +554,14 @@ class renderer extends \core_course_management_renderer {
 
         $html  = html_writer::start_tag('li', $attributes);
         $html .= html_writer::start_div('clearfix');
-        $html .= html_writer::start_div('float-left');
+        $html .= html_writer::start_div('float-start');
         if ($bulkcourseinput) {
             $html .= html_writer::empty_tag('input', $bulkcourseinput).'&nbsp;';
         }
         $html .= html_writer::end_div();
-        $html .= html_writer::link($viewcourseurl, $text, array('class' => 'float-left coursename'));
-        $html .= html_writer::tag('span', $categoryname, array('class' => 'float-left categoryname'));
-        $html .= html_writer::start_div('float-right');
+        $html .= html_writer::link($viewcourseurl, $text, array('class' => 'float-start coursename'));
+        $html .= html_writer::tag('span', $categoryname, array('class' => 'float-start categoryname'));
+        $html .= html_writer::start_div('float-end');
         $html .= $this->search_listitem_actions($course);
         $html .= html_writer::tag('span', s($course->idnumber), array('class' => 'dimmed idnumber'));
         $html .= html_writer::end_div();
@@ -600,7 +600,7 @@ class renderer extends \core_course_management_renderer {
         $options = array();
         foreach ($actions as $action) {
             $options[] = $this->action_link($action['url'], $action['string'], null,
-                array('class' => 'btn btn-sm btn-secondary mr-1 mb-3'));
+                array('class' => 'btn btn-sm btn-secondary me-1 mb-3'));
         }
         return html_writer::div(join('', $options), 'listing-actions course-detail-listing-actions');
     }

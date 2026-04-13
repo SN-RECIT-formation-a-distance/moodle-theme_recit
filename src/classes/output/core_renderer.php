@@ -71,7 +71,7 @@ class core_renderer extends \core_renderer {
 
         if($editSwitch != null){
             $editSwitch = str_replace('text-primary', '', $editSwitch);
-            $html .= '<li class="nav-item-divider ml-2"></li>';    
+            $html .= '<li class="nav-item-divider ms-2"></li>';    
             $html .= '<li class="text-white">';
             $html .= $editSwitch;
             $html .= '</li>';
