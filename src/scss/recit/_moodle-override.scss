@@ -244,3 +244,10 @@ body.bulkenabled{
         max-width: 1140px;
     }
 }
+
+body.pagelayout-coursecategory{
+    // it fix the 3 dots menu overlapping the combobox
+    #region-main-settings-menu{
+        margin-bottom: 2rem;
+    }
+}
