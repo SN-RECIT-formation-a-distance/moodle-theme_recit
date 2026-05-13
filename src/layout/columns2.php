@@ -109,6 +109,7 @@ $doNotCallLoaderPages = [
 
 $templatecontext['do_not_call_loader'] = (
     in_array($PAGE->pagetype, $doNotCallLoaderPages) ||
+    ($PAGE->pagetype === 'course-view-section-recit' && $PAGE->user_is_editing()) ||
     ($PAGE->pagetype === 'course-view-topics' && $PAGE->user_is_editing()) ||
     ($PAGE->pagetype === 'course-view-recit' && $PAGE->user_is_editing())
 );
