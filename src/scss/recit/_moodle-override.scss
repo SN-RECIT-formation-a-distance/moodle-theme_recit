@@ -220,19 +220,6 @@ body.bulkenabled{
     background: #91bae8!important;
 }
 
-// override on editing mode
-.course-section .summarytext img {
-    border-radius: inherit!important;
-}
-
-/* Fix: Bootstrap's 
-    media (min-width: 992px) {
-        .modal-lg, .modal-xl {
-        max-width: 800px;
-    }
-// We must re-declare inside the same media context with higher specificity.
-*/
-
 @media (min-width: 992px) {
     .modchooser.modal-dialog {
         max-width: 1140px;
