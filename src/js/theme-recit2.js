@@ -13,13 +13,15 @@ M.recit.theme.recit2.Ctrl = class{
 
         this.mainTopNav = new M.recit.theme.recit2.MainTopNav();
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
-        this.webApi = new M.recit.theme.recit2.WebApi();
+
+        this.modalNetworkUnreachable = null;
 
         this.init();
-        this.initTimeoutModal();
         this.initEkkoLightbox();
         this.initGoToTopBtn();
         setTimeout(() => this.initDrawer(), 500);//Timer needed because drawer needs to be initiated by Bootstrap
+
+        setInterval(() => this.ctrlNetwork(), 60000 * 5);//Check every 5 mins
     }
 
     init(){
@@ -126,16 +128,33 @@ M.recit.theme.recit2.Ctrl = class{
         });
     }
 
-    initTimeoutModal(){
-        let modal = document.getElementById('recit-modal-timeout');
-        if (modal){
-            setInterval(() => this.checkForTimeout(), 60000 * 5);//Check every 5 mins
-        }
-    }
+    ctrlNetwork(){
+        let that = this;
 
-    checkForTimeout(){
-        this.webApi.ping(null, () => {
-            $('#recit-modal-timeout').modal('show');
+        if(this.modalNetworkUnreachable === null){
+            require(['core/modal'], function(Modal) {
+                Modal.create({
+                    title: 'Connexion impossible au serveur',
+                    body: `
+                    <p>Votre navigateur n’a pas pu contacter le serveur.</p>
+                    <p>Cela peut être dû à une perte de connexion Internet ou à un serveur temporairement indisponible.</p>
+                    <p>Veuillez vérifier votre réseau et réessayer.</p>
+                `
+                }).then(function(modal) {
+                    that.modalNetworkUnreachable = modal;
+                });
+            });
+        }
+
+        fetch(`${M.cfg.wwwroot}/theme/recit2/classes/local/WebApi.php`).then(response => {
+            if (!response.ok) {
+                console.log('HTTP error:', response.status);
+            }
+            that.modalNetworkUnreachable.hide();
+        })
+        .catch(() => {
+            // Network unreachable
+            that.modalNetworkUnreachable.show();
         });
     }
 
@@ -383,59 +402,6 @@ M.recit.theme.recit2.Utils = class{
         }
 
         return queryParams;
-    }
-}
-
-M.recit.theme.recit2.WebApi = class{
-    constructor(){
-        this.gateway = this.getGateway();
-
-        this.post = this.post.bind(this);
-    }
-
-    getGateway(){
-        return `${M.cfg.wwwroot}/theme/recit2/classes/local/WebApi.php`;
-    }
-
-    post(url, data, callbackSuccess, callbackError){
-        data = JSON.stringify(data);
-
-        let xhr = new XMLHttpRequest();
-        let that = this;
-
-        xhr.open("post", url, true);
-        // Header sent to the server, specifying a particular format (the content of message body).
-        xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-        xhr.setRequestHeader('Accept', 'json'); // What kind of response to expect.
-
-        xhr.onload = function(event){
-            if(this.clientOnLoad !== null){
-                let result = null;
-
-                try{
-                    result = JSON.parse(event.target.response);
-                }
-                catch(error){
-                    console.log(error, this);
-                }
-                
-                if (callbackSuccess){
-                    callbackSuccess.call(this, result);
-                }
-            }
-        }
-
-        if (callbackError){
-            xhr.onerror = callbackError;
-        }
-        
-        xhr.send(data);
-    }
-
-    ping(onSuccess, onError){
-        let options = {};
-        options.service = "ping";
-        this.post(this.gateway, options, onSuccess, onError);
     }
 }
 
