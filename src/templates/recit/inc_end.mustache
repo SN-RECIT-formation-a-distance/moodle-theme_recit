@@ -27,12 +27,35 @@
 </html>
 {{#js}}
 
-{{^do_not_call_loader}}
-M.util.js_pending('theme_recit2/loader');
-require(['theme_recit2/loader'], function() {
-    M.util.js_complete('theme_recit2/loader');
-});
-{{/do_not_call_loader}}
+// BUG Bootstrap dropdowns on course/edit.php or editing mode
+// The culprit — loader.min.js (function realocateBootstrapEvents)
+// Moodle core ALSO loads Bootstrap for form UI and it removes all Bootstrap dropdown keydown listeners from document, then re-registers them on document.body. 
+// On view.php that's fine — theme_recit2 owns the only Bootstrap instance. 
+// But on edit.php, Moodle core has already registered its own dropdown handlers on document, and your off() call silently kills them.
+// section index 0 works differently from section 1+
+
+let callLoader = true;
+
+{{#isediting}}
+    let navSection = document.getElementById('nav-sections');
+
+    if(navSection){
+        let selectedElement = navSection.querySelector('[data-selected="1"]');
+
+        if(selectedElement && selectedElement.firstElementChild){
+            if(parseInt(selectedElement.firstElementChild.dataset.isection) === 0){
+                callLoader = false;
+            }
+        }
+    }
+{{/isediting}}
+
+if(callLoader){
+    M.util.js_pending('theme_recit2/loader');
+    require(['theme_recit2/loader'], function() {
+        M.util.js_complete('theme_recit2/loader');
+    });
+}
 
 M.util.js_pending('theme_recit2/drawer');
 require(['theme_recit2/drawer'], function(drawer) {

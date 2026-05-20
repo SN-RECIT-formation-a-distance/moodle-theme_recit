@@ -31,13 +31,14 @@ class CourseSectionNav{
     public $isMenuM3 = false;
     public $isMenuM5 = false;
 
-    public function addSection($level = 1,  $sectionId = '', $url = '', $sectionDesc = "", $title = "", $sId = ""){
+    public function addSection($level = 1,  $sectionId = '', $url = '', $sectionDesc = "", $title = "", $sId = "", $iSection = -1){
         $maxNbChars = 25;
         
         $truncate = ThemeSettings::get_custom_field('truncatesections');
 
         $obj = new stdClass();
         $obj->id = $sId;
+        $obj->iSection = $iSection;
         $obj->sectionId = $sectionId;
         $obj->url = $url;
         $obj->title = (strlen($title) > 0 ? $title : $sectionDesc);

@@ -196,7 +196,6 @@ class CtrlLayout{
         
         $protohref = "{$CFG->wwwroot}/course/section.php?id=%s";
 
-        //$result->addSection(1, "map", sprintf($protohref, "#map"), "<i class='fa fa-map'></i>", "Menu");
         // Retrieve course format option fields and add them to the $course object.
         $course = course_get_format($COURSE)->get_course();
         $hideVisible = isset($course->hiddensections) ? $course->hiddensections : 1; //0 = show for teachers, 1 = hidden for everyone
@@ -225,7 +224,7 @@ class CtrlLayout{
             }
 
             $sectionId = "#section-{$section->section}";
-            $result->addSection($sectionlevel, $sectionId, sprintf($protohref, $section->id), $sectionDesc, '', $section->id);
+            $result->addSection($sectionlevel, $sectionId, sprintf($protohref, $section->id), $sectionDesc, '', $section->id, $section->section);
         }
 
         return $result;

@@ -27,7 +27,7 @@
                     <ul id="menu-sections">
                         {{#section_top_nav.sections}}
                             <li>
-                                <a href='{{url}}' data-sectionid='{{id}}' title='{{title}}'>{{{desc}}}</a>
+                                <a href='{{url}}' data-isection='{{iSection}}' data-sectionid='{{id}}' title='{{title}}'>{{{desc}}}</a>
                                 {{#hasSubSections}}
                                     <button data-btn-submenu-collapse class='btn btn-outline-light btn-sm'><i class='fa fa-plus'></i></button>
                                     <ul>
