@@ -130,10 +130,12 @@ class CtrlLayout{
         $result['lang']->current = strtoupper(current_language());
 
         $result['css_custom'] = null;
-        
+
         $cssCustom = ThemeSettings::get_custom_field('css_custom');
-        if(!empty($cssCustom)){
-            $result['css_custom'] = strip_tags($cssCustom);
+        if (!empty($cssCustom)) {
+            // strip_tags removes HTML tags (including </style>) to prevent breaking out of the <style> block.
+            // str_ireplace is a second layer in case of malformed tag variants that slip past strip_tags.
+            $result['css_custom'] = str_ireplace('</style', '', strip_tags($cssCustom));
         }
 
         return $result;
@@ -146,13 +148,14 @@ class CtrlLayout{
             'layoutOptions' => (object) $PAGE->layout_options
         ];
 
-        $pageAdmin = strpos($_SERVER['SCRIPT_NAME'], 'admin.php');        
-        $pageBadges = strpos($_SERVER['SCRIPT_NAME'], 'badges/view.php');   
-        $pageContent = strpos($_SERVER['SCRIPT_NAME'], 'contentbank/index.php');   
-        $pageSection = strpos($_SERVER['SCRIPT_NAME'], 'course/section.php');   
-        $pageUser = strpos($_SERVER['SCRIPT_NAME'], 'user/index.php');  
-        $pageCompetencies = strpos($_SERVER['SCRIPT_NAME'], 'coursecompetencies.php');  
-        $pages = $pageAdmin | $pageBadges | $pageContent | $pageUser | $pageCompetencies;
+        $pagetype = $PAGE->pagetype;
+        $pageAdmin = strpos($pagetype, 'admin') !== false;
+        $pageBadges = strpos($pagetype, 'badges-') !== false;
+        $pageContent = strpos($pagetype, 'contentbank-') !== false;
+        $pageSection = $pagetype === 'course-section';
+        $pageUser = strpos($pagetype, 'user-') !== false;
+        $pageCompetencies = strpos($pagetype, 'competency-') !== false;
+        $pages = $pageAdmin || $pageBadges || $pageContent || $pageUser || $pageCompetencies;
 
         if(($COURSE->id > 1) && (!$pages) && ($USER->id >= 1)){            
             $result['section_bottom_nav'] = new stdClass();

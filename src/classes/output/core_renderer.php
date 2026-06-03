@@ -129,10 +129,10 @@ class core_renderer extends \core_renderer {
         $header->incourse = $COURSE->id > 1;
         if ($header->incourse){
             $courseContext = \context_course::instance($COURSE->id);
-            $header->isenrolled = is_enrolled($courseContext, $USER) || strstr($_SERVER['REQUEST_URI'], 'enrol');
+            $header->isenrolled = is_enrolled($courseContext, $USER) || (strpos(me(), 'enrol') !== false);
             $header->canenrol = (is_enrolled($courseContext) === false) && ($USER->id > 1) && (!has_capability('moodle/course:update', $courseContext));
             $header->course_id = $COURSE->id;
-            $header->course_name = $COURSE->fullname;
+            $header->course_name = s($COURSE->fullname);
             $header->course_url = sprintf("%s/course/view.php?id=%d", $CFG->wwwroot, $COURSE->id);
             $header->breadcrumb = (ThemeSettings::get_custom_field('enablebreadcrumb') == 1 ? $this->render_from_template('core/navbar', $this->page->navbar) : null);
         }else{

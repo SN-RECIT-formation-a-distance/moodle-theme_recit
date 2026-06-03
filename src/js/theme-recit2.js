@@ -150,11 +150,15 @@ M.recit.theme.recit2.Ctrl = class{
             if (!response.ok) {
                 console.log('HTTP error:', response.status);
             }
-            that.modalNetworkUnreachable.hide();
+            if (that.modalNetworkUnreachable) {
+                that.modalNetworkUnreachable.hide();
+            }
         })
         .catch(() => {
             // Network unreachable
-            that.modalNetworkUnreachable.show();
+            if (that.modalNetworkUnreachable) {
+                that.modalNetworkUnreachable.show();
+            }
         });
     }
 

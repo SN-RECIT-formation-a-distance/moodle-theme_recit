@@ -86,7 +86,7 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && isset($_GET['categoryid']),
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu) && optional_param('categoryid', null, PARAM_INT) !== null,
     'showcoursecontent' => CtrlLayout::isEnrolledUser($COURSE) || is_siteadmin($USER->id),
     'isediting' => (isset($USER->editing) ? $USER->editing : false)
 ];
@@ -110,7 +110,7 @@ if (isset($PAGE->cm->modname)) {
 
 //Add section title in section.php view
  
-if (strpos($_SERVER['SCRIPT_NAME'], 'course/section.php')){
+if ($PAGE->pagetype === 'course-section') {
     $templatecontext['contenttitle'] = $PAGE->heading;
 }
 
