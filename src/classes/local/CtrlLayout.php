@@ -157,8 +157,6 @@ class CtrlLayout{
         $pageCompetencies = strpos($pagetype, 'competency-') !== false;
         $pages = $pageAdmin || $pageBadges || $pageContent || $pageUser || $pageCompetencies;
 
-        $result['iscoursecontentpage'] = ($COURSE->id > 1) && (in_array($PAGE->pagetype, ['course-view-section-recit']));
-
         if(($COURSE->id > 1) && (!$pages) && ($USER->id >= 1)){            
             $result['section_bottom_nav'] = new stdClass();
             $result['section_bottom_nav']->prev_section = get_string('prev_section', 'theme_recit2');
