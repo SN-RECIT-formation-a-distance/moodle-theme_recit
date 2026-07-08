@@ -101,10 +101,10 @@
 {{^isloggedin}}
     {{#slider.enabled}}
         <header>
-            <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            <div id="slideshow" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
                 <ol class="carousel-indicators">
                     {{#slider.slides}}
-                        <li data-target="#slideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+                        <li data-bs-target="#slideshow" data-bs-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
                     {{/slider.slides}}
                 </ol>
                 <div class="carousel-inner">
