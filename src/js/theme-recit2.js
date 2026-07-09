@@ -8,7 +8,6 @@ M.recit.theme.recit2.Options = {
 
 M.recit.theme.recit2.Ctrl = class{
     constructor(){
-        this.ctrlShortcuts = this.ctrlShortcuts.bind(this);
         this.ctrlFullScreen = this.ctrlFullScreen.bind(this);
 
         this.mainTopNav = new M.recit.theme.recit2.MainTopNav();
@@ -25,8 +24,6 @@ M.recit.theme.recit2.Ctrl = class{
     }
 
     init(){
-        window.addEventListener("keydown", this.ctrlShortcuts);
-
         this.preventScrollToTop();
     };
 
@@ -160,9 +157,6 @@ M.recit.theme.recit2.Ctrl = class{
                 that.modalNetworkUnreachable.show();
             }
         });
-    }
-
-    ctrlShortcuts(e){
     }
 
     ctrlFullScreen(){        

@@ -102,11 +102,11 @@
     {{#slider.enabled}}
         <header>
             <div id="slideshow" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-                <ol class="carousel-indicators">
+                <div class="carousel-indicators">
                     {{#slider.slides}}
-                        <li data-bs-target="#slideshow" data-bs-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+                        <div data-bs-target="#slideshow" data-bs-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></div>
                     {{/slider.slides}}
-                </ol>
+                </div>
                 <div class="carousel-inner">
                     {{#slider.slides}}
                         <div class="carousel-item {{#active}}active{{/active}}">
