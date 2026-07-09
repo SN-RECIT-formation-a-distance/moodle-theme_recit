@@ -20,6 +20,9 @@ M.recit.theme.recit2.Ctrl = class{
         this.initGoToTopBtn();
         setTimeout(() => this.initDrawer(), 500);//Timer needed because drawer needs to be initiated by Bootstrap
 
+        // Temporary patch to fix the issue where the chat textarea is not focusable.
+        // For some reason, calling modal.hide() makes the chat textarea focusable again.
+        setTimeout(() => this.ctrlNetwork(), 5000); 
         setInterval(() => this.ctrlNetwork(), 60000 * 5);//Check every 5 mins
     }
 
