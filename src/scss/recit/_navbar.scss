@@ -43,14 +43,13 @@
     &.navbar-dark a .icon {
         color: unset!important;
     }
-    
+
     .navbar-nav{ 
         align-items: center;    
-
+        
         .nav-item{
             .nav-link{
                 i.fa { font-size: 1.1rem;}
-                min-width: 50px;
                 span[data-title]{display: none; margin-left: .5rem;}
             }
         }
