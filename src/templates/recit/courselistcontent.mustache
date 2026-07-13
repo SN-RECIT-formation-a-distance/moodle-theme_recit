@@ -34,7 +34,7 @@
 <div class="card-body">
     <h4 class="card-title">
     <a class="" href="{{courselink}}">{{{coursename}}}</a>
-    {{#fullcoursesummaryhtml}}<a class="" href="#" data-bs-toggle="modal" data-target="#modalcourse{{courseid}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>{{/fullcoursesummaryhtml}}</h4>
+    {{#fullcoursesummaryhtml}}<a class="" href="#" data-bs-toggle="modal" data-bs-target="#modalcourse{{courseid}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>{{/fullcoursesummaryhtml}}</h4>
     <div class="no-overflow">
         <div class="p-3 text-end">
         {{#badges}}
@@ -61,7 +61,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">{{{coursename}}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

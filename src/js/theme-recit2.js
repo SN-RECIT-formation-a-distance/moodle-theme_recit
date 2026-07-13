@@ -14,21 +14,42 @@ M.recit.theme.recit2.Ctrl = class{
         this.sectionsNav = new M.recit.theme.recit2.SectionsNav();
 
         this.modalNetworkUnreachable = null;
+        this.focusLock = null;
+        require(['core/local/aria/focuslock'], (FocusLock) => { this.focusLock = FocusLock; });
 
         this.init();
         this.initEkkoLightbox();
         this.initGoToTopBtn();
         setTimeout(() => this.initDrawer(), 500);//Timer needed because drawer needs to be initiated by Bootstrap
 
-        // Temporary patch to fix the issue where the chat textarea is not focusable.
-        // For some reason, calling modal.hide() makes the chat textarea focusable again.
-        setTimeout(() => this.ctrlNetwork(), 5000); 
         setInterval(() => this.ctrlNetwork(), 60000 * 5);//Check every 5 mins
     }
 
     init(){
         this.preventScrollToTop();
+        this.initFixDrawerFocusOnOpen();
     };
+
+    // core/local/aria/focuslock keeps a STACK of trapped regions and binds a single
+    // focusin listener to `document` (bubble phase) that redirects any focus landing
+    // outside the region on top of that stack back into it. It only self-heals a stuck
+    // entry once that region is removed from the DOM entirely - a drawer/sub-view that's
+    // merely closed or navigated away from (e.g. switching between the message drawer's
+    // conversation list and an individual conversation) stays on the stack forever,
+    // silently hijacking every later focus attempt, including into the chat textarea.
+    // There's no single "drawer opened/closed" event that reliably marks when this
+    // happens, so instead of guessing at one, this flushes the stack right before focus
+    // lands anywhere inside a fixed-drawer - in the CAPTURE phase, which the DOM spec
+    // guarantees runs before Moodle's own bubble-phase handler for that same event, so
+    // any stale region is gone before it gets a chance to redirect focus away.
+    initFixDrawerFocusOnOpen(){
+        document.addEventListener('focusin', (e) => {
+            if (!this.focusLock || !e.target.closest('[data-region="message-drawer"], [data-region="fixed-drawer"]')) return;
+            for (let i = 0; i < 10; i++) {
+                this.focusLock.untrapFocus();
+            }
+        }, true);
+    }
 
     //called by init-vars
     static initBs4Warning() {
